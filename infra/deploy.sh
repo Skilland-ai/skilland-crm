@@ -43,7 +43,7 @@ sudo chmod +x /opt/twenty/backup.sh
 cd /opt/twenty
 
 echo "==> Installing backup cron job..."
-(crontab -l 2>/dev/null | grep -v '/opt/twenty/backup.sh'; echo '0 2 * * * /opt/twenty/backup.sh') | crontab -
+{ crontab -l 2>/dev/null || true; } | grep -v '/opt/twenty/backup.sh' | { cat; echo '0 2 * * * /opt/twenty/backup.sh'; } | crontab -
 
 echo "==> Pulling images..."
 docker compose pull
