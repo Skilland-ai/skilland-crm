@@ -1,0 +1,7 @@
+aws_region        = "eu-central-1"
+instance_type     = "t3.medium"
+domain            = "crm.skilland.ai"
+route53_zone_name = "skilland.ai"
+
+# Restrict SSH to your IP (recommended)
+# allowed_ssh_cidrs = ["203.0.113.0/32"]

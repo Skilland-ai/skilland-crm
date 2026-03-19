@@ -1,0 +1,3 @@
+{$DOMAIN:crm.skilland.ai} {
+	reverse_proxy server:3000
+}

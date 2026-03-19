@@ -17,6 +17,13 @@
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp"],
       "env": {}
+    },
+    "twenty-crm": {
+      "type": "streamable-http",
+      "url": "https://crm.skilland.ai/mcp",
+      "headers": {
+        "Authorization": "Bearer ${TWENTY_API_KEY}"
+      }
     }
   }
 }
