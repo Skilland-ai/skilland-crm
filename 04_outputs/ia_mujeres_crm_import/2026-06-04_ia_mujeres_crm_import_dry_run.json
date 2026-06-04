@@ -1,0 +1,1950 @@
+{
+  "generatedAt": "2026-06-04",
+  "mode": "dry_run",
+  "sourceDir": "/home/reboot/Escritorio/agentic-scrapping-Experiment-scrappling/04_outputs/skilland_ia_mujeres/data_prep",
+  "businessLineName": "SkilLand IA Mujeres",
+  "campaignName": "IA Mujeres 2026",
+  "audit": {
+    "sourceOrganizations": 95,
+    "sourceContacts": 166,
+    "existingCompanies": 113,
+    "existingPeople": 229,
+    "existingOpportunities": 43,
+    "exactOrganizationNameMatches": 0,
+    "domainMatches": 1,
+    "exactPeopleEmailMatches": 0,
+    "plannedDealCount": 100,
+    "orgNameMatches": [],
+    "orgDomainMatches": [
+      {
+        "source": "Cabildo de Fuerteventura",
+        "crmId": "42b98834-b5fd-4999-8c1b-d5b65bcfb762",
+        "crmName": "Cabildofuer",
+        "domain": "cabildofuer.es",
+        "hasExistingOpportunities": false
+      }
+    ],
+    "personEmailMatches": []
+  },
+  "conflicts": [],
+  "fields": {
+    "created": [
+      {
+        "object": "company",
+        "field": "businessLineName",
+        "label": "Business Line Name",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "company",
+        "field": "campaignName",
+        "label": "Campaign Name",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "company",
+        "field": "organizationType",
+        "label": "Organization Type",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "company",
+        "field": "departmentArea",
+        "label": "Department Area",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "company",
+        "field": "island",
+        "label": "Island",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "company",
+        "field": "municipality",
+        "label": "Municipality",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "company",
+        "field": "emailMain",
+        "label": "Email Main",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "company",
+        "field": "phoneMain",
+        "label": "Phone Main",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "company",
+        "field": "sourceType",
+        "label": "Source Type",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "company",
+        "field": "sourceUrl",
+        "label": "Source URL",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "company",
+        "field": "sourceFile",
+        "label": "Source File",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "company",
+        "field": "icpSegment",
+        "label": "ICP Segment",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "company",
+        "field": "qualityFlags",
+        "label": "Quality Flags",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "company",
+        "field": "highConfidence",
+        "label": "High Confidence",
+        "type": "BOOLEAN",
+        "status": "planned"
+      },
+      {
+        "object": "company",
+        "field": "genericEmail",
+        "label": "Generic Email",
+        "type": "BOOLEAN",
+        "status": "planned"
+      },
+      {
+        "object": "company",
+        "field": "needsManualReview",
+        "label": "Needs Manual Review",
+        "type": "BOOLEAN",
+        "status": "planned"
+      },
+      {
+        "object": "company",
+        "field": "duplicatePossible",
+        "label": "Duplicate Possible",
+        "type": "BOOLEAN",
+        "status": "planned"
+      },
+      {
+        "object": "person",
+        "field": "businessLineName",
+        "label": "Business Line Name",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "person",
+        "field": "campaignName",
+        "label": "Campaign Name",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "person",
+        "field": "organizationType",
+        "label": "Organization Type",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "person",
+        "field": "departmentArea",
+        "label": "Department Area",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "person",
+        "field": "island",
+        "label": "Island",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "person",
+        "field": "municipality",
+        "label": "Municipality",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "person",
+        "field": "sourceType",
+        "label": "Source Type",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "person",
+        "field": "sourceUrl",
+        "label": "Source URL",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "person",
+        "field": "sourceFile",
+        "label": "Source File",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "person",
+        "field": "icpSegment",
+        "label": "ICP Segment",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "person",
+        "field": "qualityFlags",
+        "label": "Quality Flags",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "person",
+        "field": "highConfidence",
+        "label": "High Confidence",
+        "type": "BOOLEAN",
+        "status": "planned"
+      },
+      {
+        "object": "person",
+        "field": "genericEmail",
+        "label": "Generic Email",
+        "type": "BOOLEAN",
+        "status": "planned"
+      },
+      {
+        "object": "person",
+        "field": "needsManualReview",
+        "label": "Needs Manual Review",
+        "type": "BOOLEAN",
+        "status": "planned"
+      },
+      {
+        "object": "person",
+        "field": "duplicatePossible",
+        "label": "Duplicate Possible",
+        "type": "BOOLEAN",
+        "status": "planned"
+      },
+      {
+        "object": "person",
+        "field": "emailType",
+        "label": "Email Type",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "opportunity",
+        "field": "businessLineName",
+        "label": "Business Line Name",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "opportunity",
+        "field": "campaignName",
+        "label": "Campaign Name",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "opportunity",
+        "field": "organizationType",
+        "label": "Organization Type",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "opportunity",
+        "field": "departmentArea",
+        "label": "Department Area",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "opportunity",
+        "field": "island",
+        "label": "Island",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "opportunity",
+        "field": "municipality",
+        "label": "Municipality",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "opportunity",
+        "field": "sourceType",
+        "label": "Source Type",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "opportunity",
+        "field": "sourceUrl",
+        "label": "Source URL",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "opportunity",
+        "field": "sourceFile",
+        "label": "Source File",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "opportunity",
+        "field": "icpSegment",
+        "label": "ICP Segment",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "opportunity",
+        "field": "qualityFlags",
+        "label": "Quality Flags",
+        "type": "TEXT",
+        "status": "planned"
+      },
+      {
+        "object": "opportunity",
+        "field": "highConfidence",
+        "label": "High Confidence",
+        "type": "BOOLEAN",
+        "status": "planned"
+      },
+      {
+        "object": "opportunity",
+        "field": "genericEmail",
+        "label": "Generic Email",
+        "type": "BOOLEAN",
+        "status": "planned"
+      },
+      {
+        "object": "opportunity",
+        "field": "needsManualReview",
+        "label": "Needs Manual Review",
+        "type": "BOOLEAN",
+        "status": "planned"
+      },
+      {
+        "object": "opportunity",
+        "field": "duplicatePossible",
+        "label": "Duplicate Possible",
+        "type": "BOOLEAN",
+        "status": "planned"
+      },
+      {
+        "object": "opportunity",
+        "field": "outreachStatus",
+        "label": "Outreach Status",
+        "type": "TEXT",
+        "status": "planned"
+      }
+    ],
+    "reused": [],
+    "conflicts": []
+  },
+  "businessLine": {
+    "status": "planned_create",
+    "name": "SkilLand IA Mujeres"
+  },
+  "companies": {
+    "created": [],
+    "updated": [],
+    "reused": [
+      {
+        "source": "Cabildo de Fuerteventura",
+        "crmId": "42b98834-b5fd-4999-8c1b-d5b65bcfb762",
+        "crmName": "Cabildofuer",
+        "reason": "domain_match_no_opportunities"
+      }
+    ],
+    "plannedCreates": [
+      {
+        "source": "Ayuntamiento de Adeje",
+        "name": "Ayuntamiento de Adeje"
+      },
+      {
+        "source": "Ayuntamiento de Agaete",
+        "name": "Ayuntamiento de Agaete"
+      },
+      {
+        "source": "Ayuntamiento de Aguimes",
+        "name": "Ayuntamiento de Aguimes"
+      },
+      {
+        "source": "Ayuntamiento de Agulo",
+        "name": "Ayuntamiento de Agulo"
+      },
+      {
+        "source": "Ayuntamiento de Alajero",
+        "name": "Ayuntamiento de Alajero"
+      },
+      {
+        "source": "Ayuntamiento de Antigua",
+        "name": "Ayuntamiento de Antigua"
+      },
+      {
+        "source": "Ayuntamiento de Arona",
+        "name": "Ayuntamiento de Arona"
+      },
+      {
+        "source": "Ayuntamiento de Arrecife",
+        "name": "Ayuntamiento de Arrecife"
+      },
+      {
+        "source": "Ayuntamiento de Artenara",
+        "name": "Ayuntamiento de Artenara"
+      },
+      {
+        "source": "Ayuntamiento de Arucas",
+        "name": "Ayuntamiento de Arucas"
+      },
+      {
+        "source": "Ayuntamiento de Barlovento",
+        "name": "Ayuntamiento de Barlovento"
+      },
+      {
+        "source": "Ayuntamiento de Betancuria",
+        "name": "Ayuntamiento de Betancuria"
+      },
+      {
+        "source": "Ayuntamiento de Breña Baja",
+        "name": "Ayuntamiento de Breña Baja"
+      },
+      {
+        "source": "Ayuntamiento de Buenavista del Norte",
+        "name": "Ayuntamiento de Buenavista del Norte"
+      },
+      {
+        "source": "Ayuntamiento de Candelaria",
+        "name": "Ayuntamiento de Candelaria"
+      },
+      {
+        "source": "Ayuntamiento de El Paso",
+        "name": "Ayuntamiento de El Paso"
+      },
+      {
+        "source": "Ayuntamiento de El Pinar de El Hierro",
+        "name": "Ayuntamiento de El Pinar de El Hierro"
+      },
+      {
+        "source": "Ayuntamiento de El Tanque",
+        "name": "Ayuntamiento de El Tanque"
+      },
+      {
+        "source": "Ayuntamiento de Fasnia",
+        "name": "Ayuntamiento de Fasnia"
+      },
+      {
+        "source": "Ayuntamiento de Fuencaliente de La Palma",
+        "name": "Ayuntamiento de Fuencaliente de La Palma"
+      },
+      {
+        "source": "Ayuntamiento de Galdar",
+        "name": "Ayuntamiento de Galdar"
+      },
+      {
+        "source": "Ayuntamiento de Garachico",
+        "name": "Ayuntamiento de Garachico"
+      },
+      {
+        "source": "Ayuntamiento de Granadilla de Abona",
+        "name": "Ayuntamiento de Granadilla de Abona"
+      },
+      {
+        "source": "Ayuntamiento de Guia de Isora",
+        "name": "Ayuntamiento de Guia de Isora"
+      },
+      {
+        "source": "Ayuntamiento de Guimar",
+        "name": "Ayuntamiento de Guimar"
+      },
+      {
+        "source": "Ayuntamiento de Haria",
+        "name": "Ayuntamiento de Haria"
+      },
+      {
+        "source": "Ayuntamiento de Hermigua",
+        "name": "Ayuntamiento de Hermigua"
+      },
+      {
+        "source": "Ayuntamiento de Icod de los Vinos",
+        "name": "Ayuntamiento de Icod de los Vinos"
+      },
+      {
+        "source": "Ayuntamiento de Ingenio",
+        "name": "Ayuntamiento de Ingenio"
+      },
+      {
+        "source": "Ayuntamiento de La Aldea de San Nicolas",
+        "name": "Ayuntamiento de La Aldea de San Nicolas"
+      },
+      {
+        "source": "Ayuntamiento de La Frontera",
+        "name": "Ayuntamiento de La Frontera"
+      },
+      {
+        "source": "Ayuntamiento de La Matanza de Acentejo",
+        "name": "Ayuntamiento de La Matanza de Acentejo"
+      },
+      {
+        "source": "Ayuntamiento de La Oliva",
+        "name": "Ayuntamiento de La Oliva"
+      },
+      {
+        "source": "Ayuntamiento de La Orotava",
+        "name": "Ayuntamiento de La Orotava"
+      },
+      {
+        "source": "Ayuntamiento de La Victoria de Acentejo",
+        "name": "Ayuntamiento de La Victoria de Acentejo"
+      },
+      {
+        "source": "Ayuntamiento de Las Palmas de Gran Canaria",
+        "name": "Ayuntamiento de Las Palmas de Gran Canaria"
+      },
+      {
+        "source": "Ayuntamiento de Los Llanos de Aridane",
+        "name": "Ayuntamiento de Los Llanos de Aridane"
+      },
+      {
+        "source": "Ayuntamiento de Los Realejos",
+        "name": "Ayuntamiento de Los Realejos"
+      },
+      {
+        "source": "Ayuntamiento de Los Silos",
+        "name": "Ayuntamiento de Los Silos"
+      },
+      {
+        "source": "Ayuntamiento de Mogan",
+        "name": "Ayuntamiento de Mogan"
+      },
+      {
+        "source": "Ayuntamiento de Pajara",
+        "name": "Ayuntamiento de Pajara"
+      },
+      {
+        "source": "Ayuntamiento de Puerto del Rosario",
+        "name": "Ayuntamiento de Puerto del Rosario"
+      },
+      {
+        "source": "Ayuntamiento de Puntagorda",
+        "name": "Ayuntamiento de Puntagorda"
+      },
+      {
+        "source": "Ayuntamiento de Puntallana",
+        "name": "Ayuntamiento de Puntallana"
+      },
+      {
+        "source": "Ayuntamiento de San Bartolome",
+        "name": "Ayuntamiento de San Bartolome"
+      },
+      {
+        "source": "Ayuntamiento de San Bartolome de Tirajana",
+        "name": "Ayuntamiento de San Bartolome de Tirajana"
+      },
+      {
+        "source": "Ayuntamiento de San Cristobal de La Laguna",
+        "name": "Ayuntamiento de San Cristobal de La Laguna"
+      },
+      {
+        "source": "Ayuntamiento de San Miguel de Abona",
+        "name": "Ayuntamiento de San Miguel de Abona"
+      },
+      {
+        "source": "Ayuntamiento de San Sebastian de La Gomera",
+        "name": "Ayuntamiento de San Sebastian de La Gomera"
+      },
+      {
+        "source": "Ayuntamiento de Santa Cruz de La Palma",
+        "name": "Ayuntamiento de Santa Cruz de La Palma"
+      },
+      {
+        "source": "Ayuntamiento de Santa Cruz de Tenerife",
+        "name": "Ayuntamiento de Santa Cruz de Tenerife"
+      },
+      {
+        "source": "Ayuntamiento de Santa Lucia de Tirajana",
+        "name": "Ayuntamiento de Santa Lucia de Tirajana"
+      },
+      {
+        "source": "Ayuntamiento de Santa Maria de Guia de Gran Canaria",
+        "name": "Ayuntamiento de Santa Maria de Guia de Gran Canaria"
+      },
+      {
+        "source": "Ayuntamiento de Santa Ursula",
+        "name": "Ayuntamiento de Santa Ursula"
+      },
+      {
+        "source": "Ayuntamiento de Santiago del Teide",
+        "name": "Ayuntamiento de Santiago del Teide"
+      },
+      {
+        "source": "Ayuntamiento de Tacoronte",
+        "name": "Ayuntamiento de Tacoronte"
+      },
+      {
+        "source": "Ayuntamiento de Tazacorte",
+        "name": "Ayuntamiento de Tazacorte"
+      },
+      {
+        "source": "Ayuntamiento de Teguise",
+        "name": "Ayuntamiento de Teguise"
+      },
+      {
+        "source": "Ayuntamiento de Tejeda",
+        "name": "Ayuntamiento de Tejeda"
+      },
+      {
+        "source": "Ayuntamiento de Telde",
+        "name": "Ayuntamiento de Telde"
+      },
+      {
+        "source": "Ayuntamiento de Teror",
+        "name": "Ayuntamiento de Teror"
+      },
+      {
+        "source": "Ayuntamiento de Tias",
+        "name": "Ayuntamiento de Tias"
+      },
+      {
+        "source": "Ayuntamiento de Tijarafe",
+        "name": "Ayuntamiento de Tijarafe"
+      },
+      {
+        "source": "Ayuntamiento de Tinajo",
+        "name": "Ayuntamiento de Tinajo"
+      },
+      {
+        "source": "Ayuntamiento de Tuineje",
+        "name": "Ayuntamiento de Tuineje"
+      },
+      {
+        "source": "Ayuntamiento de Valle Gran Rey",
+        "name": "Ayuntamiento de Valle Gran Rey"
+      },
+      {
+        "source": "Ayuntamiento de Vallehermoso",
+        "name": "Ayuntamiento de Vallehermoso"
+      },
+      {
+        "source": "Ayuntamiento de Valleseco",
+        "name": "Ayuntamiento de Valleseco"
+      },
+      {
+        "source": "Ayuntamiento de Valsequillo de Gran Canaria",
+        "name": "Ayuntamiento de Valsequillo de Gran Canaria"
+      },
+      {
+        "source": "Ayuntamiento de Valverde",
+        "name": "Ayuntamiento de Valverde"
+      },
+      {
+        "source": "Ayuntamiento de Vega de San Mateo",
+        "name": "Ayuntamiento de Vega de San Mateo"
+      },
+      {
+        "source": "Ayuntamiento de Vilaflor de Chasna",
+        "name": "Ayuntamiento de Vilaflor de Chasna"
+      },
+      {
+        "source": "Ayuntamiento de Villa de Arico",
+        "name": "Ayuntamiento de Villa de Arico"
+      },
+      {
+        "source": "Ayuntamiento de Villa de Mazo",
+        "name": "Ayuntamiento de Villa de Mazo"
+      },
+      {
+        "source": "Ayuntamiento de Yaiza",
+        "name": "Ayuntamiento de Yaiza"
+      },
+      {
+        "source": "Ayuntamiento de la Villa de Arafo",
+        "name": "Ayuntamiento de la Villa de Arafo"
+      },
+      {
+        "source": "Ayuntamiento de la Villa de Breña Alta",
+        "name": "Ayuntamiento de la Villa de Breña Alta"
+      },
+      {
+        "source": "Ayuntamiento de la Villa de Firgas",
+        "name": "Ayuntamiento de la Villa de Firgas"
+      },
+      {
+        "source": "Ayuntamiento de la Villa de Garafía",
+        "name": "Ayuntamiento de la Villa de Garafía"
+      },
+      {
+        "source": "Ayuntamiento de la Villa de Moya",
+        "name": "Ayuntamiento de la Villa de Moya"
+      },
+      {
+        "source": "Ayuntamiento de la Villa de San Juan de la Rambla",
+        "name": "Ayuntamiento de la Villa de San Juan de la Rambla"
+      },
+      {
+        "source": "Ayuntamiento de la Villa de Santa Brigida",
+        "name": "Ayuntamiento de la Villa de Santa Brigida"
+      },
+      {
+        "source": "Ayuntamiento de la Villa de Tegueste",
+        "name": "Ayuntamiento de la Villa de Tegueste"
+      },
+      {
+        "source": "Ayuntamiento de la Villa y Ciudad de San Andrés y Sauces",
+        "name": "Ayuntamiento de la Villa y Ciudad de San Andrés y Sauces"
+      },
+      {
+        "source": "Excelentisimo Ayuntamiento de Puerto de la Cruz",
+        "name": "Excelentisimo Ayuntamiento de Puerto de la Cruz"
+      },
+      {
+        "source": "Ilustre Ayuntamiento de El Rosario",
+        "name": "Ilustre Ayuntamiento de El Rosario"
+      },
+      {
+        "source": "Ilustre Ayuntamiento de El Sauzal",
+        "name": "Ilustre Ayuntamiento de El Sauzal"
+      },
+      {
+        "source": "Ilustre Ayuntamiento de La Guancha",
+        "name": "Ilustre Ayuntamiento de La Guancha"
+      },
+      {
+        "source": "Cabildo Insular de La Gomera",
+        "name": "Cabildo Insular de La Gomera"
+      },
+      {
+        "source": "Cabildo de El Hierro",
+        "name": "Cabildo de El Hierro"
+      },
+      {
+        "source": "Cabildo de Gran Canaria",
+        "name": "Cabildo de Gran Canaria"
+      },
+      {
+        "source": "Cabildo de La Palma",
+        "name": "Cabildo de La Palma"
+      },
+      {
+        "source": "Cabildo de Lanzarote",
+        "name": "Cabildo de Lanzarote"
+      },
+      {
+        "source": "Cabildo de Tenerife",
+        "name": "Cabildo de Tenerife"
+      }
+    ]
+  },
+  "people": {
+    "created": [],
+    "updated": [],
+    "reused": [],
+    "plannedCreates": [
+      {
+        "sourceKey": "Ayuntamiento de Adeje|||Unknown|||Responsable del servicio / concejalia de Politicas de Igualdad|||Igualdad|||igualdad@adeje.es",
+        "email": "igualdad@adeje.es",
+        "sourceOrganization": "Ayuntamiento de Adeje"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Agaete|||Maria del Carmen Rosario Godoy|||Alcaldesa|||Igualdad|||mcrosario@agaete.es",
+        "email": "mcrosario@agaete.es",
+        "sourceOrganization": "Ayuntamiento de Agaete"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Agaete|||Maria del Carmen Rosario Godoy|||Alcaldesa|||Igualdad|||programamujeragaete@agaete.es",
+        "email": "programamujeragaete@agaete.es",
+        "sourceOrganization": "Ayuntamiento de Agaete"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Aguimes|||Eva Lopez Cazorla|||Concejala de Bienestar Social e Igualdad|||Igualdad / Politicas Sociales|||centro.igualdad@aguimes.es",
+        "email": "centro.igualdad@aguimes.es",
+        "sourceOrganization": "Ayuntamiento de Aguimes"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Agulo|||Unknown|||Servicio municipal de Asuntos Sociales|||Politicas Sociales|||registro@aytoagulo.com",
+        "email": "registro@aytoagulo.com",
+        "sourceOrganization": "Ayuntamiento de Agulo"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Agulo|||Unknown|||Servicio municipal de Asuntos Sociales|||Politicas Sociales|||servicessociales@aytoagulo.com",
+        "email": "servicessociales@aytoagulo.com",
+        "sourceOrganization": "Ayuntamiento de Agulo"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Alajero|||Agueda Franquis|||Responsable del Area de Servicios Sociales|||Mujer / Politicas Sociales|||concejaliaserviciossociales@ayuntamientoalajero.es",
+        "email": "concejaliaserviciossociales@ayuntamientoalajero.es",
+        "sourceOrganization": "Ayuntamiento de Alajero"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Alajero|||Agueda Franquis|||Responsable del Area de Servicios Sociales|||Mujer / Politicas Sociales|||registro@ayuntamientoalajero.es",
+        "email": "registro@ayuntamientoalajero.es",
+        "sourceOrganization": "Ayuntamiento de Alajero"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Antigua|||America Soto Betancor|||Concejala de Educacion y Servicios Sociales|||Politicas Sociales / Educacion|||services.sociales@ayto-antigua.es",
+        "email": "services.sociales@ayto-antigua.es",
+        "sourceOrganization": "Ayuntamiento de Antigua"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Arona|||Ruth Guacimara Martin Lopez|||Concejala del Area de Servicios Sociales|||Politicas Sociales|||portalweb@arona.org",
+        "email": "portalweb@arona.org",
+        "sourceOrganization": "Ayuntamiento de Arona"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Arrecife|||Maite Corujo|||Concejala de Bienestar Social, Igualdad e Inmigracion|||Igualdad / Politicas Sociales|||bienestarsocial@arrecife.es",
+        "email": "bienestarsocial@arrecife.es",
+        "sourceOrganization": "Ayuntamiento de Arrecife"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Arrecife|||Maite Corujo|||Concejala de Bienestar Social, Igualdad e Inmigracion|||Igualdad / Politicas Sociales|||info@arrecife.es",
+        "email": "info@arrecife.es",
+        "sourceOrganization": "Ayuntamiento de Arrecife"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Artenara|||Dina Gonzalez Gil|||Concejala delegada de Servicios Sociales, Sanidad, Mujer, Tercera Edad e Igualdad|||Igualdad / Mujer / Politicas Sociales|||informacion@artenara.es",
+        "email": "informacion@artenara.es",
+        "sourceOrganization": "Ayuntamiento de Artenara"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Arucas|||Oliverio de los Reyes Armas Guillen|||Concejal delegado del area de Servicios Sociocomunitarios, Asistencia a las Personas, Calidad de Vida y Promocion Economica|||Desarrollo Local|||oarmas@arucas.org",
+        "email": "oarmas@arucas.org",
+        "sourceOrganization": "Ayuntamiento de Arucas"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Arucas|||Oliverio de los Reyes Armas Guillen|||Concejal delegado del area de Servicios Sociocomunitarios, Asistencia a las Personas, Calidad de Vida y Promocion Economica|||Desarrollo Local|||serviciossociales@arucas.org",
+        "email": "serviciossociales@arucas.org",
+        "sourceOrganization": "Ayuntamiento de Arucas"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Barlovento|||Janet Díaz Rodríguez|||Concejala de Servicios Sociales|||Politicas Sociales|||ss.ss@barlovento.es",
+        "email": "ss.ss@barlovento.es",
+        "sourceOrganization": "Ayuntamiento de Barlovento"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Betancuria|||Enrique Cerdena Mendez|||Concejal con delegacion en Asuntos Sociales|||Politicas Sociales|||ssociales@aytobetancuria.org",
+        "email": "ssociales@aytobetancuria.org",
+        "sourceOrganization": "Ayuntamiento de Betancuria"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Breña Baja|||Francisco J. Martín Castañeda|||Concejal del área de Servicios Sociales, Igualdad, Infancia, Mayores y Vivienda, Salud y Bienestar Animal|||Igualdad / Politicas Sociales|||Unknown",
+        "email": "Unknown",
+        "sourceOrganization": "Ayuntamiento de Breña Baja"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Buenavista del Norte|||Monica Diaz Gonzalez|||Concejala de Igualdad|||Igualdad|||ayuntamiento@buenavistadelnorte.es",
+        "email": "ayuntamiento@buenavistadelnorte.es",
+        "sourceOrganization": "Ayuntamiento de Buenavista del Norte"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Buenavista del Norte|||Monica Diaz Gonzalez|||Concejala de Igualdad|||Igualdad|||igualdad@buenavistadelnorte.es",
+        "email": "igualdad@buenavistadelnorte.es",
+        "sourceOrganization": "Ayuntamiento de Buenavista del Norte"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Candelaria|||Olivia Concepcion Perez Diaz|||Concejala de Servicios Sociales, Igualdad y Sanidad|||Igualdad / Politicas Sociales|||mujer2@candelaria.es",
+        "email": "mujer2@candelaria.es",
+        "sourceOrganization": "Ayuntamiento de Candelaria"
+      },
+      {
+        "sourceKey": "Ayuntamiento de El Paso|||Amanda Díaz Pérez|||Concejalía delegada|||Igualdad / Politicas Sociales|||ayuntamiento@elpaso.es",
+        "email": "ayuntamiento@elpaso.es",
+        "sourceOrganization": "Ayuntamiento de El Paso"
+      },
+      {
+        "sourceKey": "Ayuntamiento de El Paso|||Amanda Díaz Pérez|||Concejalía delegada|||Igualdad / Politicas Sociales|||serviciossociales@elpaso.es",
+        "email": "serviciossociales@elpaso.es",
+        "sourceOrganization": "Ayuntamiento de El Paso"
+      },
+      {
+        "sourceKey": "Ayuntamiento de El Pinar de El Hierro|||Magaly Gonzalez Zamora|||Primera Teniente de Alcalde; concejala delegada de Igualdad y Sostenibilidad Ambiental y Economica|||Igualdad|||elpinardeelhierro@aytoelpinar.org",
+        "email": "elpinardeelhierro@aytoelpinar.org",
+        "sourceOrganization": "Ayuntamiento de El Pinar de El Hierro"
+      },
+      {
+        "sourceKey": "Ayuntamiento de El Pinar de El Hierro|||Magaly Gonzalez Zamora|||Primera Teniente de Alcalde; concejala delegada de Igualdad y Sostenibilidad Ambiental y Economica|||Igualdad|||magalygonzalez@aytoelpinar.org",
+        "email": "magalygonzalez@aytoelpinar.org",
+        "sourceOrganization": "Ayuntamiento de El Pinar de El Hierro"
+      },
+      {
+        "sourceKey": "Ayuntamiento de El Tanque|||Ana Vanessa Hernandez Francisco|||Concejala Delegada de las Areas de Educacion, Bienestar social, Comercio y Fiestas|||Politicas Sociales|||serviciossociales@eltanque.es",
+        "email": "serviciossociales@eltanque.es",
+        "sourceOrganization": "Ayuntamiento de El Tanque"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Fasnia|||Raquel Diaz Cruz|||Tercera Teniente de Alcalde; Areas de Servicios Sociales, Igualdad y Mayores|||Igualdad / Politicas Sociales|||info@fasnia.com",
+        "email": "info@fasnia.com",
+        "sourceOrganization": "Ayuntamiento de Fasnia"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Fasnia|||Raquel Diaz Cruz|||Tercera Teniente de Alcalde; Areas de Servicios Sociales, Igualdad y Mayores|||Igualdad / Politicas Sociales|||serviciossociales.fasnia@gmail.com",
+        "email": "serviciossociales.fasnia@gmail.com",
+        "sourceOrganization": "Ayuntamiento de Fasnia"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Fuencaliente de La Palma|||Patricia Hernández|||Primera Teniente de Alcaldía; responsable de las áreas de Servicios Sociales, Sanidad, Desarrollo Local y Comercio, Formación y Empleo y áreas afines|||Politicas Sociales / Empleo / Desarrollo Local / Educacion|||servicios.sociales@fuencalientedelapalma.es",
+        "email": "servicios.sociales@fuencalientedelapalma.es",
+        "sourceOrganization": "Ayuntamiento de Fuencaliente de La Palma"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Galdar|||Ana Teresa Mendoza Jimenez|||Concejala delegada de Igualdad; Cuarta Teniente de Alcalde|||Igualdad|||atmendoza@galdar.es",
+        "email": "atmendoza@galdar.es",
+        "sourceOrganization": "Ayuntamiento de Galdar"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Galdar|||Ana Teresa Mendoza Jimenez|||Concejala delegada de Igualdad; Cuarta Teniente de Alcalde|||Igualdad|||igualdad@galdar.es",
+        "email": "igualdad@galdar.es",
+        "sourceOrganization": "Ayuntamiento de Galdar"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Garachico|||Maria Candelaria Perez Gonzalez|||Segunda Teniente de Alcalde|||Igualdad / Politicas Sociales / Educacion|||alcaldia@garachico.es",
+        "email": "alcaldia@garachico.es",
+        "sourceOrganization": "Ayuntamiento de Garachico"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Garachico|||Maria Candelaria Perez Gonzalez|||Segunda Teniente de Alcalde|||Igualdad / Politicas Sociales / Educacion|||candelariaperez@garachico.es",
+        "email": "candelariaperez@garachico.es",
+        "sourceOrganization": "Ayuntamiento de Garachico"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Granadilla de Abona|||Eudita Mendoza Navarro|||Quinta teniente de alcalde y concejala de Turismo, Tercera Edad, Igualdad y Diversidad|||Igualdad|||010@granadilladeabona.org",
+        "email": "010@granadilladeabona.org",
+        "sourceOrganization": "Ayuntamiento de Granadilla de Abona"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Granadilla de Abona|||Eudita Mendoza Navarro|||Quinta teniente de alcalde y concejala de Turismo, Tercera Edad, Igualdad y Diversidad|||Igualdad|||emendoza@granadilladeabona.org",
+        "email": "emendoza@granadilladeabona.org",
+        "sourceOrganization": "Ayuntamiento de Granadilla de Abona"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Guia de Isora|||Acerina Gonzalez Prieto|||Septima Teniente de Alcaldia; Area de Servicios Sociales, Formacion, Vivienda e Igualdad|||Igualdad / Politicas Sociales / Educacion|||serviciossociales@guiadeisora.org",
+        "email": "serviciossociales@guiadeisora.org",
+        "sourceOrganization": "Ayuntamiento de Guia de Isora"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Guimar|||Pedro Daniel Perez Rodriguez|||Concejal de Servicios Sociales e Igualdad; concejal de distrito de San Pedro Abajo, Calvario, Los Majuelos y Zona Centro|||Igualdad / Politicas Sociales|||pdperez@guimar.es",
+        "email": "pdperez@guimar.es",
+        "sourceOrganization": "Ayuntamiento de Guimar"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Haria|||Chaxiraxi Niz Guadalupe|||Alcaldesa y responsable del area de Bienestar Social|||Igualdad / Politicas Sociales / Participacion Ciudadana|||alcaldia@ayuntamientodeharia.com",
+        "email": "alcaldia@ayuntamientodeharia.com",
+        "sourceOrganization": "Ayuntamiento de Haria"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Haria|||Chaxiraxi Niz Guadalupe|||Alcaldesa y responsable del area de Bienestar Social|||Igualdad / Politicas Sociales / Participacion Ciudadana|||serviciossociales@ayuntamientodeharia.com",
+        "email": "serviciossociales@ayuntamientodeharia.com",
+        "sourceOrganization": "Ayuntamiento de Haria"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Hermigua|||Aurelio Marcial Ortiz Plasencia|||Concejal de Servicios Sociales, Educacion, Juventud y Participacion Ciudadana|||Politicas Sociales / Participacion Ciudadana / Educacion / Juventud|||informacion@villadehermigua.com",
+        "email": "informacion@villadehermigua.com",
+        "sourceOrganization": "Ayuntamiento de Hermigua"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Icod de los Vinos|||Cathaysa Concepcion Mesa|||Concejala delegada|||Politicas Sociales|||atencionciudadana@icoddelosvinos.es",
+        "email": "atencionciudadana@icoddelosvinos.es",
+        "sourceOrganization": "Ayuntamiento de Icod de los Vinos"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Icod de los Vinos|||Cathaysa Concepcion Mesa|||Concejala delegada|||Politicas Sociales|||cconcepcionm@aytoicod.es",
+        "email": "cconcepcionm@aytoicod.es",
+        "sourceOrganization": "Ayuntamiento de Icod de los Vinos"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Ingenio|||Oliver de la Cruz Navarro Guerra|||Concejal delegado de Igualdad y Diversidad|||Igualdad|||igualdad@ingenio.es",
+        "email": "igualdad@ingenio.es",
+        "sourceOrganization": "Ayuntamiento de Ingenio"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Ingenio|||Oliver de la Cruz Navarro Guerra|||Concejal delegado de Igualdad y Diversidad|||Igualdad|||info@ingenio.es",
+        "email": "info@ingenio.es",
+        "sourceOrganization": "Ayuntamiento de Ingenio"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Ingenio|||Oliver de la Cruz Navarro Guerra|||Concejal delegado de Igualdad y Diversidad|||Igualdad|||oliverng@ingenio.es",
+        "email": "oliverng@ingenio.es",
+        "sourceOrganization": "Ayuntamiento de Ingenio"
+      },
+      {
+        "sourceKey": "Ayuntamiento de La Aldea de San Nicolas|||Jennifer del Carmen Sosa Martin|||4a Teniente de Alcalde; concejala delegada de Politica Social, del Mayor e Igualdad|||Igualdad / Politicas Sociales|||oac@aytolaaldea.com",
+        "email": "oac@aytolaaldea.com",
+        "sourceOrganization": "Ayuntamiento de La Aldea de San Nicolas"
+      },
+      {
+        "sourceKey": "Ayuntamiento de La Aldea de San Nicolas|||Jennifer del Carmen Sosa Martin|||4a Teniente de Alcalde; concejala delegada de Politica Social, del Mayor e Igualdad|||Igualdad / Politicas Sociales|||proigualdad@aytolaaldea.com",
+        "email": "proigualdad@aytolaaldea.com",
+        "sourceOrganization": "Ayuntamiento de La Aldea de San Nicolas"
+      },
+      {
+        "sourceKey": "Ayuntamiento de La Frontera|||Rocio Armas Morales|||Concejala delegada de Juventud, Igualdad, Servicios Sociales y Medio Ambiente|||Igualdad / Politicas Sociales / Juventud|||alcaldia@aytofrontera.org",
+        "email": "alcaldia@aytofrontera.org",
+        "sourceOrganization": "Ayuntamiento de La Frontera"
+      },
+      {
+        "sourceKey": "Ayuntamiento de La Frontera|||Rocio Armas Morales|||Concejala delegada de Juventud, Igualdad, Servicios Sociales y Medio Ambiente|||Igualdad / Politicas Sociales / Juventud|||rarmas@aytofrontera.org",
+        "email": "rarmas@aytofrontera.org",
+        "sourceOrganization": "Ayuntamiento de La Frontera"
+      },
+      {
+        "sourceKey": "Ayuntamiento de La Frontera|||Rocio Armas Morales|||Concejala delegada de Juventud, Igualdad, Servicios Sociales y Medio Ambiente|||Igualdad / Politicas Sociales / Juventud|||ss@aytofrontera.org",
+        "email": "ss@aytofrontera.org",
+        "sourceOrganization": "Ayuntamiento de La Frontera"
+      },
+      {
+        "sourceKey": "Ayuntamiento de La Matanza de Acentejo|||Unknown|||Servicio municipal de Bienestar Social|||Politicas Sociales|||ayuntamiento@matanceros.es",
+        "email": "ayuntamiento@matanceros.es",
+        "sourceOrganization": "Ayuntamiento de La Matanza de Acentejo"
+      },
+      {
+        "sourceKey": "Ayuntamiento de La Matanza de Acentejo|||Unknown|||Servicio municipal de Bienestar Social|||Politicas Sociales|||puntoinformacion@matanceros.es",
+        "email": "puntoinformacion@matanceros.es",
+        "sourceOrganization": "Ayuntamiento de La Matanza de Acentejo"
+      },
+      {
+        "sourceKey": "Ayuntamiento de La Oliva|||Joana Perez Carreno|||Concejala de Servicios Sociales y Participacion Ciudadana|||Politicas Sociales / Participacion Ciudadana|||serviciossociales@laoliva.es",
+        "email": "serviciossociales@laoliva.es",
+        "sourceOrganization": "Ayuntamiento de La Oliva"
+      },
+      {
+        "sourceKey": "Ayuntamiento de La Orotava|||Maria Belen Gonzalez Rodriguez|||Concejala responsable de Bienestar Social, Sanidad, Consumo, Drogodependencias, Formacion y Politicas de Empleo, Politicas de Igualdad y Vivienda|||Igualdad|||promotora-igualdad@villadelaorotava.org",
+        "email": "promotora-igualdad@villadelaorotava.org",
+        "sourceOrganization": "Ayuntamiento de La Orotava"
+      },
+      {
+        "sourceKey": "Ayuntamiento de La Victoria de Acentejo|||Sonia Gutierrez Hernandez|||Tercera Teniente de Alcalde; area de Bienestar Social, Coordinacion del Centro de Dia de Mayores, Centro de Rehabilitacion Psicosocial, Unidad de Violencia de Genero, Igualdad y Drogodependencia|||Igualdad / Politicas Sociales|||bienestarsocial@lavictoriadeacentejo.es",
+        "email": "bienestarsocial@lavictoriadeacentejo.es",
+        "sourceOrganization": "Ayuntamiento de La Victoria de Acentejo"
+      },
+      {
+        "sourceKey": "Ayuntamiento de La Victoria de Acentejo|||Sonia Gutierrez Hernandez|||Tercera Teniente de Alcalde; area de Bienestar Social, Coordinacion del Centro de Dia de Mayores, Centro de Rehabilitacion Psicosocial, Unidad de Violencia de Genero, Igualdad y Drogodependencia|||Igualdad / Politicas Sociales|||info@lavictoriadeacentejo.es",
+        "email": "info@lavictoriadeacentejo.es",
+        "sourceOrganization": "Ayuntamiento de La Victoria de Acentejo"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Las Palmas de Gran Canaria|||Betsaida Gonzalez Rodriguez|||Concejala delegada del area|||Igualdad / Participacion Ciudadana|||igualdad@laspalmasgc.es",
+        "email": "igualdad@laspalmasgc.es",
+        "sourceOrganization": "Ayuntamiento de Las Palmas de Gran Canaria"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Los Llanos de Aridane|||Unknown|||Concejalía de Igualdad y Atención a la Diversidad|||Igualdad|||igualdadlosllanos@aridane.org",
+        "email": "igualdadlosllanos@aridane.org",
+        "sourceOrganization": "Ayuntamiento de Los Llanos de Aridane"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Los Llanos de Aridane|||Unknown|||Concejalía de Igualdad y Atención a la Diversidad|||Igualdad|||informacion@aridane.org",
+        "email": "informacion@aridane.org",
+        "sourceOrganization": "Ayuntamiento de Los Llanos de Aridane"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Los Realejos|||Macarena Hernandez|||Concejala de Mayores, Igualdad, Discapacidad y Participacion Ciudadana|||Igualdad / Participacion Ciudadana|||Unknown",
+        "email": "Unknown",
+        "sourceOrganization": "Ayuntamiento de Los Realejos"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Los Silos|||Maria Carmen Ramos Contreras|||Concejala de Bienestar Social, Sanidad y Bienestar Animal|||Politicas Sociales|||ayuntamiento@lossilos.es",
+        "email": "ayuntamiento@lossilos.es",
+        "sourceOrganization": "Ayuntamiento de Los Silos"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Mogan|||Minerva Oliva Martel|||Concejala delegada|||Igualdad|||molivam@mogan.es",
+        "email": "molivam@mogan.es",
+        "sourceOrganization": "Ayuntamiento de Mogan"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Pajara|||Kathaisa Rodriguez Perez|||Concejala de Economia, Hacienda y Servicios Sociales|||Politicas Sociales|||info@pajara.es",
+        "email": "info@pajara.es",
+        "sourceOrganization": "Ayuntamiento de Pajara"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Pajara|||Kathaisa Rodriguez Perez|||Concejala de Economia, Hacienda y Servicios Sociales|||Politicas Sociales|||servicesociales@pajara.es",
+        "email": "servicesociales@pajara.es",
+        "sourceOrganization": "Ayuntamiento de Pajara"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Puerto del Rosario|||Tacoremi Gutierrez Gutierrez|||Concejala de Igualdad, Diversidad, LGTBI, Participacion Ciudadana y Barrios|||Igualdad / Participacion Ciudadana|||igualdad@puertodelrosario.org",
+        "email": "igualdad@puertodelrosario.org",
+        "sourceOrganization": "Ayuntamiento de Puerto del Rosario"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Puerto del Rosario|||Tacoremi Gutierrez Gutierrez|||Concejala de Igualdad, Diversidad, LGTBI, Participacion Ciudadana y Barrios|||Igualdad / Participacion Ciudadana|||t.gutierrez@puertodelrosario.org",
+        "email": "t.gutierrez@puertodelrosario.org",
+        "sourceOrganization": "Ayuntamiento de Puerto del Rosario"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Puntagorda|||Mercedes Candelario Pérez|||Concejala delegada|||Igualdad / Politicas Sociales|||serviciossociales@puntagorda.es",
+        "email": "serviciossociales@puntagorda.es",
+        "sourceOrganization": "Ayuntamiento de Puntagorda"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Puntallana|||María Eugenia Rodríguez|||Concejala de Servicios Sociales, Igualdad y Participación Ciudadana|||Igualdad / Politicas Sociales / Participacion Ciudadana|||ayuntamiento@puntallana.es",
+        "email": "ayuntamiento@puntallana.es",
+        "sourceOrganization": "Ayuntamiento de Puntallana"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Puntallana|||María Eugenia Rodríguez|||Concejala de Servicios Sociales, Igualdad y Participación Ciudadana|||Igualdad / Politicas Sociales / Participacion Ciudadana|||concejalia_serviciossociales@puntallana.es",
+        "email": "concejalia_serviciossociales@puntallana.es",
+        "sourceOrganization": "Ayuntamiento de Puntallana"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Puntallana|||María Eugenia Rodríguez|||Concejala de Servicios Sociales, Igualdad y Participación Ciudadana|||Igualdad / Politicas Sociales / Participacion Ciudadana|||serviciossociales@puntallana.es",
+        "email": "serviciossociales@puntallana.es",
+        "sourceOrganization": "Ayuntamiento de Puntallana"
+      },
+      {
+        "sourceKey": "Ayuntamiento de San Bartolome|||Carmen Medina Toledo|||Concejala de Servicios Sociales, Mayores, Cultura y Servicio de Emergencia Social Humanitaria|||Igualdad / Politicas Sociales|||igualdad@sanbartolome.es",
+        "email": "igualdad@sanbartolome.es",
+        "sourceOrganization": "Ayuntamiento de San Bartolome"
+      },
+      {
+        "sourceKey": "Ayuntamiento de San Bartolome|||Carmen Medina Toledo|||Concejala de Servicios Sociales, Mayores, Cultura y Servicio de Emergencia Social Humanitaria|||Igualdad / Politicas Sociales|||serviciossociales@sanbartolome.es",
+        "email": "serviciossociales@sanbartolome.es",
+        "sourceOrganization": "Ayuntamiento de San Bartolome"
+      },
+      {
+        "sourceKey": "Ayuntamiento de San Bartolome de Tirajana|||Elena Alamo Vega|||2a Teniente de Alcalde; responsable politica del area de Igualdad|||Igualdad|||igualdad@maspalomas.com",
+        "email": "igualdad@maspalomas.com",
+        "sourceOrganization": "Ayuntamiento de San Bartolome de Tirajana"
+      },
+      {
+        "sourceKey": "Ayuntamiento de San Cristobal de La Laguna|||Dailos Daniel Gonzalez Ferrera|||Concejal Delegado de Fiestas, Mujer, Igualdad y LGTBI|||Igualdad / Mujer|||Unknown",
+        "email": "Unknown",
+        "sourceOrganization": "Ayuntamiento de San Cristobal de La Laguna"
+      },
+      {
+        "sourceKey": "Ayuntamiento de San Miguel de Abona|||Nuria Marrero|||Concejala de Servicios Sociales|||Politicas Sociales|||servicios.generales@sanmigueldeabona.org",
+        "email": "servicios.generales@sanmigueldeabona.org",
+        "sourceOrganization": "Ayuntamiento de San Miguel de Abona"
+      },
+      {
+        "sourceKey": "Ayuntamiento de San Sebastian de La Gomera|||Ana Campoy Herrera|||Concejala de Politicas Sociales e Igualdad|||Igualdad / Politicas Sociales|||ayuntamiento@sansebastiangomera.org",
+        "email": "ayuntamiento@sansebastiangomera.org",
+        "sourceOrganization": "Ayuntamiento de San Sebastian de La Gomera"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Santa Cruz de La Palma|||Yessica Pérez López|||Tercera Tenencia de Alcaldía|||Igualdad / Politicas Sociales|||yessica.perez@santacruzdelapalma.es",
+        "email": "yessica.perez@santacruzdelapalma.es",
+        "sourceOrganization": "Ayuntamiento de Santa Cruz de La Palma"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Santa Cruz de Tenerife|||Unknown|||Servicio municipal de Atencion Social|||Politicas Sociales|||Unknown",
+        "email": "Unknown",
+        "sourceOrganization": "Ayuntamiento de Santa Cruz de Tenerife"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Santa Lucia de Tirajana|||Olga Caceres Penate|||Concejala delegada de Igualdad, Diversidad, Estadistica y Padron Municipal|||Igualdad|||igualdad@santaluciagc.com",
+        "email": "igualdad@santaluciagc.com",
+        "sourceOrganization": "Ayuntamiento de Santa Lucia de Tirajana"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Santa Lucia de Tirajana|||Olga Caceres Penate|||Concejala delegada de Igualdad, Diversidad, Estadistica y Padron Municipal|||Igualdad|||info@santaluciagc.com",
+        "email": "info@santaluciagc.com",
+        "sourceOrganization": "Ayuntamiento de Santa Lucia de Tirajana"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Santa Lucia de Tirajana|||Olga Caceres Penate|||Concejala delegada de Igualdad, Diversidad, Estadistica y Padron Municipal|||Igualdad|||olgacaceres@santaluciagc.com",
+        "email": "olgacaceres@santaluciagc.com",
+        "sourceOrganization": "Ayuntamiento de Santa Lucia de Tirajana"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Santa Maria de Guia de Gran Canaria|||Unknown|||Puerta de entrada operativa del servicio municipal de Igualdad|||Mujer|||igualdad@santamariadeguia.es",
+        "email": "igualdad@santamariadeguia.es",
+        "sourceOrganization": "Ayuntamiento de Santa Maria de Guia de Gran Canaria"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Santa Maria de Guia de Gran Canaria|||Unknown|||Puerta de entrada operativa del servicio municipal de Igualdad|||Mujer|||ssociales@santamariadeguia.es",
+        "email": "ssociales@santamariadeguia.es",
+        "sourceOrganization": "Ayuntamiento de Santa Maria de Guia de Gran Canaria"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Santa Ursula|||Maria Efigenia Gonzalez Diaz|||Segunda Tenencia de Alcaldia. Igualdad, Ludotecas, Bibliotecas y Educacion|||Igualdad|||egonzalez@aytosantaursula.com",
+        "email": "egonzalez@aytosantaursula.com",
+        "sourceOrganization": "Ayuntamiento de Santa Ursula"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Santa Ursula|||Maria Efigenia Gonzalez Diaz|||Segunda Tenencia de Alcaldia. Igualdad, Ludotecas, Bibliotecas y Educacion|||Igualdad|||igualdad@aytosantaursula.com",
+        "email": "igualdad@aytosantaursula.com",
+        "sourceOrganization": "Ayuntamiento de Santa Ursula"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Santiago del Teide|||Maria Jose Garcia Perez|||Concejal delegada con competencias genericas en Educacion, Mujer, Drogodependencias, Igualdad y Familia|||Igualdad|||ayuntamiento@santiagodelteide.es",
+        "email": "ayuntamiento@santiagodelteide.es",
+        "sourceOrganization": "Ayuntamiento de Santiago del Teide"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Santiago del Teide|||Maria Jose Garcia Perez|||Concejal delegada con competencias genericas en Educacion, Mujer, Drogodependencias, Igualdad y Familia|||Igualdad|||igualdad@santiagodelteide.es",
+        "email": "igualdad@santiagodelteide.es",
+        "sourceOrganization": "Ayuntamiento de Santiago del Teide"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Santiago del Teide|||Maria Jose Garcia Perez|||Concejal delegada con competencias genericas en Educacion, Mujer, Drogodependencias, Igualdad y Familia|||Igualdad|||mariajose@santiagodelteide.es",
+        "email": "mariajose@santiagodelteide.es",
+        "sourceOrganization": "Ayuntamiento de Santiago del Teide"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Tacoronte|||Jose A. Caro Salas|||Segundo teniente de alcalde; concejal de Servicios Sociales, Obras y Servicios y Personal de oficio|||Politicas Sociales|||jacarsal@aytotacoronte.org",
+        "email": "jacarsal@aytotacoronte.org",
+        "sourceOrganization": "Ayuntamiento de Tacoronte"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Tacoronte|||Jose A. Caro Salas|||Segundo teniente de alcalde; concejal de Servicios Sociales, Obras y Servicios y Personal de oficio|||Politicas Sociales|||prensa@aytotacoronte.org",
+        "email": "prensa@aytotacoronte.org",
+        "sourceOrganization": "Ayuntamiento de Tacoronte"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Tazacorte|||Coromoto Elisabeth Sánchez Lorenzo|||Concejala con Delegaciones Específicas de Asuntos Sociales, Bienestar Social y Mujer|||Mujer / Politicas Sociales|||Unknown",
+        "email": "Unknown",
+        "sourceOrganization": "Ayuntamiento de Tazacorte"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Teguise|||Ana Nereida Gonzalez de Ganzo|||Concejala del area|||Igualdad / Politicas Sociales|||angonzalezcc@teguise.es",
+        "email": "angonzalezcc@teguise.es",
+        "sourceOrganization": "Ayuntamiento de Teguise"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Tejeda|||Purificacion Concepcion Vega Rodriguez|||Concejal|||Igualdad / Mujer / Politicas Sociales|||info@tejeda.es",
+        "email": "info@tejeda.es",
+        "sourceOrganization": "Ayuntamiento de Tejeda"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Tejeda|||Purificacion Concepcion Vega Rodriguez|||Concejal|||Igualdad / Mujer / Politicas Sociales|||pvega@tejeda.es",
+        "email": "pvega@tejeda.es",
+        "sourceOrganization": "Ayuntamiento de Tejeda"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Tejeda|||Purificacion Concepcion Vega Rodriguez|||Concejal|||Igualdad / Mujer / Politicas Sociales|||serviciossociales@tejeda.es",
+        "email": "serviciossociales@tejeda.es",
+        "sourceOrganization": "Ayuntamiento de Tejeda"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Telde|||Maria Eugenia Melian Santana|||Concejala delegada de Igualdad|||Igualdad|||igualdad@telde.es",
+        "email": "igualdad@telde.es",
+        "sourceOrganization": "Ayuntamiento de Telde"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Telde|||Maria Eugenia Melian Santana|||Concejala delegada de Igualdad|||Igualdad|||mariaeugeniamelian@telde.es",
+        "email": "mariaeugeniamelian@telde.es",
+        "sourceOrganization": "Ayuntamiento de Telde"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Teror|||Irene Maria Ortega Cardenes|||Concejala de Servicios Sociales, Solidaridad, Igualdad y Diversidad|||Igualdad / Politicas Sociales|||concejaliadeigualdad@teror.es",
+        "email": "concejaliadeigualdad@teror.es",
+        "sourceOrganization": "Ayuntamiento de Teror"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Teror|||Irene Maria Ortega Cardenes|||Concejala de Servicios Sociales, Solidaridad, Igualdad y Diversidad|||Igualdad / Politicas Sociales|||ireneortega@teror.es",
+        "email": "ireneortega@teror.es",
+        "sourceOrganization": "Ayuntamiento de Teror"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Tias|||Marcial Nicolas Saavedra Sangines|||Segundo Teniente de Alcalde; concejal delegado del area|||Igualdad / Politicas Sociales / Participacion Ciudadana|||info@tias.org",
+        "email": "info@tias.org",
+        "sourceOrganization": "Ayuntamiento de Tias"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Tias|||Marcial Nicolas Saavedra Sangines|||Segundo Teniente de Alcalde; concejal delegado del area|||Igualdad / Politicas Sociales / Participacion Ciudadana|||mnsaavedra@ayuntamientodetias.es",
+        "email": "mnsaavedra@ayuntamientodetias.es",
+        "sourceOrganization": "Ayuntamiento de Tias"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Tijarafe|||Érika Castro Pérez|||Concejala Delegada de Infancia y Familia, Educación, Igualdad, Sanidad y Fiestas|||Igualdad / Educacion|||tijarafe@tijarafe.org",
+        "email": "tijarafe@tijarafe.org",
+        "sourceOrganization": "Ayuntamiento de Tijarafe"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Tinajo|||Yurena Cubas Morales|||Concejala de Igualdad|||Igualdad|||pciserviciossociales@tinajo.es",
+        "email": "pciserviciossociales@tinajo.es",
+        "sourceOrganization": "Ayuntamiento de Tinajo"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Tinajo|||Yurena Cubas Morales|||Concejala de Igualdad|||Igualdad|||registro@tinajo.es",
+        "email": "registro@tinajo.es",
+        "sourceOrganization": "Ayuntamiento de Tinajo"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Tinajo|||Yurena Cubas Morales|||Concejala de Igualdad|||Igualdad|||serviciossociales@tinajo.es",
+        "email": "serviciossociales@tinajo.es",
+        "sourceOrganization": "Ayuntamiento de Tinajo"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Tinajo|||Yurena Cubas Morales|||Concejala de Igualdad|||Igualdad|||yurenacubas@tinajo.es",
+        "email": "yurenacubas@tinajo.es",
+        "sourceOrganization": "Ayuntamiento de Tinajo"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Tuineje|||Lucia Belen Cubas Gil|||Concejala de Servicios Sociales, Mayores y Vivienda|||Politicas Sociales|||alcaldia@tuineje.es",
+        "email": "alcaldia@tuineje.es",
+        "sourceOrganization": "Ayuntamiento de Tuineje"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Tuineje|||Lucia Belen Cubas Gil|||Concejala de Servicios Sociales, Mayores y Vivienda|||Politicas Sociales|||serviciossociales@ayuntamientotuineje.com",
+        "email": "serviciossociales@ayuntamientotuineje.com",
+        "sourceOrganization": "Ayuntamiento de Tuineje"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Valle Gran Rey|||Lorena Damas Barroso|||Concejala delegada de Igualdad, Juventud y Mayores|||Igualdad / Juventud|||ayuntamiento@vallegranrey.es",
+        "email": "ayuntamiento@vallegranrey.es",
+        "sourceOrganization": "Ayuntamiento de Valle Gran Rey"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Vallehermoso|||Vanessa Hernandez Correa|||Concejala delegada de Servicios Sociales, Igualdad, Sanidad y Juventud|||Igualdad / Politicas Sociales / Juventud|||ayuntamiento@vallehermosoweb.es",
+        "email": "ayuntamiento@vallehermosoweb.es",
+        "sourceOrganization": "Ayuntamiento de Vallehermoso"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Valleseco|||Elsa Maria Montero Sanchez|||Concejala de Igualdad y Violencia de Genero|||Igualdad / Mujer|||elsa.montero@valleseco.es",
+        "email": "elsa.montero@valleseco.es",
+        "sourceOrganization": "Ayuntamiento de Valleseco"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Valleseco|||Elsa Maria Montero Sanchez|||Concejala de Igualdad y Violencia de Genero|||Igualdad / Mujer|||igualdad@valleseco.es",
+        "email": "igualdad@valleseco.es",
+        "sourceOrganization": "Ayuntamiento de Valleseco"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Valleseco|||Elsa Maria Montero Sanchez|||Concejala de Igualdad y Violencia de Genero|||Igualdad / Mujer|||mujer@valleseco.es",
+        "email": "mujer@valleseco.es",
+        "sourceOrganization": "Ayuntamiento de Valleseco"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Valsequillo de Gran Canaria|||Inmaculada Garcia Ortega|||3a Teniente de Alcalde; concejala delegada de Bienestar Social, Igualdad y Ciudadania|||Igualdad / Politicas Sociales|||registro@valsequillogc.net",
+        "email": "registro@valsequillogc.net",
+        "sourceOrganization": "Ayuntamiento de Valsequillo de Gran Canaria"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Valsequillo de Gran Canaria|||Inmaculada Garcia Ortega|||3a Teniente de Alcalde; concejala delegada de Bienestar Social, Igualdad y Ciudadania|||Igualdad / Politicas Sociales|||serviciossociales@valsequillogc.net",
+        "email": "serviciossociales@valsequillogc.net",
+        "sourceOrganization": "Ayuntamiento de Valsequillo de Gran Canaria"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Valverde|||Cristina Maria Brosed Padron|||Concejala de Educacion y Servicios Sociales|||Politicas Sociales / Educacion|||cmbrosed@aytovalverde.org",
+        "email": "cmbrosed@aytovalverde.org",
+        "sourceOrganization": "Ayuntamiento de Valverde"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Vega de San Mateo|||Maria Auxiliadora Ojeda Machin|||2a Teniente de Alcalde; concejala delegada de Igualdad|||Igualdad|||igualdad@vegadesanmateo.org",
+        "email": "igualdad@vegadesanmateo.org",
+        "sourceOrganization": "Ayuntamiento de Vega de San Mateo"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Vega de San Mateo|||Maria Auxiliadora Ojeda Machin|||2a Teniente de Alcalde; concejala delegada de Igualdad|||Igualdad|||info@vegadesanmateo.org",
+        "email": "info@vegadesanmateo.org",
+        "sourceOrganization": "Ayuntamiento de Vega de San Mateo"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Vega de San Mateo|||Maria Auxiliadora Ojeda Machin|||2a Teniente de Alcalde; concejala delegada de Igualdad|||Igualdad|||maojeda@vegadesanmateo.es",
+        "email": "maojeda@vegadesanmateo.es",
+        "sourceOrganization": "Ayuntamiento de Vega de San Mateo"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Vilaflor de Chasna|||Montserrat del Carmen Gonzalez|||Primera Teniente de Alcaldesa; concejala delegada de Servicios Sociales|||Politicas Sociales|||serviciossociales@vilaflordechasna.es",
+        "email": "serviciossociales@vilaflordechasna.es",
+        "sourceOrganization": "Ayuntamiento de Vilaflor de Chasna"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Villa de Arico|||Unknown|||Responsable del area de Bienestar Social|||Politicas Sociales|||infosac@ayuntamientodearico.com",
+        "email": "infosac@ayuntamientodearico.com",
+        "sourceOrganization": "Ayuntamiento de Villa de Arico"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Villa de Arico|||Unknown|||Responsable del area de Bienestar Social|||Politicas Sociales|||servicios_sociales@ayuntamientodearico.com",
+        "email": "servicios_sociales@ayuntamientodearico.com",
+        "sourceOrganization": "Ayuntamiento de Villa de Arico"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Villa de Mazo|||Joshua Pérez Martín|||Concejal de Servicios Sociales, Mayores, Menores, Igualdad, LGTBIQ+, Sanidad y Accesibilidad|||Igualdad / Politicas Sociales|||ayuntamiento@villademazo.es",
+        "email": "ayuntamiento@villademazo.es",
+        "sourceOrganization": "Ayuntamiento de Villa de Mazo"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Villa de Mazo|||Joshua Pérez Martín|||Concejal de Servicios Sociales, Mayores, Menores, Igualdad, LGTBIQ+, Sanidad y Accesibilidad|||Igualdad / Politicas Sociales|||ssociales@villademazo.es",
+        "email": "ssociales@villademazo.es",
+        "sourceOrganization": "Ayuntamiento de Villa de Mazo"
+      },
+      {
+        "sourceKey": "Ayuntamiento de Yaiza|||Cesar Rijo Gonzalez|||Quinto Teniente de Alcalde|||Politicas Sociales|||alcaldia@ayuntamientodeyaiza.es",
+        "email": "alcaldia@ayuntamientodeyaiza.es",
+        "sourceOrganization": "Ayuntamiento de Yaiza"
+      },
+      {
+        "sourceKey": "Ayuntamiento de la Villa de Arafo|||Virginia Rodriguez Delgado|||Primera Teniente de Alcalde; Concejala de Bienestar Social e Igualdad, Empleo y Desarrollo Local y Gestion y Coordinacion del equipamiento de mayores, RSS Maria Auxiliadora|||Igualdad / Politicas Sociales|||registro@arafo.es",
+        "email": "registro@arafo.es",
+        "sourceOrganization": "Ayuntamiento de la Villa de Arafo"
+      },
+      {
+        "sourceKey": "Ayuntamiento de la Villa de Breña Alta|||Raúl Ramos Pérez|||1º Teniente Alcalde; responsable de la gestión de los asuntos relativos a bienestar social, igualdad y áreas afines|||Igualdad / Politicas Sociales / Educacion|||Unknown",
+        "email": "Unknown",
+        "sourceOrganization": "Ayuntamiento de la Villa de Breña Alta"
+      },
+      {
+        "sourceKey": "Ayuntamiento de la Villa de Firgas|||Raquel Martel Guerra|||Concejala delegada de Turismo, Servicios Sociales e Igualdad|||Igualdad|||igualdad@firgas.es",
+        "email": "igualdad@firgas.es",
+        "sourceOrganization": "Ayuntamiento de la Villa de Firgas"
+      },
+      {
+        "sourceKey": "Ayuntamiento de la Villa de Firgas|||Raquel Martel Guerra|||Concejala delegada de Turismo, Servicios Sociales e Igualdad|||Igualdad|||mujer@firgas.es",
+        "email": "mujer@firgas.es",
+        "sourceOrganization": "Ayuntamiento de la Villa de Firgas"
+      },
+      {
+        "sourceKey": "Ayuntamiento de la Villa de Firgas|||Raquel Martel Guerra|||Concejala delegada de Turismo, Servicios Sociales e Igualdad|||Igualdad|||raquelmartel@firgas.es",
+        "email": "raquelmartel@firgas.es",
+        "sourceOrganization": "Ayuntamiento de la Villa de Firgas"
+      },
+      {
+        "sourceKey": "Ayuntamiento de la Villa de Garafía|||Daina del Arco Iris Sgobino Gallizio|||Concejala de Área de Servicios Sociales, Turismo, Cultura y Medio Ambiente|||Politicas Sociales|||ssociales@garafia.org",
+        "email": "ssociales@garafia.org",
+        "sourceOrganization": "Ayuntamiento de la Villa de Garafía"
+      },
+      {
+        "sourceKey": "Ayuntamiento de la Villa de Moya|||Lucia Rosa Rodriguez Batista|||3a Teniente de Alcalde; concejala delegada de Educacion y Politica Social|||Politicas Sociales|||alcaldia@villademoya.es",
+        "email": "alcaldia@villademoya.es",
+        "sourceOrganization": "Ayuntamiento de la Villa de Moya"
+      },
+      {
+        "sourceKey": "Ayuntamiento de la Villa de San Juan de la Rambla|||Maria Garcia Diaz|||Concejala|||Politicas Sociales|||info@sanjuandelarambla.es",
+        "email": "info@sanjuandelarambla.es",
+        "sourceOrganization": "Ayuntamiento de la Villa de San Juan de la Rambla"
+      },
+      {
+        "sourceKey": "Ayuntamiento de la Villa de Santa Brigida|||Adrian Garcia Armas|||Concejal delegado de Igualdad|||Igualdad|||adrian.garcia@santabrigida.es",
+        "email": "adrian.garcia@santabrigida.es",
+        "sourceOrganization": "Ayuntamiento de la Villa de Santa Brigida"
+      },
+      {
+        "sourceKey": "Ayuntamiento de la Villa de Santa Brigida|||Adrian Garcia Armas|||Concejal delegado de Igualdad|||Igualdad|||igualdad@santabrigida.es",
+        "email": "igualdad@santabrigida.es",
+        "sourceOrganization": "Ayuntamiento de la Villa de Santa Brigida"
+      },
+      {
+        "sourceKey": "Ayuntamiento de la Villa de Santa Brigida|||Adrian Garcia Armas|||Concejal delegado de Igualdad|||Igualdad|||prensa@santabrigida.es",
+        "email": "prensa@santabrigida.es",
+        "sourceOrganization": "Ayuntamiento de la Villa de Santa Brigida"
+      },
+      {
+        "sourceKey": "Ayuntamiento de la Villa de Tegueste|||Maria Candelaria Garcia Herrera|||Concejala de Igualdad|||Igualdad|||igualdad@tegueste.org",
+        "email": "igualdad@tegueste.org",
+        "sourceOrganization": "Ayuntamiento de la Villa de Tegueste"
+      },
+      {
+        "sourceKey": "Ayuntamiento de la Villa y Ciudad de San Andrés y Sauces|||Unknown|||Servicio de Servicios Sociales|||Politicas Sociales|||serviciossociales@sanandresysauces.es",
+        "email": "serviciossociales@sanandresysauces.es",
+        "sourceOrganization": "Ayuntamiento de la Villa y Ciudad de San Andrés y Sauces"
+      },
+      {
+        "sourceKey": "Cabildo Insular de La Gomera|||Cristina Ventura Mesa|||Vicepresidenta 2a; Consejera Insular del Area de Asuntos Economicos, Obras Publicas, Industria y Movilidad|||Unknown|||cventura@lagomera.es",
+        "email": "cventura@lagomera.es",
+        "sourceOrganization": "Cabildo Insular de La Gomera"
+      },
+      {
+        "sourceKey": "Cabildo Insular de La Gomera|||Rosa Elena Garcia Meneses|||Vicepresidenta 3a; Consejera Insular del Area de Servicios Sociales, Educacion, Cultura y Deportes|||Igualdad / Politicas Sociales / Educacion|||rgarcia@lagomera.es",
+        "email": "rgarcia@lagomera.es",
+        "sourceOrganization": "Cabildo Insular de La Gomera"
+      },
+      {
+        "sourceKey": "Cabildo de El Hierro|||Amado Carballo Quintero|||Vicepresidente 2o; Consejero de Derechos Sociales, Bienestar Social y Dignidad Personal|||Politicas Sociales|||acarballo@elhierro.es",
+        "email": "acarballo@elhierro.es",
+        "sourceOrganization": "Cabildo de El Hierro"
+      },
+      {
+        "sourceKey": "Cabildo de El Hierro|||Anabel Lopez Garcia|||Consejera de Empleo y Desarrollo Economico|||Empleo|||alopez@elhierro.es",
+        "email": "alopez@elhierro.es",
+        "sourceOrganization": "Cabildo de El Hierro"
+      },
+      {
+        "sourceKey": "Cabildo de Fuerteventura|||Maria Jesus de la Cruz Montserrat|||Consejera Delegada de Empleo, Educacion y Juventud|||Empleo / Educacion / Juventud|||agenciacolocacion@cabildofuer.es",
+        "email": "agenciacolocacion@cabildofuer.es",
+        "sourceOrganization": "Cabildo de Fuerteventura"
+      },
+      {
+        "sourceKey": "Cabildo de Fuerteventura|||Maria Jesus de la Cruz Montserrat|||Consejera Delegada de Empleo, Educacion y Juventud|||Empleo / Educacion / Juventud|||empleo@cabildofuer.es",
+        "email": "empleo@cabildofuer.es",
+        "sourceOrganization": "Cabildo de Fuerteventura"
+      },
+      {
+        "sourceKey": "Cabildo de Fuerteventura|||Maria Jesus de la Cruz Montserrat|||Consejera Delegada de Empleo, Educacion y Juventud|||Empleo / Educacion / Juventud|||prodae@cabildofuer.es",
+        "email": "prodae@cabildofuer.es",
+        "sourceOrganization": "Cabildo de Fuerteventura"
+      },
+      {
+        "sourceKey": "Cabildo de Fuerteventura|||Victor Modesto Alonso Falcon|||Consejero insular de Accion Social, Diversidad, LGTBIQ+, Participacion Ciudadana y Gobierno Abierto|||Igualdad / Politicas Sociales / Participacion Ciudadana|||familianumerosa@cabildofuer.es",
+        "email": "familianumerosa@cabildofuer.es",
+        "sourceOrganization": "Cabildo de Fuerteventura"
+      },
+      {
+        "sourceKey": "Cabildo de Fuerteventura|||Victor Modesto Alonso Falcon|||Consejero insular de Accion Social, Diversidad, LGTBIQ+, Participacion Ciudadana y Gobierno Abierto|||Igualdad / Politicas Sociales / Participacion Ciudadana|||sedeelectronica@cabildofuer.es",
+        "email": "sedeelectronica@cabildofuer.es",
+        "sourceOrganization": "Cabildo de Fuerteventura"
+      },
+      {
+        "sourceKey": "Cabildo de Gran Canaria|||Isabel Mena Alonso|||Vicepresidenta 3a; Consejera de Politica Social, Accesibilidad, Igualdad y Diversidad|||Igualdad / Politicas Sociales|||igualdadcabildo@grancanaria.com",
+        "email": "igualdadcabildo@grancanaria.com",
+        "sourceOrganization": "Cabildo de Gran Canaria"
+      },
+      {
+        "sourceKey": "Cabildo de Gran Canaria|||Isabel Mena Alonso|||Vicepresidenta 3a; Consejera de Politica Social, Accesibilidad, Igualdad y Diversidad|||Igualdad / Politicas Sociales|||oiac@grancanaria.com",
+        "email": "oiac@grancanaria.com",
+        "sourceOrganization": "Cabildo de Gran Canaria"
+      },
+      {
+        "sourceKey": "Cabildo de La Palma|||Angeles Nieves Fernandez Acosta|||Miembro corporativa con Delegacion Especial en Accion Social, Igualdad, Diversidad, Vivienda y Salud|||Igualdad / Politicas Sociales|||cabildo@cabildodelapalma.es",
+        "email": "cabildo@cabildodelapalma.es",
+        "sourceOrganization": "Cabildo de La Palma"
+      },
+      {
+        "sourceKey": "Cabildo de La Palma|||Angeles Nieves Fernandez Acosta|||Miembro corporativa con Delegacion Especial en Accion Social, Igualdad, Diversidad, Vivienda y Salud|||Igualdad / Politicas Sociales|||mujer.intervencion@cablapalma.es",
+        "email": "mujer.intervencion@cablapalma.es",
+        "sourceOrganization": "Cabildo de La Palma"
+      },
+      {
+        "sourceKey": "Cabildo de La Palma|||Angeles Nieves Fernandez Acosta|||Miembro corporativa con Delegacion Especial en Accion Social, Igualdad, Diversidad, Vivienda y Salud|||Igualdad / Politicas Sociales|||mujer.prevencion@cablapalma.es",
+        "email": "mujer.prevencion@cablapalma.es",
+        "sourceOrganization": "Cabildo de La Palma"
+      },
+      {
+        "sourceKey": "Cabildo de La Palma|||Fernando Gonzalez Negrin|||Consejero de Hacienda, Recursos Humanos, Comercio, Formacion, Empleo, Industria y Energia|||Empleo / Educacion|||servicio.empleo@cablapalma.es",
+        "email": "servicio.empleo@cablapalma.es",
+        "sourceOrganization": "Cabildo de La Palma"
+      },
+      {
+        "sourceKey": "Cabildo de Lanzarote|||Marciano Acuna Betancort|||Consejero delegado en Bienestar Social e Inclusion; area de Mayores, Igualdad, Adicciones, Menores, Familia y Sanidad|||Igualdad / Politicas Sociales|||gobiernoabierto@cabildodelanzarote.com",
+        "email": "gobiernoabierto@cabildodelanzarote.com",
+        "sourceOrganization": "Cabildo de Lanzarote"
+      },
+      {
+        "sourceKey": "Cabildo de Tenerife|||Agueda Fumero Roque|||Consejera Insular del Area de Accion Social, Inclusion, Voluntariado y Participacion Ciudadana|||Politicas Sociales / Participacion Ciudadana|||accionsocial@tenerife.es",
+        "email": "accionsocial@tenerife.es",
+        "sourceOrganization": "Cabildo de Tenerife"
+      },
+      {
+        "sourceKey": "Cabildo de Tenerife|||Agueda Fumero Roque|||Consejera Insular del Area de Accion Social, Inclusion, Voluntariado y Participacion Ciudadana|||Politicas Sociales / Participacion Ciudadana|||aguedafr@tenerife.es",
+        "email": "aguedafr@tenerife.es",
+        "sourceOrganization": "Cabildo de Tenerife"
+      },
+      {
+        "sourceKey": "Cabildo de Tenerife|||Efrain Medina|||Consejero de Empleo, Educacion y Juventud; FIFEDE como medio propio de empleo/formacion|||Empleo / Educacion / Juventud|||informacion@fifede.org",
+        "email": "informacion@fifede.org",
+        "sourceOrganization": "Cabildo de Tenerife"
+      },
+      {
+        "sourceKey": "Cabildo de Tenerife|||Patricia Leon Perez|||Directora Insular de Igualdad y Diversidad|||Igualdad|||atencionciudadana@tenerife.es",
+        "email": "atencionciudadana@tenerife.es",
+        "sourceOrganization": "Cabildo de Tenerife"
+      },
+      {
+        "sourceKey": "Cabildo de Tenerife|||Patricia Leon Perez|||Directora Insular de Igualdad y Diversidad|||Igualdad|||igualdadydiversidad@tenerife.es",
+        "email": "igualdadydiversidad@tenerife.es",
+        "sourceOrganization": "Cabildo de Tenerife"
+      },
+      {
+        "sourceKey": "Excelentisimo Ayuntamiento de Puerto de la Cruz|||Unknown|||Responsable del area / UTS Ayuntamiento|||Politicas Sociales / Educacion / Juventud|||derechosocial@puertodelacruz.es",
+        "email": "derechosocial@puertodelacruz.es",
+        "sourceOrganization": "Excelentisimo Ayuntamiento de Puerto de la Cruz"
+      },
+      {
+        "sourceKey": "Ilustre Ayuntamiento de El Rosario|||Unknown|||Responsable del area de Accion Social e Igualdad|||Igualdad / Politicas Sociales|||alcaldia@ayuntamientoelrosario.org",
+        "email": "alcaldia@ayuntamientoelrosario.org",
+        "sourceOrganization": "Ilustre Ayuntamiento de El Rosario"
+      },
+      {
+        "sourceKey": "Ilustre Ayuntamiento de El Rosario|||Unknown|||Responsable del area de Accion Social e Igualdad|||Igualdad / Politicas Sociales|||serviciossociales@ayuntamientoelrosario.org",
+        "email": "serviciossociales@ayuntamientoelrosario.org",
+        "sourceOrganization": "Ilustre Ayuntamiento de El Rosario"
+      },
+      {
+        "sourceKey": "Ilustre Ayuntamiento de El Sauzal|||Elisabet Delgado Diaz|||Concejala de Igualdad y Diversidad, Sanidad y Consumo, Bienestar Animal|||Igualdad|||ayuntamiento@elsauzal.es",
+        "email": "ayuntamiento@elsauzal.es",
+        "sourceOrganization": "Ilustre Ayuntamiento de El Sauzal"
+      },
+      {
+        "sourceKey": "Ilustre Ayuntamiento de El Sauzal|||Elisabet Delgado Diaz|||Concejala de Igualdad y Diversidad, Sanidad y Consumo, Bienestar Animal|||Igualdad|||elisabet.delgado@elsauzal.es",
+        "email": "elisabet.delgado@elsauzal.es",
+        "sourceOrganization": "Ilustre Ayuntamiento de El Sauzal"
+      },
+      {
+        "sourceKey": "Ilustre Ayuntamiento de La Guancha|||Elena Hernandez Gil|||Tercera Teniente de Alcalde|||Igualdad / Politicas Sociales / Empleo / Desarrollo Local / Educacion / Juventud|||registro@laguancha.es",
+        "email": "registro@laguancha.es",
+        "sourceOrganization": "Ilustre Ayuntamiento de La Guancha"
+      },
+      {
+        "sourceKey": "Ilustre Ayuntamiento de La Guancha|||Elena Hernandez Gil|||Tercera Teniente de Alcalde|||Igualdad / Politicas Sociales / Empleo / Desarrollo Local / Educacion / Juventud|||serviciossociales@laguancha.es",
+        "email": "serviciossociales@laguancha.es",
+        "sourceOrganization": "Ilustre Ayuntamiento de La Guancha"
+      }
+    ]
+  },
+  "opportunities": {
+    "created": [],
+    "updated": [],
+    "plannedCreates": [
+      {
+        "name": "Ayuntamiento de Adeje — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Agaete — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Aguimes — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Agulo — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Alajero — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Antigua — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Arona — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Arrecife — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Artenara — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Arucas — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Barlovento — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Betancuria — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Breña Baja — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Buenavista del Norte — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Candelaria — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de El Paso — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de El Pinar de El Hierro — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de El Tanque — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Fasnia — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Fuencaliente de La Palma — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Galdar — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Garachico — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Granadilla de Abona — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Guia de Isora — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Guimar — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Haria — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Hermigua — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Icod de los Vinos — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Ingenio — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de La Aldea de San Nicolas — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de La Frontera — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de La Matanza de Acentejo — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de La Oliva — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de La Orotava — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de La Victoria de Acentejo — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Las Palmas de Gran Canaria — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Los Llanos de Aridane — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Los Realejos — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Los Silos — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Mogan — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Pajara — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Puerto del Rosario — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Puntagorda — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Puntallana — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de San Bartolome — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de San Bartolome de Tirajana — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de San Cristobal de La Laguna — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de San Miguel de Abona — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de San Sebastian de La Gomera — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Santa Cruz de La Palma — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Santa Cruz de Tenerife — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Santa Lucia de Tirajana — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Santa Maria de Guia de Gran Canaria — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Santa Ursula — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Santiago del Teide — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Tacoronte — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Tazacorte — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Teguise — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Tejeda — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Telde — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Teror — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Tias — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Tijarafe — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Tinajo — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Tuineje — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Valle Gran Rey — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Vallehermoso — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Valleseco — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Valsequillo de Gran Canaria — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Valverde — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Vega de San Mateo — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Vilaflor de Chasna — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Villa de Arico — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Villa de Mazo — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de Yaiza — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de la Villa de Arafo — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de la Villa de Breña Alta — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de la Villa de Firgas — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de la Villa de Garafía — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de la Villa de Moya — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de la Villa de San Juan de la Rambla — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de la Villa de Santa Brigida — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de la Villa de Tegueste — IA Mujeres 2026"
+      },
+      {
+        "name": "Ayuntamiento de la Villa y Ciudad de San Andrés y Sauces — IA Mujeres 2026"
+      },
+      {
+        "name": "Excelentisimo Ayuntamiento de Puerto de la Cruz — IA Mujeres 2026"
+      },
+      {
+        "name": "Ilustre Ayuntamiento de El Rosario — IA Mujeres 2026"
+      },
+      {
+        "name": "Ilustre Ayuntamiento de El Sauzal — IA Mujeres 2026"
+      },
+      {
+        "name": "Ilustre Ayuntamiento de La Guancha — IA Mujeres 2026"
+      },
+      {
+        "name": "Cabildo Insular de La Gomera — IA Mujeres 2026"
+      },
+      {
+        "name": "Cabildo de El Hierro — IA Mujeres 2026 — Politicas Sociales"
+      },
+      {
+        "name": "Cabildo de El Hierro — IA Mujeres 2026 — Empleo"
+      },
+      {
+        "name": "Cabildo de Fuerteventura — IA Mujeres 2026 — Empleo / Educacion / Juventud"
+      },
+      {
+        "name": "Cabildo de Fuerteventura — IA Mujeres 2026 — Igualdad / Politicas Sociales / Participacion Ciudadana"
+      },
+      {
+        "name": "Cabildo de Gran Canaria — IA Mujeres 2026"
+      },
+      {
+        "name": "Cabildo de La Palma — IA Mujeres 2026 — Igualdad / Politicas Sociales"
+      },
+      {
+        "name": "Cabildo de La Palma — IA Mujeres 2026 — Empleo / Educacion"
+      },
+      {
+        "name": "Cabildo de Lanzarote — IA Mujeres 2026"
+      },
+      {
+        "name": "Cabildo de Tenerife — IA Mujeres 2026 — Politicas Sociales / Participacion Ciudadana"
+      },
+      {
+        "name": "Cabildo de Tenerife — IA Mujeres 2026 — Empleo / Educacion / Juventud"
+      },
+      {
+        "name": "Cabildo de Tenerife — IA Mujeres 2026 — Igualdad"
+      }
+    ]
+  },
+  "opportunityPlanCount": 100,
+  "views": {
+    "created": [],
+    "reused": [],
+    "pendingManual": [
+      {
+        "name": "IA Mujeres — Todos",
+        "reason": "planned_create"
+      },
+      {
+        "name": "IA Mujeres — Cabildos",
+        "reason": "planned_create"
+      },
+      {
+        "name": "IA Mujeres — Ayuntamientos",
+        "reason": "planned_create"
+      },
+      {
+        "name": "IA Mujeres — Alta prioridad",
+        "reason": "planned_create"
+      },
+      {
+        "name": "IA Mujeres — Revisión manual",
+        "reason": "planned_create"
+      },
+      {
+        "name": "IA Mujeres — Pendiente primer email",
+        "reason": "planned_create"
+      }
+    ]
+  },
+  "qa": {
+    "status": "dry_run_only"
+  }
+}
