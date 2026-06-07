@@ -1,0 +1,171 @@
+{
+  "date": "2026-06-08",
+  "mode": "apply-safe",
+  "sender": "gerencia@skilland.ai",
+  "recipient": "sales@reboot.academy",
+  "subject": "Una preocupación que quería compartir con usted",
+  "attachment_path": "/home/reboot/Escritorio/agentic-scrapping-Experiment-scrappling/04_outputs/skilland-ia-mujeres/Mujeres, IA y el futuro del Trabajo - Presentación — SkilLand (1).pdf",
+  "expected_attachment_name": "Mujeres, IA y el futuro del Trabajo - Presentacion corta — SkilLand.pdf",
+  "actions": [
+    {
+      "type": "draft_verified",
+      "draft_id": "r5280655799861921319",
+      "message_id": "19ea476680e7031b",
+      "thread_id": "19ea476680e7031b"
+    }
+  ],
+  "validations": {
+    "senderAuth": {
+      "auth_method": "oauth2",
+      "client_config": "/home/reboot/.config/gws_gerencia/client_secret.json",
+      "client_config_exists": true,
+      "client_id": "63739709....com",
+      "config_client_id": "63739709....com",
+      "credential_source": "client_secret.json",
+      "encrypted_credentials": "/home/reboot/.config/gws_gerencia/credentials.enc",
+      "encrypted_credentials_exists": true,
+      "encryption_valid": true,
+      "has_refresh_token": true,
+      "plain_credentials": "/home/reboot/.config/gws_gerencia/credentials.json",
+      "plain_credentials_exists": false,
+      "project_id": "gws-cli-experiment-raul",
+      "scope_count": 5,
+      "scopes": [
+        "email",
+        "https://www.googleapis.com/auth/cloud-platform",
+        "https://www.googleapis.com/auth/gmail.modify",
+        "https://www.googleapis.com/auth/userinfo.email",
+        "openid"
+      ],
+      "storage": "encrypted",
+      "token_cache_exists": true,
+      "token_valid": true,
+      "user": "gerencia@skilland.ai"
+    },
+    "recipientAuth": {
+      "auth_method": "oauth2",
+      "client_config": "/home/reboot/.config/gws/client_secret.json",
+      "client_config_exists": true,
+      "client_id": "63739709....com",
+      "config_client_id": "63739709....com",
+      "credential_source": "client_secret.json",
+      "encrypted_credentials": "/home/reboot/.config/gws/credentials.enc",
+      "encrypted_credentials_exists": true,
+      "encryption_valid": true,
+      "has_refresh_token": true,
+      "plain_credentials": "/home/reboot/.config/gws/credentials.json",
+      "plain_credentials_exists": false,
+      "project_id": "gws-cli-experiment-raul",
+      "scope_count": 11,
+      "scopes": [
+        "email",
+        "https://www.googleapis.com/auth/calendar",
+        "https://www.googleapis.com/auth/contacts.readonly",
+        "https://www.googleapis.com/auth/documents",
+        "https://www.googleapis.com/auth/drive",
+        "https://www.googleapis.com/auth/gmail.modify",
+        "https://www.googleapis.com/auth/presentations",
+        "https://www.googleapis.com/auth/spreadsheets",
+        "https://www.googleapis.com/auth/tasks",
+        "https://www.googleapis.com/auth/userinfo.email",
+        "openid"
+      ],
+      "storage": "encrypted",
+      "token_cache_exists": true,
+      "token_valid": true,
+      "user": "sales@reboot.academy"
+    },
+    "attachment": {
+      "exists": true,
+      "path": "/home/reboot/Escritorio/agentic-scrapping-Experiment-scrappling/04_outputs/skilland-ia-mujeres/Mujeres, IA y el futuro del Trabajo - Presentación — SkilLand (1).pdf",
+      "actual_filename": "Mujeres, IA y el futuro del Trabajo - Presentación — SkilLand (1).pdf",
+      "expected_filename": "Mujeres, IA y el futuro del Trabajo - Presentacion corta — SkilLand.pdf",
+      "mime_filename": "Mujeres, IA y el futuro del Trabajo - Presentacion corta — SkilLand.pdf",
+      "expected_name_matches": true,
+      "bytes": 825178
+    },
+    "signature": {
+      "source": "gmail.users.settings.sendAs.list",
+      "sender": "gerencia@skilland.ai",
+      "present": true
+    },
+    "links": [
+      {
+        "text": "Romina Ojeda Brito",
+        "url": "https://www.linkedin.com/in/romina-ojeda-brito/",
+        "present": true
+      },
+      {
+        "text": "Women In STEAM Empowerment Canarias",
+        "url": "https://www.elespejocanario.es/secciones/wise-canarias-la-primera-asociacion-de-mujeres-steam-del-archipielago/",
+        "present": true
+      },
+      {
+        "text": "la brecha que se esta abriendo con la adopcion de la inteligencia artificial",
+        "url": "https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html",
+        "present": true
+      },
+      {
+        "text": "aprovechar una tecnologia que lo cambia todo",
+        "url": "https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html",
+        "present": true
+      },
+      {
+        "text": "SkilLand",
+        "url": "http://www.skilland.ai/",
+        "present": true
+      }
+    ],
+    "draft": {
+      "fromOk": true,
+      "toOk": true,
+      "subjectOk": true,
+      "linksPresent": [
+        {
+          "text": "Romina Ojeda Brito",
+          "url": "https://www.linkedin.com/in/romina-ojeda-brito/",
+          "present": true
+        },
+        {
+          "text": "Women In STEAM Empowerment Canarias",
+          "url": "https://www.elespejocanario.es/secciones/wise-canarias-la-primera-asociacion-de-mujeres-steam-del-archipielago/",
+          "present": true
+        },
+        {
+          "text": "la brecha que se esta abriendo con la adopcion de la inteligencia artificial",
+          "url": "https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html",
+          "present": true
+        },
+        {
+          "text": "aprovechar una tecnologia que lo cambia todo",
+          "url": "https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html",
+          "present": true
+        },
+        {
+          "text": "SkilLand",
+          "url": "http://www.skilland.ai/",
+          "present": true
+        }
+      ],
+      "attachmentPresent": true,
+      "expectedAttachmentNameMatches": true,
+      "signatureMechanism": "gmail_sendAs_signature_injected_by_runner",
+      "signaturePresent": true,
+      "filenames": [
+        "Mujeres, IA y el futuro del Trabajo - Presentacion corta — SkilLand.pdf"
+      ],
+      "mimeTypes": [
+        "multipart/mixed",
+        "multipart/alternative",
+        "text/plain",
+        "text/html",
+        "application/pdf"
+      ]
+    }
+  },
+  "events_path": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/events.ndjson",
+  "preview": {
+    "previewHtmlPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/2026-06-08_experiment_00_email_preview.html",
+    "previewTextPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/2026-06-08_experiment_00_email_preview.txt"
+  }
+}
