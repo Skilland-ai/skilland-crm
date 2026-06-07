@@ -1,30 +1,26 @@
 # IA Mujeres Smoke Test Report
 
 - Date: 2026-06-04
-- Mode: apply
+- Mode: dry-run
 - Prefijo: `TEST —`
 
 ## 1. Registros creados
 
 | Tipo | Nombre | Estado |
 |------|--------|--------|
-| Business Line | TEST — SkilLand IA Mujeres | ♻️ reutilizado |
-| Company | TEST — Remote Academy Internal | ♻️ reutilizado |
-| Person | TEST — Raúl Recipient | ♻️ reutilizado |
-| Deal | TEST — Remote Academy — IA Mujeres 2026 | ♻️ reutilizado |
-| Campo testMode | Opportunity.testMode | ♻️ reutilizado |
-| Vista | TEST — IA Mujeres Smoke Test | ♻️ reutilizado  |
-| Workflow | TEST — WF-2 Primer email enviado | ♻️ reutilizado  |
+| Business Line | TEST — SkilLand IA Mujeres | ⚠️ planned |
+| Company | TEST — Remote Academy Internal | ⚠️ planned |
+| Person | TEST — Raúl Recipient | ⚠️ planned |
+| Deal | TEST — Remote Academy — IA Mujeres 2026 | ⚠️ planned |
+| Campo testMode | Opportunity.testMode | ⚠️ planned |
+| Vista | TEST — IA Mujeres Smoke Test | ⚠️ planned  |
+| Workflow | TEST — WF-2 Primer email enviado | ⚠️ planned  |
 
 ## 2. Simulación de transiciones
 
 | Transición | Resultado | Notas |
 |------------|-----------|-------|
-| pending_first_email → first_email_sent | ok |  |
-| check tasks created | no tasks (workflow is DRAFT — expected) | Workflows en DRAFT no disparan automáticamente |
-| first_email_sent → replied | ok |  |
-| final state read | ok | {"id":"91206aa3-d290-4501-9c15-3b8064908fdd","name":"TEST — Remote Academy — IA Mujeres 2026","stage":"POSSIBLE_OPPORTUNITY","outreachStatus":"replied","campaignName":"TEST — IA Mujeres 2026","testMode":true} |
-| reset → pending_first_email | ok |  |
+| (dry-run) | skipped | Ejecutar con --apply |
 
 ## 3. Email test
 
@@ -83,39 +79,14 @@ Una vez confirmadas las cuentas, ejecutar:
 
 ```javascript
 // Borrar en este orden (para evitar FK conflicts):
-// 1. Deal: deleteOpportunity(id: "91206aa3-d290-4501-9c15-3b8064908fdd")
-// 2. Person: deletePerson(id: "06a7d1ea-a295-4260-9c31-ee73037b27c6")
-// 3. Company: deleteCompany(id: "26c3191b-2f69-4a9e-8352-a86c3176fbcb")
-// 4. Business Line: deleteBusinessLine(id: "edf00ea0-3cb6-4df9-92f1-4641fb9b1210")
-// 5. Workflow: deleteWorkflow(id: "9de550ec-626e-421f-bc61-300dfe7ffa19")
-// 6. Vista: deleteCoreView(input: {id: "c50c6c82-1085-436e-a6fd-0f345bea4f7b"})
+// 1. Deal: deleteOpportunity(id: "ID_DEAL")
+// 2. Person: deletePerson(id: "ID_PERSON")
+// 3. Company: deleteCompany(id: "ID_COMPANY")
+// 4. Business Line: deleteBusinessLine(id: "ID_BL")
+// 5. Workflow: deleteWorkflow(id: "ID_WF")
+// 6. Vista: deleteCoreView(input: {id: "ID_VIEW"})
 ```
 
 ## 6. Recomendación para campaña real
 
-
-### Qué se puede automatizar ya
-- ✅ Cambios de `outreachStatus` vía API/script
-- ✅ Creación de deals y actualización de campos vía API
-- ✅ Workflows en DRAFT configurados con trigger correcto
-- ✅ Vista de filtrado por campaña
-
-### Qué debe seguir manual
-- ⏳ Activar workflows (requiere validación UI de steps IF_ELSE)
-- ⏳ Envío de emails (requiere Fase 5 GWS CLI)
-- ⏳ Detección de respuestas (requiere GWS + webhook o polling)
-
-### Antes de enviar correos reales
-1. Completar steps en UI (especialmente IF_ELSE y taskTarget)
-2. Activar WF-1 (solo opportunity.created) y validar
-3. Conectar GWS en Fase 5
-4. Preparar lote inicial desde vista "IA Mujeres — Todos"
-5. Confirmar con el usuario antes de cada envío masivo
-
-### ¿Se puede pasar a Fase 5?
-**Sí** — el smoke test confirma que:
-- El CRM tiene los campos necesarios
-- Las transiciones de estado funcionan via API
-- Los workflows existen en DRAFT listos para completar en UI
-- No se ha enviado ningún email real
-
+_(dry-run — ejecutar con --apply para ver resultados reales)_

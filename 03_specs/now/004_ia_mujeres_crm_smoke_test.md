@@ -1,6 +1,6 @@
 # 004 · IA Mujeres CRM Smoke Test
 
-- Status: completed
+- Status: planned
 - Date: 2026-06-04
 
 ## Hecho
