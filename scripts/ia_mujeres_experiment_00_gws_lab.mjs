@@ -51,7 +51,9 @@ function parseArgs(argv) {
     verifyDraft: false,
     deleteDraft: false,
     send: false,
+    sendInternalReply: false,
     confirmInternalSend: false,
+    confirmInternalReply: false,
     checkReception: false,
     checkReplies: false,
     checkBounce: false,
@@ -67,7 +69,9 @@ function parseArgs(argv) {
     else if (arg === '--verify-draft') args.verifyDraft = true;
     else if (arg === '--delete-draft') args.deleteDraft = true;
     else if (arg === '--send') args.send = true;
+    else if (arg === '--send-internal-reply') args.sendInternalReply = true;
     else if (arg === '--confirm-internal-send') args.confirmInternalSend = true;
+    else if (arg === '--confirm-internal-reply') args.confirmInternalReply = true;
     else if (arg === '--check-reception') args.checkReception = true;
     else if (arg === '--check-replies') args.checkReplies = true;
     else if (arg === '--check-bounce') args.checkBounce = true;
@@ -87,8 +91,14 @@ function parseArgs(argv) {
   if (args.send && !args.confirmInternalSend) {
     throw new Error('Refusing to send without --confirm-internal-send.');
   }
+  if (args.sendInternalReply && !args.confirmInternalReply) {
+    throw new Error('Refusing to send internal reply without --confirm-internal-reply.');
+  }
   if (args.send && !args.draftId) {
     throw new Error('Sending requires --draft-id=<gmail-draft-id>. Review the draft before sending.');
+  }
+  if (args.sendInternalReply && !args.threadId) {
+    throw new Error('Internal reply requires --thread-id=<sender-thread-id>.');
   }
   if (args.deleteDraft && !args.draftId) {
     throw new Error('Deleting requires --draft-id=<gmail-draft-id>.');
@@ -111,6 +121,7 @@ Usage:
   node scripts/ia_mujeres_experiment_00_gws_lab.mjs --verify-draft --draft-id=<id>
   node scripts/ia_mujeres_experiment_00_gws_lab.mjs --delete-draft --draft-id=<id>
   node scripts/ia_mujeres_experiment_00_gws_lab.mjs --send --draft-id=<id> --confirm-internal-send
+  node scripts/ia_mujeres_experiment_00_gws_lab.mjs --send-internal-reply --thread-id=<id> --confirm-internal-reply
   node scripts/ia_mujeres_experiment_00_gws_lab.mjs --check-reception --thread-id=<id>
   node scripts/ia_mujeres_experiment_00_gws_lab.mjs --check-replies --thread-id=<id>
   node scripts/ia_mujeres_experiment_00_gws_lab.mjs --check-bounce
@@ -369,6 +380,10 @@ async function sendDraft(draftId) {
   return gmailApi(GERENCIA_CONFIG_DIR, 'POST', '/drafts/send', { id: draftId });
 }
 
+async function sendMessage(configDir, raw, threadId) {
+  return gmailApi(configDir, 'POST', '/messages/send', threadId ? { raw, threadId } : { raw });
+}
+
 async function deleteDraft(draftId) {
   return gmailApi(GERENCIA_CONFIG_DIR, 'DELETE', `/drafts/${encodeURIComponent(draftId)}`);
 }
@@ -395,6 +410,7 @@ function appendEvent(outputDir, event) {
 }
 
 function buildEvent(type, fields = {}) {
+  const { metadata: fieldMetadata = {}, ...rest } = fields;
   return {
     schema_version: '1.0',
     campaign_name: CAMPAIGN_NAME,
@@ -414,9 +430,54 @@ function buildEvent(type, fields = {}) {
       sequence_step: SEQUENCE_STEP,
       sender_account_alias: 'SENDER_ACCOUNT_1',
       experiment_id: 'experiment_00_internal_lab',
-      ...fields.metadata,
+      ...fieldMetadata,
     },
-    ...fields,
+    ...rest,
+  };
+}
+
+function buildReplyMime({ inReplyTo, references }) {
+  const body = [
+    'Recibido test interno IA Mujeres.',
+    '',
+    'Confirmo recepcion del email, adjunto, firma y links para validar deteccion de respuesta/thread.',
+    '',
+    'Un saludo,',
+    'Sales Reboot Academy',
+  ].join('\r\n');
+
+  const headers = [
+    `From: ${RECIPIENT_EMAIL}`,
+    `To: ${SENDER_EMAIL}`,
+    `Subject: Re: ${encodeMimeHeader(SUBJECT)}`,
+    'MIME-Version: 1.0',
+    'Content-Type: text/plain; charset=UTF-8',
+    'Content-Transfer-Encoding: 8bit',
+    'X-Skilland-Campaign: IA Mujeres 2026',
+    'X-Skilland-Experiment: 00-internal-lab-reply',
+  ];
+
+  if (inReplyTo) headers.push(`In-Reply-To: ${inReplyTo}`);
+  if (references) headers.push(`References: ${references}`);
+
+  return [...headers, '', body, ''].join('\r\n');
+}
+
+async function findReceivedMessageInSales() {
+  const reception = await checkReception();
+  const first = reception.messages?.[0];
+  if (!first?.id) {
+    throw new Error('Cannot send internal reply: no received message found in sales mailbox.');
+  }
+  const detail = await getMessage(SALES_CONFIG_DIR, first.id, 'metadata');
+  const headers = extractHeaders(detail);
+
+  return {
+    reception,
+    salesMessageId: detail.id,
+    salesThreadId: detail.threadId,
+    rfcMessageId: headers['message-id'],
+    references: headers.references || headers['message-id'],
   };
 }
 
@@ -496,7 +557,7 @@ async function main() {
 
   const report = {
     date: DATE,
-    mode: args.createDraft || args.verifyDraft || args.deleteDraft || args.send || args.checkReception || args.checkReplies || args.checkBounce ? 'apply-safe' : 'dry-run',
+    mode: args.createDraft || args.verifyDraft || args.deleteDraft || args.send || args.sendInternalReply || args.checkReception || args.checkReplies || args.checkBounce ? 'apply-safe' : 'dry-run',
     sender: SENDER_EMAIL,
     recipient: RECIPIENT_EMAIL,
     subject: SUBJECT,
@@ -621,20 +682,95 @@ async function main() {
 
   if (args.checkReception) {
     const reception = await checkReception();
+    const firstMessage = reception.messages?.[0];
+    const event = buildEvent(reception.resultSizeEstimate > 0 ? 'reception_detected' : 'reception_checked', {
+      message_id: firstMessage?.id,
+      thread_id: firstMessage?.threadId,
+      metadata: {
+        result_size_estimate: reception.resultSizeEstimate,
+        query: reception.query,
+        read_signal: firstMessage?.readSignal,
+        sender_mailbox_thread_id: args.threadId,
+        labels: firstMessage?.labels ?? [],
+      },
+    });
+    appendEvent(args.outputDir, event);
     report.validations.reception = reception;
     report.actions.push({ type: 'reception_checked', resultSizeEstimate: reception.resultSizeEstimate });
   }
 
+  if (args.sendInternalReply) {
+    const received = await findReceivedMessageInSales();
+    const replyMime = buildReplyMime({
+      inReplyTo: received.rfcMessageId,
+      references: received.references,
+    });
+    const sentReply = await sendMessage(SALES_CONFIG_DIR, base64Url(replyMime), received.salesThreadId);
+    const event = buildEvent('internal_reply_sent', {
+      sender_email: RECIPIENT_EMAIL,
+      recipient_email: SENDER_EMAIL,
+      subject: `Re: ${SUBJECT}`,
+      message_id: sentReply.id,
+      thread_id: args.threadId,
+      metadata: {
+        recipient_mailbox_thread_id: received.salesThreadId,
+        sender_mailbox_thread_id: args.threadId,
+        original_received_message_id: received.salesMessageId,
+      },
+    });
+    appendEvent(args.outputDir, event);
+    report.validations.internalReply = {
+      sent: true,
+      salesMessageId: received.salesMessageId,
+      salesThreadId: received.salesThreadId,
+      replyMessageId: sentReply.id,
+      replyThreadId: sentReply.threadId,
+      originalSenderThreadId: args.threadId,
+    };
+    report.actions.push({
+      type: 'internal_reply_sent',
+      message_id: sentReply.id,
+      sales_thread_id: sentReply.threadId,
+      original_sender_thread_id: args.threadId,
+    });
+  }
+
   if (args.checkReplies) {
     const replies = await checkReplies(args.threadId);
+    const replyMessage = replies.messages?.find((message) => !(message.from ?? '').includes(SENDER_EMAIL));
+    const event = buildEvent(replies.hasReply ? 'reply_detected' : 'replies_checked', {
+      message_id: replyMessage?.id,
+      thread_id: args.threadId,
+      metadata: {
+        status: replies.status,
+        has_reply: replies.hasReply ?? false,
+        message_count: replies.messageCount ?? 0,
+        reply_from: replyMessage?.from,
+        reply_to: replyMessage?.to,
+        labels: replyMessage?.labels ?? [],
+      },
+    });
+    appendEvent(args.outputDir, event);
     report.validations.replies = replies;
     report.actions.push({ type: 'replies_checked', hasReply: replies.hasReply ?? false, messageCount: replies.messageCount ?? 0 });
   }
 
   if (args.checkBounce) {
     const bounces = await checkBounce();
+    const totalEstimate = bounces.reduce((sum, item) => sum + item.resultSizeEstimate, 0);
+    const event = buildEvent(totalEstimate > 0 ? 'bounce_detected' : 'bounce_checked', {
+      thread_id: args.threadId,
+      metadata: {
+        total_estimate: totalEstimate,
+        queries: bounces.map((item) => ({
+          query: item.query,
+          result_size_estimate: item.resultSizeEstimate,
+        })),
+      },
+    });
+    appendEvent(args.outputDir, event);
     report.validations.bounces = bounces;
-    report.actions.push({ type: 'bounce_checked', totalEstimate: bounces.reduce((sum, item) => sum + item.resultSizeEstimate, 0) });
+    report.actions.push({ type: 'bounce_checked', totalEstimate });
   }
 
   report.report_path = writeRunJson(args.outputDir, report);

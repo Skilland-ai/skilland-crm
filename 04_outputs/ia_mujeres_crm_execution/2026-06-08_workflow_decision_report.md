@@ -25,8 +25,8 @@ Motivo: el cuello de botella ahora no es Twenty Workflows; es validar GWS real c
 |---|---|---|
 | WF-2 test: primer email enviado | Mantener test | Ya probado sobre `TEST — IA Mujeres 2026`; no usar como produccion. |
 | WF-3 test: respuesta recibida | Mantener test | Ya probado sobre `TEST — IA Mujeres 2026`; sirve de patron. |
-| Produccion: reply -> tarea humana | Posponer hasta Experimento 0 completo | Necesita `thread_id -> deal` fiable. |
-| Produccion: email sent -> follow-up task | Posponer hasta primera tanda aprobada | Antes crear campos Gmail ID o contrato de eventos. |
+| Produccion: reply -> tarea humana | Posponer hasta mapeo CRM | Experimento 0 ya prueba reply; falta `thread_id -> deal` fiable. |
+| Produccion: email sent -> follow-up task | Posponer hasta runner de tanda | Antes crear campos Gmail ID o contrato de eventos. |
 
 ## Workflows descartados ahora
 
@@ -39,7 +39,7 @@ Motivo: el cuello de botella ahora no es Twenty Workflows; es validar GWS real c
 | Workflow | Cuando activarlo |
 |---|---|
 | Draft created -> registrar estado CRM | Cuando exista campo/objeto de email event en CRM. |
-| Email sent -> `first_email_sent` + follow-up due | Tras Experimento 0 enviado/recibido y primera tanda aprobada. |
+| Email sent -> `first_email_sent` + follow-up due | Tras crear/aprobar mapeo Gmail ID en CRM y primera tanda aprobada. |
 | Reply detected -> task humana | Tras mapear `gmailThreadId` en Opportunity. |
 | Bounce detected -> revision manual | Tras prueba de bounce heuristico con eventos. |
 | Follow-up 1 due | Tras al menos una tanda real sin incidencias. |

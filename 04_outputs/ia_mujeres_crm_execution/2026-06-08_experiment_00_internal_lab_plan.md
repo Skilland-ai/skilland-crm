@@ -43,5 +43,6 @@ Validar la operacion completa antes de tocar contactos reales.
 node scripts/ia_mujeres_experiment_00_gws_lab.mjs --create-draft
 node scripts/ia_mujeres_experiment_00_gws_lab.mjs --verify-draft --draft-id=<draft_id>
 node scripts/ia_mujeres_experiment_00_gws_lab.mjs --send --draft-id=<draft_id> --confirm-internal-send
+node scripts/ia_mujeres_experiment_00_gws_lab.mjs --send-internal-reply --thread-id=<thread_id> --confirm-internal-reply
 node scripts/ia_mujeres_experiment_00_gws_lab.mjs --check-reception --check-replies --check-bounce --thread-id=<thread_id>
 ```

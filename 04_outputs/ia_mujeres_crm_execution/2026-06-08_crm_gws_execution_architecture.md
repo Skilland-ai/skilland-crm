@@ -18,6 +18,8 @@ Componentes:
 - Twenty CRM: fuente de deals, contactos, companias, estado comercial y tareas humanas.
 - GWS/Gmail: creacion de drafts, envio, lectura de metadata, recepcion, replies y bounces.
 - Runner local: `scripts/ia_mujeres_experiment_00_gws_lab.mjs`.
+- Runner de tanda dry-run: `scripts/ia_mujeres_batch_runner.mjs`.
+- Reporte semanal local: `scripts/ia_mujeres_weekly_report.mjs`.
 - Skill repo-local: `shared/skills/ia-mujeres-crm-gws/SKILL.md`.
 - Eventos locales: `04_outputs/ia_mujeres_crm_execution/events.ndjson`.
 - Reportes markdown/json/html en `04_outputs/ia_mujeres_crm_execution/`.
@@ -30,7 +32,7 @@ Componentes:
 | Como comprobar recepcion | Buscar en la cuenta destino `sales@reboot.academy` con Gmail query `from:gerencia@skilland.ai subject:"..."`. |
 | Como comprobar apertura | No usar pixel ni KPI de apertura. Senal debil: label `UNREAD` en cuenta receptora, solo para laboratorio interno. |
 | Como comprobar click | No viable sin reescribir links o meter redirect/tracking. Se mantienen links aprobados, sin tracking de click. |
-| Como detectar respuesta | Polling del hilo en cuenta emisora por `thread_id`; si hay mensaje no emitido por `gerencia@skilland.ai`, crear evento `reply_received`. |
+| Como detectar respuesta | Polling del hilo en cuenta emisora por `thread_id`; si hay mensaje no emitido por `gerencia@skilland.ai`, crear evento `reply_detected`. |
 | Como detectar bounce | Busquedas heuristicas en Gmail: `mailer-daemon`, `postmaster`, `Delivery Status Notification`, `Undelivered`. |
 | Guardar `message_id/thread_id` | Ahora en `events.ndjson`; para produccion se recomienda crear campos CRM `gmailDraftId`, `gmailMessageId`, `gmailThreadId`, `lastEmailEventAt`. |
 | Mapear hilo con CRM | El runner debe recibir `crm_deal_id/person_id/company_id` al operar tandas reales y escribir esos IDs en cada evento. |
@@ -57,7 +59,42 @@ Componentes:
 
 ## Estado actual
 
-- Experimento 0: draft creado y verificado, no enviado.
+- Experimento 0: draft creado, verificado, enviado internamente, recibido, con reply detectado y sin bounce.
 - No hay contacto externo tocado.
 - No hay workflow productivo nuevo activado.
 - No hay campos CRM nuevos creados para Gmail IDs.
+- Hay dry-run de primera tanda generado para revision, sin drafts externos.
+- Hay reporte semanal local generado en Markdown y HTML.
+
+## Resultado Experimento 0
+
+- Draft ID: `r5280655799861921319`.
+- Sent message ID: `19ea47ccd6e6e58a`.
+- Sender thread ID: `19ea476680e7031b`.
+- Received message ID en `sales@reboot.academy`: `19ea47cddaba7128`.
+- Reply detectado en el hilo emisor.
+- Bounce check: `0` resultados.
+
+Conclusion: el laboratorio valida GWS operativo. El siguiente bloqueo antes de contactos externos es CRM mapping y runner de tanda, no la entrega basica de Gmail.
+
+## Resultado batch dry-run
+
+- Runner: `scripts/ia_mujeres_batch_runner.mjs`.
+- Modo: dry-run, sin drafts y sin envios.
+- CRM opportunities vistas: `145`.
+- IA Mujeres vistas: `100`.
+- Elegibles: `22`.
+- Seleccionadas para revision: `5`.
+- Outputs:
+  - `04_outputs/ia_mujeres_crm_execution/batch_2026-06-07T23-57-37-918Z_plan.json`
+  - `04_outputs/ia_mujeres_crm_execution/batch_2026-06-07T23-57-37-918Z_review.md`
+
+Este resultado no autoriza envio externo. Solo demuestra que la seleccion de tanda puede automatizarse de forma controlada.
+
+## Resultado reporte semanal
+
+- Runner: `scripts/ia_mujeres_weekly_report.mjs`.
+- Modo: generacion local, sin email y sin mutar CRM.
+- Outputs:
+  - `04_outputs/ia_mujeres_crm_execution/weekly_report_2026-06-08.md`
+  - `04_outputs/ia_mujeres_crm_execution/weekly_report_2026-06-08.html`

@@ -33,8 +33,11 @@ node scripts/ia_mujeres_experiment_00_gws_lab.mjs
 node scripts/ia_mujeres_experiment_00_gws_lab.mjs --create-draft
 node scripts/ia_mujeres_experiment_00_gws_lab.mjs --verify-draft --draft-id=<draft_id>
 node scripts/ia_mujeres_experiment_00_gws_lab.mjs --send --draft-id=<draft_id> --confirm-internal-send
+node scripts/ia_mujeres_experiment_00_gws_lab.mjs --send-internal-reply --thread-id=<thread_id> --confirm-internal-reply
 node scripts/ia_mujeres_experiment_00_gws_lab.mjs --check-reception --check-replies --check-bounce --thread-id=<thread_id>
 node scripts/ia_mujeres_experiment_00_gws_lab.mjs --delete-draft --draft-id=<draft_id>
+node scripts/ia_mujeres_batch_runner.mjs --prepare-next-batch --limit=5
+node scripts/ia_mujeres_weekly_report.mjs --week=<yyyy-mm-dd>
 ```
 
 ## Outputs
@@ -43,6 +46,10 @@ node scripts/ia_mujeres_experiment_00_gws_lab.mjs --delete-draft --draft-id=<dra
 - `04_outputs/ia_mujeres_crm_execution/2026-06-08_experiment_00_run.json`
 - `04_outputs/ia_mujeres_crm_execution/2026-06-08_experiment_00_email_preview.html`
 - `04_outputs/ia_mujeres_crm_execution/2026-06-08_experiment_00_email_preview.txt`
+- `04_outputs/ia_mujeres_crm_execution/batch_<id>_plan.json`
+- `04_outputs/ia_mujeres_crm_execution/batch_<id>_review.md`
+- `04_outputs/ia_mujeres_crm_execution/weekly_report_<yyyy-mm-dd>.md`
+- `04_outputs/ia_mujeres_crm_execution/weekly_report_<yyyy-mm-dd>.html`
 
 ## Secuencia operativa
 
@@ -54,6 +61,7 @@ node scripts/ia_mujeres_experiment_00_gws_lab.mjs --delete-draft --draft-id=<dra
 6. Esperar revision humana.
 7. Enviar solo con flag de confirmacion.
 8. Comprobar recepcion en `sales@reboot.academy`.
-9. Comprobar replies por `thread_id`.
-10. Comprobar bounces por busquedas Gmail.
-11. Decidir si se aprueba o bloquea primera tanda real.
+9. Enviar reply interno controlado si hace falta validar el hilo.
+10. Comprobar replies por `thread_id`.
+11. Comprobar bounces por busquedas Gmail.
+12. Decidir si se aprueba o bloquea primera tanda real.

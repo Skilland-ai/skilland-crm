@@ -47,13 +47,30 @@ Razon: la operacion inicial necesita control y aprendizaje, no una UI permanente
 
 ## Implementacion propuesta
 
-Fase actual: diseno documentado.
+Fase actual: base implementada como generador local.
+
+Comando:
+
+```bash
+node scripts/ia_mujeres_weekly_report.mjs --week=2026-06-08
+```
+
+Outputs generados:
+
+- `04_outputs/ia_mujeres_crm_execution/weekly_report_2026-06-08.md`
+- `04_outputs/ia_mujeres_crm_execution/weekly_report_2026-06-08.html`
+
+Safeguards:
+
+- Lee solo `events.ndjson`.
+- No envia email.
+- No muta CRM.
+- `--email-draft` esta bloqueado intencionadamente hasta que se apruebe el circuito de revision.
 
 Fase siguiente:
 
 ```bash
-node scripts/ia_mujeres_weekly_report.mjs --week=2026-06-08
-node scripts/ia_mujeres_weekly_report.mjs --week=2026-06-08 --email-draft
+node scripts/ia_mujeres_weekly_report.mjs --week=<yyyy-mm-dd>
 ```
 
-Safeguard: el reporte crea draft HTML, no envia sin confirmacion.
+Despues de cerrar mapeo CRM, ampliar el reporte con pendientes, reuniones, nurturing y tareas humanas.

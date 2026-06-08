@@ -2,9 +2,10 @@
 
 ## Resultado
 
-Estado: **draft creado y verificado; envio pendiente de revision humana**.
+Estado: **Experimento 0 interno completado**.
 
-No se envio ningun email. No se tocaron contactos externos.
+Se envio un unico email controlado desde `gerencia@skilland.ai` a `sales@reboot.academy`.
+No se tocaron contactos externos ni tandas reales.
 
 ## Draft
 
@@ -22,36 +23,39 @@ No se envio ningun email. No se tocaron contactos externos.
 | Firma | OK: firma Gmail `sendAs` inyectada por runner |
 | Dossier largo | OK: no adjuntado |
 
+## Envio y recepcion
+
+| Check | Resultado |
+|---|---|
+| Enviado | OK |
+| Sent message ID | `19ea47ccd6e6e58a` |
+| Sender thread ID | `19ea476680e7031b` |
+| Labels envio | `SENT` |
+| Recibido en `sales@reboot.academy` | OK |
+| Received message ID | `19ea47cddaba7128` |
+| Recipient thread ID | `19ea47cddaba7128` |
+| Read signal interno | `not_unread`, senal debil |
+| Bounce check | OK: `0` resultados |
+
+## Respuesta/thread
+
+| Check | Resultado |
+|---|---|
+| Reply detectado en hilo emisor | OK |
+| Hilo emisor | `19ea476680e7031b` |
+| Mensajes detectados en hilo | `3` |
+| Reply controlado detectado | `sales@reboot.academy` -> `gerencia@skilland.ai` |
+| Primer reply message ID en buzon emisor | `19ea47dea03b5412` |
+
+Nota: el hilo contiene mas de una respuesta interna controlada; no afecta al criterio tecnico. La deteccion por `thread_id` funciona.
+
 ## Evidencia local
 
 - Runner: `scripts/ia_mujeres_experiment_00_gws_lab.mjs`
-- Evento: `04_outputs/ia_mujeres_crm_execution/events.ndjson`
+- Eventos: `04_outputs/ia_mujeres_crm_execution/events.ndjson`
 - JSON tecnico: `04_outputs/ia_mujeres_crm_execution/2026-06-08_experiment_00_run.json`
 - Preview HTML: `04_outputs/ia_mujeres_crm_execution/2026-06-08_experiment_00_email_preview.html`
 - Preview texto: `04_outputs/ia_mujeres_crm_execution/2026-06-08_experiment_00_email_preview.txt`
-
-## Envio y recepcion
-
-No enviado todavia. Motivo: todo envio real, aunque sea interno, debe pasar por revision humana del draft.
-
-Para enviar tras revision:
-
-```bash
-node scripts/ia_mujeres_experiment_00_gws_lab.mjs \
-  --send \
-  --draft-id=r5280655799861921319 \
-  --confirm-internal-send
-```
-
-Despues del envio:
-
-```bash
-node scripts/ia_mujeres_experiment_00_gws_lab.mjs \
-  --check-reception \
-  --check-replies \
-  --check-bounce \
-  --thread-id=<thread_id_devuelto_por_send>
-```
 
 ## Apertura, lectura y click
 
@@ -61,6 +65,7 @@ node scripts/ia_mujeres_experiment_00_gws_lab.mjs \
 
 ## Decision
 
-**No aprobado todavia para primera tanda real.**
+**Laboratorio interno aprobado.**
 
-Falta enviar el Experimento 0, confirmar recepcion en `sales@reboot.academy`, responder manualmente desde `sales@reboot.academy`, detectar el reply por hilo y verificar que no hay bounce.
+Se puede avanzar al diseno/implementacion de la primera tanda real.
+No queda aprobado todavia enviar contactos externos: antes hay que cerrar mapeo CRM `thread_id -> deal`, campos/event ingestion de Gmail IDs, runner de tanda y autorizacion humana explicita de cada tanda.

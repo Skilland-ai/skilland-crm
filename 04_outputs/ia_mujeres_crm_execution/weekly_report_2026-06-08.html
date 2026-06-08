@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weekly Report — IA Mujeres</title>
+  <style>
+    body { margin: 0; background: #f6f7f9; color: #1d2430; font: 14px/1.5 Arial, sans-serif; }
+    main { max-width: 920px; margin: 0 auto; padding: 32px 20px; }
+    h1 { margin: 0 0 4px; font-size: 26px; }
+    h2 { margin: 28px 0 10px; font-size: 18px; }
+    .muted { color: #5c6675; margin: 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-top: 18px; }
+    .metric { background: #fff; border: 1px solid #d9dde4; border-radius: 6px; padding: 12px; }
+    .metric strong { display: block; font-size: 24px; }
+    .metric span { color: #5c6675; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #d9dde4; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid #e7eaf0; text-align: left; vertical-align: top; }
+    th { background: #eef1f5; font-size: 12px; text-transform: uppercase; letter-spacing: .02em; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+    .number { text-align: right; }
+    ul { background: #fff; border: 1px solid #d9dde4; border-radius: 6px; margin: 0; padding: 14px 18px 14px 28px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Weekly Report — IA Mujeres</h1>
+    <p class="muted">Periodo local: 2026-06-08 a 2026-06-14</p>
+
+    <section class="grid" aria-label="Metricas">
+      <div class="metric"><strong>6</strong><span>Eventos locales</span></div>
+      <div class="metric"><strong>1</strong><span>Drafts</span></div>
+      <div class="metric"><strong>1</strong><span>Enviados</span></div>
+      <div class="metric"><strong>1</strong><span>Recibidos</span></div>
+      <div class="metric"><strong>1</strong><span>Replies</span></div>
+      <div class="metric"><strong>0</strong><span>Bounces</span></div>
+    </section>
+
+    <h2>Estado de hilos</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Thread/Draft</th>
+          <th>Destinatario</th>
+          <th>Estado</th>
+          <th>Eventos</th>
+          <th>Ultimo evento</th>
+          <th>Fecha local</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td><code>19ea476680e7031b</code></td>
+          <td>sales@reboot.academy</td>
+          <td>reply_detected</td>
+          <td class="number">6</td>
+          <td>bounce_checked</td>
+          <td>8/6/26, 0:51</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Lectura operativa</h2>
+    <ul>
+      <li>Experimento 0 interno: OK.</li>
+      <li>Aperturas: no se tratan como KPI principal.</li>
+      <li>Clicks: no instrumentados porque los links aprobados no se reescriben.</li>
+      <li>Pendientes, reuniones y nurturing requieren mapeo CRM productivo.</li>
+    </ul>
+
+    <h2>Proximas acciones</h2>
+    <ul>
+      <li>Cerrar mapeo CRM para Gmail IDs.</li>
+      <li>Implementar runner de tanda en modo dry-run.</li>
+      <li>Mantener autorizacion humana explicita para cualquier envio externo.</li>
+    </ul>
+  </main>
+</body>
+</html>

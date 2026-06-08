@@ -21,25 +21,30 @@ Safeguards:
 - No acepta contactos externos.
 - Firma obligatoria desde Gmail `sendAs`.
 - Evento local por cada accion.
+- Eventos persistidos para recepcion, reply y bounce checks.
 - Cleanup de draft no enviado con `--delete-draft`.
 
-## Runner de tanda futura
+Estado: Experimento 0 aprobado. El runner de laboratorio no acepta destinatarios externos y no debe reutilizarse como runner de tanda real.
 
-Nombre propuesto:
+## Runner de tanda
+
+Implementado parcialmente:
 
 ```bash
 scripts/ia_mujeres_batch_runner.mjs
 ```
 
-Comandos:
+Comando activo:
 
 ```bash
 node scripts/ia_mujeres_batch_runner.mjs --prepare-next-batch --limit=5
+```
+
+Comandos bloqueados intencionadamente hasta cerrar mapeo Gmail ID y autorizacion humana:
+
+```bash
 node scripts/ia_mujeres_batch_runner.mjs --create-drafts --batch-id=<id>
-node scripts/ia_mujeres_batch_runner.mjs --verify-drafts --batch-id=<id>
 node scripts/ia_mujeres_batch_runner.mjs --send-approved --batch-id=<id> --confirm-send
-node scripts/ia_mujeres_batch_runner.mjs --analyze-replies
-node scripts/ia_mujeres_batch_runner.mjs --write-next-actions
 ```
 
 Entradas:
@@ -55,13 +60,25 @@ Entradas:
 Salidas:
 
 - `batch_<id>_plan.json`
-- `batch_<id>_drafts.json`
 - `batch_<id>_review.md`
-- `events.ndjson`
-- `NEXT_ACTIONS.md`
+
+Dry-run ejecutado:
+
+- Batch ID: `2026-06-07T23-57-37-918Z`.
+- Opportunities CRM vistas: `145`.
+- Opportunities IA Mujeres vistas: `100`.
+- Elegibles: `22`.
+- Seleccionadas para revision: `5`.
+- Excluidas: `78`.
+- Plan: `04_outputs/ia_mujeres_crm_execution/batch_2026-06-07T23-57-37-918Z_plan.json`.
+- Revision: `04_outputs/ia_mujeres_crm_execution/batch_2026-06-07T23-57-37-918Z_review.md`.
 
 ## Evitar envios accidentales
 
+- El runner actual solo prepara batch plan.
+- No crea drafts.
+- No envia emails.
+- `--limit` esta capado a 5.
 - Ningun envio directo al crear drafts.
 - `--send-approved` exige batch aprobado y flag de confirmacion.
 - Bloquear si falta `crm_deal_id`.
