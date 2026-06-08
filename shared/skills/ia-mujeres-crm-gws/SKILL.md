@@ -25,11 +25,29 @@ Usa esta skill cuando haya que ejecutar o supervisar la operación CRM/GWS de IA
 - Mantener Twenty CRM como centro de mando.
 - Registrar `gmailDraftId`, `gmailMessageId` y `gmailThreadId` en Opportunity cuando existan.
 - Crear nota y tarea en CRM para draft, envío, reply y bounce.
+- Asignar tareas IA Mujeres a Raúl Artiles (`raul@reboot.academy`).
+- Al avanzar de paso, cerrar la tarea anterior antes de crear la siguiente.
 - No usar aperturas como KPI principal.
 - No reescribir links aprobados para tracking salvo nueva aprobación.
 - No versionar secretos.
 
 ## Comandos principales
+
+Usa primero el harness operativo. Solo baja a runners específicos para depurar o ejecutar una fase aislada.
+
+```bash
+node scripts/ia_mujeres_operator_harness.mjs --action=status
+node scripts/ia_mujeres_operator_harness.mjs --action=prepare-next-batch --limit=5
+node scripts/ia_mujeres_operator_harness.mjs --action=launch-approved-batch --batch-id=<id> --apply --confirm-create-external-drafts --confirm-send-approved-drafts
+node scripts/ia_mujeres_operator_harness.mjs --action=sync-signals --apply
+node scripts/ia_mujeres_operator_harness.mjs --action=reconcile-tasks --apply
+node scripts/ia_mujeres_operator_harness.mjs --action=weekly-report
+node scripts/ia_mujeres_operator_harness.mjs --action=email-weekly-report --apply --confirm-send-weekly-report
+```
+
+Referencia completa: `shared/skills/ia-mujeres-crm-gws/references/operator_harness.md`.
+
+## Runners específicos
 
 ```bash
 node scripts/ia_mujeres_daily_operator.mjs --limit=5 --weekly
@@ -41,6 +59,7 @@ node scripts/ia_mujeres_batch_runner.mjs --mode=mark-email-sent --batch-id=<id> 
 node scripts/ia_mujeres_batch_runner.mjs --mode=sync-replies --apply
 node scripts/ia_mujeres_batch_runner.mjs --mode=sync-bounces --apply
 node scripts/ia_mujeres_batch_runner.mjs --mode=prepare-followups --limit=5
+node scripts/ia_mujeres_batch_runner.mjs --mode=reconcile-tasks --apply
 node scripts/ia_mujeres_weekly_report.mjs --week=<yyyy-mm-dd>
 ```
 
@@ -65,12 +84,12 @@ node scripts/ia_mujeres_experiment_00_gws_lab.mjs --check-reception --check-repl
 
 ## Secuencia recomendada
 
-1. Ejecutar operador diario en seco.
+1. Ejecutar `operator_harness --action=status`.
 2. Revisar `IA Mujeres — Funnel` en Twenty.
-3. Revisar batch Markdown.
-4. Corregir datos CRM si hay nombres, emails o entidades dudosas.
-5. Crear drafts externos solo con aprobación humana y modo dedicado futuro.
-6. Registrar drafts en CRM con `mark-draft-created`.
-7. Registrar envíos aprobados con `mark-email-sent`.
-8. Sincronizar replies/bounces.
+3. Preparar siguiente tanda con `operator_harness --action=prepare-next-batch --limit=5`.
+4. Revisar batch Markdown.
+5. Corregir datos CRM si hay nombres, emails o entidades dudosas.
+6. Crear/enviar solo con aprobación humana explícita y harness.
+7. Sincronizar replies/bounces.
+8. Reconciliar tareas.
 9. Generar reporte semanal.

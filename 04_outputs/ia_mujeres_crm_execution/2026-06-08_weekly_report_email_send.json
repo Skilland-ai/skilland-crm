@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-06-08T08:24:40.038Z",
+  "mode": "apply",
+  "sender": "gerencia@skilland.ai",
+  "recipients": [
+    "direccion@skilland.ai",
+    "sales@reboot.academy",
+    "romi@reboot.academy"
+  ],
+  "subject": "Lanzamiento de Funnel IA Mujeres",
+  "week": "2026-06-08",
+  "source_html": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/weekly_report_2026-06-08.html",
+  "source_markdown": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/weekly_report_2026-06-08.md",
+  "auth": {
+    "user": "gerencia@skilland.ai",
+    "token_valid": true,
+    "storage": "encrypted"
+  },
+  "safeguards": [
+    "Dry-run by default.",
+    "Requires --apply and --confirm-send-weekly-report to send.",
+    "Sends only the generated weekly report inline; no campaign contact selection and no CRM mutation."
+  ],
+  "sent": {
+    "status": "sent",
+    "message_id": "19ea6557e7c2fef3",
+    "thread_id": "19ea6557e7c2fef3",
+    "label_ids": [
+      "SENT"
+    ],
+    "sent_at": "2026-06-08T08:24:41.777Z"
+  }
+}

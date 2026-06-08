@@ -14,6 +14,10 @@ const TEMPLATE_METADATA = path.join(TEMPLATE_DIR, 'template_metadata.json');
 const DEFAULT_SENDER = 'gerencia@skilland.ai';
 const EMAIL_01_SUBJECT = 'Una preocupación que quería compartir con usted';
 const TODAY = '2026-06-08';
+const RAUL_ARTILES_WORKSPACE_MEMBER_ID = '323c2357-853d-45bc-ad7d-1703de9deef6';
+const RAUL_ARTILES_EMAIL = 'raul@reboot.academy';
+const TASK_REVIEW_DRAFT_EMAIL_1 = '[IA Mujeres] Revisar draft Email 1';
+const TASK_REVIEW_FOLLOW_UP_1 = '[IA Mujeres] Revisar respuesta / preparar Follow-up 1';
 
 const IA_STAGE_OPTIONS = [
   ['NOT_SENT', 'Sin enviar', 'gray'],
@@ -120,6 +124,7 @@ function parseArgs(argv) {
     'sync-replies',
     'sync-bounces',
     'prepare-followups',
+    'reconcile-tasks',
   ]);
   if (!allowedModes.has(args.mode)) throw new Error(`Unsupported --mode=${args.mode}`);
   if (!Number.isInteger(args.limit) || args.limit < 1 || args.limit > 5) {
@@ -154,6 +159,7 @@ Usage:
   node scripts/ia_mujeres_batch_runner.mjs --mode=sync-replies
   node scripts/ia_mujeres_batch_runner.mjs --mode=sync-bounces
   node scripts/ia_mujeres_batch_runner.mjs --mode=prepare-followups --limit=5
+  node scripts/ia_mujeres_batch_runner.mjs --mode=reconcile-tasks --apply
 
 All CRM mutations require --apply. No external email is sent by this runner.
 `);
@@ -898,6 +904,21 @@ async function updateOpportunity(client, id, data) {
   return response.updateOpportunity;
 }
 
+async function updateTask(client, id, data) {
+  const response = await client.gql(
+    `mutation UpdateTask($id: UUID!, $data: TaskUpdateInput!) {
+      updateTask(id: $id, data: $data) {
+        id
+        title
+        status
+        assignee { id userEmail name { firstName lastName } }
+      }
+    }`,
+    { id, data },
+  );
+  return response.updateTask;
+}
+
 async function createNote(client, { title, markdown, opportunityId, personId, companyId }, apply) {
   if (!apply) return { planned: true, title, opportunityId };
   const note = await client.rest('/notes', {
@@ -910,9 +931,9 @@ async function createNote(client, { title, markdown, opportunityId, personId, co
   return { id: noteId, title };
 }
 
-async function createTask(client, { title, markdown, dueAt, opportunityId, personId, companyId }, apply) {
-  if (!apply) return { planned: true, title, opportunityId };
-  const payload = { title, status: 'TODO', bodyV2: { markdown, blocknote: null } };
+async function createTask(client, { title, markdown, dueAt, opportunityId, personId, companyId, assigneeId = RAUL_ARTILES_WORKSPACE_MEMBER_ID }, apply) {
+  if (!apply) return { planned: true, title, opportunityId, assigneeId };
+  const payload = { title, status: 'TODO', assigneeId, bodyV2: { markdown, blocknote: null } };
   if (dueAt) payload.dueAt = dueAt;
   const task = await client.rest('/tasks', {
     method: 'POST',
@@ -921,7 +942,7 @@ async function createTask(client, { title, markdown, dueAt, opportunityId, perso
   const taskId = task.data?.createTask?.id;
   if (!taskId) throw new Error(`Task created but id missing: ${JSON.stringify(task).slice(0, 500)}`);
   await linkTask(client, taskId, { opportunityId, personId, companyId });
-  return { id: taskId, title, dueAt };
+  return { id: taskId, title, dueAt, assigneeId };
 }
 
 async function linkNote(client, noteId, { opportunityId, personId, companyId }) {
@@ -950,6 +971,77 @@ async function linkTask(client, taskId, { opportunityId, personId, companyId }) 
       body: JSON.stringify({ taskId, [key]: id }),
     });
   }
+}
+
+async function fetchIaMujeresTasks(client) {
+  const data = await client.gql(
+    `query IaMujeresTasks($filter: TaskFilterInput!) {
+      tasks(first: 200, filter: $filter) {
+        edges {
+          node {
+            id
+            title
+            status
+            dueAt
+            assignee { id userEmail name { firstName lastName } }
+            taskTargets {
+              edges {
+                node {
+                  targetOpportunity {
+                    id
+                    name
+                    iaMujeresFunnelStage
+                    outreachStatus
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }`,
+    { filter: { title: { ilike: '%[IA Mujeres]%' } } },
+  );
+  return data.tasks.edges.map((edge) => edge.node);
+}
+
+function taskOpportunityIds(task) {
+  return (task.taskTargets?.edges ?? [])
+    .map((edge) => edge.node?.targetOpportunity?.id)
+    .filter(Boolean);
+}
+
+function taskOpportunityStages(task) {
+  return (task.taskTargets?.edges ?? [])
+    .map((edge) => edge.node?.targetOpportunity?.iaMujeresFunnelStage)
+    .filter(Boolean);
+}
+
+function matchingOpenTasksForOpportunity(tasks, opportunityId, title) {
+  return tasks.filter((task) =>
+    task.title === title &&
+    task.status !== 'DONE' &&
+    taskOpportunityIds(task).includes(opportunityId),
+  );
+}
+
+async function completeTasks(client, tasks, apply) {
+  const changed = [];
+  for (const task of tasks) {
+    const updateData = { status: 'DONE' };
+    if (task.assignee?.id !== RAUL_ARTILES_WORKSPACE_MEMBER_ID) {
+      updateData.assigneeId = RAUL_ARTILES_WORKSPACE_MEMBER_ID;
+    }
+    if (apply) await updateTask(client, task.id, updateData);
+    changed.push({
+      id: task.id,
+      title: task.title,
+      previousStatus: task.status,
+      previousAssigneeId: task.assignee?.id ?? null,
+      updateData,
+    });
+  }
+  return changed;
 }
 
 async function modeSetupCrm(client, args) {
@@ -1155,6 +1247,7 @@ async function modeMarkEmailSent(client, args) {
   const entries = Array.isArray(sentMap) ? sentMap : sentMap.sent;
   if (!Array.isArray(entries)) throw new Error('Sent map must be an array or { sent: [...] }.');
   const report = { mode: args.apply ? 'apply' : 'dry-run', batch_id: args.batchId, updated: [], planned: [] };
+  const existingTasks = await fetchIaMujeresTasks(client);
   for (const entry of entries) {
     const required = ['crm_deal_id', 'gmailMessageId', 'gmailThreadId'];
     for (const key of required) {
@@ -1176,6 +1269,11 @@ async function modeMarkEmailSent(client, args) {
       lastEmailTemplate: entry.template_name ?? 'email_01',
       lastEmailSubject: entry.subject ?? EMAIL_01_SUBJECT,
     };
+    const closedPreviousTasks = await completeTasks(
+      client,
+      matchingOpenTasksForOpportunity(existingTasks, entry.crm_deal_id, TASK_REVIEW_DRAFT_EMAIL_1),
+      args.apply,
+    );
     if (args.apply) await updateOpportunity(client, entry.crm_deal_id, updateData);
     const note = await createNote(client, {
       title: `[IA Mujeres] Email 1 enviado`,
@@ -1192,7 +1290,7 @@ async function modeMarkEmailSent(client, args) {
       personId: entry.person_id,
       companyId: entry.company_id,
     }, args.apply);
-    report[args.apply ? 'updated' : 'planned'].push({ crm_deal_id: entry.crm_deal_id, updateData, note, task });
+    report[args.apply ? 'updated' : 'planned'].push({ crm_deal_id: entry.crm_deal_id, updateData, closedPreviousTasks, note, task });
   }
   const reportPath = path.join(args.outputDir, `batch_${args.batchId}_mark_email_sent_report.json`);
   writeJson(reportPath, report);
@@ -1206,6 +1304,7 @@ async function modeSyncFromEvents(client, args, eventType) {
   const events = readEvents(args.eventsPath).filter((event) => event.campaign_name === CAMPAIGN_NAME);
   const relevant = events.filter((event) => event.event_type === eventType);
   const report = { mode: args.apply ? 'apply' : 'dry-run', eventType, matched: [], unmatched: [] };
+  const existingTasks = await fetchIaMujeresTasks(client);
   for (const event of relevant) {
     const opportunity = byThread.get(event.thread_id);
     if (!opportunity) {
@@ -1228,6 +1327,14 @@ async function modeSyncFromEvents(client, args, eventType) {
           lastEmailEventAt: event.occurred_at,
           lastEmailEventType: 'bounce_detected',
         };
+    const closedPreviousTasks = await completeTasks(
+      client,
+      [
+        ...matchingOpenTasksForOpportunity(existingTasks, opportunity.id, TASK_REVIEW_FOLLOW_UP_1),
+        ...matchingOpenTasksForOpportunity(existingTasks, opportunity.id, TASK_REVIEW_DRAFT_EMAIL_1),
+      ],
+      args.apply,
+    );
     if (args.apply) await updateOpportunity(client, opportunity.id, updateData);
     const taskTitle = isReply
       ? `[IA Mujeres] Responder y valorar reunión`
@@ -1249,7 +1356,7 @@ async function modeSyncFromEvents(client, args, eventType) {
       personId: opportunity.pointOfContact?.id,
       companyId: opportunity.company?.id,
     }, args.apply);
-    report.matched.push({ crm_deal_id: opportunity.id, event_id: event.event_id, updateData, note, task });
+    report.matched.push({ crm_deal_id: opportunity.id, event_id: event.event_id, updateData, closedPreviousTasks, note, task });
   }
   const reportPath = path.join(args.outputDir, `${TODAY}_${eventType}_sync_report.json`);
   writeJson(reportPath, report);
@@ -1284,6 +1391,79 @@ async function modePrepareFollowups(client, args) {
   return { status: 'ok', reportPath, selected: report.selected.length };
 }
 
+async function modeReconcileTasks(client, args) {
+  const tasks = await fetchIaMujeresTasks(client);
+  const advancedStages = new Set([
+    'EMAIL_1_SENT',
+    'EMAIL_1_RECEIVED_SIGNAL',
+    'NO_REPLY',
+    'FOLLOW_UP_1_PENDING',
+    'FOLLOW_UP_1_DRAFTED',
+    'FOLLOW_UP_1_SENT',
+    'FOLLOW_UP_2_PENDING',
+    'FOLLOW_UP_2_DRAFTED',
+    'FOLLOW_UP_2_SENT',
+    'NURTURING',
+    'REPLY_RECEIVED',
+    'MEETING_PROPOSED',
+    'MEETING_SCHEDULED',
+    'MEETING_DONE',
+    'NOT_INTERESTED',
+    'WRONG_CONTACT_MANUAL_REVIEW',
+  ]);
+  const report = {
+    mode: args.apply ? 'apply' : 'dry-run',
+    generated_at: new Date().toISOString(),
+    assignee: {
+      id: RAUL_ARTILES_WORKSPACE_MEMBER_ID,
+      email: RAUL_ARTILES_EMAIL,
+      name: 'Raúl Artiles',
+    },
+    inspected: tasks.length,
+    updated: [],
+    planned: [],
+  };
+
+  for (const task of tasks) {
+    const updateData = {};
+    const stages = taskOpportunityStages(task);
+    const shouldCloseDraftReview =
+      task.title === TASK_REVIEW_DRAFT_EMAIL_1 &&
+      task.status !== 'DONE' &&
+      stages.some((stage) => advancedStages.has(stage));
+
+    if (task.assignee?.id !== RAUL_ARTILES_WORKSPACE_MEMBER_ID) {
+      updateData.assigneeId = RAUL_ARTILES_WORKSPACE_MEMBER_ID;
+    }
+    if (shouldCloseDraftReview) {
+      updateData.status = 'DONE';
+    }
+
+    if (!Object.keys(updateData).length) continue;
+    if (args.apply) await updateTask(client, task.id, updateData);
+    report[args.apply ? 'updated' : 'planned'].push({
+      id: task.id,
+      title: task.title,
+      previousStatus: task.status,
+      previousAssigneeId: task.assignee?.id ?? null,
+      opportunityIds: taskOpportunityIds(task),
+      opportunityStages: stages,
+      updateData,
+    });
+  }
+
+  const modeSuffix = args.apply ? 'apply' : 'dry_run';
+  const reportPath = path.join(args.outputDir, `${TODAY}_task_reconciliation_${modeSuffix}_report.json`);
+  writeJson(reportPath, report);
+  return {
+    status: 'ok',
+    reportPath,
+    inspected: report.inspected,
+    changed: report.updated.length,
+    planned: report.planned.length,
+  };
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   ensureDir(args.outputDir);
@@ -1298,6 +1478,7 @@ async function main() {
   else if (args.mode === 'sync-replies') result = await modeSyncFromEvents(client, args, 'reply_detected');
   else if (args.mode === 'sync-bounces') result = await modeSyncFromEvents(client, args, 'bounce_detected');
   else if (args.mode === 'prepare-followups') result = await modePrepareFollowups(client, args);
+  else if (args.mode === 'reconcile-tasks') result = await modeReconcileTasks(client, args);
   else throw new Error(`Unhandled mode: ${args.mode}`);
   console.log(JSON.stringify(result, null, 2));
 }

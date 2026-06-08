@@ -1,0 +1,112 @@
+{
+  "generated_at": "2026-06-08T10:04:54.695Z",
+  "status": "ok",
+  "requested_email": "efrainmedina@tenerife.es",
+  "person_id": "30239400-5cfb-4ee2-b23c-473f7abcad32",
+  "opportunity_id": "2d9a4c49-ad1d-4a5a-9840-60e2d41d720e",
+  "company_id": "fdbc3a18-8305-4c7d-8b51-13e965077f14",
+  "before": {
+    "person": {
+      "id": "30239400-5cfb-4ee2-b23c-473f7abcad32",
+      "name": {
+        "firstName": "Efrain Medina",
+        "lastName": ""
+      },
+      "emails": {
+        "primaryEmail": "informacion@fifede.org",
+        "additionalEmails": []
+      },
+      "genericEmail": true,
+      "emailType": "generic_institutional",
+      "qualityFlags": "generic_institutional_email;multiple_emails_in_source;shared_phone;source_confidence_medium",
+      "needsManualReview": true,
+      "duplicatePossible": true
+    },
+    "opportunity": {
+      "id": "2d9a4c49-ad1d-4a5a-9840-60e2d41d720e",
+      "name": "Cabildo de Tenerife — IA Mujeres 2026 — Empleo / Educacion / Juventud",
+      "genericEmail": true,
+      "needsManualReview": true,
+      "duplicatePossible": true,
+      "qualityFlags": "generic_department_email;generic_institutional_email;multi_area;multi_segment;multiple_emails_in_source;shared_email_duplicate;shared_phone;source_confidence_medium",
+      "pointOfContact": {
+        "id": "30239400-5cfb-4ee2-b23c-473f7abcad32",
+        "emails": {
+          "primaryEmail": "informacion@fifede.org",
+          "additionalEmails": []
+        }
+      }
+    }
+  },
+  "updated": {
+    "person": {
+      "id": "30239400-5cfb-4ee2-b23c-473f7abcad32",
+      "name": {
+        "firstName": "Efrain Medina",
+        "lastName": ""
+      },
+      "emails": {
+        "primaryEmail": "efrainmedina@tenerife.es",
+        "additionalEmails": [
+          "informacion@fifede.org"
+        ]
+      },
+      "genericEmail": false,
+      "emailType": "personal",
+      "qualityFlags": "multiple_emails_in_source;shared_phone;source_confidence_medium;email_corrected_by_user"
+    },
+    "opportunity": {
+      "id": "2d9a4c49-ad1d-4a5a-9840-60e2d41d720e",
+      "name": "Cabildo de Tenerife — IA Mujeres 2026 — Empleo / Educacion / Juventud",
+      "genericEmail": false,
+      "needsManualReview": true,
+      "duplicatePossible": true,
+      "qualityFlags": "multi_area;multi_segment;multiple_emails_in_source;shared_email_duplicate;shared_phone;source_confidence_medium;email_corrected_by_user",
+      "pointOfContact": {
+        "id": "30239400-5cfb-4ee2-b23c-473f7abcad32",
+        "emails": {
+          "primaryEmail": "efrainmedina@tenerife.es",
+          "additionalEmails": [
+            "informacion@fifede.org"
+          ]
+        }
+      }
+    },
+    "noteId": "756e2115-985b-4e4d-bd97-f34416a446fa"
+  },
+  "after": {
+    "person": {
+      "id": "30239400-5cfb-4ee2-b23c-473f7abcad32",
+      "name": {
+        "firstName": "Efrain Medina",
+        "lastName": ""
+      },
+      "emails": {
+        "primaryEmail": "efrainmedina@tenerife.es",
+        "additionalEmails": [
+          "informacion@fifede.org"
+        ]
+      },
+      "genericEmail": false,
+      "emailType": "personal",
+      "qualityFlags": "multiple_emails_in_source;shared_phone;source_confidence_medium;email_corrected_by_user"
+    },
+    "opportunity": {
+      "id": "2d9a4c49-ad1d-4a5a-9840-60e2d41d720e",
+      "name": "Cabildo de Tenerife — IA Mujeres 2026 — Empleo / Educacion / Juventud",
+      "genericEmail": false,
+      "needsManualReview": true,
+      "duplicatePossible": true,
+      "qualityFlags": "multi_area;multi_segment;multiple_emails_in_source;shared_email_duplicate;shared_phone;source_confidence_medium;email_corrected_by_user",
+      "pointOfContact": {
+        "id": "30239400-5cfb-4ee2-b23c-473f7abcad32",
+        "emails": {
+          "primaryEmail": "efrainmedina@tenerife.es",
+          "additionalEmails": [
+            "informacion@fifede.org"
+          ]
+        }
+      }
+    }
+  }
+}

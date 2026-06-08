@@ -86,7 +86,7 @@
       "type": "KANBAN",
       "position": 2,
       "mainGroupByFieldMetadataId": "df5b7b7e-d24f-40f6-a9bc-41e3d70adf0c",
-      "filters": 0,
+      "filters": 1,
       "fields": 8,
       "groups": 11
     },
@@ -103,6 +103,14 @@
   ],
   "viewFilterValidation": [
     {
+      "view": "By Stage",
+      "filterId": "fba435eb-9a61-4796-b763-560e23c272f4",
+      "fieldName": "businessLine",
+      "fieldType": "RELATION",
+      "operand": "IS",
+      "valid": true
+    },
+    {
       "view": "IA Mujeres — Funnel",
       "filterId": "98f54d72-6988-4193-b2f8-f9f8b1b7abad",
       "fieldName": "campaignName",
@@ -112,7 +120,7 @@
     }
   ],
   "opportunities": {
-    "total": 145,
+    "total": 144,
     "campaign": 100,
     "byStage": {
       "POSSIBLE_OPPORTUNITY": 100
@@ -127,7 +135,7 @@
     },
     "needsManualReview": 62,
     "duplicatePossible": 11,
-    "genericEmail": 55,
+    "genericEmail": 54,
     "withGmailThreadId": 10
   }
 }
