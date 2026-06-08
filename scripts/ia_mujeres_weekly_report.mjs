@@ -116,19 +116,26 @@ function operationalThreadId(event) {
 }
 
 function summarize(events) {
-  const bounceEvents = events.filter((event) =>
+  const commercialEvents = events.filter((event) => event.crm_deal_id);
+  const labEvents = events.filter((event) => !event.crm_deal_id);
+  const bounceEvents = commercialEvents.filter((event) =>
     event.event_type === 'bounce_detected' ||
     (event.event_type === 'bounce_checked' && Number(event.metadata?.total_estimate ?? 0) > 0),
   );
 
   return {
-    draftsCreated: countWhere(events, (event) => event.event_type === 'draft_created'),
-    emailsSent: countWhere(events, (event) => event.event_type === 'email_sent'),
-    receptionsDetected: countWhere(events, (event) => event.event_type === 'reception_detected'),
-    repliesDetected: countWhere(events, (event) => event.event_type === 'reply_detected'),
+    localEvents: events.length,
+    commercialEvents: commercialEvents.length,
+    labEvents: labEvents.length,
+    draftsCreated: countWhere(commercialEvents, (event) => event.event_type === 'draft_created'),
+    emailsSent: countWhere(commercialEvents, (event) => event.event_type === 'email_sent'),
+    receptionsDetected: countWhere(commercialEvents, (event) => event.event_type === 'reception_detected'),
+    repliesDetected: countWhere(commercialEvents, (event) => event.event_type === 'reply_detected'),
     bouncesDetected: bounceEvents.length,
-    uniqueThreads: new Set(events.map(operationalThreadId).filter(Boolean)).size,
-    uniqueRecipients: uniqueCount(events.filter((event) => event.recipient_email !== SENDER_EMAIL), 'recipient_email'),
+    uniqueThreads: new Set(commercialEvents.map(operationalThreadId).filter(Boolean)).size,
+    uniqueRecipients: uniqueCount(commercialEvents.filter((event) => event.recipient_email !== SENDER_EMAIL), 'recipient_email'),
+    labEmailsSent: countWhere(labEvents, (event) => event.event_type === 'email_sent'),
+    labRepliesDetected: countWhere(labEvents, (event) => event.event_type === 'reply_detected'),
   };
 }
 
@@ -190,14 +197,16 @@ Periodo local: ${weekStart} a ${weekEnd}
 
 | Métrica | Valor |
 |---|---:|
-| Eventos locales | ${events.length} |
-| Drafts creados | ${metrics.draftsCreated} |
-| Emails enviados | ${metrics.emailsSent} |
-| Recepciones detectadas | ${metrics.receptionsDetected} |
-| Replies detectados | ${metrics.repliesDetected} |
-| Bounces detectados | ${metrics.bouncesDetected} |
-| Hilos únicos | ${metrics.uniqueThreads} |
-| Destinatarios únicos | ${metrics.uniqueRecipients} |
+| Eventos locales totales | ${metrics.localEvents} |
+| Eventos comerciales | ${metrics.commercialEvents} |
+| Eventos laboratorio interno | ${metrics.labEvents} |
+| Drafts comerciales creados | ${metrics.draftsCreated} |
+| Emails comerciales enviados | ${metrics.emailsSent} |
+| Recepciones comerciales detectadas | ${metrics.receptionsDetected} |
+| Replies comerciales detectados | ${metrics.repliesDetected} |
+| Bounces comerciales detectados | ${metrics.bouncesDetected} |
+| Hilos comerciales únicos | ${metrics.uniqueThreads} |
+| Destinatarios comerciales únicos | ${metrics.uniqueRecipients} |
 | Oportunidades IA Mujeres en CRM | ${crmAudit?.opportunities?.campaign ?? 'sin audit'} |
 | Con Gmail thread en CRM | ${crmAudit?.opportunities?.withGmailThreadId ?? 'sin audit'} |
 | Revisión manual marcada | ${crmAudit?.opportunities?.needsManualReview ?? 'sin audit'} |
@@ -216,7 +225,8 @@ ${rows.length ? rows.join('\n') : '| - | - | - | 0 | - | - |'}
 
 ## Lectura operativa
 
-- Experimento 0 interno: ${metrics.emailsSent > 0 && metrics.receptionsDetected > 0 && metrics.repliesDetected > 0 && metrics.bouncesDetected === 0 ? 'OK' : 'pendiente o incompleto'}.
+- Experimento 0 interno: ${metrics.labEmailsSent > 0 && metrics.labRepliesDetected > 0 ? 'OK' : 'pendiente o incompleto'}.
+- Métricas principales: cuentan solo eventos comerciales con \`crm_deal_id\`.
 - Aperturas: no se tratan como KPI principal.
 - Clicks: no instrumentados porque los links aprobados no se reescriben.
 - Pendientes, reuniones y nurturing: disponibles por CRM cuando el runner registre eventos productivos.
@@ -277,7 +287,8 @@ function renderHtml({ weekStart, weekEnd, events, metrics, threads, crmAudit }) 
     <p class="muted">Periodo local: ${escapeHtml(weekStart)} a ${escapeHtml(weekEnd)}</p>
 
     <section class="grid" aria-label="Métricas">
-      <div class="metric"><strong>${events.length}</strong><span>Eventos locales</span></div>
+      <div class="metric"><strong>${metrics.localEvents}</strong><span>Eventos locales</span></div>
+      <div class="metric"><strong>${metrics.commercialEvents}</strong><span>Eventos comerciales</span></div>
       <div class="metric"><strong>${metrics.draftsCreated}</strong><span>Drafts</span></div>
       <div class="metric"><strong>${metrics.emailsSent}</strong><span>Enviados</span></div>
       <div class="metric"><strong>${metrics.receptionsDetected}</strong><span>Recibidos</span></div>
@@ -319,7 +330,8 @@ function renderHtml({ weekStart, weekEnd, events, metrics, threads, crmAudit }) 
 
     <h2>Lectura operativa</h2>
     <ul>
-      <li>Experimento 0 interno: ${metrics.emailsSent > 0 && metrics.receptionsDetected > 0 && metrics.repliesDetected > 0 && metrics.bouncesDetected === 0 ? 'OK' : 'pendiente o incompleto'}.</li>
+      <li>Experimento 0 interno: ${metrics.labEmailsSent > 0 && metrics.labRepliesDetected > 0 ? 'OK' : 'pendiente o incompleto'}.</li>
+      <li>Las métricas principales cuentan solo eventos comerciales con crm_deal_id.</li>
       <li>Aperturas: no se tratan como KPI principal.</li>
       <li>Clicks: no instrumentados porque los links aprobados no se reescriben.</li>
       <li>Pendientes, reuniones y nurturing se leerán del CRM cuando el runner registre eventos productivos.</li>
@@ -347,7 +359,7 @@ function main() {
     return localDate >= weekStart && localDate < weekEndExclusive;
   });
   const metrics = summarize(events);
-  const threads = groupByThread(events);
+  const threads = groupByThread(events.filter((event) => event.crm_deal_id));
   const crmAudit = readCrmAudit(args.crmAuditPath);
 
   fs.mkdirSync(args.outputDir, { recursive: true });

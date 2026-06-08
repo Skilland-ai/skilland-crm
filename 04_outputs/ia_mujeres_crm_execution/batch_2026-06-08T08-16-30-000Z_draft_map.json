@@ -1,0 +1,66 @@
+{
+  "batch_id": "2026-06-08T08-16-30-000Z",
+  "created_at": "2026-06-08T08:16:48.182Z",
+  "drafts": [
+    {
+      "crm_deal_id": "44835ad6-24ee-4132-9b01-7ba22703a745",
+      "company_id": "bbccea4b-2d03-4856-b971-283899ce4bb4",
+      "person_id": "0f87603b-d6ba-41d6-a4d2-dc2d931680fc",
+      "recipient_email": "elsa.montero@valleseco.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r6066447827962960617",
+      "gmailMessageId": "19ea64e4d4984c14",
+      "gmailThreadId": "19ea64e4d4984c14"
+    },
+    {
+      "crm_deal_id": "4923b81f-4f6f-43c5-9c95-b16980004657",
+      "company_id": "62a03351-28f1-44f0-92c9-93f29262e50c",
+      "person_id": "3da3f203-c577-4a88-90c0-02244be841b2",
+      "recipient_email": "angonzalezcc@teguise.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r-3360756822327576048",
+      "gmailMessageId": "19ea64e511a49fba",
+      "gmailThreadId": "19ea64e511a49fba"
+    },
+    {
+      "crm_deal_id": "57e16747-a0af-4886-afc1-a6e65928b900",
+      "company_id": "5a1ab3d3-4116-408c-b94a-83149deb92a7",
+      "person_id": "5a7f2d4a-c976-499e-9671-61bb6286ac92",
+      "recipient_email": "tijarafe@tijarafe.org",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r8720426719930322068",
+      "gmailMessageId": "19ea64e57ad8775f",
+      "gmailThreadId": "19ea64e57ad8775f"
+    },
+    {
+      "crm_deal_id": "60796cdb-99b7-47bc-8bde-38405e75726a",
+      "company_id": "77abba2e-cd26-45a7-8db1-f12142e3e690",
+      "person_id": "4c605c8e-781e-4ea2-ac49-66eb99b48936",
+      "recipient_email": "jacarsal@aytotacoronte.org",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r8670457442347801285",
+      "gmailMessageId": "19ea64e5bb665093",
+      "gmailThreadId": "19ea64e5bb665093"
+    },
+    {
+      "crm_deal_id": "6fc5ac05-2dc2-43b8-8a89-77c60abe7f23",
+      "company_id": "52f97b09-d256-4e5b-bdb0-2f6dfff982f7",
+      "person_id": "4318fa48-b239-4198-a48b-3c701eeb1486",
+      "recipient_email": "egonzalez@aytosantaursula.com",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r5184531723170331491",
+      "gmailMessageId": "19ea64e6051e8f89",
+      "gmailThreadId": "19ea64e6051e8f89"
+    }
+  ]
+}

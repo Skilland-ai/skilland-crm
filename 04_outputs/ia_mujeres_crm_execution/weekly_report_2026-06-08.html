@@ -28,14 +28,15 @@
     <p class="muted">Periodo local: 2026-06-08 a 2026-06-14</p>
 
     <section class="grid" aria-label="Métricas">
-      <div class="metric"><strong>7</strong><span>Eventos locales</span></div>
-      <div class="metric"><strong>2</strong><span>Drafts</span></div>
-      <div class="metric"><strong>1</strong><span>Enviados</span></div>
-      <div class="metric"><strong>1</strong><span>Recibidos</span></div>
-      <div class="metric"><strong>1</strong><span>Replies</span></div>
+      <div class="metric"><strong>27</strong><span>Eventos locales</span></div>
+      <div class="metric"><strong>20</strong><span>Eventos comerciales</span></div>
+      <div class="metric"><strong>10</strong><span>Drafts</span></div>
+      <div class="metric"><strong>10</strong><span>Enviados</span></div>
+      <div class="metric"><strong>0</strong><span>Recibidos</span></div>
+      <div class="metric"><strong>0</strong><span>Replies</span></div>
       <div class="metric"><strong>0</strong><span>Bounces</span></div>
       <div class="metric"><strong>100</strong><span>Deals CRM IA Mujeres</span></div>
-      <div class="metric"><strong>0</strong><span>Con Gmail thread</span></div>
+      <div class="metric"><strong>10</strong><span>Con Gmail thread</span></div>
     </section>
 
     <h2>Estado CRM</h2>
@@ -49,8 +50,12 @@
       <tbody>
         
         <tr>
+          <td><code>EMAIL_1_SENT</code></td>
+          <td class="number">10</td>
+        </tr>
+        <tr>
           <td><code>NOT_SENT</code></td>
-          <td class="number">100</td>
+          <td class="number">90</td>
         </tr>
       </tbody>
     </table>
@@ -70,20 +75,84 @@
       <tbody>
         
         <tr>
-          <td><code>19ea476680e7031b</code></td>
-          <td>sales@reboot.academy</td>
-          <td>reply_detected</td>
-          <td class="number">6</td>
-          <td>bounce_checked</td>
-          <td>8/6/26, 0:51</td>
+          <td><code>19ea6455961a1a53</code></td>
+          <td>atmendoza@galdar.es</td>
+          <td>sent</td>
+          <td class="number">2</td>
+          <td>email_sent</td>
+          <td>8/6/26, 9:11</td>
         </tr>
         <tr>
-          <td><code>19ea49ca18113187</code></td>
-          <td>sales@reboot.academy</td>
-          <td>draft_only</td>
-          <td class="number">1</td>
-          <td>draft_created</td>
-          <td>8/6/26, 1:23</td>
+          <td><code>19ea6455ea163fa5</code></td>
+          <td>ss.ss@barlovento.es</td>
+          <td>sent</td>
+          <td class="number">2</td>
+          <td>email_sent</td>
+          <td>8/6/26, 9:11</td>
+        </tr>
+        <tr>
+          <td><code>19ea6456723fb740</code></td>
+          <td>emendoza@granadilladeabona.org</td>
+          <td>sent</td>
+          <td class="number">2</td>
+          <td>email_sent</td>
+          <td>8/6/26, 9:11</td>
+        </tr>
+        <tr>
+          <td><code>19ea6456f82574b0</code></td>
+          <td>servicios.generales@sanmigueldeabona.org</td>
+          <td>sent</td>
+          <td class="number">2</td>
+          <td>email_sent</td>
+          <td>8/6/26, 9:11</td>
+        </tr>
+        <tr>
+          <td><code>19ea645725029d69</code></td>
+          <td>t.gutierrez@puertodelrosario.org</td>
+          <td>sent</td>
+          <td class="number">2</td>
+          <td>email_sent</td>
+          <td>8/6/26, 9:11</td>
+        </tr>
+        <tr>
+          <td><code>19ea64e4d4984c14</code></td>
+          <td>elsa.montero@valleseco.es</td>
+          <td>sent</td>
+          <td class="number">2</td>
+          <td>email_sent</td>
+          <td>8/6/26, 9:17</td>
+        </tr>
+        <tr>
+          <td><code>19ea64e511a49fba</code></td>
+          <td>angonzalezcc@teguise.es</td>
+          <td>sent</td>
+          <td class="number">2</td>
+          <td>email_sent</td>
+          <td>8/6/26, 9:17</td>
+        </tr>
+        <tr>
+          <td><code>19ea64e57ad8775f</code></td>
+          <td>tijarafe@tijarafe.org</td>
+          <td>sent</td>
+          <td class="number">2</td>
+          <td>email_sent</td>
+          <td>8/6/26, 9:17</td>
+        </tr>
+        <tr>
+          <td><code>19ea64e5bb665093</code></td>
+          <td>jacarsal@aytotacoronte.org</td>
+          <td>sent</td>
+          <td class="number">2</td>
+          <td>email_sent</td>
+          <td>8/6/26, 9:17</td>
+        </tr>
+        <tr>
+          <td><code>19ea64e6051e8f89</code></td>
+          <td>egonzalez@aytosantaursula.com</td>
+          <td>sent</td>
+          <td class="number">2</td>
+          <td>email_sent</td>
+          <td>8/6/26, 9:17</td>
         </tr>
       </tbody>
     </table>
@@ -91,6 +160,7 @@
     <h2>Lectura operativa</h2>
     <ul>
       <li>Experimento 0 interno: OK.</li>
+      <li>Las métricas principales cuentan solo eventos comerciales con crm_deal_id.</li>
       <li>Aperturas: no se tratan como KPI principal.</li>
       <li>Clicks: no instrumentados porque los links aprobados no se reescriben.</li>
       <li>Pendientes, reuniones y nurturing se leerán del CRM cuando el runner registre eventos productivos.</li>

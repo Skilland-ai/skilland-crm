@@ -6,9 +6,11 @@ Fecha: 2026-06-08
 
 1. Entrar en Twenty y revisar la vista `IA Mujeres — Funnel`.
 2. Revisar la primera tanda real enviada: `2026-06-08T08-03-50-600Z`.
-3. Revisar `04_outputs/ia_mujeres_crm_execution/2026-06-08_first_external_batch_05_report.md`.
-4. Monitorizar replies/bounces.
-5. No preparar segunda tanda hasta revisar señales de esta primera.
+3. Revisar la segunda tanda real enviada: `2026-06-08T08-16-30-000Z`.
+4. Revisar `04_outputs/ia_mujeres_crm_execution/2026-06-08_first_external_batch_05_report.md`.
+5. Revisar `04_outputs/ia_mujeres_crm_execution/2026-06-08_second_external_batch_05_report.md`.
+6. Monitorizar replies/bounces.
+7. No preparar tercera tanda hasta revisar señales iniciales de estas dos primeras.
 
 ## Operación diaria segura
 
@@ -18,12 +20,13 @@ node scripts/ia_mujeres_daily_operator.mjs --limit=5 --weekly
 
 Este comando no muta CRM, no crea drafts Gmail y no envía emails.
 
-## Antes de primera tanda externa
+## Estado actual
 
-- Primera tanda externa enviada y registrada en CRM.
+- Dos tandas externas enviadas y registradas en CRM.
+- Enviados totales IA Mujeres: 10.
 - Validar señales iniciales: bounces, replies, tareas de follow-up y lectura comercial desde la vista `IA Mujeres — Funnel`.
 - Corregir en CRM nombres/entidades sin tildes si se quiere máxima calidad en personalización para próximas tandas.
-- No lanzar segunda tanda hasta revisar esta primera tanda enviada.
+- No lanzar tercera tanda hasta revisar estas dos tandas enviadas.
 
 ## Comandos CRM listos
 

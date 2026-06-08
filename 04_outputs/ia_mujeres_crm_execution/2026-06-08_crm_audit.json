@@ -97,7 +97,7 @@
       "position": 20,
       "mainGroupByFieldMetadataId": "d5fa21f5-b38b-4817-9d8e-a493c3dc3c60",
       "filters": 1,
-      "fields": 10,
+      "fields": 15,
       "groups": 18
     }
   ],
@@ -118,16 +118,16 @@
       "POSSIBLE_OPPORTUNITY": 100
     },
     "byOutreachStatus": {
-      "pending_first_email": 95,
-      "sent_first_email": 5
+      "pending_first_email": 90,
+      "sent_first_email": 10
     },
     "byIaMujeresFunnelStage": {
-      "NOT_SENT": 95,
-      "EMAIL_1_SENT": 5
+      "NOT_SENT": 90,
+      "EMAIL_1_SENT": 10
     },
     "needsManualReview": 62,
     "duplicatePossible": 11,
     "genericEmail": 55,
-    "withGmailThreadId": 5
+    "withGmailThreadId": 10
   }
 }
