@@ -1,76 +1,75 @@
 # Weekly Report Design — IA Mujeres
 
-## Decision
+Fecha: 2026-06-08
 
-Conviene reporte semanal HTML por email, pero no dashboard todavia.
+## Decisión
 
-Razon: la operacion inicial necesita control y aprendizaje, no una UI permanente.
+Mantener reporte semanal local en Markdown y HTML. Preparar envío por email después, no ahora.
 
-## Formato recomendado
+El reporte ya lee eventos GWS locales y audit CRM si existe. Así empieza a mostrar estado comercial, no solo laboratorio Gmail.
 
-- `weekly_report_<yyyy-mm-dd>.html`
-- `weekly_report_<yyyy-mm-dd>.md`
-- Envio opcional por Gmail a Raul/Romina tras revision.
-
-## Fuentes
-
-- Twenty CRM: opportunities `campaignName = IA Mujeres 2026`.
-- Eventos GWS: `04_outputs/ia_mujeres_crm_execution/events.ndjson`.
-- Gmail: threads conocidos para replies/bounces.
-- Tareas CRM: reuniones y pendientes humanos.
-
-## Metricas
-
-- Drafts creados.
-- Emails enviados.
-- Recibidos confirmados.
-- Respuestas recibidas.
-- Respuestas positivas.
-- Derivaciones.
-- Reuniones propuestas.
-- Reuniones agendadas.
-- Bounces.
-- Pendientes de follow-up 1.
-- Pendientes de follow-up 2.
-- Pasados a nurturing.
-- Incidencias de personalizacion/adjunto/firma.
-
-## Secciones del HTML
-
-1. Resumen ejecutivo.
-2. Tabla de tandas.
-3. Conversaciones abiertas.
-4. Reuniones y tareas humanas.
-5. Bounces e incidencias.
-6. Aprendizajes de copy/entregabilidad.
-7. Proximas acciones.
-
-## Implementacion propuesta
-
-Fase actual: base implementada como generador local.
-
-Comando:
+## Comando
 
 ```bash
 node scripts/ia_mujeres_weekly_report.mjs --week=2026-06-08
 ```
 
-Outputs generados:
+## Outputs actuales
 
 - `04_outputs/ia_mujeres_crm_execution/weekly_report_2026-06-08.md`
 - `04_outputs/ia_mujeres_crm_execution/weekly_report_2026-06-08.html`
 
-Safeguards:
+## Métricas incluidas ahora
 
-- Lee solo `events.ndjson`.
-- No envia email.
-- No muta CRM.
-- `--email-draft` esta bloqueado intencionadamente hasta que se apruebe el circuito de revision.
+- Eventos locales.
+- Drafts creados.
+- Emails enviados.
+- Recepciones detectadas.
+- Replies detectados.
+- Bounces detectados.
+- Hilos únicos.
+- Destinatarios únicos.
+- Opportunities IA Mujeres en CRM.
+- Deals con `gmailThreadId`.
+- Deals con revisión manual.
+- Distribución por `iaMujeresFunnelStage`.
 
-Fase siguiente:
+## Métricas objetivo tras primera tanda real
 
-```bash
-node scripts/ia_mujeres_weekly_report.mjs --week=<yyyy-mm-dd>
-```
+- Enviados por tanda.
+- Drafts pendientes de revisión.
+- Respuestas recibidas.
+- Reuniones propuestas/agendadas.
+- Bounces.
+- Follow-up 1 pendiente.
+- Follow-up 2 pendiente.
+- Nurturing.
+- Tareas vencidas.
+- Incidencias de contacto/copy/adjunto/firma.
+- Recomendación de siguiente tanda.
 
-Despues de cerrar mapeo CRM, ampliar el reporte con pendientes, reuniones, nurturing y tareas humanas.
+## Email HTML semanal
+
+Conviene enviar HTML por Gmail a dirección interna después de validar:
+
+- destinatarios internos;
+- asunto fijo;
+- render responsive;
+- no inclusión de datos sensibles innecesarios;
+- aprobación humana de formato.
+
+El flag `--email-draft` sigue bloqueado intencionadamente.
+
+## Estado de la semana actual
+
+El reporte del 2026-06-08 muestra:
+
+- Eventos locales: 7.
+- Experimento 0: OK.
+- CRM IA Mujeres: 100 opportunities.
+- `NOT_SENT`: 100.
+- Con `gmailThreadId`: 0.
+
+## Siguiente paso técnico
+
+Cuando haya primer envío externo autorizado, ejecutar `mark-email-sent --apply` para que el reporte semanal refleje envíos, hilos y follow-ups desde CRM.

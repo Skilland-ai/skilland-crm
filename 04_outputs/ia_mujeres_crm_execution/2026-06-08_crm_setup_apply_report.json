@@ -1,0 +1,99 @@
+{
+  "date": "2026-06-08",
+  "mode": "dry-run",
+  "fields": {
+    "planned": [],
+    "reused": [
+      {
+        "name": "iaMujeresFunnelStage",
+        "id": "d5fa21f5-b38b-4817-9d8e-a493c3dc3c60",
+        "type": "SELECT"
+      },
+      {
+        "name": "gmailDraftId",
+        "id": "379bca26-416b-43de-a917-b4930aa0a1e5",
+        "type": "TEXT"
+      },
+      {
+        "name": "gmailMessageId",
+        "id": "3c987a5b-c66f-4456-aeb8-f298d0accf57",
+        "type": "TEXT"
+      },
+      {
+        "name": "gmailThreadId",
+        "id": "262b80f8-a4b9-4834-8a33-1c880dec9e12",
+        "type": "TEXT"
+      },
+      {
+        "name": "lastEmailEventAt",
+        "id": "bd1d768c-7ded-4a48-8971-a8fc56606548",
+        "type": "DATE_TIME"
+      },
+      {
+        "name": "lastEmailEventType",
+        "id": "8f61ad0d-bc3e-435d-b1b6-e98d4b6543cd",
+        "type": "TEXT"
+      },
+      {
+        "name": "activeBatchId",
+        "id": "5c72cef0-7a6b-4432-b3f0-e31ec2262f78",
+        "type": "TEXT"
+      },
+      {
+        "name": "lastEmailTemplate",
+        "id": "65ce3c38-b191-4c3e-985e-bf4915fb6b28",
+        "type": "TEXT"
+      },
+      {
+        "name": "lastEmailSubject",
+        "id": "079d6251-26fb-4389-8629-b7f5ffe2b3d5",
+        "type": "TEXT"
+      }
+    ],
+    "created": [],
+    "typeMismatches": []
+  },
+  "views": {
+    "before": [
+      {
+        "id": "e692277f-39b5-495d-acff-3ba319d1fd55",
+        "name": "All Opportunities",
+        "type": "TABLE",
+        "position": 0
+      },
+      {
+        "id": "88ac6fbc-3267-4c0f-98f4-b8600706534b",
+        "name": "Opportunity Record Page Fields",
+        "type": "FIELDS_WIDGET",
+        "position": 0
+      },
+      {
+        "id": "caa64a59-593c-43eb-a483-cfd2cd597b36",
+        "name": "By Stage (table)",
+        "type": "TABLE",
+        "position": 0
+      },
+      {
+        "id": "c8bbf733-9889-4078-9ed2-8bdd359b0b66",
+        "name": "By Stage",
+        "type": "KANBAN",
+        "position": 2
+      },
+      {
+        "id": "01034b47-6ae2-4e66-9e95-db8b76e942b7",
+        "name": "IA Mujeres — Funnel",
+        "type": "KANBAN",
+        "position": 20
+      }
+    ],
+    "created": [],
+    "updated": [],
+    "fieldsCreated": [],
+    "filtersCreated": [],
+    "groupsCreated": [],
+    "groupsUpdated": [],
+    "missingFields": [],
+    "after": []
+  },
+  "initialization": null
+}

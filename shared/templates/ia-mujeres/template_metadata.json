@@ -1,0 +1,16 @@
+{
+  "email_01": {
+    "subject": "Una preocupación que quería compartir con usted",
+    "attachmentPolicy": "short_presentation",
+    "attachmentMimeName": "Mujeres, IA y el futuro del Trabajo - Presentación corta — SkilLand.pdf"
+  },
+  "follow_up_01": {
+    "subject": "Re: Una preocupación que quería compartir con usted",
+    "attachmentPolicy": "none"
+  },
+  "follow_up_02_whitepaper": {
+    "subject": "Re: Una preocupación que quería compartir con usted",
+    "attachmentPolicy": "whitepaper",
+    "attachmentMimeName": "Mujeres, IA y el Futuro del Trabajo - Informe largo white paper para impactos posteriores o retargeting a quien no responda — SkilLand.pdf"
+  }
+}

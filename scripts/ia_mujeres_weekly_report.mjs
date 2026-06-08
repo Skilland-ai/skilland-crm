@@ -14,6 +14,7 @@ function parseArgs(argv) {
     week: '2026-06-08',
     outputDir: DEFAULT_OUTPUT_DIR,
     eventsPath: DEFAULT_EVENTS_PATH,
+    crmAuditPath: path.join(DEFAULT_OUTPUT_DIR, '2026-06-08_crm_audit.json'),
     emailDraft: false,
   };
 
@@ -21,6 +22,7 @@ function parseArgs(argv) {
     if (arg.startsWith('--week=')) args.week = arg.slice('--week='.length);
     else if (arg.startsWith('--output-dir=')) args.outputDir = path.resolve(arg.slice('--output-dir='.length));
     else if (arg.startsWith('--events=')) args.eventsPath = path.resolve(arg.slice('--events='.length));
+    else if (arg.startsWith('--crm-audit=')) args.crmAuditPath = path.resolve(arg.slice('--crm-audit='.length));
     else if (arg === '--email-draft') args.emailDraft = true;
     else if (arg === '--help' || arg === '-h') {
       printHelp();
@@ -48,8 +50,9 @@ Usage:
   node scripts/ia_mujeres_weekly_report.mjs
   node scripts/ia_mujeres_weekly_report.mjs --week=2026-06-08
   node scripts/ia_mujeres_weekly_report.mjs --week=2026-06-08 --events=04_outputs/ia_mujeres_crm_execution/events.ndjson
+  node scripts/ia_mujeres_weekly_report.mjs --crm-audit=04_outputs/ia_mujeres_crm_execution/2026-06-08_crm_audit.json
 
-This script reads local events only. It does not send email and does not mutate CRM.
+This script reads local events plus the latest CRM audit if present. It does not send email and does not mutate CRM.
 `);
 }
 
@@ -93,6 +96,11 @@ function readEvents(eventsPath) {
       }
     })
     .filter((event) => event.campaign_name === CAMPAIGN_NAME);
+}
+
+function readCrmAudit(crmAuditPath) {
+  if (!fs.existsSync(crmAuditPath)) return null;
+  return JSON.parse(fs.readFileSync(crmAuditPath, 'utf8'));
 }
 
 function countWhere(events, predicate) {
@@ -162,10 +170,17 @@ function escapeHtml(value) {
     .replaceAll("'", '&#39;');
 }
 
-function renderMarkdown({ weekStart, weekEnd, events, metrics, threads }) {
+function renderCrmStageRows(crmAudit) {
+  return Object.entries(crmAudit?.opportunities?.byIaMujeresFunnelStage ?? {})
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([stage, count]) => `| ${stage} | ${count} |`);
+}
+
+function renderMarkdown({ weekStart, weekEnd, events, metrics, threads, crmAudit }) {
   const rows = threads.map((thread) =>
     `| ${thread.threadId} | ${thread.recipient} | ${thread.status} | ${thread.eventCount} | ${thread.lastEventType ?? ''} | ${thread.lastEventAt ? localDateTime(thread.lastEventAt) : ''} |`,
   );
+  const crmStageRows = renderCrmStageRows(crmAudit);
 
   return `# Weekly Report — IA Mujeres
 
@@ -173,7 +188,7 @@ Periodo local: ${weekStart} a ${weekEnd}
 
 ## Resumen
 
-| Metrica | Valor |
+| Métrica | Valor |
 |---|---:|
 | Eventos locales | ${events.length} |
 | Drafts creados | ${metrics.draftsCreated} |
@@ -181,12 +196,21 @@ Periodo local: ${weekStart} a ${weekEnd}
 | Recepciones detectadas | ${metrics.receptionsDetected} |
 | Replies detectados | ${metrics.repliesDetected} |
 | Bounces detectados | ${metrics.bouncesDetected} |
-| Hilos unicos | ${metrics.uniqueThreads} |
-| Destinatarios unicos | ${metrics.uniqueRecipients} |
+| Hilos únicos | ${metrics.uniqueThreads} |
+| Destinatarios únicos | ${metrics.uniqueRecipients} |
+| Oportunidades IA Mujeres en CRM | ${crmAudit?.opportunities?.campaign ?? 'sin audit'} |
+| Con Gmail thread en CRM | ${crmAudit?.opportunities?.withGmailThreadId ?? 'sin audit'} |
+| Revisión manual marcada | ${crmAudit?.opportunities?.needsManualReview ?? 'sin audit'} |
+
+## Estado CRM
+
+| IA Mujeres funnel stage | Deals |
+|---|---:|
+${crmStageRows.length ? crmStageRows.join('\n') : '| sin audit | 0 |'}
 
 ## Estado de hilos
 
-| Thread/Draft | Destinatario | Estado | Eventos | Ultimo evento | Fecha local |
+| Thread/Draft | Destinatario | Estado | Eventos | Último evento | Fecha local |
 |---|---|---|---:|---|---|
 ${rows.length ? rows.join('\n') : '| - | - | - | 0 | - | - |'}
 
@@ -195,17 +219,17 @@ ${rows.length ? rows.join('\n') : '| - | - | - | 0 | - | - |'}
 - Experimento 0 interno: ${metrics.emailsSent > 0 && metrics.receptionsDetected > 0 && metrics.repliesDetected > 0 && metrics.bouncesDetected === 0 ? 'OK' : 'pendiente o incompleto'}.
 - Aperturas: no se tratan como KPI principal.
 - Clicks: no instrumentados porque los links aprobados no se reescriben.
-- Pendientes/reuniones/nurturing: no disponibles aun sin mapeo CRM productivo.
+- Pendientes, reuniones y nurturing: disponibles por CRM cuando el runner registre eventos productivos.
 
-## Proximas acciones
+## Próximas acciones
 
-- Cerrar mapeo CRM para \`gmailDraftId\`, \`gmailMessageId\` y \`gmailThreadId\`.
-- Implementar runner de tanda en modo dry-run antes de contactos externos.
-- Mantener autorizacion humana explicita para cualquier envio externo.
+- Revisar la vista \`IA Mujeres — Funnel\`.
+- Revisar \`batch_<id>_draft_review.md\` antes de crear cualquier draft externo.
+- Mantener autorización humana explícita para cualquier envío externo.
 `;
 }
 
-function renderHtml({ weekStart, weekEnd, events, metrics, threads }) {
+function renderHtml({ weekStart, weekEnd, events, metrics, threads, crmAudit }) {
   const threadRows = threads.map((thread) => `
         <tr>
           <td><code>${escapeHtml(thread.threadId)}</code></td>
@@ -214,6 +238,13 @@ function renderHtml({ weekStart, weekEnd, events, metrics, threads }) {
           <td class="number">${thread.eventCount}</td>
           <td>${escapeHtml(thread.lastEventType)}</td>
           <td>${escapeHtml(thread.lastEventAt ? localDateTime(thread.lastEventAt) : '')}</td>
+        </tr>`).join('');
+  const crmRows = Object.entries(crmAudit?.opportunities?.byIaMujeresFunnelStage ?? {})
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([stage, count]) => `
+        <tr>
+          <td><code>${escapeHtml(stage)}</code></td>
+          <td class="number">${escapeHtml(count)}</td>
         </tr>`).join('');
 
   return `<!doctype html>
@@ -245,14 +276,29 @@ function renderHtml({ weekStart, weekEnd, events, metrics, threads }) {
     <h1>Weekly Report — IA Mujeres</h1>
     <p class="muted">Periodo local: ${escapeHtml(weekStart)} a ${escapeHtml(weekEnd)}</p>
 
-    <section class="grid" aria-label="Metricas">
+    <section class="grid" aria-label="Métricas">
       <div class="metric"><strong>${events.length}</strong><span>Eventos locales</span></div>
       <div class="metric"><strong>${metrics.draftsCreated}</strong><span>Drafts</span></div>
       <div class="metric"><strong>${metrics.emailsSent}</strong><span>Enviados</span></div>
       <div class="metric"><strong>${metrics.receptionsDetected}</strong><span>Recibidos</span></div>
       <div class="metric"><strong>${metrics.repliesDetected}</strong><span>Replies</span></div>
       <div class="metric"><strong>${metrics.bouncesDetected}</strong><span>Bounces</span></div>
+      <div class="metric"><strong>${escapeHtml(crmAudit?.opportunities?.campaign ?? 'sin audit')}</strong><span>Deals CRM IA Mujeres</span></div>
+      <div class="metric"><strong>${escapeHtml(crmAudit?.opportunities?.withGmailThreadId ?? 'sin audit')}</strong><span>Con Gmail thread</span></div>
     </section>
+
+    <h2>Estado CRM</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>IA Mujeres funnel stage</th>
+          <th>Deals</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${crmRows || '<tr><td colspan="2">Sin audit CRM disponible.</td></tr>'}
+      </tbody>
+    </table>
 
     <h2>Estado de hilos</h2>
     <table>
@@ -262,7 +308,7 @@ function renderHtml({ weekStart, weekEnd, events, metrics, threads }) {
           <th>Destinatario</th>
           <th>Estado</th>
           <th>Eventos</th>
-          <th>Ultimo evento</th>
+          <th>Último evento</th>
           <th>Fecha local</th>
         </tr>
       </thead>
@@ -276,14 +322,14 @@ function renderHtml({ weekStart, weekEnd, events, metrics, threads }) {
       <li>Experimento 0 interno: ${metrics.emailsSent > 0 && metrics.receptionsDetected > 0 && metrics.repliesDetected > 0 && metrics.bouncesDetected === 0 ? 'OK' : 'pendiente o incompleto'}.</li>
       <li>Aperturas: no se tratan como KPI principal.</li>
       <li>Clicks: no instrumentados porque los links aprobados no se reescriben.</li>
-      <li>Pendientes, reuniones y nurturing requieren mapeo CRM productivo.</li>
+      <li>Pendientes, reuniones y nurturing se leerán del CRM cuando el runner registre eventos productivos.</li>
     </ul>
 
-    <h2>Proximas acciones</h2>
+    <h2>Próximas acciones</h2>
     <ul>
-      <li>Cerrar mapeo CRM para Gmail IDs.</li>
-      <li>Implementar runner de tanda en modo dry-run.</li>
-      <li>Mantener autorizacion humana explicita para cualquier envio externo.</li>
+      <li>Revisar la vista IA Mujeres — Funnel.</li>
+      <li>Revisar batch_&lt;id&gt;_draft_review.md antes de crear cualquier draft externo.</li>
+      <li>Mantener autorización humana explícita para cualquier envío externo.</li>
     </ul>
   </main>
 </body>
@@ -302,13 +348,14 @@ function main() {
   });
   const metrics = summarize(events);
   const threads = groupByThread(events);
+  const crmAudit = readCrmAudit(args.crmAuditPath);
 
   fs.mkdirSync(args.outputDir, { recursive: true });
   const mdPath = path.join(args.outputDir, `weekly_report_${weekStart}.md`);
   const htmlPath = path.join(args.outputDir, `weekly_report_${weekStart}.html`);
 
-  fs.writeFileSync(mdPath, renderMarkdown({ weekStart, weekEnd, events, metrics, threads }));
-  fs.writeFileSync(htmlPath, renderHtml({ weekStart, weekEnd, events, metrics, threads }));
+  fs.writeFileSync(mdPath, renderMarkdown({ weekStart, weekEnd, events, metrics, threads, crmAudit }));
+  fs.writeFileSync(htmlPath, renderHtml({ weekStart, weekEnd, events, metrics, threads, crmAudit }));
 
   console.log(JSON.stringify({
     status: 'ok',
@@ -317,6 +364,7 @@ function main() {
     week_end: weekEnd,
     events: events.length,
     outputs: { markdown: mdPath, html: htmlPath },
+    crmAudit: crmAudit ? args.crmAuditPath : null,
     metrics,
   }, null, 2));
 }

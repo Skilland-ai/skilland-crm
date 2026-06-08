@@ -1,0 +1,271 @@
+{
+  "generatedAt": "2026-06-08T07:52:18.299Z",
+  "viewId": "01034b47-6ae2-4e66-9e95-db8b76e942b7",
+  "beforeGroups": 37,
+  "deleted": [
+    {
+      "id": "7f17b236-4b29-49a0-887c-5f6886d4322e",
+      "fieldValue": "",
+      "reason": "empty",
+      "result": {
+        "id": "7f17b236-4b29-49a0-887c-5f6886d4322e",
+        "fieldValue": ""
+      }
+    },
+    {
+      "id": "8b139832-1d36-4ddb-ab39-f622990e448e",
+      "fieldValue": "NOT_SENT",
+      "reason": "duplicate",
+      "result": {
+        "id": "8b139832-1d36-4ddb-ab39-f622990e448e",
+        "fieldValue": "NOT_SENT"
+      }
+    },
+    {
+      "id": "667a4831-52c8-4e92-8655-3439732ceebb",
+      "fieldValue": "DRAFT_CREATED",
+      "reason": "duplicate",
+      "result": {
+        "id": "667a4831-52c8-4e92-8655-3439732ceebb",
+        "fieldValue": "DRAFT_CREATED"
+      }
+    },
+    {
+      "id": "03a6b430-5b45-4d33-aa76-cb1af4556c56",
+      "fieldValue": "EMAIL_1_SENT",
+      "reason": "duplicate",
+      "result": {
+        "id": "03a6b430-5b45-4d33-aa76-cb1af4556c56",
+        "fieldValue": "EMAIL_1_SENT"
+      }
+    },
+    {
+      "id": "18108b52-3cfe-47eb-8e6d-ad3102a0003d",
+      "fieldValue": "EMAIL_1_RECEIVED_SIGNAL",
+      "reason": "duplicate",
+      "result": {
+        "id": "18108b52-3cfe-47eb-8e6d-ad3102a0003d",
+        "fieldValue": "EMAIL_1_RECEIVED_SIGNAL"
+      }
+    },
+    {
+      "id": "8c7993f1-8c24-4c07-a1ef-0ff10e9e2016",
+      "fieldValue": "NO_REPLY",
+      "reason": "duplicate",
+      "result": {
+        "id": "8c7993f1-8c24-4c07-a1ef-0ff10e9e2016",
+        "fieldValue": "NO_REPLY"
+      }
+    },
+    {
+      "id": "3d95a345-20fa-40cf-8113-cc106941f861",
+      "fieldValue": "FOLLOW_UP_1_PENDING",
+      "reason": "duplicate",
+      "result": {
+        "id": "3d95a345-20fa-40cf-8113-cc106941f861",
+        "fieldValue": "FOLLOW_UP_1_PENDING"
+      }
+    },
+    {
+      "id": "08a7a9c6-eae7-4b36-b92e-99936d0c2be3",
+      "fieldValue": "FOLLOW_UP_1_DRAFTED",
+      "reason": "duplicate",
+      "result": {
+        "id": "08a7a9c6-eae7-4b36-b92e-99936d0c2be3",
+        "fieldValue": "FOLLOW_UP_1_DRAFTED"
+      }
+    },
+    {
+      "id": "16c5bafc-891b-4389-bc20-13a9de950527",
+      "fieldValue": "FOLLOW_UP_1_SENT",
+      "reason": "duplicate",
+      "result": {
+        "id": "16c5bafc-891b-4389-bc20-13a9de950527",
+        "fieldValue": "FOLLOW_UP_1_SENT"
+      }
+    },
+    {
+      "id": "14bf8a1b-4b91-4f49-b09b-b3748bc7b4ba",
+      "fieldValue": "FOLLOW_UP_2_PENDING",
+      "reason": "duplicate",
+      "result": {
+        "id": "14bf8a1b-4b91-4f49-b09b-b3748bc7b4ba",
+        "fieldValue": "FOLLOW_UP_2_PENDING"
+      }
+    },
+    {
+      "id": "f7d24990-b453-43c0-b06b-a0595e73c3fb",
+      "fieldValue": "FOLLOW_UP_2_DRAFTED",
+      "reason": "duplicate",
+      "result": {
+        "id": "f7d24990-b453-43c0-b06b-a0595e73c3fb",
+        "fieldValue": "FOLLOW_UP_2_DRAFTED"
+      }
+    },
+    {
+      "id": "6bc2c237-ad04-4531-9e87-c4e19a47250f",
+      "fieldValue": "FOLLOW_UP_2_SENT",
+      "reason": "duplicate",
+      "result": {
+        "id": "6bc2c237-ad04-4531-9e87-c4e19a47250f",
+        "fieldValue": "FOLLOW_UP_2_SENT"
+      }
+    },
+    {
+      "id": "27c5a60a-8e91-4fc2-a040-0c0e482bf672",
+      "fieldValue": "NURTURING",
+      "reason": "duplicate",
+      "result": {
+        "id": "27c5a60a-8e91-4fc2-a040-0c0e482bf672",
+        "fieldValue": "NURTURING"
+      }
+    },
+    {
+      "id": "5b15b75b-7399-45c6-87b2-651cb2220b52",
+      "fieldValue": "REPLY_RECEIVED",
+      "reason": "duplicate",
+      "result": {
+        "id": "5b15b75b-7399-45c6-87b2-651cb2220b52",
+        "fieldValue": "REPLY_RECEIVED"
+      }
+    },
+    {
+      "id": "610305e8-199a-49d4-a896-0d513927f9f8",
+      "fieldValue": "MEETING_PROPOSED",
+      "reason": "duplicate",
+      "result": {
+        "id": "610305e8-199a-49d4-a896-0d513927f9f8",
+        "fieldValue": "MEETING_PROPOSED"
+      }
+    },
+    {
+      "id": "8fb6ebc7-21fe-4493-85b3-2ca22e41b07f",
+      "fieldValue": "MEETING_SCHEDULED",
+      "reason": "duplicate",
+      "result": {
+        "id": "8fb6ebc7-21fe-4493-85b3-2ca22e41b07f",
+        "fieldValue": "MEETING_SCHEDULED"
+      }
+    },
+    {
+      "id": "329af76d-f7bb-4f25-aeb9-f35974e1878a",
+      "fieldValue": "MEETING_DONE",
+      "reason": "duplicate",
+      "result": {
+        "id": "329af76d-f7bb-4f25-aeb9-f35974e1878a",
+        "fieldValue": "MEETING_DONE"
+      }
+    },
+    {
+      "id": "aaa89519-7df7-4c3e-adde-827ddc152190",
+      "fieldValue": "NOT_INTERESTED",
+      "reason": "duplicate",
+      "result": {
+        "id": "aaa89519-7df7-4c3e-adde-827ddc152190",
+        "fieldValue": "NOT_INTERESTED"
+      }
+    },
+    {
+      "id": "f82cf1fd-225e-44a1-98eb-03fe1cde1c10",
+      "fieldValue": "WRONG_CONTACT_MANUAL_REVIEW",
+      "reason": "duplicate",
+      "result": {
+        "id": "f82cf1fd-225e-44a1-98eb-03fe1cde1c10",
+        "fieldValue": "WRONG_CONTACT_MANUAL_REVIEW"
+      }
+    }
+  ],
+  "afterGroups": 18,
+  "afterGroupsByValue": [
+    {
+      "fieldValue": "NOT_SENT",
+      "isVisible": true,
+      "position": 0
+    },
+    {
+      "fieldValue": "DRAFT_CREATED",
+      "isVisible": true,
+      "position": 1
+    },
+    {
+      "fieldValue": "EMAIL_1_SENT",
+      "isVisible": true,
+      "position": 2
+    },
+    {
+      "fieldValue": "EMAIL_1_RECEIVED_SIGNAL",
+      "isVisible": true,
+      "position": 3
+    },
+    {
+      "fieldValue": "NO_REPLY",
+      "isVisible": true,
+      "position": 4
+    },
+    {
+      "fieldValue": "FOLLOW_UP_1_PENDING",
+      "isVisible": true,
+      "position": 5
+    },
+    {
+      "fieldValue": "FOLLOW_UP_1_DRAFTED",
+      "isVisible": true,
+      "position": 6
+    },
+    {
+      "fieldValue": "FOLLOW_UP_1_SENT",
+      "isVisible": true,
+      "position": 7
+    },
+    {
+      "fieldValue": "FOLLOW_UP_2_PENDING",
+      "isVisible": true,
+      "position": 8
+    },
+    {
+      "fieldValue": "FOLLOW_UP_2_DRAFTED",
+      "isVisible": true,
+      "position": 9
+    },
+    {
+      "fieldValue": "FOLLOW_UP_2_SENT",
+      "isVisible": true,
+      "position": 10
+    },
+    {
+      "fieldValue": "NURTURING",
+      "isVisible": true,
+      "position": 11
+    },
+    {
+      "fieldValue": "REPLY_RECEIVED",
+      "isVisible": true,
+      "position": 12
+    },
+    {
+      "fieldValue": "MEETING_PROPOSED",
+      "isVisible": true,
+      "position": 13
+    },
+    {
+      "fieldValue": "MEETING_SCHEDULED",
+      "isVisible": true,
+      "position": 14
+    },
+    {
+      "fieldValue": "MEETING_DONE",
+      "isVisible": true,
+      "position": 15
+    },
+    {
+      "fieldValue": "NOT_INTERESTED",
+      "isVisible": true,
+      "position": 16
+    },
+    {
+      "fieldValue": "WRONG_CONTACT_MANUAL_REVIEW",
+      "isVisible": true,
+      "position": 17
+    }
+  ]
+}

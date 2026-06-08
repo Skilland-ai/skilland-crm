@@ -1,0 +1,6 @@
+{
+  "mode": "dry-run",
+  "eventType": "bounce_detected",
+  "matched": [],
+  "unmatched": []
+}

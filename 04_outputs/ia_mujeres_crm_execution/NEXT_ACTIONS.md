@@ -1,26 +1,44 @@
 # Next Actions — IA Mujeres CRM/GWS
 
-## Para Raul
+Fecha: 2026-06-08
 
-1. Dar por cerrado Experimento 0 interno: enviado, recibido, con reply detectado y sin bounce.
-2. Revisar el informe final: `04_outputs/ia_mujeres_crm_execution/2026-06-08_experiment_00_internal_draft_or_send_report.md`.
-3. Aprobar si se crean campos CRM para Gmail IDs o si se empieza con ingestion por eventos/notas.
-4. Confirmar responsable humano de revision de drafts y responsable de autorizacion de envio.
-5. Revisar el dry-run de primera tanda: `04_outputs/ia_mujeres_crm_execution/batch_2026-06-07T23-57-37-918Z_review.md`.
-6. Revisar personalizaciones y duplicados antes de autorizar cualquier draft externo.
-7. No crear drafts externos hasta cerrar mapeo Gmail ID y decision humana explicita.
+## Para Raúl
 
-## Pendiente tecnico antes de contactos externos
+1. Entrar en Twenty y revisar la vista `IA Mujeres — Funnel`.
+2. Revisar la primera tanda real enviada: `2026-06-08T08-03-50-600Z`.
+3. Revisar `04_outputs/ia_mujeres_crm_execution/2026-06-08_first_external_batch_05_report.md`.
+4. Monitorizar replies/bounces.
+5. No preparar segunda tanda hasta revisar señales de esta primera.
 
-- Decidir si crear campos CRM `gmailDraftId`, `gmailMessageId`, `gmailThreadId`, `lastEmailEventAt`, `lastEmailEventType`.
-- Ampliar `scripts/ia_mujeres_batch_runner.mjs` para crear drafts externos solo tras aprobacion.
-- Decidir si el batch dry-run generado es apto o debe ajustarse manualmente.
-- Ampliar reporte semanal con CRM real cuando exista mapeo Gmail ID.
-- Definir quien revisa drafts y quien autoriza envio.
+## Operación diaria segura
 
-## Comando de comprobacion recurrente del laboratorio
+```bash
+node scripts/ia_mujeres_daily_operator.mjs --limit=5 --weekly
+```
 
-El email interno ya fue enviado; no hay draft pendiente que limpiar. Para reconsultar recepcion/replies/bounces:
+Este comando no muta CRM, no crea drafts Gmail y no envía emails.
+
+## Antes de primera tanda externa
+
+- Primera tanda externa enviada y registrada en CRM.
+- Validar señales iniciales: bounces, replies, tareas de follow-up y lectura comercial desde la vista `IA Mujeres — Funnel`.
+- Corregir en CRM nombres/entidades sin tildes si se quiere máxima calidad en personalización para próximas tandas.
+- No lanzar segunda tanda hasta revisar esta primera tanda enviada.
+
+## Comandos CRM listos
+
+```bash
+node scripts/ia_mujeres_batch_runner.mjs --mode=audit
+node scripts/ia_mujeres_batch_runner.mjs --mode=select-batch --limit=5
+node scripts/ia_mujeres_batch_runner.mjs --mode=prepare-drafts --batch-id=<id>
+node scripts/ia_mujeres_batch_runner.mjs --mode=mark-draft-created --batch-id=<id> --draft-map=<json> --apply
+node scripts/ia_mujeres_batch_runner.mjs --mode=mark-email-sent --batch-id=<id> --sent-map=<json> --apply
+node scripts/ia_mujeres_batch_runner.mjs --mode=sync-replies --apply
+node scripts/ia_mujeres_batch_runner.mjs --mode=sync-bounces --apply
+node scripts/ia_mujeres_batch_runner.mjs --mode=prepare-followups --limit=5
+```
+
+## Comprobación recurrente del laboratorio interno
 
 ```bash
 node scripts/ia_mujeres_experiment_00_gws_lab.mjs \
@@ -30,4 +48,9 @@ node scripts/ia_mujeres_experiment_00_gws_lab.mjs \
   --thread-id=19ea476680e7031b
 ```
 
-No borrar `events.ndjson`: es la evidencia operativa del laboratorio.
+## Bloqueos vigentes
+
+- `send-approved` sigue bloqueado.
+- No hay tracking de aperturas fiable.
+- No hay tracking de clicks porque no se reescriben links aprobados.
+- Los workflows nativos de Twenty quedan pospuestos hasta validar la primera tanda real.

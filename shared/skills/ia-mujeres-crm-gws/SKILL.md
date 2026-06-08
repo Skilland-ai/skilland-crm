@@ -1,67 +1,76 @@
 ---
 name: ia-mujeres-crm-gws
-description: Operar la campaña IA Mujeres desde skilland-crm con Twenty CRM y Google Workspace: preparar tandas, crear drafts seguros, registrar eventos, comprobar recepcion/respuestas/bounces y generar reportes sin tocar contactos reales sin autorizacion.
+description: Operar la campaña IA Mujeres desde skilland-crm con Twenty CRM como centro comercial y Google Workspace como canal controlado. Audita CRM, prepara tandas, registra drafts/envíos, sincroniza replies/bounces, crea notas/tareas y genera reportes sin tocar contactos reales sin autorización.
 ---
 
 # IA Mujeres CRM/GWS
 
 ## Uso
 
-Usa esta skill cuando haya que ejecutar o supervisar la operacion CRM/GWS de IA Mujeres:
+Usa esta skill cuando haya que ejecutar o supervisar la operación CRM/GWS de IA Mujeres:
 
-- laboratorio interno Experimento 0;
-- preparacion de tanda diaria;
-- creacion de drafts;
-- registro de eventos Gmail/CRM;
-- comprobacion de recepcion, respuestas y bounces;
+- vista y estados Twenty CRM;
+- preparación de tanda diaria;
+- payloads o drafts seguros;
+- registro de eventos Gmail en Opportunity;
+- notas y tareas CRM;
+- comprobación de recepción, respuestas y bounces;
 - reporte semanal.
 
 ## Reglas
 
-- No redisenar el funnel ni el copy de Funnel Academy.
-- No enviar contactos externos sin autorizacion humana explicita.
-- Crear draft primero, revisar despues, enviar solo con confirmacion.
-- Mantener whitelist cerrada en tests: `sales@reboot.academy`, `gerencia@skilland.ai`, `direccion@skilland.ai`.
+- No rediseñar el funnel ni el copy de Funnel Academy.
+- No enviar contactos externos sin autorización humana explícita.
+- No crear drafts externos sin tanda aprobada.
+- Mantener Twenty CRM como centro de mando.
+- Registrar `gmailDraftId`, `gmailMessageId` y `gmailThreadId` en Opportunity cuando existan.
+- Crear nota y tarea en CRM para draft, envío, reply y bounce.
 - No usar aperturas como KPI principal.
-- No modificar links aprobados para tracking salvo nueva aprobacion.
-- No versionar secretos; las credenciales GWS viven fuera del repo.
+- No reescribir links aprobados para tracking salvo nueva aprobación.
+- No versionar secretos.
 
-## Runner principal
+## Comandos principales
 
 ```bash
-node scripts/ia_mujeres_experiment_00_gws_lab.mjs
-node scripts/ia_mujeres_experiment_00_gws_lab.mjs --create-draft
-node scripts/ia_mujeres_experiment_00_gws_lab.mjs --verify-draft --draft-id=<draft_id>
-node scripts/ia_mujeres_experiment_00_gws_lab.mjs --send --draft-id=<draft_id> --confirm-internal-send
-node scripts/ia_mujeres_experiment_00_gws_lab.mjs --send-internal-reply --thread-id=<thread_id> --confirm-internal-reply
-node scripts/ia_mujeres_experiment_00_gws_lab.mjs --check-reception --check-replies --check-bounce --thread-id=<thread_id>
-node scripts/ia_mujeres_experiment_00_gws_lab.mjs --delete-draft --draft-id=<draft_id>
-node scripts/ia_mujeres_batch_runner.mjs --prepare-next-batch --limit=5
+node scripts/ia_mujeres_daily_operator.mjs --limit=5 --weekly
+node scripts/ia_mujeres_batch_runner.mjs --mode=audit
+node scripts/ia_mujeres_batch_runner.mjs --mode=select-batch --limit=5
+node scripts/ia_mujeres_batch_runner.mjs --mode=prepare-drafts --batch-id=<id>
+node scripts/ia_mujeres_batch_runner.mjs --mode=mark-draft-created --batch-id=<id> --draft-map=<json> --apply
+node scripts/ia_mujeres_batch_runner.mjs --mode=mark-email-sent --batch-id=<id> --sent-map=<json> --apply
+node scripts/ia_mujeres_batch_runner.mjs --mode=sync-replies --apply
+node scripts/ia_mujeres_batch_runner.mjs --mode=sync-bounces --apply
+node scripts/ia_mujeres_batch_runner.mjs --mode=prepare-followups --limit=5
 node scripts/ia_mujeres_weekly_report.mjs --week=<yyyy-mm-dd>
 ```
 
-## Outputs
+## Experimento 0 interno
 
-- `04_outputs/ia_mujeres_crm_execution/events.ndjson`
-- `04_outputs/ia_mujeres_crm_execution/2026-06-08_experiment_00_run.json`
-- `04_outputs/ia_mujeres_crm_execution/2026-06-08_experiment_00_email_preview.html`
-- `04_outputs/ia_mujeres_crm_execution/2026-06-08_experiment_00_email_preview.txt`
+```bash
+node scripts/ia_mujeres_experiment_00_gws_lab.mjs --create-draft
+node scripts/ia_mujeres_experiment_00_gws_lab.mjs --verify-draft --draft-id=<draft_id>
+node scripts/ia_mujeres_experiment_00_gws_lab.mjs --check-reception --check-replies --check-bounce --thread-id=<thread_id>
+```
+
+## Outputs clave
+
+- `04_outputs/ia_mujeres_crm_execution/2026-06-08_crm_audit.json`
+- `04_outputs/ia_mujeres_crm_execution/2026-06-08_crm_setup_apply_report.json`
 - `04_outputs/ia_mujeres_crm_execution/batch_<id>_plan.json`
 - `04_outputs/ia_mujeres_crm_execution/batch_<id>_review.md`
+- `04_outputs/ia_mujeres_crm_execution/batch_<id>_draft_payloads.json`
+- `04_outputs/ia_mujeres_crm_execution/batch_<id>_draft_review.md`
 - `04_outputs/ia_mujeres_crm_execution/weekly_report_<yyyy-mm-dd>.md`
 - `04_outputs/ia_mujeres_crm_execution/weekly_report_<yyyy-mm-dd>.html`
 
-## Secuencia operativa
+## Secuencia recomendada
 
-1. Validar auth GWS de emisor y cuenta control.
-2. Validar firma Gmail `sendAs` de `gerencia@skilland.ai`.
-3. Renderizar Email 1 aprobado y adjunto corto.
-4. Crear draft con Gmail API.
-5. Registrar `draft_created`.
-6. Esperar revision humana.
-7. Enviar solo con flag de confirmacion.
-8. Comprobar recepcion en `sales@reboot.academy`.
-9. Enviar reply interno controlado si hace falta validar el hilo.
-10. Comprobar replies por `thread_id`.
-11. Comprobar bounces por busquedas Gmail.
-12. Decidir si se aprueba o bloquea primera tanda real.
+1. Ejecutar operador diario en seco.
+2. Revisar `IA Mujeres — Funnel` en Twenty.
+3. Revisar batch Markdown.
+4. Corregir datos CRM si hay nombres, emails o entidades dudosas.
+5. Crear drafts externos solo con aprobación humana y modo dedicado futuro.
+6. Registrar drafts en CRM con `mark-draft-created`.
+7. Registrar envíos aprobados con `mark-email-sent`.
+8. Sincronizar replies/bounces.
+9. Generar reporte semanal.

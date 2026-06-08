@@ -16,8 +16,9 @@ const SUBJECT = 'Una preocupación que quería compartir con usted';
 const GERENCIA_CONFIG_DIR = '/home/reboot/.config/gws_gerencia';
 const SALES_CONFIG_DIR = '/home/reboot/.config/gws';
 const DEFAULT_OUTPUT_DIR = path.resolve('04_outputs/ia_mujeres_crm_execution');
+const TEMPLATE_PATH = path.resolve('shared/templates/ia-mujeres/email_01.html');
 const DEFAULT_ATTACHMENT = '/home/reboot/Escritorio/agentic-scrapping-Experiment-scrappling/04_outputs/skilland-ia-mujeres/Mujeres, IA y el futuro del Trabajo - Presentación — SkilLand (1).pdf';
-const EXPECTED_ATTACHMENT_NAME = 'Mujeres, IA y el futuro del Trabajo - Presentacion corta — SkilLand.pdf';
+const EXPECTED_ATTACHMENT_NAME = 'Mujeres, IA y el futuro del Trabajo - Presentación corta — SkilLand.pdf';
 const ALLOWED_TEST_RECIPIENTS = new Set([
   RECIPIENT_EMAIL,
   SENDER_EMAIL,
@@ -27,22 +28,9 @@ const ALLOWED_TEST_RECIPIENTS = new Set([
 const LINKS = [
   ['Romina Ojeda Brito', 'https://www.linkedin.com/in/romina-ojeda-brito/'],
   ['Women In STEAM Empowerment Canarias', 'https://www.elespejocanario.es/secciones/wise-canarias-la-primera-asociacion-de-mujeres-steam-del-archipielago/'],
-  ['la brecha que se esta abriendo con la adopcion de la inteligencia artificial', 'https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html'],
-  ['aprovechar una tecnologia que lo cambia todo', 'https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html'],
+  ['la brecha que se está abriendo con la adopción de la Inteligencia Artificial', 'https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html'],
+  ['aprovechar una tecnología que lo cambia todo', 'https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html'],
   ['SkilLand', 'http://www.skilland.ai/'],
-];
-
-const paragraphs = [
-  'Estimado equipo de ventas,',
-  'Me llamo <a href="https://www.linkedin.com/in/romina-ojeda-brito/">Romina Ojeda Brito</a>. Durante los ultimos anos he liderado Reboot Academy, un proyecto que nacio en Canarias con una idea muy concreta: ayudar a personas que necesitaban reiniciar su trayectoria profesional, muchas de ellas en situaciones de desempleo, vulnerabilidad o falta de acceso a oportunidades tecnologicas, a formarse en habilidades realmente demandadas por el mercado.',
-  'Desde ahi hemos formado a mas de 1.000 estudiantes, y esa experiencia nos llevo a impulsar el Instituto de Innovacion Tecnologica y Educativa para el Desarrollo: una evolucion natural para seguir conectando formacion, tecnologia, metodologia e impacto real en el territorio.',
-  'Tambien presido <a href="https://www.elespejocanario.es/secciones/wise-canarias-la-primera-asociacion-de-mujeres-steam-del-archipielago/">Women In STEAM Empowerment Canarias</a>, y desde esa responsabilidad veo con especial claridad <a href="https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html">la brecha que se esta abriendo con la adopcion de la inteligencia artificial</a>.',
-  'Le escribo porque creo que esta conversacion puede ser especialmente relevante para Reboot Academy/Canarias, por el papel que tienen las organizaciones de formacion, empleo y desarrollo profesional en el acceso a oportunidades reales para las mujeres.',
-  'La inteligencia artificial puede convertirse en una nueva capa de exclusion laboral femenina o en una oportunidad historica para cerrar brechas, dependiendo de si actuamos a tiempo. En Canarias, ademas, la paradoja es especialmente clara: hay talento femenino, formacion y capacidad, pero no siempre se convierte en empleo cualificado, autonomia economica o acceso a los nuevos roles que esta creando la tecnologia; ni en la posibilidad de <a href="https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html">aprovechar una tecnologia que lo cambia todo</a>.',
-  'En las ultimas semanas hemos trabajado un documento estrategico sobre mujeres, IA y futuro del trabajo. Le adjunto una presentacion breve de <a href="http://www.skilland.ai/">SkilLand</a> donde resumimos el diagnostico y una posible forma de colaboracion.',
-  'La idea no es enviarle un programa cerrado, sino empezar por una reunion inicial, valorar una posible accion de divulgacion en territorio y, si tiene sentido, disenar un proyecto a medida con objetivos, financiacion y KPIs de impacto.',
-  '¿Tendria sentido que lo hablaramos en una primera reunion? Podemos adaptarnos al formato que les resulte mas comodo: llamada, videollamada o encuentro presencial.',
-  'Un saludo,',
 ];
 
 function parseArgs(argv) {
@@ -242,12 +230,35 @@ function htmlToText(html) {
     .trim();
 }
 
+function htmlEscape(value) {
+  return String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+}
+
+function renderTemplate(replacements) {
+  let html = fs.readFileSync(TEMPLATE_PATH, 'utf8');
+  for (const [key, value] of Object.entries(replacements)) {
+    html = html.replaceAll(`{{${key}}}`, htmlEscape(value));
+  }
+  return html;
+}
+
 function buildBodies(signatureHtml) {
+  const templateHtml = renderTemplate({
+    nombre: 'equipo de ventas',
+    entidad: 'Reboot Academy/Canarias',
+    territorio: 'Canarias',
+    area: 'ventas',
+    tipo_organizacion: 'organización de formación',
+    personalizacion_1: 'Le escribo porque creo que esta conversación puede ser especialmente relevante para Reboot Academy/Canarias, por el papel que tienen las organizaciones de formación, empleo y desarrollo profesional en el acceso a oportunidades reales para las mujeres.',
+  });
   const bodyHtml = [
     '<div dir="ltr">',
-    ...paragraphs.map((paragraph) => paragraph === 'Un saludo,'
-      ? `<p>${paragraph}</p>`
-      : `<p>${paragraph}</p>`),
+    templateHtml,
     signatureHtml,
     '</div>',
   ].join('\n');
@@ -346,7 +357,7 @@ function flattenParts(part, acc = []) {
   return acc;
 }
 
-function verifyMessageShape(message, attachmentFilename) {
+function verifyMessageShape(message, attachmentFilename, bodyHtml) {
   const headers = extractHeaders(message);
   const parts = flattenParts(message.payload);
   const filenames = parts.map((part) => part.filename).filter(Boolean);
@@ -356,7 +367,7 @@ function verifyMessageShape(message, attachmentFilename) {
     fromOk: (headers.from ?? '').includes(SENDER_EMAIL),
     toOk: (headers.to ?? '').includes(RECIPIENT_EMAIL),
     subjectOk: (headers.subject ?? '') === SUBJECT,
-    linksPresent: LINKS.map(([text, url]) => ({ text, url, present: paragraphs.join('\n').includes(url) })),
+    linksPresent: LINKS.map(([text, url]) => ({ text, url, present: bodyHtml.includes(url) })),
     attachmentPresent: filenames.includes(attachmentFilename),
     expectedAttachmentNameMatches: attachmentFilename === EXPECTED_ATTACHMENT_NAME,
     signatureMechanism: 'gmail_sendAs_signature_injected_by_runner',
@@ -610,7 +621,7 @@ async function main() {
     const messageId = draft.message?.id;
     const threadId = draft.message?.threadId;
     const draftFull = await getDraft(draftId);
-    const shape = verifyMessageShape(draftFull.message, rendered.attachmentFilename);
+    const shape = verifyMessageShape(draftFull.message, rendered.attachmentFilename, rendered.bodyHtml);
     const event = buildEvent('draft_created', {
       draft_id: draftId,
       message_id: messageId,
@@ -632,7 +643,7 @@ async function main() {
     const draftFull = await getDraft(args.draftId);
     const messageId = draftFull.message?.id;
     const threadId = draftFull.message?.threadId;
-    const shape = verifyMessageShape(draftFull.message, rendered.attachmentFilename);
+    const shape = verifyMessageShape(draftFull.message, rendered.attachmentFilename, rendered.bodyHtml);
     report.actions.push({ type: 'draft_verified', draft_id: args.draftId, message_id: messageId, thread_id: threadId });
     report.validations.draft = shape;
     args.threadId = args.threadId ?? threadId;
@@ -652,7 +663,7 @@ async function main() {
 
   if (args.send) {
     const draftFull = await getDraft(args.draftId);
-    const preSendShape = verifyMessageShape(draftFull.message, rendered.attachmentFilename);
+    const preSendShape = verifyMessageShape(draftFull.message, rendered.attachmentFilename, rendered.bodyHtml);
     const safeToSend =
       preSendShape.fromOk &&
       preSendShape.toOk &&

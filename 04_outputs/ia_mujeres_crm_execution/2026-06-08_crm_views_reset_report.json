@@ -1,0 +1,292 @@
+{
+  "generatedAt": "2026-06-08T07:50:35.064Z",
+  "mode": "apply",
+  "kept": [
+    {
+      "id": "e692277f-39b5-495d-acff-3ba319d1fd55",
+      "name": "All Opportunities",
+      "type": "TABLE"
+    },
+    {
+      "id": "88ac6fbc-3267-4c0f-98f4-b8600706534b",
+      "name": "Opportunity Record Page Fields",
+      "type": "FIELDS_WIDGET"
+    },
+    {
+      "id": "caa64a59-593c-43eb-a483-cfd2cd597b36",
+      "name": "By Stage (table)",
+      "type": "TABLE"
+    },
+    {
+      "id": "c8bbf733-9889-4078-9ed2-8bdd359b0b66",
+      "name": "By Stage",
+      "type": "KANBAN"
+    }
+  ],
+  "deleted": [
+    {
+      "id": "24053c56-6bd9-47e7-afe0-461dd8084b88",
+      "name": "IA Mujeres — Funnel",
+      "type": "KANBAN",
+      "ok": true
+    },
+    {
+      "id": "c4f2b5a5-e454-4411-8144-5abb0b88c62a",
+      "name": "IA Mujeres — Lista",
+      "type": "TABLE",
+      "ok": true
+    },
+    {
+      "id": "eb642132-7874-430d-b6c6-44681597b6e4",
+      "name": "IA Mujeres — Revisión",
+      "type": "TABLE",
+      "ok": true
+    },
+    {
+      "id": "fa65ad73-6701-4101-8468-b1926354bb68",
+      "name": "IA Mujeres — Follow-up pendiente",
+      "type": "TABLE",
+      "ok": true
+    },
+    {
+      "id": "8108a403-2348-42d6-adde-f4c57aad1cbe",
+      "name": "IA Mujeres — Respuestas / Reuniones",
+      "type": "TABLE",
+      "ok": true
+    },
+    {
+      "id": "e72c84fc-f630-4162-a627-83a5b3da4dcb",
+      "name": "IA Mujeres — Nurturing",
+      "type": "TABLE",
+      "ok": true
+    },
+    {
+      "id": "c50c6c82-1085-436e-a6fd-0f345bea4f7b",
+      "name": "TEST — IA Mujeres Smoke Test",
+      "type": "TABLE",
+      "ok": true
+    }
+  ],
+  "plannedDelete": [
+    {
+      "id": "24053c56-6bd9-47e7-afe0-461dd8084b88",
+      "name": "IA Mujeres — Funnel",
+      "type": "KANBAN"
+    },
+    {
+      "id": "c4f2b5a5-e454-4411-8144-5abb0b88c62a",
+      "name": "IA Mujeres — Lista",
+      "type": "TABLE"
+    },
+    {
+      "id": "eb642132-7874-430d-b6c6-44681597b6e4",
+      "name": "IA Mujeres — Revisión",
+      "type": "TABLE"
+    },
+    {
+      "id": "fa65ad73-6701-4101-8468-b1926354bb68",
+      "name": "IA Mujeres — Follow-up pendiente",
+      "type": "TABLE"
+    },
+    {
+      "id": "8108a403-2348-42d6-adde-f4c57aad1cbe",
+      "name": "IA Mujeres — Respuestas / Reuniones",
+      "type": "TABLE"
+    },
+    {
+      "id": "e72c84fc-f630-4162-a627-83a5b3da4dcb",
+      "name": "IA Mujeres — Nurturing",
+      "type": "TABLE"
+    },
+    {
+      "id": "c50c6c82-1085-436e-a6fd-0f345bea4f7b",
+      "name": "TEST — IA Mujeres Smoke Test",
+      "type": "TABLE"
+    }
+  ],
+  "created": {
+    "id": "01034b47-6ae2-4e66-9e95-db8b76e942b7",
+    "type": "KANBAN",
+    "name": "IA Mujeres — Funnel"
+  },
+  "fieldsCreated": [
+    {
+      "fieldName": "name",
+      "id": "f07f11f1-b331-43ef-8243-2260b1f3906c"
+    },
+    {
+      "fieldName": "company",
+      "id": "a6513127-14ab-4f0c-aa27-7e9ef4e3447c"
+    },
+    {
+      "fieldName": "pointOfContact",
+      "id": "3c23a055-d224-434a-a819-f0e943b44a4b"
+    },
+    {
+      "fieldName": "iaMujeresFunnelStage",
+      "id": "fa907990-d8a9-4bc4-ae47-3eb4632fa0f2"
+    },
+    {
+      "fieldName": "outreachStatus",
+      "id": "65c878f6-2830-40d0-8fc8-9678a820c91a"
+    },
+    {
+      "fieldName": "followUpDueAt",
+      "id": "2190c8f8-3673-4d12-ac98-0931cea71966"
+    },
+    {
+      "fieldName": "lastEmailSentAt",
+      "id": "8931b13d-6b00-449c-9293-b411a1a850b6"
+    },
+    {
+      "fieldName": "lastReplyAt",
+      "id": "1e4c5eb2-c888-451b-950b-60776a204627"
+    },
+    {
+      "fieldName": "gmailThreadId",
+      "id": "b66668df-02a0-48e6-b426-f40c2e7c02a7"
+    },
+    {
+      "fieldName": "needsManualReview",
+      "id": "36e050f6-1c81-49b4-a024-624cd577c38c"
+    }
+  ],
+  "filtersCreated": [
+    {
+      "fieldName": "campaignName",
+      "operand": "IS",
+      "value": "IA Mujeres 2026",
+      "id": "5e47a5e2-ba99-421a-bd98-4d9c26ac755e"
+    }
+  ],
+  "groupsCreated": [
+    {
+      "fieldValue": "NOT_SENT",
+      "id": "8b139832-1d36-4ddb-ab39-f622990e448e"
+    },
+    {
+      "fieldValue": "DRAFT_CREATED",
+      "id": "667a4831-52c8-4e92-8655-3439732ceebb"
+    },
+    {
+      "fieldValue": "EMAIL_1_SENT",
+      "id": "03a6b430-5b45-4d33-aa76-cb1af4556c56"
+    },
+    {
+      "fieldValue": "EMAIL_1_RECEIVED_SIGNAL",
+      "id": "18108b52-3cfe-47eb-8e6d-ad3102a0003d"
+    },
+    {
+      "fieldValue": "NO_REPLY",
+      "id": "8c7993f1-8c24-4c07-a1ef-0ff10e9e2016"
+    },
+    {
+      "fieldValue": "FOLLOW_UP_1_PENDING",
+      "id": "3d95a345-20fa-40cf-8113-cc106941f861"
+    },
+    {
+      "fieldValue": "FOLLOW_UP_1_DRAFTED",
+      "id": "08a7a9c6-eae7-4b36-b92e-99936d0c2be3"
+    },
+    {
+      "fieldValue": "FOLLOW_UP_1_SENT",
+      "id": "16c5bafc-891b-4389-bc20-13a9de950527"
+    },
+    {
+      "fieldValue": "FOLLOW_UP_2_PENDING",
+      "id": "14bf8a1b-4b91-4f49-b09b-b3748bc7b4ba"
+    },
+    {
+      "fieldValue": "FOLLOW_UP_2_DRAFTED",
+      "id": "f7d24990-b453-43c0-b06b-a0595e73c3fb"
+    },
+    {
+      "fieldValue": "FOLLOW_UP_2_SENT",
+      "id": "6bc2c237-ad04-4531-9e87-c4e19a47250f"
+    },
+    {
+      "fieldValue": "NURTURING",
+      "id": "27c5a60a-8e91-4fc2-a040-0c0e482bf672"
+    },
+    {
+      "fieldValue": "REPLY_RECEIVED",
+      "id": "5b15b75b-7399-45c6-87b2-651cb2220b52"
+    },
+    {
+      "fieldValue": "MEETING_PROPOSED",
+      "id": "610305e8-199a-49d4-a896-0d513927f9f8"
+    },
+    {
+      "fieldValue": "MEETING_SCHEDULED",
+      "id": "8fb6ebc7-21fe-4493-85b3-2ca22e41b07f"
+    },
+    {
+      "fieldValue": "MEETING_DONE",
+      "id": "329af76d-f7bb-4f25-aeb9-f35974e1878a"
+    },
+    {
+      "fieldValue": "NOT_INTERESTED",
+      "id": "aaa89519-7df7-4c3e-adde-827ddc152190"
+    },
+    {
+      "fieldValue": "WRONG_CONTACT_MANUAL_REVIEW",
+      "id": "f82cf1fd-225e-44a1-98eb-03fe1cde1c10"
+    }
+  ],
+  "after": [
+    {
+      "id": "e692277f-39b5-495d-acff-3ba319d1fd55",
+      "name": "All Opportunities",
+      "type": "TABLE",
+      "position": 0,
+      "mainGroupByFieldMetadataId": null,
+      "filters": 0,
+      "fields": 11,
+      "groups": 0
+    },
+    {
+      "id": "88ac6fbc-3267-4c0f-98f4-b8600706534b",
+      "name": "Opportunity Record Page Fields",
+      "type": "FIELDS_WIDGET",
+      "position": 0,
+      "mainGroupByFieldMetadataId": null,
+      "filters": 0,
+      "fields": 8,
+      "groups": 0
+    },
+    {
+      "id": "caa64a59-593c-43eb-a483-cfd2cd597b36",
+      "name": "By Stage (table)",
+      "type": "TABLE",
+      "position": 0,
+      "mainGroupByFieldMetadataId": "df5b7b7e-d24f-40f6-a9bc-41e3d70adf0c",
+      "filters": 0,
+      "fields": 8,
+      "groups": 11
+    },
+    {
+      "id": "c8bbf733-9889-4078-9ed2-8bdd359b0b66",
+      "name": "By Stage",
+      "type": "KANBAN",
+      "position": 2,
+      "mainGroupByFieldMetadataId": "df5b7b7e-d24f-40f6-a9bc-41e3d70adf0c",
+      "filters": 0,
+      "fields": 8,
+      "groups": 11
+    },
+    {
+      "id": "01034b47-6ae2-4e66-9e95-db8b76e942b7",
+      "name": "IA Mujeres — Funnel",
+      "type": "KANBAN",
+      "position": 20,
+      "mainGroupByFieldMetadataId": "d5fa21f5-b38b-4817-9d8e-a493c3dc3c60",
+      "filters": 1,
+      "fields": 10,
+      "groups": 37
+    }
+  ],
+  "notes": [
+    "`Opportunity Record Page Fields` is a FIELDS_WIDGET, not a commercial list/kanban view, so it is preserved.",
+    "The new IA Mujeres view uses one campaignName filter encoded as JSON to avoid the broken filter state from the previous views."
+  ]
+}

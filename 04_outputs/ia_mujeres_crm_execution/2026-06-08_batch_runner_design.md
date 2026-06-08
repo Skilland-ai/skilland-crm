@@ -1,101 +1,94 @@
 # Batch Runner Design — IA Mujeres
 
-## Decision
+Fecha: 2026-06-08
 
-Conviene una combinacion:
+## Decisión
 
-- Script/runner para ejecucion determinista.
-- Skill repo-local para guiar agentes y operadores.
-- Workflows CRM solo para tareas internas y cambios de estado, no para envio de emails.
+La operación diaria debe ser una combinación de:
 
-## Runner actual
+- runner determinista en `scripts/ia_mujeres_batch_runner.mjs`;
+- operador seco en `scripts/ia_mujeres_daily_operator.mjs`;
+- skill repo-local en `shared/`;
+- Twenty CRM como centro visible de estado, notas y tareas.
 
-`scripts/ia_mujeres_experiment_00_gws_lab.mjs`
+No se automatiza envío externo en esta fase.
 
-Safeguards:
+## Modos implementados
 
-- Dry-run por defecto.
-- Destinatarios de test en whitelist cerrada.
-- From/To fijos en Experimento 0.
-- Envio bloqueado sin `--confirm-internal-send`.
-- No acepta contactos externos.
-- Firma obligatoria desde Gmail `sendAs`.
-- Evento local por cada accion.
-- Eventos persistidos para recepcion, reply y bounce checks.
-- Cleanup de draft no enviado con `--delete-draft`.
+| Modo | Mutación | Estado |
+|---|---|---|
+| `audit` | No | Lee CRM y genera `2026-06-08_crm_audit.json` |
+| `setup-crm` | Sí con `--apply` | Ya aplicado para campos/vistas/estado inicial |
+| `select-batch` | No | Selecciona hasta 5 deals elegibles |
+| `prepare-drafts` | No | Genera payloads locales, no Gmail drafts |
+| `mark-draft-created` | Sí con `--apply` | Registra draft, nota y tarea |
+| `mark-email-sent` | Sí con `--apply` | Registra envío, hilo, nota y tarea follow-up |
+| `sync-replies` | Sí con `--apply` | Mapea replies por `gmailThreadId` |
+| `sync-bounces` | Sí con `--apply` | Mapea bounces por `gmailThreadId` |
+| `prepare-followups` | No | Lista follow-ups vencidos |
+| `send-approved` | Bloqueado | No disponible hasta aprobación de primera tanda real |
 
-Estado: Experimento 0 aprobado. El runner de laboratorio no acepta destinatarios externos y no debe reutilizarse como runner de tanda real.
-
-## Runner de tanda
-
-Implementado parcialmente:
-
-```bash
-scripts/ia_mujeres_batch_runner.mjs
-```
-
-Comando activo:
+## Comandos
 
 ```bash
-node scripts/ia_mujeres_batch_runner.mjs --prepare-next-batch --limit=5
+node scripts/ia_mujeres_batch_runner.mjs --mode=audit
+node scripts/ia_mujeres_batch_runner.mjs --mode=select-batch --limit=5
+node scripts/ia_mujeres_batch_runner.mjs --mode=prepare-drafts --batch-id=<id>
+node scripts/ia_mujeres_batch_runner.mjs --mode=mark-draft-created --batch-id=<id> --draft-map=<json> --apply
+node scripts/ia_mujeres_batch_runner.mjs --mode=mark-email-sent --batch-id=<id> --sent-map=<json> --apply
+node scripts/ia_mujeres_batch_runner.mjs --mode=sync-replies --apply
+node scripts/ia_mujeres_batch_runner.mjs --mode=sync-bounces --apply
+node scripts/ia_mujeres_batch_runner.mjs --mode=prepare-followups --limit=5
+node scripts/ia_mujeres_daily_operator.mjs --limit=5 --weekly
 ```
 
-Comandos bloqueados intencionadamente hasta cerrar mapeo Gmail ID y autorizacion humana:
+## Último dry-run operativo
 
-```bash
-node scripts/ia_mujeres_batch_runner.mjs --create-drafts --batch-id=<id>
-node scripts/ia_mujeres_batch_runner.mjs --send-approved --batch-id=<id> --confirm-send
-```
+- Batch ID: `2026-06-08T00-34-36-009Z`
+- Opportunities CRM vistas: 145.
+- IA Mujeres: 100.
+- Elegibles: 22.
+- Seleccionadas: 5.
+- Payloads locales: 5.
+- Follow-ups vencidos: 0.
+- Outputs:
+  - `batch_2026-06-08T00-34-36-009Z_plan.json`
+  - `batch_2026-06-08T00-34-36-009Z_review.md`
+  - `batch_2026-06-08T00-34-36-009Z_draft_payloads.json`
+  - `batch_2026-06-08T00-34-36-009Z_draft_review.md`
 
-Entradas:
+## Entradas necesarias
 
-- Campaign: `IA Mujeres 2026`.
-- Business line: `SkilLand IA Mujeres`.
-- Vista/consulta: pending first email, high confidence, no manual review.
-- Limite de tanda: 5.
-- Plantilla: Email 1 aprobado.
-- Asset: presentacion corta.
-- IDs CRM por deal/person/company.
+- CRM Twenty accesible con `TWENTY_API_KEY`.
+- Opportunities con `campaignName=IA Mujeres 2026` o `businessLineName=SkilLand IA Mujeres`.
+- Contacto principal con email válido.
+- Campos de control `needsManualReview`, `duplicatePossible`, `genericEmail`.
+- Templates UTF-8 en `shared/templates/ia-mujeres/`.
 
-Salidas:
+## Salidas
 
-- `batch_<id>_plan.json`
-- `batch_<id>_review.md`
+- Plan JSON de tanda.
+- Revisión Markdown.
+- Payloads locales de draft.
+- Reportes de registro CRM cuando se use `--apply`.
+- Audit CRM.
+- Reporte semanal MD/HTML.
 
-Dry-run ejecutado:
+## Salvaguardas
 
-- Batch ID: `2026-06-07T23-57-37-918Z`.
-- Opportunities CRM vistas: `145`.
-- Opportunities IA Mujeres vistas: `100`.
-- Elegibles: `22`.
-- Seleccionadas para revision: `5`.
-- Excluidas: `78`.
-- Plan: `04_outputs/ia_mujeres_crm_execution/batch_2026-06-07T23-57-37-918Z_plan.json`.
-- Revision: `04_outputs/ia_mujeres_crm_execution/batch_2026-06-07T23-57-37-918Z_review.md`.
+- Límite máximo: 5 por tanda.
+- Sin envío externo.
+- Sin drafts Gmail externos todavía.
+- `send-approved` falla intencionadamente.
+- `--apply` solo en modos concretos.
+- Deals con revisión manual/duplicado/email genérico quedan excluidos de tanda automática.
+- Todo envío real requiere autorización humana explícita fuera del script.
 
-## Evitar envios accidentales
+## Reversión
 
-- El runner actual solo prepara batch plan.
-- No crea drafts.
-- No envia emails.
-- `--limit` esta capado a 5.
-- Ningun envio directo al crear drafts.
-- `--send-approved` exige batch aprobado y flag de confirmacion.
-- Bloquear si falta `crm_deal_id`.
-- Bloquear si destinatario no coincide con email CRM.
-- Bloquear si `needsManualReview=true`.
-- Bloquear si `duplicatePossible=true`.
-- Bloquear si falta adjunto o firma.
-- No enviar mas de 5 por tanda salvo override explicito.
+Los dry-runs solo generan archivos. Para cambios CRM aplicados, revertir manualmente:
 
-## CRM mapping
-
-Antes de primera tanda real, crear o aprobar estos campos en Opportunity:
-
-- `gmailDraftId` TEXT
-- `gmailMessageId` TEXT
-- `gmailThreadId` TEXT
-- `lastEmailEventAt` DATE_TIME
-- `lastEmailEventType` TEXT
-
-Alternativa menos invasiva: mantener `events.ndjson` y crear notas/tareas en CRM. Para escala real, los campos de Gmail ID son mejores.
+- limpiar campos Gmail en Opportunity afectada;
+- devolver `iaMujeresFunnelStage` al valor anterior;
+- cerrar o borrar notas/tareas creadas por el runner si fueron pruebas;
+- no borrar campos globales si ya hay eventos productivos.

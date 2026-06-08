@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-06-08T07:59:12.828Z",
+  "viewId": "01034b47-6ae2-4e66-9e95-db8b76e942b7",
+  "campaignField": {
+    "id": "7beae4a0-31be-4d65-880a-566e2d82693a",
+    "type": "TEXT"
+  },
+  "deleted": [
+    {
+      "before": {
+        "id": "6c016aee-ea40-4226-b25a-d9f8952daf56",
+        "fieldMetadataId": "7beae4a0-31be-4d65-880a-566e2d82693a",
+        "operand": "CONTAINS",
+        "value": "\"IA Mujeres 2026\""
+      },
+      "result": {
+        "id": "6c016aee-ea40-4226-b25a-d9f8952daf56",
+        "operand": "CONTAINS",
+        "value": "\"IA Mujeres 2026\""
+      }
+    }
+  ],
+  "created": {
+    "id": "98f54d72-6988-4193-b2f8-f9f8b1b7abad",
+    "fieldMetadataId": "7beae4a0-31be-4d65-880a-566e2d82693a",
+    "operand": "CONTAINS",
+    "value": "IA Mujeres 2026"
+  },
+  "afterFilters": [
+    {
+      "id": "98f54d72-6988-4193-b2f8-f9f8b1b7abad",
+      "fieldMetadataId": "7beae4a0-31be-4d65-880a-566e2d82693a",
+      "operand": "CONTAINS",
+      "value": "IA Mujeres 2026"
+    }
+  ]
+}

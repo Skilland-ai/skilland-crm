@@ -1,56 +1,16 @@
 # Workflow Decision Report — IA Mujeres
 
-## Auditoria
+Fecha: 2026-06-08
 
-El repo ya tiene capacidad Twenty Workflows documentada:
+Este documento queda como compatibilidad con la primera fase. La decisión vigente está en:
 
-- `shared/knowledge/twenty-workflows/2026-06-07_api_mcp_capabilities.md`
-- `shared/knowledge/twenty-workflows/2026-06-07_ui_last_resort.md`
-- `shared/knowledge/twenty-workflows/examples/ia_mujeres_workflow_patterns.md`
+`04_outputs/ia_mujeres_crm_execution/2026-06-08_crm_workflow_or_runner_decision.md`
 
-Evidencia previa:
+Resumen vigente:
 
-- WF-2 y WF-3 de test fueron creados/activados por API y validados con deal `TEST`.
-- El smoke test 2026-06-07 confirmo tareas creadas y cleanup.
-
-## Decision actual
-
-No crear ni activar workflows productivos nuevos en esta fase.
-
-Motivo: el cuello de botella ahora no es Twenty Workflows; es validar GWS real con firma, adjunto, envio, recepcion, replies y bounces.
-
-## Workflows recomendados ahora
-
-| Workflow | Estado | Motivo |
-|---|---|---|
-| WF-2 test: primer email enviado | Mantener test | Ya probado sobre `TEST — IA Mujeres 2026`; no usar como produccion. |
-| WF-3 test: respuesta recibida | Mantener test | Ya probado sobre `TEST — IA Mujeres 2026`; sirve de patron. |
-| Produccion: reply -> tarea humana | Posponer hasta mapeo CRM | Experimento 0 ya prueba reply; falta `thread_id -> deal` fiable. |
-| Produccion: email sent -> follow-up task | Posponer hasta runner de tanda | Antes crear campos Gmail ID o contrato de eventos. |
-
-## Workflows descartados ahora
-
-- Envio automatico desde workflow: descartado por seguridad.
-- Pixel/open tracking workflow: descartado por fiabilidad baja y no KPI.
-- Click tracking por redirect: descartado porque cambiaria links aprobados.
-
-## Workflows pospuestos
-
-| Workflow | Cuando activarlo |
-|---|---|
-| Draft created -> registrar estado CRM | Cuando exista campo/objeto de email event en CRM. |
-| Email sent -> `first_email_sent` + follow-up due | Tras crear/aprobar mapeo Gmail ID en CRM y primera tanda aprobada. |
-| Reply detected -> task humana | Tras mapear `gmailThreadId` en Opportunity. |
-| Bounce detected -> revision manual | Tras prueba de bounce heuristico con eventos. |
-| Follow-up 1 due | Tras al menos una tanda real sin incidencias. |
-| Follow-up 2/nurturing | Tras validar follow-up 1. |
-
-## API/UI
-
-- Workflows Twenty: API-capable con user auth para mutaciones especificas.
-- MCP actual: util para records/tareas/notas, no para authoring completo de workflows.
-- UI: no requerida funcionalmente, pero puede usarse como inspeccion visual.
-
-## Recomendacion
-
-Usar runners para GWS y eventos. Usar workflows CRM solo como reacciones a cambios de estado ya validados, nunca como mecanismo de envio.
+- Runners/scripts gobiernan Gmail, eventos, notas y tareas.
+- Twenty CRM gobierna estado visible y seguimiento comercial.
+- Workflows nativos de Twenty quedan pospuestos hasta validar la primera tanda externa real.
+- Ningún workflow debe enviar emails externos.
+- Aperturas no son KPI principal.
+- Clicks no están instrumentados porque no se reescriben links aprobados.

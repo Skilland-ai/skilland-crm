@@ -1,0 +1,261 @@
+{
+  "generatedAt": "2026-06-08T00:27:23.950Z",
+  "status": "ok",
+  "dryRunOnly": true,
+  "safeguards": [
+    "No --apply accepted by this operator.",
+    "No Gmail draft creation.",
+    "No email sending.",
+    "No CRM mutation; CRM changes require the specific runner mode plus --apply."
+  ],
+  "steps": [
+    {
+      "command": "node scripts/ia_mujeres_batch_runner.mjs --mode=audit --output-dir=/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution",
+      "status": "ok",
+      "summary": {
+        "status": "ok",
+        "reportPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/2026-06-08_crm_audit.json",
+        "report": {
+          "date": "2026-06-08",
+          "campaign": "IA Mujeres 2026",
+          "businessLine": "SkilLand IA Mujeres",
+          "fields": [
+            {
+              "name": "iaMujeresFunnelStage",
+              "exists": true,
+              "type": "SELECT"
+            },
+            {
+              "name": "gmailDraftId",
+              "exists": true,
+              "type": "TEXT"
+            },
+            {
+              "name": "gmailMessageId",
+              "exists": true,
+              "type": "TEXT"
+            },
+            {
+              "name": "gmailThreadId",
+              "exists": true,
+              "type": "TEXT"
+            },
+            {
+              "name": "lastEmailEventAt",
+              "exists": true,
+              "type": "DATE_TIME"
+            },
+            {
+              "name": "lastEmailEventType",
+              "exists": true,
+              "type": "TEXT"
+            },
+            {
+              "name": "activeBatchId",
+              "exists": true,
+              "type": "TEXT"
+            },
+            {
+              "name": "lastEmailTemplate",
+              "exists": true,
+              "type": "TEXT"
+            },
+            {
+              "name": "lastEmailSubject",
+              "exists": true,
+              "type": "TEXT"
+            }
+          ],
+          "views": [
+            {
+              "id": "e692277f-39b5-495d-acff-3ba319d1fd55",
+              "name": "All Opportunities",
+              "type": "TABLE",
+              "position": 0,
+              "mainGroupByFieldMetadataId": null,
+              "filters": 0,
+              "fields": 11,
+              "groups": 0
+            },
+            {
+              "id": "88ac6fbc-3267-4c0f-98f4-b8600706534b",
+              "name": "Opportunity Record Page Fields",
+              "type": "FIELDS_WIDGET",
+              "position": 0,
+              "mainGroupByFieldMetadataId": null,
+              "filters": 0,
+              "fields": 8,
+              "groups": 0
+            },
+            {
+              "id": "caa64a59-593c-43eb-a483-cfd2cd597b36",
+              "name": "By Stage (table)",
+              "type": "TABLE",
+              "position": 0,
+              "mainGroupByFieldMetadataId": "df5b7b7e-d24f-40f6-a9bc-41e3d70adf0c",
+              "filters": 0,
+              "fields": 8,
+              "groups": 11
+            },
+            {
+              "id": "c8bbf733-9889-4078-9ed2-8bdd359b0b66",
+              "name": "By Stage",
+              "type": "KANBAN",
+              "position": 2,
+              "mainGroupByFieldMetadataId": "df5b7b7e-d24f-40f6-a9bc-41e3d70adf0c",
+              "filters": 0,
+              "fields": 8,
+              "groups": 11
+            },
+            {
+              "id": "24053c56-6bd9-47e7-afe0-461dd8084b88",
+              "name": "IA Mujeres — Funnel",
+              "type": "KANBAN",
+              "position": 20,
+              "mainGroupByFieldMetadataId": "d5fa21f5-b38b-4817-9d8e-a493c3dc3c60",
+              "filters": 3,
+              "fields": 18,
+              "groups": 19
+            },
+            {
+              "id": "c4f2b5a5-e454-4411-8144-5abb0b88c62a",
+              "name": "IA Mujeres — Lista",
+              "type": "TABLE",
+              "position": 101,
+              "mainGroupByFieldMetadataId": null,
+              "filters": 2,
+              "fields": 14,
+              "groups": 0
+            },
+            {
+              "id": "eb642132-7874-430d-b6c6-44681597b6e4",
+              "name": "IA Mujeres — Revisión",
+              "type": "TABLE",
+              "position": 102,
+              "mainGroupByFieldMetadataId": null,
+              "filters": 3,
+              "fields": 11,
+              "groups": 0
+            },
+            {
+              "id": "fa65ad73-6701-4101-8468-b1926354bb68",
+              "name": "IA Mujeres — Follow-up pendiente",
+              "type": "TABLE",
+              "position": 103,
+              "mainGroupByFieldMetadataId": null,
+              "filters": 3,
+              "fields": 11,
+              "groups": 0
+            },
+            {
+              "id": "8108a403-2348-42d6-adde-f4c57aad1cbe",
+              "name": "IA Mujeres — Respuestas / Reuniones",
+              "type": "TABLE",
+              "position": 104,
+              "mainGroupByFieldMetadataId": null,
+              "filters": 3,
+              "fields": 11,
+              "groups": 0
+            },
+            {
+              "id": "e72c84fc-f630-4162-a627-83a5b3da4dcb",
+              "name": "IA Mujeres — Nurturing",
+              "type": "TABLE",
+              "position": 105,
+              "mainGroupByFieldMetadataId": null,
+              "filters": 3,
+              "fields": 11,
+              "groups": 0
+            },
+            {
+              "id": "c50c6c82-1085-436e-a6fd-0f345bea4f7b",
+              "name": "TEST — IA Mujeres Smoke Test",
+              "type": "TABLE",
+              "position": 200,
+              "mainGroupByFieldMetadataId": null,
+              "filters": 2,
+              "fields": 0,
+              "groups": 0
+            }
+          ],
+          "opportunities": {
+            "total": 145,
+            "campaign": 100,
+            "byStage": {
+              "POSSIBLE_OPPORTUNITY": 100
+            },
+            "byOutreachStatus": {
+              "pending_first_email": 100
+            },
+            "byIaMujeresFunnelStage": {
+              "NOT_SENT": 100
+            },
+            "needsManualReview": 62,
+            "duplicatePossible": 11,
+            "genericEmail": 55,
+            "withGmailThreadId": 0
+          }
+        }
+      }
+    },
+    {
+      "command": "node scripts/ia_mujeres_batch_runner.mjs --mode=select-batch --limit=5 --output-dir=/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution",
+      "status": "ok",
+      "summary": {
+        "status": "ok",
+        "batch_id": "2026-06-08T00-27-22-049Z",
+        "summary": {
+          "crm_opportunities_seen": 145,
+          "campaign_opportunities_seen": 100,
+          "eligible_count": 22,
+          "selected_count": 5,
+          "excluded_count": 78
+        },
+        "outputs": {
+          "jsonPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/batch_2026-06-08T00-27-22-049Z_plan.json",
+          "reviewPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/batch_2026-06-08T00-27-22-049Z_review.md"
+        }
+      }
+    },
+    {
+      "command": "node scripts/ia_mujeres_batch_runner.mjs --mode=prepare-followups --limit=5 --output-dir=/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution",
+      "status": "ok",
+      "summary": {
+        "status": "ok",
+        "reportPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/2026-06-08_followup_candidates.json",
+        "selected": 0
+      }
+    },
+    {
+      "command": "node scripts/ia_mujeres_weekly_report.mjs --week=2026-06-08 --output-dir=/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution",
+      "status": "ok",
+      "summary": {
+        "status": "ok",
+        "campaign": "IA Mujeres 2026",
+        "week_start": "2026-06-08",
+        "week_end": "2026-06-14",
+        "events": 7,
+        "outputs": {
+          "markdown": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/weekly_report_2026-06-08.md",
+          "html": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/weekly_report_2026-06-08.html"
+        },
+        "crmAudit": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/2026-06-08_crm_audit.json",
+        "metrics": {
+          "draftsCreated": 2,
+          "emailsSent": 1,
+          "receptionsDetected": 1,
+          "repliesDetected": 1,
+          "bouncesDetected": 0,
+          "uniqueThreads": 2,
+          "uniqueRecipients": 1
+        }
+      }
+    }
+  ],
+  "nextActions": [
+    "Revisar batch_<id>_draft_review.md antes de crear drafts reales.",
+    "Crear Gmail drafts externos solo tras autorizacion humana explicita y modo dedicado.",
+    "Registrar draft en CRM con mark-draft-created --apply solo con mapa de drafts aprobado.",
+    "Mantener send-approved bloqueado hasta validar la primera tanda real."
+  ]
+}

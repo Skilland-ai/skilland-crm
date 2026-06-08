@@ -1,0 +1,89 @@
+{
+  "generated_at": "2026-06-08T08:11:28.343Z",
+  "mode": "apply",
+  "batch_id": "2026-06-08T08-03-50-600Z",
+  "draft_map_path": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/batch_2026-06-08T08-03-50-600Z_draft_map.json",
+  "sender": "gerencia@skilland.ai",
+  "auth": {
+    "user": "gerencia@skilland.ai",
+    "token_valid": true,
+    "storage": "encrypted"
+  },
+  "safeguards": [
+    "Sends only drafts listed in batch_<id>_draft_map.json.",
+    "Max 5 drafts.",
+    "Requires --apply and --confirm-send-approved-drafts."
+  ],
+  "sent": [
+    {
+      "crm_deal_id": "135f2d98-8f75-42b3-b96a-93cd5472a5dc",
+      "company_id": "c5405713-ed9d-484c-a344-770a77975d94",
+      "person_id": "2b85e70d-672c-4377-a33d-216ceaf34bea",
+      "recipient_email": "atmendoza@galdar.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r3444904680628023707",
+      "gmailMessageId": "19ea6496ef4a7701",
+      "gmailThreadId": "19ea6455961a1a53",
+      "status": "sent",
+      "sentAt": "2026-06-08T08:11:30.333Z"
+    },
+    {
+      "crm_deal_id": "25499484-05c0-4b11-9fc8-a79d579518ee",
+      "company_id": "854a0312-6a9d-45f9-8886-944a5dfd1d70",
+      "person_id": "df01797b-2f0c-4f10-8143-99f444b6d6cf",
+      "recipient_email": "ss.ss@barlovento.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r7553919080678429269",
+      "gmailMessageId": "19ea649759d7ba48",
+      "gmailThreadId": "19ea6455ea163fa5",
+      "status": "sent",
+      "sentAt": "2026-06-08T08:11:31.534Z"
+    },
+    {
+      "crm_deal_id": "323a1248-4027-4652-9622-230337af4940",
+      "company_id": "078cd55d-3403-481a-9e25-c1827e26a9ab",
+      "person_id": "671a8079-53a3-4d1c-ab7a-c9e757bc4bce",
+      "recipient_email": "emendoza@granadilladeabona.org",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r-8277980781421050893",
+      "gmailMessageId": "19ea6497aeac3bff",
+      "gmailThreadId": "19ea6456723fb740",
+      "status": "sent",
+      "sentAt": "2026-06-08T08:11:33.490Z"
+    },
+    {
+      "crm_deal_id": "34a111c3-03e1-4db9-bc3d-43625a0339bd",
+      "company_id": "49a72ed0-9823-4409-a173-e8de03f50682",
+      "person_id": "baebdb95-739c-43c6-abf4-7019b09b67e5",
+      "recipient_email": "servicios.generales@sanmigueldeabona.org",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r1105600918608146237",
+      "gmailMessageId": "19ea6498249d4a78",
+      "gmailThreadId": "19ea6456f82574b0",
+      "status": "sent",
+      "sentAt": "2026-06-08T08:11:35.177Z"
+    },
+    {
+      "crm_deal_id": "371f4d07-a20a-4b48-a2e0-f48205766841",
+      "company_id": "5efbe1cb-6bc8-4626-96fb-7928dc2038e5",
+      "person_id": "aba9efac-4921-4dc8-bb30-ed47b397352e",
+      "recipient_email": "t.gutierrez@puertodelrosario.org",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r1386405897613727194",
+      "gmailMessageId": "19ea64986b5c19c7",
+      "gmailThreadId": "19ea645725029d69",
+      "status": "sent",
+      "sentAt": "2026-06-08T08:11:36.614Z"
+    }
+  ]
+}

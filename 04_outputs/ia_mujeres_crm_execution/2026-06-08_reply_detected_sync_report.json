@@ -1,0 +1,11 @@
+{
+  "mode": "dry-run",
+  "eventType": "reply_detected",
+  "matched": [],
+  "unmatched": [
+    {
+      "event_id": "cd990b24-45a7-4af4-92b2-36004145f5b1",
+      "thread_id": "19ea476680e7031b"
+    }
+  ]
+}
