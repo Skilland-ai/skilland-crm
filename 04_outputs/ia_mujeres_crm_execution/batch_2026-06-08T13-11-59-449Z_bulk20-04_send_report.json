@@ -1,0 +1,89 @@
+{
+  "generated_at": "2026-06-08T13:32:04.452Z",
+  "mode": "apply",
+  "batch_id": "2026-06-08T13-11-59-449Z_bulk20-04",
+  "draft_map_path": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/batch_2026-06-08T13-11-59-449Z_bulk20-04_draft_map.json",
+  "sender": "gerencia@skilland.ai",
+  "auth": {
+    "user": "gerencia@skilland.ai",
+    "token_valid": true,
+    "storage": "encrypted"
+  },
+  "safeguards": [
+    "Sends only drafts listed in batch_<id>_draft_map.json.",
+    "Max 5 drafts.",
+    "Requires --apply and --confirm-send-approved-drafts."
+  ],
+  "sent": [
+    {
+      "crm_deal_id": "4126d094-d715-4881-8357-8b59a730bfba",
+      "company_id": "0b0092f5-bca9-46c2-b157-2e052e33600d",
+      "person_id": "390c5739-8095-4b67-b0a8-dba4833f1d9d",
+      "recipient_email": "serviciossociales@laoliva.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r-4287962988675721403",
+      "gmailMessageId": "19ea76ef00368d89",
+      "gmailThreadId": "19ea76eb0c46ba43",
+      "status": "sent",
+      "sentAt": "2026-06-08T13:32:06.448Z"
+    },
+    {
+      "crm_deal_id": "55d35a4b-0679-484c-aab3-63b1d717b5f2",
+      "company_id": "60a786c2-8e3e-4b9f-ab41-ed56445c6030",
+      "person_id": "9f4b9320-dbed-4a96-868f-4daa959a90d3",
+      "recipient_email": "serviciossociales@guiadeisora.org",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r-7631434754436293077",
+      "gmailMessageId": "19ea76ef881788f8",
+      "gmailThreadId": "19ea76eb45b3d607",
+      "status": "sent",
+      "sentAt": "2026-06-08T13:32:08.335Z"
+    },
+    {
+      "crm_deal_id": "579f4cf5-6e74-4466-8696-c5af529747d6",
+      "company_id": "ce789d41-cb59-468f-a7a5-bf9941d3df44",
+      "person_id": "0c4a6bda-c819-4730-950a-3d19bab5798a",
+      "recipient_email": "services.sociales@ayto-antigua.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r8236496986076511571",
+      "gmailMessageId": "19ea76efe1100e47",
+      "gmailThreadId": "19ea76ebb322c648",
+      "status": "sent",
+      "sentAt": "2026-06-08T13:32:10.004Z"
+    },
+    {
+      "crm_deal_id": "5f4806fe-80e3-4afc-a936-190384cfdb87",
+      "company_id": "37a152b9-88c9-4822-bee4-388d34069137",
+      "person_id": "ce9d65ae-27f0-4ad5-856b-b88fb6d5d226",
+      "recipient_email": "ssociales@aytobetancuria.org",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r-5543233175052329852",
+      "gmailMessageId": "19ea76f09594bdbe",
+      "gmailThreadId": "19ea76ec0199cab3",
+      "status": "sent",
+      "sentAt": "2026-06-08T13:32:12.476Z"
+    },
+    {
+      "crm_deal_id": "6221863f-f6db-46a8-885e-dc4b9791e3d6",
+      "company_id": "b17f615b-33ad-457e-8148-c90f9638cea8",
+      "person_id": "3e4b3587-a452-4d50-93f3-15a27dc4ac5f",
+      "recipient_email": "serviciossociales@eltanque.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r-8466826081978707945",
+      "gmailMessageId": "19ea76f0def34250",
+      "gmailThreadId": "19ea76ec65c464b5",
+      "status": "sent",
+      "sentAt": "2026-06-08T13:32:13.909Z"
+    }
+  ]
+}

@@ -8,7 +8,7 @@ import path from 'node:path';
 const CAMPAIGN_NAME = 'IA Mujeres 2026';
 const BUSINESS_LINE = 'SkilLand IA Mujeres';
 const SENDER_EMAIL = 'gerencia@skilland.ai';
-const GERENCIA_CONFIG_DIR = '/home/reboot/.config/gws_gerencia';
+const GERENCIA_CONFIG_DIR = process.env.GWS_GERENCIA_CONFIG_DIR || '/home/reboot/.config/gws_gerencia';
 const DEFAULT_OUTPUT_DIR = path.resolve('04_outputs/ia_mujeres_crm_execution');
 
 function parseArgs(argv) {

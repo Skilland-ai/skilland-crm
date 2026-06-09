@@ -1,6 +1,39 @@
 {
-  "mode": "dry-run",
+  "mode": "apply",
   "eventType": "bounce_detected",
-  "matched": [],
+  "matched": [
+    {
+      "crm_deal_id": "9aadaaf3-7580-468e-bda9-dcd9933860b4",
+      "event_id": "4e4ef5e6-8fda-41fe-b6dd-6780d2b0a39f",
+      "alreadyRecorded": true,
+      "updateData": null,
+      "closedPreviousTasks": [],
+      "note": {
+        "skipped": true,
+        "reason": "bounce_detected_already_recorded"
+      },
+      "task": {
+        "reused": true,
+        "id": "0a3717e2-eb59-4129-8147-cd4ac667055e",
+        "title": "[IA Mujeres] Revisar bounce / contacto incorrecto"
+      }
+    },
+    {
+      "crm_deal_id": "579f4cf5-6e74-4466-8696-c5af529747d6",
+      "event_id": "9694202b-d5b0-4c71-b127-7588a76d96e2",
+      "alreadyRecorded": true,
+      "updateData": null,
+      "closedPreviousTasks": [],
+      "note": {
+        "skipped": true,
+        "reason": "bounce_detected_already_recorded"
+      },
+      "task": {
+        "reused": true,
+        "id": "1f166f1c-c85b-483f-a472-ff62d5f9684a",
+        "title": "[IA Mujeres] Revisar bounce / contacto incorrecto"
+      }
+    }
+  ],
   "unmatched": []
 }

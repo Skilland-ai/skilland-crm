@@ -183,20 +183,27 @@ class TwentyClient {
   }
 
   async requestJson(url, init = {}) {
-    const response = await fetch(url, {
-      ...init,
-      headers: {
-        authorization: `Bearer ${this.apiKey}`,
-        'content-type': 'application/json',
-        ...(init.headers ?? {}),
-      },
-    });
-    const text = await response.text();
-    const json = text ? JSON.parse(text) : {};
-    if (!response.ok || json.errors?.length) {
-      throw new Error(`Twenty API error ${response.status}: ${JSON.stringify(json).slice(0, 900)}`);
+    for (let attempt = 0; attempt < 4; attempt += 1) {
+      const response = await fetch(url, {
+        ...init,
+        headers: {
+          authorization: `Bearer ${this.apiKey}`,
+          'content-type': 'application/json',
+          ...(init.headers ?? {}),
+        },
+      });
+      const text = await response.text();
+      const json = text ? JSON.parse(text) : {};
+      if (response.status === 429 && attempt < 3) {
+        await new Promise((resolve) => setTimeout(resolve, 65000));
+        continue;
+      }
+      if (!response.ok || json.errors?.length) {
+        throw new Error(`Twenty API error ${response.status}: ${JSON.stringify(json).slice(0, 900)}`);
+      }
+      return json;
     }
-    return json;
+    throw new Error('Twenty API retry loop exhausted.');
   }
 
   async gql(query, variables = {}) {
@@ -302,7 +309,13 @@ function displaySpanishValue(value) {
     .replaceAll('Informacion', 'Información')
     .replaceAll('informacion', 'información')
     .replaceAll('Accion', 'Acción')
-    .replaceAll('accion', 'acción');
+    .replaceAll('accion', 'acción')
+    .replaceAll('Mogan', 'Mogán')
+    .replaceAll('Guimar', 'Güímar')
+    .replaceAll('Aguimes', 'Agüimes')
+    .replaceAll('Guia de Isora', 'Guía de Isora')
+    .replaceAll('Santa Brigida', 'Santa Brígida')
+    .replaceAll('San Nicolas', 'San Nicolás');
 }
 
 function addDaysIso(dateLike, days) {
@@ -1247,6 +1260,8 @@ async function modeMarkEmailSent(client, args) {
   const entries = Array.isArray(sentMap) ? sentMap : sentMap.sent;
   if (!Array.isArray(entries)) throw new Error('Sent map must be an array or { sent: [...] }.');
   const report = { mode: args.apply ? 'apply' : 'dry-run', batch_id: args.batchId, updated: [], planned: [] };
+  const currentOpportunities = await fetchOpportunities(client, true);
+  const currentById = new Map(currentOpportunities.map((opportunity) => [opportunity.id, opportunity]));
   const existingTasks = await fetchIaMujeresTasks(client);
   for (const entry of entries) {
     const required = ['crm_deal_id', 'gmailMessageId', 'gmailThreadId'];
@@ -1269,11 +1284,38 @@ async function modeMarkEmailSent(client, args) {
       lastEmailTemplate: entry.template_name ?? 'email_01',
       lastEmailSubject: entry.subject ?? EMAIL_01_SUBJECT,
     };
+    const currentOpportunity = currentById.get(entry.crm_deal_id);
+    const alreadyRecorded =
+      currentOpportunity?.iaMujeresFunnelStage === 'EMAIL_1_SENT' &&
+      currentOpportunity?.gmailMessageId === entry.gmailMessageId &&
+      currentOpportunity?.gmailThreadId === entry.gmailThreadId;
     const closedPreviousTasks = await completeTasks(
       client,
       matchingOpenTasksForOpportunity(existingTasks, entry.crm_deal_id, TASK_REVIEW_DRAFT_EMAIL_1),
       args.apply,
     );
+    const existingFollowUpTasks = matchingOpenTasksForOpportunity(existingTasks, entry.crm_deal_id, TASK_REVIEW_FOLLOW_UP_1);
+    if (alreadyRecorded) {
+      const task = existingFollowUpTasks[0]
+        ? { reused: true, id: existingFollowUpTasks[0].id, title: existingFollowUpTasks[0].title }
+        : await createTask(client, {
+            title: `[IA Mujeres] Revisar respuesta / preparar Follow-up 1`,
+            markdown: `Revisar si hubo respuesta y, si no la hubo, preparar Follow-up 1.\n\nThread: ${entry.gmailThreadId}\nBatch: ${args.batchId}`,
+            dueAt: currentOpportunity.followUpDueAt ?? followUpDueAt,
+            opportunityId: entry.crm_deal_id,
+            personId: entry.person_id,
+            companyId: entry.company_id,
+          }, args.apply);
+      report[args.apply ? 'updated' : 'planned'].push({
+        crm_deal_id: entry.crm_deal_id,
+        alreadyRecorded: true,
+        updateData: null,
+        closedPreviousTasks,
+        note: { skipped: true, reason: 'email_sent_already_recorded' },
+        task,
+      });
+      continue;
+    }
     if (args.apply) await updateOpportunity(client, entry.crm_deal_id, updateData);
     const note = await createNote(client, {
       title: `[IA Mujeres] Email 1 enviado`,
@@ -1282,14 +1324,16 @@ async function modeMarkEmailSent(client, args) {
       personId: entry.person_id,
       companyId: entry.company_id,
     }, args.apply);
-    const task = await createTask(client, {
-      title: `[IA Mujeres] Revisar respuesta / preparar Follow-up 1`,
-      markdown: `Revisar si hubo respuesta y, si no la hubo, preparar Follow-up 1.\n\nThread: ${entry.gmailThreadId}\nBatch: ${args.batchId}`,
-      dueAt: followUpDueAt,
-      opportunityId: entry.crm_deal_id,
-      personId: entry.person_id,
-      companyId: entry.company_id,
-    }, args.apply);
+    const task = existingFollowUpTasks[0]
+      ? { reused: true, id: existingFollowUpTasks[0].id, title: existingFollowUpTasks[0].title }
+      : await createTask(client, {
+          title: `[IA Mujeres] Revisar respuesta / preparar Follow-up 1`,
+          markdown: `Revisar si hubo respuesta y, si no la hubo, preparar Follow-up 1.\n\nThread: ${entry.gmailThreadId}\nBatch: ${args.batchId}`,
+          dueAt: followUpDueAt,
+          opportunityId: entry.crm_deal_id,
+          personId: entry.person_id,
+          companyId: entry.company_id,
+        }, args.apply);
     report[args.apply ? 'updated' : 'planned'].push({ crm_deal_id: entry.crm_deal_id, updateData, closedPreviousTasks, note, task });
   }
   const reportPath = path.join(args.outputDir, `batch_${args.batchId}_mark_email_sent_report.json`);
@@ -1327,6 +1371,12 @@ async function modeSyncFromEvents(client, args, eventType) {
           lastEmailEventAt: event.occurred_at,
           lastEmailEventType: 'bounce_detected',
         };
+    const taskTitle = isReply
+      ? `[IA Mujeres] Responder y valorar reunión`
+      : `[IA Mujeres] Revisar bounce / contacto incorrecto`;
+    const noteTitle = isReply
+      ? `[IA Mujeres] Respuesta detectada`
+      : `[IA Mujeres] Bounce detectado`;
     const closedPreviousTasks = await completeTasks(
       client,
       [
@@ -1335,13 +1385,35 @@ async function modeSyncFromEvents(client, args, eventType) {
       ],
       args.apply,
     );
+    const existingNextTasks = matchingOpenTasksForOpportunity(existingTasks, opportunity.id, taskTitle);
+    const alreadyRecorded =
+      opportunity.lastEmailEventType === eventType &&
+      (
+        (isReply && opportunity.iaMujeresFunnelStage === 'REPLY_RECEIVED') ||
+        (!isReply && opportunity.iaMujeresFunnelStage === 'WRONG_CONTACT_MANUAL_REVIEW')
+      );
+    if (alreadyRecorded) {
+      const task = existingNextTasks[0]
+        ? { reused: true, id: existingNextTasks[0].id, title: existingNextTasks[0].title }
+        : await createTask(client, {
+            title: taskTitle,
+            markdown: `Revisar evento ${eventType} y decidir siguiente acción comercial.\n\nThread: ${event.thread_id}`,
+            opportunityId: opportunity.id,
+            personId: opportunity.pointOfContact?.id,
+            companyId: opportunity.company?.id,
+          }, args.apply);
+      report.matched.push({
+        crm_deal_id: opportunity.id,
+        event_id: event.event_id,
+        alreadyRecorded: true,
+        updateData: null,
+        closedPreviousTasks,
+        note: { skipped: true, reason: `${eventType}_already_recorded` },
+        task,
+      });
+      continue;
+    }
     if (args.apply) await updateOpportunity(client, opportunity.id, updateData);
-    const taskTitle = isReply
-      ? `[IA Mujeres] Responder y valorar reunión`
-      : `[IA Mujeres] Revisar bounce / contacto incorrecto`;
-    const noteTitle = isReply
-      ? `[IA Mujeres] Respuesta detectada`
-      : `[IA Mujeres] Bounce detectado`;
     const note = await createNote(client, {
       title: noteTitle,
       markdown: `Evento ${eventType} detectado el ${event.occurred_at}.\n\nThread: ${event.thread_id}\nMessage: ${event.message_id ?? 'n/a'}`,
@@ -1349,13 +1421,15 @@ async function modeSyncFromEvents(client, args, eventType) {
       personId: opportunity.pointOfContact?.id,
       companyId: opportunity.company?.id,
     }, args.apply);
-    const task = await createTask(client, {
-      title: taskTitle,
-      markdown: `Revisar evento ${eventType} y decidir siguiente acción comercial.\n\nThread: ${event.thread_id}`,
-      opportunityId: opportunity.id,
-      personId: opportunity.pointOfContact?.id,
-      companyId: opportunity.company?.id,
-    }, args.apply);
+    const task = existingNextTasks[0]
+      ? { reused: true, id: existingNextTasks[0].id, title: existingNextTasks[0].title }
+      : await createTask(client, {
+          title: taskTitle,
+          markdown: `Revisar evento ${eventType} y decidir siguiente acción comercial.\n\nThread: ${event.thread_id}`,
+          opportunityId: opportunity.id,
+          personId: opportunity.pointOfContact?.id,
+          companyId: opportunity.company?.id,
+        }, args.apply);
     report.matched.push({ crm_deal_id: opportunity.id, event_id: event.event_id, updateData, closedPreviousTasks, note, task });
   }
   const reportPath = path.join(args.outputDir, `${TODAY}_${eventType}_sync_report.json`);

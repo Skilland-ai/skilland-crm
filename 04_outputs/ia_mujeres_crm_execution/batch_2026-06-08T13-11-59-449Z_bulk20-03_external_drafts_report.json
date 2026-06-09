@@ -1,0 +1,471 @@
+{
+  "generated_at": "2026-06-08T13:29:59.050Z",
+  "mode": "apply",
+  "batch_id": "2026-06-08T13-11-59-449Z_bulk20-03",
+  "payload_path": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/batch_2026-06-08T13-11-59-449Z_bulk20-03_draft_payloads.json",
+  "sender": "gerencia@skilland.ai",
+  "attachment": {
+    "path": "/home/reboot/Escritorio/agentic-scrapping-Experiment-scrappling/04_outputs/skilland-ia-mujeres/Mujeres, IA y el futuro del Trabajo - Presentación — SkilLand (1).pdf",
+    "expected_mime_name": "Mujeres, IA y el futuro del Trabajo - Presentación corta — SkilLand.pdf",
+    "bytes": 825178
+  },
+  "auth": {
+    "user": "gerencia@skilland.ai",
+    "token_valid": true,
+    "storage": "encrypted"
+  },
+  "safeguards": [
+    "Creates Gmail drafts only.",
+    "Does not send emails.",
+    "Max 5 payloads.",
+    "Requires --confirm-create-external-drafts with --apply.",
+    "Requires Gmail signature and short presentation attachment."
+  ],
+  "drafts": [
+    {
+      "crm_deal_id": "f193d596-2a73-49ce-8cc8-cb730170d980",
+      "company_id": "a5d61b78-c935-476b-a9ee-727b1caccfe3",
+      "person_id": "f72b51a7-a64c-4f8e-ae1e-0c16b14b254f",
+      "recipient_email": "cmbrosed@aytovalverde.org",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r-3271263763971909025",
+      "gmailMessageId": "19ea76d0381761a9",
+      "gmailThreadId": "19ea76d0381761a9",
+      "validation": {
+        "linksPresent": [
+          {
+            "text": "Romina Ojeda Brito",
+            "url": "https://www.linkedin.com/in/romina-ojeda-brito/",
+            "present": true
+          },
+          {
+            "text": "Women In STEAM Empowerment Canarias",
+            "url": "https://www.elespejocanario.es/secciones/wise-canarias-la-primera-asociacion-de-mujeres-steam-del-archipielago/",
+            "present": true
+          },
+          {
+            "text": "la brecha que se está abriendo con la adopción de la Inteligencia Artificial",
+            "url": "https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html",
+            "present": true
+          },
+          {
+            "text": "aprovechar una tecnología que lo cambia todo",
+            "url": "https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html",
+            "present": true
+          },
+          {
+            "text": "SkilLand",
+            "url": "http://www.skilland.ai/",
+            "present": true
+          }
+        ],
+        "attachmentName": "Mujeres, IA y el futuro del Trabajo - Presentación corta — SkilLand.pdf",
+        "signaturePresent": true,
+        "htmlHasAccents": true,
+        "draft": {
+          "fromOk": true,
+          "toOk": true,
+          "subjectOk": true,
+          "linksPresent": [
+            {
+              "text": "Romina Ojeda Brito",
+              "url": "https://www.linkedin.com/in/romina-ojeda-brito/",
+              "present": true
+            },
+            {
+              "text": "Women In STEAM Empowerment Canarias",
+              "url": "https://www.elespejocanario.es/secciones/wise-canarias-la-primera-asociacion-de-mujeres-steam-del-archipielago/",
+              "present": true
+            },
+            {
+              "text": "la brecha que se está abriendo con la adopción de la Inteligencia Artificial",
+              "url": "https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html",
+              "present": true
+            },
+            {
+              "text": "aprovechar una tecnología que lo cambia todo",
+              "url": "https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html",
+              "present": true
+            },
+            {
+              "text": "SkilLand",
+              "url": "http://www.skilland.ai/",
+              "present": true
+            }
+          ],
+          "attachmentPresent": true,
+          "expectedAttachmentNameMatches": true,
+          "signaturePresent": true,
+          "filenames": [
+            "Mujeres, IA y el futuro del Trabajo - Presentación corta — SkilLand.pdf"
+          ],
+          "mimeTypes": [
+            "multipart/mixed",
+            "multipart/alternative",
+            "text/plain",
+            "text/html",
+            "application/pdf"
+          ]
+        }
+      }
+    },
+    {
+      "crm_deal_id": "01392d12-2925-42b5-b527-bbfc71bc784d",
+      "company_id": "6d65c7b7-2117-4ddc-96bc-961517117a62",
+      "person_id": "f215c9bb-9f4c-4ea2-89d6-9a7f0aab86a9",
+      "recipient_email": "mujer2@candelaria.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r-4650645064480768626",
+      "gmailMessageId": "19ea76d080b7cb3f",
+      "gmailThreadId": "19ea76d080b7cb3f",
+      "validation": {
+        "linksPresent": [
+          {
+            "text": "Romina Ojeda Brito",
+            "url": "https://www.linkedin.com/in/romina-ojeda-brito/",
+            "present": true
+          },
+          {
+            "text": "Women In STEAM Empowerment Canarias",
+            "url": "https://www.elespejocanario.es/secciones/wise-canarias-la-primera-asociacion-de-mujeres-steam-del-archipielago/",
+            "present": true
+          },
+          {
+            "text": "la brecha que se está abriendo con la adopción de la Inteligencia Artificial",
+            "url": "https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html",
+            "present": true
+          },
+          {
+            "text": "aprovechar una tecnología que lo cambia todo",
+            "url": "https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html",
+            "present": true
+          },
+          {
+            "text": "SkilLand",
+            "url": "http://www.skilland.ai/",
+            "present": true
+          }
+        ],
+        "attachmentName": "Mujeres, IA y el futuro del Trabajo - Presentación corta — SkilLand.pdf",
+        "signaturePresent": true,
+        "htmlHasAccents": true,
+        "draft": {
+          "fromOk": true,
+          "toOk": true,
+          "subjectOk": true,
+          "linksPresent": [
+            {
+              "text": "Romina Ojeda Brito",
+              "url": "https://www.linkedin.com/in/romina-ojeda-brito/",
+              "present": true
+            },
+            {
+              "text": "Women In STEAM Empowerment Canarias",
+              "url": "https://www.elespejocanario.es/secciones/wise-canarias-la-primera-asociacion-de-mujeres-steam-del-archipielago/",
+              "present": true
+            },
+            {
+              "text": "la brecha que se está abriendo con la adopción de la Inteligencia Artificial",
+              "url": "https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html",
+              "present": true
+            },
+            {
+              "text": "aprovechar una tecnología que lo cambia todo",
+              "url": "https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html",
+              "present": true
+            },
+            {
+              "text": "SkilLand",
+              "url": "http://www.skilland.ai/",
+              "present": true
+            }
+          ],
+          "attachmentPresent": true,
+          "expectedAttachmentNameMatches": true,
+          "signaturePresent": true,
+          "filenames": [
+            "Mujeres, IA y el futuro del Trabajo - Presentación corta — SkilLand.pdf"
+          ],
+          "mimeTypes": [
+            "multipart/mixed",
+            "multipart/alternative",
+            "text/plain",
+            "text/html",
+            "application/pdf"
+          ]
+        }
+      }
+    },
+    {
+      "crm_deal_id": "16a4e12e-3509-4cf6-84ee-aac13005e50a",
+      "company_id": "c4979b66-9e14-4839-9895-4968a727d58e",
+      "person_id": "c7995316-c482-45db-ae9c-aa81992f0ba1",
+      "recipient_email": "centro.igualdad@aguimes.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r6241126667089861013",
+      "gmailMessageId": "19ea76d0f8298fc3",
+      "gmailThreadId": "19ea76d0f8298fc3",
+      "validation": {
+        "linksPresent": [
+          {
+            "text": "Romina Ojeda Brito",
+            "url": "https://www.linkedin.com/in/romina-ojeda-brito/",
+            "present": true
+          },
+          {
+            "text": "Women In STEAM Empowerment Canarias",
+            "url": "https://www.elespejocanario.es/secciones/wise-canarias-la-primera-asociacion-de-mujeres-steam-del-archipielago/",
+            "present": true
+          },
+          {
+            "text": "la brecha que se está abriendo con la adopción de la Inteligencia Artificial",
+            "url": "https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html",
+            "present": true
+          },
+          {
+            "text": "aprovechar una tecnología que lo cambia todo",
+            "url": "https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html",
+            "present": true
+          },
+          {
+            "text": "SkilLand",
+            "url": "http://www.skilland.ai/",
+            "present": true
+          }
+        ],
+        "attachmentName": "Mujeres, IA y el futuro del Trabajo - Presentación corta — SkilLand.pdf",
+        "signaturePresent": true,
+        "htmlHasAccents": true,
+        "draft": {
+          "fromOk": true,
+          "toOk": true,
+          "subjectOk": true,
+          "linksPresent": [
+            {
+              "text": "Romina Ojeda Brito",
+              "url": "https://www.linkedin.com/in/romina-ojeda-brito/",
+              "present": true
+            },
+            {
+              "text": "Women In STEAM Empowerment Canarias",
+              "url": "https://www.elespejocanario.es/secciones/wise-canarias-la-primera-asociacion-de-mujeres-steam-del-archipielago/",
+              "present": true
+            },
+            {
+              "text": "la brecha que se está abriendo con la adopción de la Inteligencia Artificial",
+              "url": "https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html",
+              "present": true
+            },
+            {
+              "text": "aprovechar una tecnología que lo cambia todo",
+              "url": "https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html",
+              "present": true
+            },
+            {
+              "text": "SkilLand",
+              "url": "http://www.skilland.ai/",
+              "present": true
+            }
+          ],
+          "attachmentPresent": true,
+          "expectedAttachmentNameMatches": true,
+          "signaturePresent": true,
+          "filenames": [
+            "Mujeres, IA y el futuro del Trabajo - Presentación corta — SkilLand.pdf"
+          ],
+          "mimeTypes": [
+            "multipart/mixed",
+            "multipart/alternative",
+            "text/plain",
+            "text/html",
+            "application/pdf"
+          ]
+        }
+      }
+    },
+    {
+      "crm_deal_id": "3208eebb-b21f-4463-ad7e-64a895f195a7",
+      "company_id": "29fd5b50-ce52-498c-9d55-ad4439994e87",
+      "person_id": "4763ce5d-2350-4dea-a230-9b53f93cb5a7",
+      "recipient_email": "igualdad@laspalmasgc.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r-4011329396505352944",
+      "gmailMessageId": "19ea76d14f0ce8c5",
+      "gmailThreadId": "19ea76d14f0ce8c5",
+      "validation": {
+        "linksPresent": [
+          {
+            "text": "Romina Ojeda Brito",
+            "url": "https://www.linkedin.com/in/romina-ojeda-brito/",
+            "present": true
+          },
+          {
+            "text": "Women In STEAM Empowerment Canarias",
+            "url": "https://www.elespejocanario.es/secciones/wise-canarias-la-primera-asociacion-de-mujeres-steam-del-archipielago/",
+            "present": true
+          },
+          {
+            "text": "la brecha que se está abriendo con la adopción de la Inteligencia Artificial",
+            "url": "https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html",
+            "present": true
+          },
+          {
+            "text": "aprovechar una tecnología que lo cambia todo",
+            "url": "https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html",
+            "present": true
+          },
+          {
+            "text": "SkilLand",
+            "url": "http://www.skilland.ai/",
+            "present": true
+          }
+        ],
+        "attachmentName": "Mujeres, IA y el futuro del Trabajo - Presentación corta — SkilLand.pdf",
+        "signaturePresent": true,
+        "htmlHasAccents": true,
+        "draft": {
+          "fromOk": true,
+          "toOk": true,
+          "subjectOk": true,
+          "linksPresent": [
+            {
+              "text": "Romina Ojeda Brito",
+              "url": "https://www.linkedin.com/in/romina-ojeda-brito/",
+              "present": true
+            },
+            {
+              "text": "Women In STEAM Empowerment Canarias",
+              "url": "https://www.elespejocanario.es/secciones/wise-canarias-la-primera-asociacion-de-mujeres-steam-del-archipielago/",
+              "present": true
+            },
+            {
+              "text": "la brecha que se está abriendo con la adopción de la Inteligencia Artificial",
+              "url": "https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html",
+              "present": true
+            },
+            {
+              "text": "aprovechar una tecnología que lo cambia todo",
+              "url": "https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html",
+              "present": true
+            },
+            {
+              "text": "SkilLand",
+              "url": "http://www.skilland.ai/",
+              "present": true
+            }
+          ],
+          "attachmentPresent": true,
+          "expectedAttachmentNameMatches": true,
+          "signaturePresent": true,
+          "filenames": [
+            "Mujeres, IA y el futuro del Trabajo - Presentación corta — SkilLand.pdf"
+          ],
+          "mimeTypes": [
+            "multipart/mixed",
+            "multipart/alternative",
+            "text/plain",
+            "text/html",
+            "application/pdf"
+          ]
+        }
+      }
+    },
+    {
+      "crm_deal_id": "3209aac0-6da8-4f7e-9f51-deed457d2bae",
+      "company_id": "99f66e0e-721f-45ab-a325-17ae46eecf85",
+      "person_id": "47a11900-7ad7-436b-835b-bdf67b9eb64e",
+      "recipient_email": "igualdad@tegueste.org",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r-861649505765743192",
+      "gmailMessageId": "19ea76d1a72fd53c",
+      "gmailThreadId": "19ea76d1a72fd53c",
+      "validation": {
+        "linksPresent": [
+          {
+            "text": "Romina Ojeda Brito",
+            "url": "https://www.linkedin.com/in/romina-ojeda-brito/",
+            "present": true
+          },
+          {
+            "text": "Women In STEAM Empowerment Canarias",
+            "url": "https://www.elespejocanario.es/secciones/wise-canarias-la-primera-asociacion-de-mujeres-steam-del-archipielago/",
+            "present": true
+          },
+          {
+            "text": "la brecha que se está abriendo con la adopción de la Inteligencia Artificial",
+            "url": "https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html",
+            "present": true
+          },
+          {
+            "text": "aprovechar una tecnología que lo cambia todo",
+            "url": "https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html",
+            "present": true
+          },
+          {
+            "text": "SkilLand",
+            "url": "http://www.skilland.ai/",
+            "present": true
+          }
+        ],
+        "attachmentName": "Mujeres, IA y el futuro del Trabajo - Presentación corta — SkilLand.pdf",
+        "signaturePresent": true,
+        "htmlHasAccents": true,
+        "draft": {
+          "fromOk": true,
+          "toOk": true,
+          "subjectOk": true,
+          "linksPresent": [
+            {
+              "text": "Romina Ojeda Brito",
+              "url": "https://www.linkedin.com/in/romina-ojeda-brito/",
+              "present": true
+            },
+            {
+              "text": "Women In STEAM Empowerment Canarias",
+              "url": "https://www.elespejocanario.es/secciones/wise-canarias-la-primera-asociacion-de-mujeres-steam-del-archipielago/",
+              "present": true
+            },
+            {
+              "text": "la brecha que se está abriendo con la adopción de la Inteligencia Artificial",
+              "url": "https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html",
+              "present": true
+            },
+            {
+              "text": "aprovechar una tecnología que lo cambia todo",
+              "url": "https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html",
+              "present": true
+            },
+            {
+              "text": "SkilLand",
+              "url": "http://www.skilland.ai/",
+              "present": true
+            }
+          ],
+          "attachmentPresent": true,
+          "expectedAttachmentNameMatches": true,
+          "signaturePresent": true,
+          "filenames": [
+            "Mujeres, IA y el futuro del Trabajo - Presentación corta — SkilLand.pdf"
+          ],
+          "mimeTypes": [
+            "multipart/mixed",
+            "multipart/alternative",
+            "text/plain",
+            "text/html",
+            "application/pdf"
+          ]
+        }
+      }
+    }
+  ]
+}

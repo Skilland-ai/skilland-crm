@@ -122,18 +122,23 @@ function summarize(events) {
     event.event_type === 'bounce_detected' ||
     (event.event_type === 'bounce_checked' && Number(event.metadata?.total_estimate ?? 0) > 0),
   );
+  const emailSentEvents = commercialEvents.filter((event) => event.event_type === 'email_sent');
+  const bouncedThreads = new Set(bounceEvents.map(operationalThreadId).filter(Boolean));
+  const bouncedRecipients = new Set(bounceEvents.map((event) => event.recipient_email).filter(Boolean));
 
   return {
     localEvents: events.length,
     commercialEvents: commercialEvents.length,
     labEvents: labEvents.length,
     draftsCreated: countWhere(commercialEvents, (event) => event.event_type === 'draft_created'),
-    emailsSent: countWhere(commercialEvents, (event) => event.event_type === 'email_sent'),
+    emailsSent: emailSentEvents.length,
+    emailsSentWithoutBounce: emailSentEvents.filter((event) => !bouncedThreads.has(operationalThreadId(event))).length,
     receptionsDetected: countWhere(commercialEvents, (event) => event.event_type === 'reception_detected'),
     repliesDetected: countWhere(commercialEvents, (event) => event.event_type === 'reply_detected'),
     bouncesDetected: bounceEvents.length,
     uniqueThreads: new Set(commercialEvents.map(operationalThreadId).filter(Boolean)).size,
     uniqueRecipients: uniqueCount(commercialEvents.filter((event) => event.recipient_email !== SENDER_EMAIL), 'recipient_email'),
+    uniqueRecipientsWithoutBounce: new Set(emailSentEvents.map((event) => event.recipient_email).filter(Boolean).filter((email) => !bouncedRecipients.has(email))).size,
     labEmailsSent: countWhere(labEvents, (event) => event.event_type === 'email_sent'),
     labRepliesDetected: countWhere(labEvents, (event) => event.event_type === 'reply_detected'),
   };
@@ -202,11 +207,13 @@ Periodo local: ${weekStart} a ${weekEnd}
 | Eventos laboratorio interno | ${metrics.labEvents} |
 | Drafts comerciales creados | ${metrics.draftsCreated} |
 | Emails comerciales enviados | ${metrics.emailsSent} |
+| Emails comerciales sin bounce detectado | ${metrics.emailsSentWithoutBounce} |
 | Recepciones comerciales detectadas | ${metrics.receptionsDetected} |
 | Replies comerciales detectados | ${metrics.repliesDetected} |
 | Bounces comerciales detectados | ${metrics.bouncesDetected} |
 | Hilos comerciales únicos | ${metrics.uniqueThreads} |
 | Destinatarios comerciales únicos | ${metrics.uniqueRecipients} |
+| Destinatarios enviados sin bounce detectado | ${metrics.uniqueRecipientsWithoutBounce} |
 | Oportunidades IA Mujeres en CRM | ${crmAudit?.opportunities?.campaign ?? 'sin audit'} |
 | Con Gmail thread en CRM | ${crmAudit?.opportunities?.withGmailThreadId ?? 'sin audit'} |
 | Revisión manual marcada | ${crmAudit?.opportunities?.needsManualReview ?? 'sin audit'} |
@@ -291,6 +298,7 @@ function renderHtml({ weekStart, weekEnd, events, metrics, threads, crmAudit }) 
       <div class="metric"><strong>${metrics.commercialEvents}</strong><span>Eventos comerciales</span></div>
       <div class="metric"><strong>${metrics.draftsCreated}</strong><span>Drafts</span></div>
       <div class="metric"><strong>${metrics.emailsSent}</strong><span>Enviados</span></div>
+      <div class="metric"><strong>${metrics.emailsSentWithoutBounce}</strong><span>Sin bounce</span></div>
       <div class="metric"><strong>${metrics.receptionsDetected}</strong><span>Recibidos</span></div>
       <div class="metric"><strong>${metrics.repliesDetected}</strong><span>Replies</span></div>
       <div class="metric"><strong>${metrics.bouncesDetected}</strong><span>Bounces</span></div>

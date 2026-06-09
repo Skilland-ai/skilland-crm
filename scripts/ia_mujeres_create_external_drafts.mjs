@@ -8,7 +8,7 @@ import path from 'node:path';
 const CAMPAIGN_NAME = 'IA Mujeres 2026';
 const BUSINESS_LINE = 'SkilLand IA Mujeres';
 const SENDER_EMAIL = 'gerencia@skilland.ai';
-const GERENCIA_CONFIG_DIR = '/home/reboot/.config/gws_gerencia';
+const GERENCIA_CONFIG_DIR = process.env.GWS_GERENCIA_CONFIG_DIR || '/home/reboot/.config/gws_gerencia';
 const DEFAULT_OUTPUT_DIR = path.resolve('04_outputs/ia_mujeres_crm_execution');
 const DEFAULT_ATTACHMENT = '/home/reboot/Escritorio/agentic-scrapping-Experiment-scrappling/04_outputs/skilland-ia-mujeres/Mujeres, IA y el futuro del Trabajo - Presentación — SkilLand (1).pdf';
 const EXPECTED_ATTACHMENT_NAME = 'Mujeres, IA y el futuro del Trabajo - Presentación corta — SkilLand.pdf';
@@ -125,16 +125,8 @@ function requireAuth(configDir, expectedUser) {
   return status;
 }
 
-function getGmailSignature() {
-  const sendAs = runGws(GERENCIA_CONFIG_DIR, [
-    'gmail',
-    'users',
-    'settings',
-    'sendAs',
-    'list',
-    '--params',
-    JSON.stringify({ userId: 'me' }),
-  ]);
+async function getGmailSignature() {
+  const sendAs = await gmailApi(GERENCIA_CONFIG_DIR, 'GET', '/settings/sendAs');
   const primary = sendAs.sendAs?.find((entry) => entry.sendAsEmail === SENDER_EMAIL && entry.isDefault);
   const signature = primary?.signature?.trim();
   if (!signature) throw new Error(`No Gmail signature found for ${SENDER_EMAIL}.`);
@@ -284,7 +276,7 @@ async function main() {
   fs.mkdirSync(args.outputDir, { recursive: true });
   const { payloadPath, payloads } = readPayloads(args.outputDir, args.batchId);
   const auth = requireAuth(GERENCIA_CONFIG_DIR, SENDER_EMAIL);
-  const signatureHtml = getGmailSignature();
+  const signatureHtml = await getGmailSignature();
   if (!fs.existsSync(args.attachment)) throw new Error(`Attachment not found: ${args.attachment}`);
   const attachmentStat = fs.statSync(args.attachment);
 

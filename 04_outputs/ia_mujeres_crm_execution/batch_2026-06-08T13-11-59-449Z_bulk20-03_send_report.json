@@ -1,0 +1,89 @@
+{
+  "generated_at": "2026-06-08T13:30:14.553Z",
+  "mode": "apply",
+  "batch_id": "2026-06-08T13-11-59-449Z_bulk20-03",
+  "draft_map_path": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/batch_2026-06-08T13-11-59-449Z_bulk20-03_draft_map.json",
+  "sender": "gerencia@skilland.ai",
+  "auth": {
+    "user": "gerencia@skilland.ai",
+    "token_valid": true,
+    "storage": "encrypted"
+  },
+  "safeguards": [
+    "Sends only drafts listed in batch_<id>_draft_map.json.",
+    "Max 5 drafts.",
+    "Requires --apply and --confirm-send-approved-drafts."
+  ],
+  "sent": [
+    {
+      "crm_deal_id": "f193d596-2a73-49ce-8cc8-cb730170d980",
+      "company_id": "a5d61b78-c935-476b-a9ee-727b1caccfe3",
+      "person_id": "f72b51a7-a64c-4f8e-ae1e-0c16b14b254f",
+      "recipient_email": "cmbrosed@aytovalverde.org",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r-3271263763971909025",
+      "gmailMessageId": "19ea76d435a499b4",
+      "gmailThreadId": "19ea76d0381761a9",
+      "status": "sent",
+      "sentAt": "2026-06-08T13:30:16.387Z"
+    },
+    {
+      "crm_deal_id": "01392d12-2925-42b5-b527-bbfc71bc784d",
+      "company_id": "6d65c7b7-2117-4ddc-96bc-961517117a62",
+      "person_id": "f215c9bb-9f4c-4ea2-89d6-9a7f0aab86a9",
+      "recipient_email": "mujer2@candelaria.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r-4650645064480768626",
+      "gmailMessageId": "19ea76d49a49d8f8",
+      "gmailThreadId": "19ea76d080b7cb3f",
+      "status": "sent",
+      "sentAt": "2026-06-08T13:30:18.096Z"
+    },
+    {
+      "crm_deal_id": "16a4e12e-3509-4cf6-84ee-aac13005e50a",
+      "company_id": "c4979b66-9e14-4839-9895-4968a727d58e",
+      "person_id": "c7995316-c482-45db-ae9c-aa81992f0ba1",
+      "recipient_email": "centro.igualdad@aguimes.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r6241126667089861013",
+      "gmailMessageId": "19ea76d501a615ab",
+      "gmailThreadId": "19ea76d0f8298fc3",
+      "status": "sent",
+      "sentAt": "2026-06-08T13:30:19.947Z"
+    },
+    {
+      "crm_deal_id": "3208eebb-b21f-4463-ad7e-64a895f195a7",
+      "company_id": "29fd5b50-ce52-498c-9d55-ad4439994e87",
+      "person_id": "4763ce5d-2350-4dea-a230-9b53f93cb5a7",
+      "recipient_email": "igualdad@laspalmasgc.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r-4011329396505352944",
+      "gmailMessageId": "19ea76d55884a292",
+      "gmailThreadId": "19ea76d14f0ce8c5",
+      "status": "sent",
+      "sentAt": "2026-06-08T13:30:21.248Z"
+    },
+    {
+      "crm_deal_id": "3209aac0-6da8-4f7e-9f51-deed457d2bae",
+      "company_id": "99f66e0e-721f-45ab-a325-17ae46eecf85",
+      "person_id": "47a11900-7ad7-436b-835b-bdf67b9eb64e",
+      "recipient_email": "igualdad@tegueste.org",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r-861649505765743192",
+      "gmailMessageId": "19ea76d5f059056b",
+      "gmailThreadId": "19ea76d1a72fd53c",
+      "status": "sent",
+      "sentAt": "2026-06-08T13:30:23.829Z"
+    }
+  ]
+}

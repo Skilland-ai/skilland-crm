@@ -6,7 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const SENDER_EMAIL = 'gerencia@skilland.ai';
-const GERENCIA_CONFIG_DIR = '/home/reboot/.config/gws_gerencia';
+const GERENCIA_CONFIG_DIR = process.env.GWS_GERENCIA_CONFIG_DIR || '/home/reboot/.config/gws_gerencia';
 const DEFAULT_OUTPUT_DIR = path.resolve('04_outputs/ia_mujeres_crm_execution');
 const DEFAULT_WEEK = '2026-06-08';
 const DEFAULT_SUBJECT = 'Lanzamiento de Funnel IA Mujeres';

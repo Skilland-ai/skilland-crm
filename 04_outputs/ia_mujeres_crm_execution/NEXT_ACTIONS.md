@@ -10,7 +10,7 @@ Fecha: 2026-06-08
 4. Revisar `04_outputs/ia_mujeres_crm_execution/2026-06-08_first_external_batch_05_report.md`.
 5. Revisar `04_outputs/ia_mujeres_crm_execution/2026-06-08_second_external_batch_05_report.md`.
 6. Monitorizar replies/bounces.
-7. No preparar tercera tanda hasta revisar señales iniciales de estas dos primeras.
+7. Monitorizar señales de la tanda ampliada de 20 enviada el 2026-06-08.
 
 ## Operación diaria segura
 
@@ -25,7 +25,7 @@ Estos comandos no mutan CRM, no crean drafts Gmail y no envían emails.
 
 ```bash
 node scripts/ia_mujeres_operator_harness.mjs --action=launch-approved-batch --batch-id=<id> --apply --confirm-create-external-drafts --confirm-send-approved-drafts
-node scripts/ia_mujeres_operator_harness.mjs --action=sync-signals --apply
+GWS_GERENCIA_CONFIG_DIR=/home/reboot/.config/gws node scripts/ia_mujeres_operator_harness.mjs --action=sync-signals --apply
 node scripts/ia_mujeres_operator_harness.mjs --action=reconcile-tasks --apply
 node scripts/ia_mujeres_operator_harness.mjs --action=weekly-report
 node scripts/ia_mujeres_operator_harness.mjs --action=email-weekly-report --apply --confirm-send-weekly-report
@@ -34,17 +34,28 @@ node scripts/ia_mujeres_operator_harness.mjs --action=email-weekly-report --appl
 ## Estado actual
 
 - Dos tandas externas enviadas y registradas en CRM.
-- Enviados totales IA Mujeres: 10.
-- Tareas IA Mujeres: 20 totales, todas asignadas a Raúl Artiles.
-- Tareas de revisión de draft: 10 cerradas.
-- Tareas de follow-up 1: 10 abiertas, vencen el 18 de junio de 2026.
+- Tanda ampliada de 20 enviada y registrada en CRM.
+- Emails comerciales enviados técnicamente: 30.
+- Emails comerciales sin bounce detectado: 28.
+- Bounces detectados: 2.
+- Oportunidades IA Mujeres pendientes: 70.
+- CRM IA Mujeres: `EMAIL_1_SENT=28`, `WRONG_CONTACT_MANUAL_REVIEW=2`, `NOT_SENT=70`.
+- Sublotes enviados: `2026-06-08T13-11-59-449Z_bulk20-01`, `2026-06-08T13-11-59-449Z_bulk20-02`, `2026-06-08T13-11-59-449Z_bulk20-03`, `2026-06-08T13-11-59-449Z_bulk20-04`.
+- Santa Cruz y Cabildo de Tenerife quedaron excluidos de esa tanda.
+- Tareas IA Mujeres abiertas: 30, todas asignadas a Raúl Artiles.
+- Tareas IA Mujeres históricas: 64, incluyendo 2 duplicados de bounce cerrados durante la prueba de idempotencia.
+- Tareas de revisión de draft: 30 cerradas.
+- Tareas de follow-up 1: 28 abiertas y 2 cerradas por bounce, vencen el 18 de junio de 2026.
+- Tareas de bounce/contacto incorrecto: 2 abiertas.
 - Validar señales iniciales: bounces, replies, tareas de follow-up y lectura comercial desde la vista `IA Mujeres — Funnel`.
 - Corregir en CRM nombres/entidades sin tildes si se quiere máxima calidad en personalización para próximas tandas.
-- No lanzar tercera tanda hasta revisar estas dos tandas enviadas.
+- Para próximos envíos desde gerencia, usar `GWS_GERENCIA_CONFIG_DIR=/home/reboot/.config/gws` si la autenticación válida sigue en esa carpeta.
 
 ## Comandos CRM listos
 
 Preferir el harness salvo depuración puntual.
+
+Para sincronización diaria de señales, preferir el harness porque escanea Gmail antes de sincronizar CRM.
 
 ```bash
 node scripts/ia_mujeres_batch_runner.mjs --mode=audit

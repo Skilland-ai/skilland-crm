@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-06-08T13:34:06.126Z",
+  "action": "weekly-report",
+  "mode": "dry-run",
+  "batch_id": null,
+  "safeguards": [
+    "Harness delegates to specialized runners; it does not bypass their confirmations.",
+    "Batch size remains capped at 5 by underlying runners.",
+    "CRM mutations require --apply.",
+    "External draft creation and sending require explicit confirmation flags."
+  ],
+  "steps": [
+    {
+      "command": "node scripts/ia_mujeres_weekly_report.mjs --week=2026-06-08 --output-dir=/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution",
+      "status": "ok",
+      "json": {
+        "status": "ok",
+        "campaign": "IA Mujeres 2026",
+        "week_start": "2026-06-08",
+        "week_end": "2026-06-14",
+        "events": 67,
+        "outputs": {
+          "markdown": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/weekly_report_2026-06-08.md",
+          "html": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/weekly_report_2026-06-08.html"
+        },
+        "crmAudit": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/2026-06-08_crm_audit.json",
+        "metrics": {
+          "localEvents": 67,
+          "commercialEvents": 60,
+          "labEvents": 7,
+          "draftsCreated": 30,
+          "emailsSent": 30,
+          "receptionsDetected": 0,
+          "repliesDetected": 0,
+          "bouncesDetected": 0,
+          "uniqueThreads": 30,
+          "uniqueRecipients": 30,
+          "labEmailsSent": 1,
+          "labRepliesDetected": 1
+        }
+      }
+    }
+  ],
+  "derived": {}
+}

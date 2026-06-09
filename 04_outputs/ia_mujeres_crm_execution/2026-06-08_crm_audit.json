@@ -126,16 +126,18 @@
       "POSSIBLE_OPPORTUNITY": 100
     },
     "byOutreachStatus": {
-      "pending_first_email": 90,
-      "sent_first_email": 10
+      "pending_first_email": 70,
+      "sent_first_email": 28,
+      "bounce_detected": 2
     },
     "byIaMujeresFunnelStage": {
-      "NOT_SENT": 90,
-      "EMAIL_1_SENT": 10
+      "NOT_SENT": 70,
+      "EMAIL_1_SENT": 28,
+      "WRONG_CONTACT_MANUAL_REVIEW": 2
     },
     "needsManualReview": 62,
     "duplicatePossible": 11,
     "genericEmail": 54,
-    "withGmailThreadId": 10
+    "withGmailThreadId": 30
   }
 }

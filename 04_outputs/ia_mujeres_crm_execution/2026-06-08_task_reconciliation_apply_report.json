@@ -1,66 +1,12 @@
 {
   "mode": "apply",
-  "generated_at": "2026-06-08T08:39:22.219Z",
-  "source": "Reconstructed from apply command output and post-apply CRM verification after the original apply report was overwritten by a dry-run.",
+  "generated_at": "2026-06-08T14:58:23.509Z",
   "assignee": {
     "id": "323c2357-853d-45bc-ad7d-1703de9deef6",
     "email": "raul@reboot.academy",
     "name": "Raúl Artiles"
   },
-  "inspected": 20,
-  "updated": [
-    {
-      "id": "3841e923-62c1-4401-b176-5cf983a432c1",
-      "title": "[IA Mujeres] Revisar draft Email 1",
-      "previousStatus": "DONE",
-      "previousAssigneeId": null,
-      "updateData": {
-        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
-      }
-    },
-    {
-      "id": "5d4e530b-3220-4774-95d2-ec74946dea94",
-      "title": "[IA Mujeres] Revisar draft Email 1",
-      "previousStatus": "DONE",
-      "previousAssigneeId": null,
-      "updateData": {
-        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
-      }
-    },
-    {
-      "id": "640a7d1f-6e9c-4d14-8ace-0102a4aa8640",
-      "title": "[IA Mujeres] Revisar draft Email 1",
-      "previousStatus": "DONE",
-      "previousAssigneeId": null,
-      "updateData": {
-        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
-      }
-    },
-    {
-      "id": "70456fc8-b9dc-43f4-94da-c8336061c09",
-      "title": "[IA Mujeres] Revisar draft Email 1",
-      "previousStatus": "DONE",
-      "previousAssigneeId": null,
-      "updateData": {
-        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
-      }
-    },
-    {
-      "id": "857c15a6-5a3e-4d3a-aa96-2c0963a224c0",
-      "title": "[IA Mujeres] Revisar draft Email 1",
-      "previousStatus": "DONE",
-      "previousAssigneeId": null,
-      "updateData": {
-        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
-      }
-    }
-  ],
-  "planned": [],
-  "verification": {
-    "iaMujeresTasksTotal": 20,
-    "unassigned": 0,
-    "openDraftReviewTasks": 0,
-    "doneDraftReviewTasks": 10,
-    "todoFollowUpTasks": 10
-  }
+  "inspected": 64,
+  "updated": [],
+  "planned": []
 }

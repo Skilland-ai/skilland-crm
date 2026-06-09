@@ -1,0 +1,66 @@
+{
+  "batch_id": "2026-06-08T13-11-59-449Z_bulk20-02",
+  "created_at": "2026-06-08T13:25:47.586Z",
+  "drafts": [
+    {
+      "crm_deal_id": "b22b17a6-fc14-4db4-9858-ddcc3156fe51",
+      "company_id": "23b33e31-d3ad-4d32-b6ec-b65b408386ff",
+      "person_id": "8774df9b-f9af-4446-8298-d43de768e99a",
+      "recipient_email": "mariaeugeniamelian@telde.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r-7691005070416027255",
+      "gmailMessageId": "19ea7692dd9bb661",
+      "gmailThreadId": "19ea7692dd9bb661"
+    },
+    {
+      "crm_deal_id": "c0539318-efbf-4d35-875a-0a6929813b1e",
+      "company_id": "c7c8efc0-3270-4431-bb97-ff93040c1c27",
+      "person_id": "56e6889a-13c2-4a9c-ad71-922f3c669fbd",
+      "recipient_email": "oarmas@arucas.org",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r8485640017438431721",
+      "gmailMessageId": "19ea76932ba52483",
+      "gmailThreadId": "19ea76932ba52483"
+    },
+    {
+      "crm_deal_id": "cbd2ee82-9930-4871-9da8-e25e37dcf311",
+      "company_id": "b36938e0-9e5a-4154-a7a8-be168b651b13",
+      "person_id": "777ce7fb-a924-4b65-8664-9c8782cac9e6",
+      "recipient_email": "adrian.garcia@santabrigida.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r-6245683318962106252",
+      "gmailMessageId": "19ea7693918c7e7e",
+      "gmailThreadId": "19ea7693918c7e7e"
+    },
+    {
+      "crm_deal_id": "cde37de4-790a-4c22-83d3-3e589e993529",
+      "company_id": "d1c512a1-9e7b-440e-87ff-7275c06a07a8",
+      "person_id": "36511182-8052-4b01-946c-23dbf4915ccb",
+      "recipient_email": "raquelmartel@firgas.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r-2024786725397620538",
+      "gmailMessageId": "19ea7693fbddbb97",
+      "gmailThreadId": "19ea7693fbddbb97"
+    },
+    {
+      "crm_deal_id": "d646a404-e746-4066-9a95-d36e70cc3ef7",
+      "company_id": "5d3b8c48-280c-45f8-9b26-4dd5e70c595f",
+      "person_id": "59b57a44-9634-469d-942a-410794a68649",
+      "recipient_email": "ireneortega@teror.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "gmailDraftId": "r3290639588901074067",
+      "gmailMessageId": "19ea76949dbd5cf6",
+      "gmailThreadId": "19ea76949dbd5cf6"
+    }
+  ]
+}

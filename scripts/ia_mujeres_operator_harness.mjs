@@ -263,6 +263,10 @@ function main() {
     sendBatch(args, steps);
   } else if (args.action === 'sync-signals') {
     const maybeApply = args.apply ? ['--apply'] : [];
+    runNode('scripts/ia_mujeres_scan_gmail_bounces.mjs', [
+      `--output-dir=${args.outputDir}`,
+      ...(args.apply ? ['--apply'] : []),
+    ], steps);
     batchRunner('sync-replies', maybeApply, args, steps);
     batchRunner('sync-bounces', maybeApply, args, steps);
     batchRunner('reconcile-tasks', maybeApply, args, steps);
