@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "2026-06-09T15-19-25-330Z_email01v3-internal",
+  "generated_at": "2026-06-09T15:19:26.851Z",
+  "mode": "internal-email-01-v3-test",
+  "campaign_name": "IA Mujeres 2026",
+  "business_line": "SkilLand IA Mujeres",
+  "limit": 1,
+  "safeguards": [
+    "Internal recipient only: direccion@skilland.ai.",
+    "Uses normal Email 1 v3 payload generation and Gmail draft creation path.",
+    "No external public-sector contact is touched by this batch.",
+    "Send requires the dedicated approved-draft sender confirmation."
+  ],
+  "summary": {
+    "crm_opportunities_seen": 1,
+    "campaign_opportunities_seen": 1,
+    "eligible_count": 1,
+    "selected_count": 1,
+    "excluded_count": 0
+  },
+  "selected": [
+    {
+      "crm_deal_id": "f077b9be-556c-41e7-abcf-36ffe91b170f",
+      "deal_name": "Skilland Dirección — IA Mujeres 2026 — Test Email 1 v3",
+      "company_id": "de479d87-fbbc-463e-9203-798811bb60b8",
+      "company_name": "Skilland Dirección — Test IA Mujeres Email 1 v3",
+      "person_id": "ca2424e2-972a-4377-968d-5929da52a5ed",
+      "person_name": "Equipo Dirección Skilland",
+      "email": "direccion@skilland.ai",
+      "organization_type": "internal_test",
+      "department_area": "Validación CRM/GWS",
+      "island": "Canarias",
+      "municipality": "Canarias",
+      "icp_segment": "internal_test",
+      "quality_flags": "internal_test;email_01_v3;dossier_blue_v2",
+      "outreach_status": "pending_first_email",
+      "ia_mujeres_funnel_stage": "NOT_SENT",
+      "high_confidence": true,
+      "generic_email": false,
+      "needs_manual_review": false,
+      "duplicate_possible": false,
+      "eligible": true,
+      "exclusion_reasons": [],
+      "internal_test": true
+    }
+  ],
+  "excluded": []
+}

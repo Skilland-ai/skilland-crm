@@ -102,10 +102,14 @@ async function gmailApi(configDir, method, endpoint, body) {
 
 function requireAuth() {
   const status = runGws(GERENCIA_CONFIG_DIR, ['auth', 'status']);
+  if (!status.token_valid) {
+    throw new Error(
+      `GWS token is not valid for ${SENDER_EMAIL}: ${status.token_error || 'unknown token error'}`,
+    );
+  }
   if (status.user !== SENDER_EMAIL) {
     throw new Error(`Wrong GWS account. Expected ${SENDER_EMAIL}, got ${status.user || '(unknown)'}`);
   }
-  if (!status.token_valid) throw new Error(`GWS token is not valid for ${SENDER_EMAIL}`);
   return status;
 }
 
@@ -189,6 +193,9 @@ async function main() {
       metadata: {
         batch_id: args.batchId,
         template_name: draft.template_name,
+        template_version: draft.template_version,
+        attachment_policy: draft.attachment_policy,
+        attachment_mime_name: draft.attachment_mime_name,
         test_mode: false,
       },
     });
@@ -211,6 +218,9 @@ async function main() {
         sender_email: SENDER_EMAIL,
         subject: entry.subject,
         template_name: entry.template_name,
+        template_version: entry.template_version,
+        attachment_policy: entry.attachment_policy,
+        attachment_mime_name: entry.attachment_mime_name,
         gmailMessageId: entry.gmailMessageId,
         gmailThreadId: entry.gmailThreadId,
         sentAt: entry.sentAt,

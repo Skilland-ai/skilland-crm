@@ -48,6 +48,7 @@ Motivo: los eventos críticos vienen de Gmail, requieren IDs de hilo, validació
 - Respuesta comercial a replies.
 - Decisión de reunión y propuesta.
 - Corrección de contactos con `needsManualReview`, `genericEmail` o `duplicatePossible`.
+- Confirmación previa de Email 1 v3: asunto, variables minimas, derivacion para buzones genericos, adjunto v2 y firma Gmail/GWS segun `04_outputs/ia_mujeres_crm_execution/2026-06-09_email_01_v3_crm_sync.md`.
 
 ## Señales medibles
 

@@ -1,0 +1,21 @@
+{
+  "batch_id": "2026-06-09T10-51-40-758Z_email01v3-internal",
+  "sent_at": "2026-06-09T10:57:40.630Z",
+  "sent": [
+    {
+      "crm_deal_id": "a1765c77-6576-4690-86d7-4ad3badb833c",
+      "company_id": "f6738b85-7741-4935-8294-e8ba4ccd1249",
+      "person_id": "96cece3c-3ad2-4031-ae3a-e6be38ec4e6a",
+      "recipient_email": "sales@reboot.academy",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-09_email_01_v3",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailMessageId": "19eac07f5104a0e2",
+      "gmailThreadId": "19eac0797e289364",
+      "sentAt": "2026-06-09T10:57:43.311Z"
+    }
+  ]
+}

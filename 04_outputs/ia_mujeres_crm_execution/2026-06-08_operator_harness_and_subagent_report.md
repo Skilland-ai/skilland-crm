@@ -34,6 +34,19 @@ Reducir dispersión operacional. El harness es la puerta de entrada para:
 - Las acciones no mutantes rechazan `--apply`.
 - El harness no reimplementa lógica de Gmail/CRM; delega en runners especializados.
 
+## Preflight Email 1 v3
+
+Antes de `create-drafts`, `send-batch` o `launch-approved-batch`, la revision humana debe confirmar el handoff vigente en `04_outputs/ia_mujeres_crm_execution/2026-06-09_email_01_v3_crm_sync.md`:
+
+- `email_01` corresponde a `2026-06-09_email_01_v3`.
+- Asunto: `Una preocupación que quería compartir con usted`.
+- Variables minimas completas: `[nombre]`, `[entidad]`, `[territorio]`, `[derivacion_si_corresponde]`.
+- Buzon generico, email de area o interlocutor dudoso: derivacion insertada.
+- Adjunto Email 1: `shared/templates/ia-mujeres/assets/Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf`.
+- Firma de `gerencia@skilland.ai` validada por Gmail/GWS, sin hardcodear firma en el cuerpo.
+
+El PDF v2 esta copiado en `shared/templates/ia-mujeres/assets/`. Pendiente reautenticar GWS porque las credenciales locales devuelven `invalid_rapt`.
+
 ## Comandos principales
 
 ```bash
@@ -50,7 +63,7 @@ node scripts/ia_mujeres_operator_harness.mjs --action=email-weekly-report --appl
 
 ## Estado
 
-Listo para uso operativo. Pendiente solo de decidir si el siguiente paso recurrente debe ejecutarse siempre vía harness o si se mantienen comandos especializados para depuración puntual.
+Listo para uso operativo con el preflight Email 1 v3 anterior. Pendiente decidir si el siguiente paso recurrente debe ejecutarse siempre vía harness o si se mantienen comandos especializados para depuración puntual.
 
 ## Validación
 

@@ -8,8 +8,9 @@ import path from 'node:path';
 const DATE = '2026-06-08';
 const CAMPAIGN_NAME = 'IA Mujeres 2026';
 const BUSINESS_LINE = 'SkilLand IA Mujeres';
-const TEMPLATE_NAME = 'email_01_approved';
+const TEMPLATE_NAME = 'email_01_v3';
 const SEQUENCE_STEP = 1;
+const SENDER_DISPLAY_NAME = 'Romina Ojeda Brito';
 const SENDER_EMAIL = 'gerencia@skilland.ai';
 const RECIPIENT_EMAIL = 'sales@reboot.academy';
 const SUBJECT = 'Una preocupación que quería compartir con usted';
@@ -17,20 +18,21 @@ const GERENCIA_CONFIG_DIR = process.env.GWS_GERENCIA_CONFIG_DIR || '/home/reboot
 const SALES_CONFIG_DIR = '/home/reboot/.config/gws';
 const DEFAULT_OUTPUT_DIR = path.resolve('04_outputs/ia_mujeres_crm_execution');
 const TEMPLATE_PATH = path.resolve('shared/templates/ia-mujeres/email_01.html');
-const DEFAULT_ATTACHMENT = '/home/reboot/Escritorio/agentic-scrapping-Experiment-scrappling/04_outputs/skilland-ia-mujeres/Mujeres, IA y el futuro del Trabajo - Presentación — SkilLand (1).pdf';
-const EXPECTED_ATTACHMENT_NAME = 'Mujeres, IA y el futuro del Trabajo - Presentación corta — SkilLand.pdf';
+const DEFAULT_ATTACHMENT = path.resolve(
+  'shared/templates/ia-mujeres/assets/Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf',
+);
+const EXPECTED_ATTACHMENT_NAME = 'Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf';
 const ALLOWED_TEST_RECIPIENTS = new Set([
   RECIPIENT_EMAIL,
   SENDER_EMAIL,
   'direccion@skilland.ai',
 ]);
-
-const LINKS = [
-  ['Romina Ojeda Brito', 'https://www.linkedin.com/in/romina-ojeda-brito/'],
-  ['Women In STEAM Empowerment Canarias', 'https://www.elespejocanario.es/secciones/wise-canarias-la-primera-asociacion-de-mujeres-steam-del-archipielago/'],
-  ['la brecha que se está abriendo con la adopción de la Inteligencia Artificial', 'https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html'],
-  ['aprovechar una tecnología que lo cambia todo', 'https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html'],
-  ['SkilLand', 'http://www.skilland.ai/'],
+const FORBIDDEN_BODY_URLS = [
+  'https://www.linkedin.com/in/romina-ojeda-brito/',
+  'https://www.elespejocanario.es/secciones/wise-canarias-la-primera-asociacion-de-mujeres-steam-del-archipielago/',
+  'https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html',
+  'https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html',
+  'http://www.skilland.ai/',
 ];
 
 function parseArgs(argv) {
@@ -190,11 +192,13 @@ async function gmailApi(configDir, method, endpoint, body) {
 
 function requireAuth(configDir, expectedUser) {
   const status = runGws(configDir, ['auth', 'status']);
+  if (!status.token_valid) {
+    throw new Error(
+      `GWS token is not valid for ${expectedUser}: ${status.token_error || 'unknown token error'}`,
+    );
+  }
   if (status.user !== expectedUser) {
     throw new Error(`Wrong GWS account. Expected ${expectedUser}, got ${status.user || '(unknown)'}`);
-  }
-  if (!status.token_valid) {
-    throw new Error(`GWS token is not valid for ${expectedUser}`);
   }
   return status;
 }
@@ -252,9 +256,7 @@ function buildBodies(signatureHtml) {
     nombre: 'equipo de ventas',
     entidad: 'Reboot Academy/Canarias',
     territorio: 'Canarias',
-    area: 'ventas',
-    tipo_organizacion: 'organización de formación',
-    personalizacion_1: 'Le escribo porque creo que esta conversación puede ser especialmente relevante para Reboot Academy/Canarias, por el papel que tienen las organizaciones de formación, empleo y desarrollo profesional en el acceso a oportunidades reales para las mujeres.',
+    derivacion_si_corresponde: '',
   });
   const bodyHtml = [
     '<div dir="ltr">',
@@ -270,6 +272,10 @@ function buildBodies(signatureHtml) {
 function encodeMimeHeader(value) {
   if (/^[\x00-\x7F]*$/.test(value)) return value;
   return `=?UTF-8?B?${Buffer.from(value, 'utf8').toString('base64')}?=`;
+}
+
+function senderAddress() {
+  return `${encodeMimeHeader(SENDER_DISPLAY_NAME)} <${SENDER_EMAIL}>`;
 }
 
 function base64Url(value) {
@@ -293,7 +299,7 @@ function buildMime({ attachmentPath, attachmentName, signatureHtml }) {
   const attachmentBase64 = foldBase64(attachmentContent.toString('base64'));
 
   const headers = [
-    `From: ${SENDER_EMAIL}`,
+    `From: ${senderAddress()}`,
     `To: ${RECIPIENT_EMAIL}`,
     `Subject: ${encodeMimeHeader(SUBJECT)}`,
     'MIME-Version: 1.0',
@@ -365,9 +371,14 @@ function verifyMessageShape(message, attachmentFilename, bodyHtml) {
 
   return {
     fromOk: (headers.from ?? '').includes(SENDER_EMAIL),
+    fromDisplayNameOk: (headers.from ?? '').includes(SENDER_DISPLAY_NAME),
     toOk: (headers.to ?? '').includes(RECIPIENT_EMAIL),
     subjectOk: (headers.subject ?? '') === SUBJECT,
-    linksPresent: LINKS.map(([text, url]) => ({ text, url, present: bodyHtml.includes(url) })),
+    noForbiddenBodyUrls: FORBIDDEN_BODY_URLS.every((url) => !bodyHtml.includes(url)),
+    forbiddenBodyUrls: FORBIDDEN_BODY_URLS.filter((url) => bodyHtml.includes(url)),
+    unresolvedPlaceholders: [...new Set(bodyHtml.match(/{{[^}]+}}/g) ?? [])],
+    htmlHasV3Copy: bodyHtml.includes('Le adjunto un dosier breve') &&
+      bodyHtml.includes('primera acción de divulgación gratuita'),
     attachmentPresent: filenames.includes(attachmentFilename),
     expectedAttachmentNameMatches: attachmentFilename === EXPECTED_ATTACHMENT_NAME,
     signatureMechanism: 'gmail_sendAs_signature_injected_by_runner',
@@ -607,11 +618,13 @@ async function main() {
   const rendered = buildMime({ attachmentPath: args.attachment, attachmentName: args.attachmentName, signatureHtml });
   const previews = writePreviewFiles(args.outputDir, rendered);
   report.preview = previews;
-  report.validations.links = LINKS.map(([text, url]) => ({
-    text,
-    url,
-    present: rendered.bodyHtml.includes(url),
-  }));
+  report.validations.email_01_v3 = {
+    no_forbidden_body_urls: FORBIDDEN_BODY_URLS.every((url) => !rendered.bodyHtml.includes(url)),
+    forbidden_body_urls: FORBIDDEN_BODY_URLS.filter((url) => rendered.bodyHtml.includes(url)),
+    unresolved_placeholders: [...new Set(rendered.bodyHtml.match(/{{[^}]+}}/g) ?? [])],
+    has_v3_copy: rendered.bodyHtml.includes('Le adjunto un dosier breve') &&
+      rendered.bodyHtml.includes('primera acción de divulgación gratuita'),
+  };
 
   const raw = base64Url(rendered.mime);
 

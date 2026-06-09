@@ -2,6 +2,27 @@
 
 Fecha: 2026-06-08
 
+## Sincronizacion Email 1 v3
+
+Referencia vigente dentro de `04_outputs`: `04_outputs/ia_mujeres_crm_execution/2026-06-09_email_01_v3_crm_sync.md`.
+
+Estado implementado:
+
+1. `shared/templates/ia-mujeres/email_01.html` genera `2026-06-09_email_01_v3`.
+2. Asunto confirmado: `Una preocupación que quería compartir con usted`.
+3. Variables minimas implementadas: `[nombre]`, `[entidad]`, `[territorio]`, `[derivacion_si_corresponde]`.
+4. El runner inserta derivacion cuando detecta buzon generico, email de area, interlocutor dudoso o falta de nombre.
+5. Adjunto Email 1 localizado y copiado: `shared/templates/ia-mujeres/assets/Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf`.
+6. Deal interno de test creado en CRM para `sales@reboot.academy`: `a1765c77-6576-4690-86d7-4ad3badb833c`.
+7. Payload interno generado para batch `2026-06-09T10-51-40-758Z_email01v3-internal`.
+8. Draft interno creado y enviado a `sales@reboot.academy`.
+9. CRM actualizado a `EMAIL_1_SENT` en deal `a1765c77-6576-4690-86d7-4ad3badb833c`.
+
+Pendiente antes de nuevas tandas reales:
+
+1. Revisar visualmente el email recibido en `sales@reboot.academy`: copy v3, adjunto v2, firma Gmail/GWS y MIME.
+2. Solo despues, aprobar siguiente tanda real.
+
 ## Para Raúl
 
 1. Entrar en Twenty y revisar la vista `IA Mujeres — Funnel`.
@@ -85,3 +106,6 @@ node scripts/ia_mujeres_experiment_00_gws_lab.mjs \
 - No hay tracking de aperturas fiable.
 - No hay tracking de clicks porque no se reescriben links aprobados.
 - Los workflows nativos de Twenty quedan pospuestos hasta validar la primera tanda real.
+- Revisar visualmente el email interno recibido en `sales@reboot.academy`.
+- Revisar drafts humanos de la siguiente tanda real.
+- Lanzar siguiente tanda solo cuando el operador lo apruebe.

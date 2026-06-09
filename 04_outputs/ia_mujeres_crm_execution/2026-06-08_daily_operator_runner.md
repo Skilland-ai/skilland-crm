@@ -18,6 +18,19 @@ El operador diario encadena modos seguros:
 4. Busca follow-ups vencidos.
 5. Genera reporte semanal si se pasa `--weekly`.
 
+## Handoff vigente para payloads
+
+Para proximos payloads de Email 1, el estado documental vigente es `04_outputs/ia_mujeres_crm_execution/2026-06-09_email_01_v3_crm_sync.md`.
+
+| Campo | Valor |
+|---|---|
+| Version | `2026-06-09_email_01_v3` |
+| Asunto | `Una preocupación que quería compartir con usted` |
+| Adjunto Email 1 | `shared/templates/ia-mujeres/assets/Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf` |
+| Variables minimas | `[nombre]`, `[entidad]`, `[territorio]`, `[derivacion_si_corresponde]` |
+
+El operador diario no debe aprobar una siguiente tanda si falta entidad/territorio, si un buzon generico no incorpora la derivacion, si el PDF v2 no esta confirmado en el draft o si la firma Gmail/GWS no esta validada. A 2026-06-09 el bloqueo activo es reautenticar GWS por `invalid_rapt`.
+
 ## Qué no hace
 
 - No acepta `--apply`.
@@ -54,7 +67,8 @@ node scripts/ia_mujeres_batch_runner.mjs --mode=prepare-followups --limit=5
 - Todo cambio CRM requiere `--apply` en modo específico.
 - `mark-draft-created --apply` exige `--draft-map`.
 - `mark-email-sent --apply` exige `--sent-map`.
-- Los candidatos con revisión manual, duplicados, emails genéricos o envíos previos se excluyen de tanda automática.
+- Los candidatos con revisión manual, duplicados o envíos previos se excluyen de tanda automática.
+- Los buzones genericos o interlocutores dudosos requieren derivacion en Email 1 v3 y aprobacion humana.
 
 ## Qué toca en CRM
 

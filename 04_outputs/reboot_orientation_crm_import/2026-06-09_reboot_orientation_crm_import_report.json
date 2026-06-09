@@ -1,0 +1,104 @@
+{
+  "generatedAt": "2026-06-09T08:13:18.007Z",
+  "mode": "apply",
+  "sourceLeadCount": 4,
+  "excludedLeadCount": 1,
+  "importedLeadCount": 3,
+  "businessLine": {
+    "id": "39333da4-6562-4600-9055-2a3d5360aed4",
+    "name": "Skilland School"
+  },
+  "owner": {
+    "id": "323c2357-853d-45bc-ad7d-1703de9deef6",
+    "userEmail": "raul@reboot.academy",
+    "name": {
+      "firstName": "Raúl",
+      "lastName": "Artiles"
+    }
+  },
+  "campaignName": "Reboot Intro Qualification Funnel",
+  "stage": "IN_MEETINGS",
+  "results": [
+    {
+      "lead": {
+        "name": "Sheikh Sidi ahmed Sidi ahmed",
+        "email": "netnck@gmail.com",
+        "supabaseId": "b1bc1507-5baf-4dd8-befa-cd6703a2fa89"
+      },
+      "amount": 1500,
+      "dueDate": "2026-06-12",
+      "person": {
+        "action": "updated_existing",
+        "id": "84a058e8-505b-496a-b19a-d088980fa750"
+      },
+      "opportunity": {
+        "action": "updated_existing",
+        "id": "051829ad-16f2-48df-98f5-c9aa123251d1",
+        "name": "Sheikh Sidi ahmed Sidi ahmed - Reboot Orientation Funnel"
+      },
+      "note": {
+        "reused": true,
+        "title": "Lead Supabase - Sheikh Sidi ahmed Sidi ahmed"
+      },
+      "task": {
+        "reused": true,
+        "title": "Sesion 1:1 Orientacion y prospeccion",
+        "dueAt": "2026-06-12T08:00:00.000Z"
+      }
+    },
+    {
+      "lead": {
+        "name": "Sergio Hernández Ramírez",
+        "email": "seergiohr98@gmail.com",
+        "supabaseId": "08db4da8-1e63-4cc7-9d04-c146f07b8b20"
+      },
+      "amount": 750,
+      "dueDate": "2026-06-09",
+      "person": {
+        "action": "created",
+        "id": "6cfd9264-4b7a-4f3a-8e7d-d6e623838c4a"
+      },
+      "opportunity": {
+        "action": "created",
+        "id": "c377222f-3116-4ff6-a775-6fb169247513",
+        "name": "Sergio Hernández Ramírez - Reboot Orientation Funnel"
+      },
+      "note": {
+        "id": "83dafd04-da14-4989-905d-69503181cfd5",
+        "title": "Lead Supabase - Sergio Hernández Ramírez"
+      },
+      "task": {
+        "id": "72957eae-5c49-484a-b47c-de2df50b2152",
+        "title": "Sesion 1:1 Orientacion y prospeccion",
+        "dueAt": "2026-06-09T08:00:00.000Z"
+      }
+    },
+    {
+      "lead": {
+        "name": "Matteo Neri Neri",
+        "email": "nerimatte85@gmail.com",
+        "supabaseId": "d9a2a072-868a-49c9-9651-f9c566a5d7d0"
+      },
+      "amount": 3000,
+      "dueDate": "2026-06-15",
+      "person": {
+        "action": "created",
+        "id": "9ab03316-b9eb-4945-8564-b8c3625073ab"
+      },
+      "opportunity": {
+        "action": "created",
+        "id": "fb407ea2-77d5-48c3-b972-2c439e054612",
+        "name": "Matteo Neri Neri - Reboot Orientation Funnel"
+      },
+      "note": {
+        "id": "d01c8c55-87ac-4ac4-ad09-2231e155d35b",
+        "title": "Lead Supabase - Matteo Neri Neri"
+      },
+      "task": {
+        "id": "0f7dfb9d-0ab0-458f-8426-2bf3b83ec078",
+        "title": "Sesion 1:1 Orientacion y prospeccion",
+        "dueAt": "2026-06-15T08:00:00.000Z"
+      }
+    }
+  ]
+}

@@ -63,7 +63,28 @@ node scripts/ia_mujeres_daily_operator.mjs --limit=5 --weekly
 - Opportunities con `campaignName=IA Mujeres 2026` o `businessLineName=SkilLand IA Mujeres`.
 - Contacto principal con email válido.
 - Campos de control `needsManualReview`, `duplicatePossible`, `genericEmail`.
-- Templates UTF-8 en `shared/templates/ia-mujeres/`.
+- Templates UTF-8 en `shared/templates/ia-mujeres/`; antes de proximos drafts reales, confirmar fuera de `04_outputs/` que `email_01` genera Email 1 v3.
+
+## Handoff Email 1 vigente
+
+Referencia documental dentro de `04_outputs`: `04_outputs/ia_mujeres_crm_execution/2026-06-09_email_01_v3_crm_sync.md`.
+
+| Campo | Valor |
+|---|---|
+| Version | `2026-06-09_email_01_v3` |
+| Asunto | `Una preocupación que quería compartir con usted` |
+| Variables minimas | `[nombre]`, `[entidad]`, `[territorio]`, `[derivacion_si_corresponde]` |
+| Adjunto Email 1 | `Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf` |
+
+Reglas para `prepare-drafts` y revision humana:
+
+- Contacto nominal fiable: dejar `[derivacion_si_corresponde]` vacio.
+- Buzon generico, email de area o interlocutor dudoso: insertar derivacion.
+- Si faltan entidad o territorio, no generar/enviar sin revision.
+- No inventar entidad, territorio, cargo, area ni contexto.
+- No adjuntar white paper ni dossier largo en Email 1.
+- No usar el asset anterior de resumen comercial como adjunto vigente.
+- No hardcodear firma; validar insercion Gmail/GWS antes de enviar.
 
 ## Salidas
 
@@ -81,7 +102,8 @@ node scripts/ia_mujeres_daily_operator.mjs --limit=5 --weekly
 - Sin drafts Gmail externos todavía.
 - `send-approved` falla intencionadamente.
 - `--apply` solo en modos concretos.
-- Deals con revisión manual/duplicado/email genérico quedan excluidos de tanda automática.
+- Deals con revisión manual o duplicado quedan excluidos de tanda automática.
+- Buzones genericos o interlocutores dudosos requieren derivacion en el cuerpo y aprobacion humana antes de cualquier envio.
 - Todo envío real requiere autorización humana explícita fuera del script.
 
 ## Reversión

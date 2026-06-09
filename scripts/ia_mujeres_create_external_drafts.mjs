@@ -7,17 +7,20 @@ import path from 'node:path';
 
 const CAMPAIGN_NAME = 'IA Mujeres 2026';
 const BUSINESS_LINE = 'SkilLand IA Mujeres';
+const SENDER_DISPLAY_NAME = 'Romina Ojeda Brito';
 const SENDER_EMAIL = 'gerencia@skilland.ai';
 const GERENCIA_CONFIG_DIR = process.env.GWS_GERENCIA_CONFIG_DIR || '/home/reboot/.config/gws_gerencia';
 const DEFAULT_OUTPUT_DIR = path.resolve('04_outputs/ia_mujeres_crm_execution');
-const DEFAULT_ATTACHMENT = '/home/reboot/Escritorio/agentic-scrapping-Experiment-scrappling/04_outputs/skilland-ia-mujeres/Mujeres, IA y el futuro del Trabajo - Presentación — SkilLand (1).pdf';
-const EXPECTED_ATTACHMENT_NAME = 'Mujeres, IA y el futuro del Trabajo - Presentación corta — SkilLand.pdf';
-const LINKS = [
-  ['Romina Ojeda Brito', 'https://www.linkedin.com/in/romina-ojeda-brito/'],
-  ['Women In STEAM Empowerment Canarias', 'https://www.elespejocanario.es/secciones/wise-canarias-la-primera-asociacion-de-mujeres-steam-del-archipielago/'],
-  ['la brecha que se está abriendo con la adopción de la Inteligencia Artificial', 'https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html'],
-  ['aprovechar una tecnología que lo cambia todo', 'https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html'],
-  ['SkilLand', 'http://www.skilland.ai/'],
+const DEFAULT_ATTACHMENT = path.resolve(
+  'shared/templates/ia-mujeres/assets/Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf',
+);
+const EXPECTED_ATTACHMENT_NAME = 'Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf';
+const FORBIDDEN_BODY_URLS = [
+  'https://www.linkedin.com/in/romina-ojeda-brito/',
+  'https://www.elespejocanario.es/secciones/wise-canarias-la-primera-asociacion-de-mujeres-steam-del-archipielago/',
+  'https://www.fuerteventuradigital.com/articulo/podcasts/romina-ojeda-presidenta-asociacion-canaria-mujeres-cientificas-tecnologicas-wise/20240601092114001713.html',
+  'https://www.atlanticohoy.com/sociedad/escasez-mujeres-en-ciencia-tecnologia-genera-comunidad_1531733_102.html',
+  'http://www.skilland.ai/',
 ];
 
 function parseArgs(argv) {
@@ -118,10 +121,14 @@ async function gmailApi(configDir, method, endpoint, body) {
 
 function requireAuth(configDir, expectedUser) {
   const status = runGws(configDir, ['auth', 'status']);
+  if (!status.token_valid) {
+    throw new Error(
+      `GWS token is not valid for ${expectedUser}: ${status.token_error || 'unknown token error'}`,
+    );
+  }
   if (status.user !== expectedUser) {
     throw new Error(`Wrong GWS account. Expected ${expectedUser}, got ${status.user || '(unknown)'}`);
   }
-  if (!status.token_valid) throw new Error(`GWS token is not valid for ${expectedUser}`);
   return status;
 }
 
@@ -136,6 +143,10 @@ async function getGmailSignature() {
 function encodeMimeHeader(value) {
   if (/^[\x00-\x7F]*$/.test(value)) return value;
   return `=?UTF-8?B?${Buffer.from(value, 'utf8').toString('base64')}?=`;
+}
+
+function senderAddress() {
+  return `${encodeMimeHeader(SENDER_DISPLAY_NAME)} <${SENDER_EMAIL}>`;
 }
 
 function base64Url(value) {
@@ -175,7 +186,7 @@ function buildMime({ payload, signatureHtml, attachmentPath }) {
   const textBody = htmlToText(bodyHtml);
 
   const headers = [
-    `From: ${SENDER_EMAIL}`,
+    `From: ${senderAddress()}`,
     `To: ${payload.recipient_email}`,
     `Subject: ${encodeMimeHeader(payload.subject)}`,
     'MIME-Version: 1.0',
@@ -219,6 +230,10 @@ function buildMime({ payload, signatureHtml, attachmentPath }) {
   return { raw: base64Url(mime), bodyHtml, textBody, attachmentFilename };
 }
 
+function attachmentPathForPayload(payload, fallback) {
+  return payload.attachment_path ? path.resolve(payload.attachment_path) : fallback;
+}
+
 function extractHeaders(message) {
   const headers = message?.payload?.headers ?? [];
   return Object.fromEntries(headers.map((entry) => [entry.name.toLowerCase(), entry.value]));
@@ -238,15 +253,53 @@ function verifyDraftMessage({ message, payload, rendered }) {
   const mimeTypes = parts.map((part) => part.mimeType).filter(Boolean);
   return {
     fromOk: (headers.from ?? '').includes(SENDER_EMAIL),
+    fromDisplayNameOk: (headers.from ?? '').includes(SENDER_DISPLAY_NAME),
     toOk: (headers.to ?? '').toLowerCase().includes(payload.recipient_email.toLowerCase()),
     subjectOk: (headers.subject ?? '') === payload.subject,
-    linksPresent: LINKS.map(([text, url]) => ({ text, url, present: rendered.bodyHtml.includes(url) })),
     attachmentPresent: filenames.includes(rendered.attachmentFilename),
     expectedAttachmentNameMatches: rendered.attachmentFilename === EXPECTED_ATTACHMENT_NAME,
     signaturePresent: true,
     filenames,
     mimeTypes,
   };
+}
+
+function email01V3Validation(payload, rendered) {
+  const unresolvedPlaceholders = rendered.bodyHtml.match(/{{[^}]+}}/g) ?? [];
+  const forbiddenBodyUrls = FORBIDDEN_BODY_URLS.filter((url) =>
+    payload.html.includes(url),
+  );
+  const derivationTextPresent = rendered.bodyHtml.includes(
+    'Si no es la persona adecuada, agradecería que pudiera derivarlo al área responsable',
+  );
+
+  return {
+    templateVersion: payload.template_version ?? null,
+    noForbiddenBodyUrls: forbiddenBodyUrls.length === 0,
+    forbiddenBodyUrls,
+    unresolvedPlaceholders: [...new Set(unresolvedPlaceholders)],
+    derivationIncluded: Boolean(payload.derivation_included),
+    derivationTextPresent,
+    derivationMatchesPayload: Boolean(payload.derivation_included) === derivationTextPresent,
+    expectedAttachmentNameMatches: rendered.attachmentFilename === EXPECTED_ATTACHMENT_NAME,
+    htmlHasV3Copy: rendered.bodyHtml.includes('Le adjunto un dosier breve') &&
+      rendered.bodyHtml.includes('primera acción de divulgación gratuita'),
+  };
+}
+
+function assertEmail01V3Validation(payload, validation) {
+  const failures = [];
+  if (!validation.noForbiddenBodyUrls) failures.push('forbidden_body_urls');
+  if (validation.unresolvedPlaceholders.length > 0) failures.push('unresolved_placeholders');
+  if (!validation.derivationMatchesPayload) failures.push('derivation_mismatch');
+  if (!validation.expectedAttachmentNameMatches) failures.push('wrong_attachment_name');
+  if (!validation.htmlHasV3Copy) failures.push('missing_v3_copy');
+
+  if (failures.length > 0) {
+    throw new Error(
+      `Refusing to create Email 1 draft for ${payload.crm_deal_id}: ${failures.join(', ')}`,
+    );
+  }
 }
 
 function readPayloads(outputDir, batchId) {
@@ -277,9 +330,6 @@ async function main() {
   const { payloadPath, payloads } = readPayloads(args.outputDir, args.batchId);
   const auth = requireAuth(GERENCIA_CONFIG_DIR, SENDER_EMAIL);
   const signatureHtml = await getGmailSignature();
-  if (!fs.existsSync(args.attachment)) throw new Error(`Attachment not found: ${args.attachment}`);
-  const attachmentStat = fs.statSync(args.attachment);
-
   const report = {
     generated_at: new Date().toISOString(),
     mode: args.apply ? 'apply' : 'dry-run',
@@ -287,9 +337,8 @@ async function main() {
     payload_path: payloadPath,
     sender: SENDER_EMAIL,
     attachment: {
-      path: args.attachment,
+      default_path: args.attachment,
       expected_mime_name: EXPECTED_ATTACHMENT_NAME,
-      bytes: attachmentStat.size,
     },
     auth: {
       user: auth.user,
@@ -301,18 +350,27 @@ async function main() {
       'Does not send emails.',
       'Max 5 payloads.',
       'Requires --confirm-create-external-drafts with --apply.',
-      'Requires Gmail signature and short presentation attachment.',
+      'Requires Gmail signature from account settings and Email 1 v3 dossier attachment.',
     ],
     drafts: [],
   };
 
   for (const payload of payloads) {
-    const rendered = buildMime({ payload, signatureHtml, attachmentPath: args.attachment });
+    const attachmentPath = attachmentPathForPayload(payload, args.attachment);
+    if (!fs.existsSync(attachmentPath)) {
+      throw new Error(`Attachment not found for ${payload.crm_deal_id}: ${attachmentPath}`);
+    }
+    const attachmentStat = fs.statSync(attachmentPath);
+    const rendered = buildMime({ payload, signatureHtml, attachmentPath });
+    const email01Validation = email01V3Validation(payload, rendered);
+    assertEmail01V3Validation(payload, email01Validation);
     const validationBase = {
-      linksPresent: LINKS.map(([text, url]) => ({ text, url, present: rendered.bodyHtml.includes(url) })),
+      attachmentPath,
       attachmentName: rendered.attachmentFilename,
+      attachmentBytes: attachmentStat.size,
       signaturePresent: Boolean(signatureHtml),
-      htmlHasAccents: /años|tecnológicas|formación|conversación|reunión|presentación|Inteligencia Artificial/.test(rendered.bodyHtml),
+      htmlHasAccents: /años|tecnológicas|formación|conversación|reunión|acción|Inteligencia Artificial/.test(rendered.bodyHtml),
+      email01V3: email01Validation,
     };
 
     if (!args.apply) {
@@ -336,6 +394,9 @@ async function main() {
       sender_email: SENDER_EMAIL,
       subject: payload.subject,
       template_name: payload.template_name,
+      template_version: payload.template_version,
+      attachment_policy: payload.attachment_policy,
+      attachment_mime_name: rendered.attachmentFilename,
       gmailDraftId: draft.id,
       gmailMessageId: draft.message?.id ?? draftDetail.message?.id,
       gmailThreadId: draft.message?.threadId ?? draftDetail.message?.threadId,
@@ -364,6 +425,9 @@ async function main() {
       metadata: {
         batch_id: args.batchId,
         template_name: payload.template_name,
+        template_version: payload.template_version,
+        attachment_policy: payload.attachment_policy,
+        attachment_mime_name: rendered.attachmentFilename,
         test_mode: false,
         external_draft_only: true,
       },
@@ -387,6 +451,9 @@ async function main() {
         sender_email: draft.sender_email,
         subject: draft.subject,
         template_name: draft.template_name,
+        template_version: draft.template_version,
+        attachment_policy: draft.attachment_policy,
+        attachment_mime_name: draft.attachment_mime_name,
         gmailDraftId: draft.gmailDraftId,
         gmailMessageId: draft.gmailMessageId,
         gmailThreadId: draft.gmailThreadId,

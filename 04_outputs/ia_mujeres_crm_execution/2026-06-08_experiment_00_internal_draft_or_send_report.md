@@ -1,5 +1,7 @@
 # Experiment 00 Internal Draft/Send Report — IA Mujeres
 
+> Estado historico: este reporte interno del 2026-06-08 queda supersedido para Email 1 por `04_outputs/ia_mujeres_crm_execution/2026-06-09_email_01_v3_crm_sync.md`. Sus referencias al asset anterior y a firma inyectada documentan evidencia pasada; no son instrucciones vigentes.
+
 ## Resultado
 
 Estado: **Experimento 0 interno completado**.

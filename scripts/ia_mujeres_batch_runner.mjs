@@ -18,6 +18,28 @@ const RAUL_ARTILES_WORKSPACE_MEMBER_ID = '323c2357-853d-45bc-ad7d-1703de9deef6';
 const RAUL_ARTILES_EMAIL = 'raul@reboot.academy';
 const TASK_REVIEW_DRAFT_EMAIL_1 = '[IA Mujeres] Revisar draft Email 1';
 const TASK_REVIEW_FOLLOW_UP_1 = '[IA Mujeres] Revisar respuesta / preparar Follow-up 1';
+const EMAIL_01_VERSION = '2026-06-09_email_01_v3';
+const EMAIL_01_DERIVATION_HTML =
+  '<p>Si no es la persona adecuada, agradecería que pudiera derivarlo al área responsable de igualdad, empleo, mujer, políticas sociales o desarrollo local.</p>';
+const GENERIC_EMAIL_PREFIXES = new Set([
+  'administracion',
+  'agencia',
+  'ayuntamiento',
+  'centro',
+  'contacto',
+  'empleo',
+  'general',
+  'igualdad',
+  'info',
+  'informacion',
+  'mujer',
+  'oficina',
+  'portalweb',
+  'registro',
+  'secretaria',
+  'serviciossociales',
+  'ss.ss',
+]);
 
 const IA_STAGE_OPTIONS = [
   ['NOT_SENT', 'Sin enviar', 'gray'],
@@ -270,17 +292,32 @@ function htmlToText(html) {
 }
 
 function renderEmail01(candidate) {
+  const missingFields = missingEmail01Fields(candidate);
+  if (missingFields.length > 0) {
+    throw new Error(
+      `Cannot render Email 1 v3 for ${candidate.crm_deal_id}: missing ${missingFields.join(', ')}`,
+    );
+  }
+
   let html = fs.readFileSync(EMAIL_01_TEMPLATE, 'utf8');
   const replacements = {
     nombre: displaySpanishValue(candidate.person_name || 'equipo'),
-    entidad: displaySpanishValue(candidate.company_name || candidate.deal_name || 'su entidad'),
-    territorio: displaySpanishValue(candidate.island || candidate.municipality || 'Canarias'),
-    area: displaySpanishValue(candidate.department_area || 'igualdad, empleo o desarrollo local'),
-    tipo_organizacion: candidate.organization_type || 'entidad pública',
-    personalizacion_1: buildPersonalization(candidate),
+    entidad: displaySpanishValue(candidate.company_name || candidate.deal_name),
+    territorio: displaySpanishValue(candidate.island || candidate.municipality),
+    derivacion_si_corresponde: shouldIncludeDerivation(candidate) ? EMAIL_01_DERIVATION_HTML : '',
   };
   for (const [key, value] of Object.entries(replacements)) {
     html = html.replaceAll(`{{${key}}}`, htmlEscape(value));
+  }
+  html = html.replaceAll(
+    htmlEscape(EMAIL_01_DERIVATION_HTML),
+    EMAIL_01_DERIVATION_HTML,
+  );
+  const unresolved = html.match(/{{[^}]+}}/g) ?? [];
+  if (unresolved.length > 0) {
+    throw new Error(
+      `Cannot render Email 1 v3 for ${candidate.crm_deal_id}: unresolved placeholders ${[...new Set(unresolved)].join(', ')}`,
+    );
   }
   return {
     subject: EMAIL_01_SUBJECT,
@@ -289,11 +326,28 @@ function renderEmail01(candidate) {
   };
 }
 
-function buildPersonalization(candidate) {
-  const entity = displaySpanishValue(candidate.company_name || candidate.deal_name || 'su entidad');
-  const territory = displaySpanishValue(candidate.island || candidate.municipality || 'Canarias');
-  const area = displaySpanishValue(candidate.department_area || 'formación, empleo, igualdad o desarrollo profesional');
-  return `Le escribo porque creo que esta conversación puede ser especialmente relevante para ${entity}, por el papel que tienen las organizaciones vinculadas a ${area} en el acceso a oportunidades reales para las mujeres en ${territory}.`;
+function missingEmail01Fields(candidate) {
+  const missing = [];
+  if (!candidate.person_name) missing.push('nombre');
+  if (!candidate.company_name && !candidate.deal_name) missing.push('entidad');
+  if (!candidate.island && !candidate.municipality) missing.push('territorio');
+  return missing;
+}
+
+function shouldIncludeDerivation(candidate) {
+  if (candidate.generic_email || candidate.needs_manual_review || !candidate.person_name) {
+    return true;
+  }
+
+  const localPart = String(candidate.email ?? '')
+    .toLowerCase()
+    .split('@')[0]
+    ?.replace(/[._-]+/g, '') ?? '';
+
+  return [...GENERIC_EMAIL_PREFIXES].some((prefix) =>
+    localPart === prefix.replace(/[._-]+/g, '') ||
+    localPart.startsWith(prefix.replace(/[._-]+/g, '')),
+  );
 }
 
 function displaySpanishValue(value) {
@@ -1173,8 +1227,11 @@ async function modePrepareDrafts(args) {
       sender_email: DEFAULT_SENDER,
       subject: rendered.subject,
       template_name: 'email_01',
-      attachment_policy: metadata.email_01?.attachmentPolicy ?? 'short_presentation',
+      template_version: metadata.email_01?.version ?? EMAIL_01_VERSION,
+      attachment_policy: metadata.email_01?.attachmentPolicy ?? 'dossier_blue_v2',
+      attachment_path: metadata.email_01?.attachmentPath,
       attachment_mime_name: metadata.email_01?.attachmentMimeName,
+      derivation_included: shouldIncludeDerivation(candidate),
       html: rendered.html,
       text: rendered.text,
       safeguards: ['payload_only', 'no_gmail_draft_created', 'no_email_sent'],
@@ -1189,7 +1246,7 @@ async function modePrepareDrafts(args) {
 
 function renderDraftReview(batchId, payloads) {
   const rows = payloads.map((payload, index) =>
-    `| ${index + 1} | ${payload.recipient_email} | ${payload.subject} | ${payload.template_name} | ${payload.attachment_policy} |`,
+    `| ${index + 1} | ${payload.recipient_email} | ${payload.subject} | ${payload.template_name} | ${payload.template_version ?? '-'} | ${payload.attachment_policy} | ${payload.derivation_included ? 'si' : 'no'} |`,
   );
   return `# IA Mujeres Draft Payload Review
 
@@ -1197,13 +1254,14 @@ Batch ID: \`${batchId}\`
 
 No se ha creado ningún draft Gmail. No se ha enviado ningún email.
 
-| # | Destinatario | Asunto | Template | Adjunto |
-|---:|---|---|---|---|
-${rows.length ? rows.join('\n') : '| - | - | - | - | - |'}
+| # | Destinatario | Asunto | Template | Version | Adjunto | Derivacion |
+|---:|---|---|---|---|---|---|
+${rows.length ? rows.join('\n') : '| - | - | - | - | - | - | - |'}
 
 ## Validación pendiente
 
-- Revisar personalización.
+- Revisar Email 1 v3, entidad, territorio y derivación si aplica.
+- Confirmar adjunto v2 y firma Gmail/GWS.
 - Confirmar autorización humana.
 - Crear drafts externos solo con modo dedicado y flags de confirmación.
 `;
@@ -1233,16 +1291,18 @@ async function modeMarkDraftCreated(client, args) {
     if (entry.gmailMessageId) updateData.gmailMessageId = entry.gmailMessageId;
     if (entry.gmailThreadId) updateData.gmailThreadId = entry.gmailThreadId;
     if (args.apply) await updateOpportunity(client, entry.crm_deal_id, updateData);
+    const templateVersion = entry.template_version ? `\nVersion: ${entry.template_version}` : '';
+    const attachmentLine = entry.attachment_mime_name ? `\nAdjunto: ${entry.attachment_mime_name}` : '';
     const note = await createNote(client, {
       title: `[IA Mujeres] Draft Email 1 creado`,
-      markdown: `Draft Email 1 creado el ${new Date().toISOString()} desde ${DEFAULT_SENDER}.\n\nGmail draft ID: ${entry.gmailDraftId}\n\nPendiente de revisión humana antes de cualquier envío externo.`,
+      markdown: `Draft Email 1 creado el ${new Date().toISOString()} desde ${DEFAULT_SENDER}.\n\nTemplate: ${entry.template_name ?? 'email_01'}${templateVersion}${attachmentLine}\nGmail draft ID: ${entry.gmailDraftId}\n\nPendiente de revisión humana antes de cualquier envío externo.`,
       opportunityId: entry.crm_deal_id,
       personId: entry.person_id,
       companyId: entry.company_id,
     }, args.apply);
     const task = await createTask(client, {
       title: `[IA Mujeres] Revisar draft Email 1`,
-      markdown: `Revisar cuerpo, personalización, firma, links y adjunto antes de autorizar envío.\n\nBatch: ${args.batchId}`,
+      markdown: `Revisar cuerpo Email 1 v3, entidad, territorio, derivación si aplica, firma Gmail/GWS y adjunto v2 antes de autorizar envío.\n\nBatch: ${args.batchId}`,
       opportunityId: entry.crm_deal_id,
       personId: entry.person_id,
       companyId: entry.company_id,
@@ -1317,9 +1377,11 @@ async function modeMarkEmailSent(client, args) {
       continue;
     }
     if (args.apply) await updateOpportunity(client, entry.crm_deal_id, updateData);
+    const templateVersion = entry.template_version ? `\nVersion: ${entry.template_version}` : '';
+    const attachmentLine = entry.attachment_mime_name ? `\nAdjunto: ${entry.attachment_mime_name}` : '';
     const note = await createNote(client, {
       title: `[IA Mujeres] Email 1 enviado`,
-      markdown: `Email 1 enviado el ${sentAt} desde ${entry.sender_email ?? DEFAULT_SENDER}.\n\nAsunto: ${entry.subject ?? EMAIL_01_SUBJECT}\nGmail message ID: ${entry.gmailMessageId}\nGmail thread ID: ${entry.gmailThreadId}`,
+      markdown: `Email 1 enviado el ${sentAt} desde ${entry.sender_email ?? DEFAULT_SENDER}.\n\nAsunto: ${entry.subject ?? EMAIL_01_SUBJECT}\nTemplate: ${entry.template_name ?? 'email_01'}${templateVersion}${attachmentLine}\nGmail message ID: ${entry.gmailMessageId}\nGmail thread ID: ${entry.gmailThreadId}`,
       opportunityId: entry.crm_deal_id,
       personId: entry.person_id,
       companyId: entry.company_id,

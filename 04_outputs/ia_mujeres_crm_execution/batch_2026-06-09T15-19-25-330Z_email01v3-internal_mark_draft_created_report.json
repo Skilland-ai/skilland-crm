@@ -1,0 +1,31 @@
+{
+  "mode": "apply",
+  "batch_id": "2026-06-09T15-19-25-330Z_email01v3-internal",
+  "updated": [
+    {
+      "crm_deal_id": "f077b9be-556c-41e7-abcf-36ffe91b170f",
+      "updateData": {
+        "gmailDraftId": "r3096451796524472537",
+        "iaMujeresFunnelStage": "DRAFT_CREATED",
+        "outreachStatus": "draft_created",
+        "lastEmailEventAt": "2026-06-09T15:20:01.148Z",
+        "lastEmailEventType": "draft_created",
+        "activeBatchId": "2026-06-09T15-19-25-330Z_email01v3-internal",
+        "lastEmailTemplate": "email_01",
+        "lastEmailSubject": "Una preocupación que quería compartir con usted",
+        "gmailMessageId": "19eacf7efc9fb93b",
+        "gmailThreadId": "19eacf7efc9fb93b"
+      },
+      "note": {
+        "id": "46bd46d9-85b3-442a-bf0f-784fe56719cf",
+        "title": "[IA Mujeres] Draft Email 1 creado"
+      },
+      "task": {
+        "id": "bffdbfe4-7620-4fd6-80e6-480062936f12",
+        "title": "[IA Mujeres] Revisar draft Email 1",
+        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
+      }
+    }
+  ],
+  "planned": []
+}

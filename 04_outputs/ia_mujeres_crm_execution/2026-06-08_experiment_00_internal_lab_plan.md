@@ -1,5 +1,7 @@
 # Experiment 00 Internal Lab Plan — IA Mujeres
 
+> Estado historico: este laboratorio interno del 2026-06-08 queda supersedido para Email 1 por `04_outputs/ia_mujeres_crm_execution/2026-06-09_email_01_v3_crm_sync.md`. Sus referencias al asset anterior y a firma inyectada documentan una prueba pasada; no son instrucciones vigentes.
+
 ## Objetivo
 
 Validar la operacion completa antes de tocar contactos reales.

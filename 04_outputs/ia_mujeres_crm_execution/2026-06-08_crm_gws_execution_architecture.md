@@ -6,10 +6,31 @@ El handoff de Funnel Academy esta disponible localmente y se ha usado como fuent
 
 - `/home/reboot/Escritorio/funnel-and-offer-academy/04_outputs/ia-mujeres-funnel/06_outputs_ready_for_execution/2026-06-07_crm_gws_execution_handoff.md`
 - `/home/reboot/Escritorio/funnel-and-offer-academy/04_outputs/ia-mujeres-funnel/06_outputs_ready_for_execution/2026-06-07_sequence_ready_for_human_review.md`
-- `/home/reboot/Escritorio/funnel-and-offer-academy/04_outputs/ia-mujeres-funnel/04_email_sequence/2026-06-07_email_01_v2.md`
+- `/home/reboot/Escritorio/funnel-and-offer-academy/04_outputs/ia-mujeres-funnel/04_email_sequence/2026-06-09_email_01_v3.md`
 - follow-ups, reglas de personalizacion, retargeting y `NEXT_ACTIONS.md`.
 
-No se redisenan funnel ni copy. Este repo convierte el handoff en operacion CRM/GWS segura.
+No se redisenan funnel ni copy. Este repo convierte el handoff en operacion CRM/GWS segura. La sincronizacion vigente de Email 1 queda documentada en `04_outputs/ia_mujeres_crm_execution/2026-06-09_email_01_v3_crm_sync.md`.
+
+## Sincronizacion Email 1 v3
+
+Estado vigente para proximas tandas:
+
+| Campo | Valor |
+|---|---|
+| Referencia Funnel Academy | `2026-06-09_email_01_v3` |
+| Template operativo | `email_01` sincronizado con Email 1 v3 |
+| Asunto | `Una preocupación que quería compartir con usted` |
+| Variables minimas | `[nombre]`, `[entidad]`, `[territorio]`, `[derivacion_si_corresponde]` |
+| Adjunto Email 1 | `shared/templates/ia-mujeres/assets/Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf` |
+| Firma | No hardcodear; validar insercion Gmail/GWS |
+
+Reglas operativas:
+
+- Contacto nominal fiable: `[derivacion_si_corresponde]` vacio.
+- Buzon generico, email de area o interlocutor dudoso: insertar la derivacion definida en el handoff v3.
+- Si faltan entidad o territorio, revisar antes de generar/enviar.
+- Email 1 no debe usar el asset anterior de resumen comercial, white paper, dossier largo, link de LinkedIn en Romina, mencion economica de cierre ni link frio de calendario.
+- El PDF v2 esta copiado en `shared/templates/ia-mujeres/assets/`; validar Gmail tras reautenticar GWS.
 
 ## Arquitectura decidida
 
@@ -43,7 +64,7 @@ Componentes:
 
 - `events.ndjson` antes que campos CRM nuevos: menos invasivo para Experimento 0; suficiente para trazabilidad interna.
 - Gmail API directa para drafts con adjunto: el CLI `gws --json` falla por `E2BIG` con PDF y `--upload` manda `application/octet-stream`; el runner usa `gws auth export --unmasked` solo en memoria y Gmail REST `message.raw`.
-- Firma: Gmail API no anade automaticamente la firma visual del cliente web. El runner lee `gmail.users.settings.sendAs.list` e inyecta la firma configurada de `gerencia@skilland.ai`.
+- Firma: no hardcodear firma en templates ni cuerpos. El runner lee la firma configurada de `gerencia@skilland.ai` desde Gmail `sendAs` y la inyecta en el MIME; queda pendiente reautenticar GWS porque las credenciales locales devuelven `invalid_rapt`.
 - Aperturas/clicks: no se instrumentan ahora porque alterarian entregabilidad/copy y no son KPI principal.
 
 ## Operacion propuesta
@@ -51,7 +72,7 @@ Componentes:
 1. CRM selecciona candidatos aptos.
 2. Runner prepara tanda en dry-run.
 3. Runner crea drafts, nunca envia por defecto.
-4. Revision humana valida cuerpo, links, adjunto, firma y personalizacion.
+4. Revision humana valida cuerpo Email 1 v3, derivacion si aplica, adjunto v2, firma Gmail/GWS y personalizacion.
 5. Tras autorizacion explicita, envio controlado.
 6. Runner registra `email_sent` y actualiza/propone actualizar CRM.
 7. Runner monitoriza replies/bounces por hilo.

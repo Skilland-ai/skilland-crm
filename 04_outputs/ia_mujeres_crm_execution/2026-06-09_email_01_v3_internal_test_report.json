@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-06-09T15:19:26.851Z",
+  "mode": "apply",
+  "batch_id": "2026-06-09T15-19-25-330Z_email01v3-internal",
+  "company": {
+    "action": "created",
+    "id": "de479d87-fbbc-463e-9203-798811bb60b8",
+    "name": "Skilland Dirección — Test IA Mujeres Email 1 v3"
+  },
+  "person": {
+    "action": "created",
+    "id": "ca2424e2-972a-4377-968d-5929da52a5ed",
+    "name": "Equipo Dirección Skilland"
+  },
+  "opportunity": {
+    "action": "created",
+    "id": "f077b9be-556c-41e7-abcf-36ffe91b170f",
+    "name": "Skilland Dirección — IA Mujeres 2026 — Test Email 1 v3"
+  },
+  "note": {
+    "action": "created",
+    "id": "ec3adf1d-4148-45dc-b051-7a77a73717b7",
+    "title": "[IA Mujeres] Experimento interno Email 1 v3"
+  }
+}

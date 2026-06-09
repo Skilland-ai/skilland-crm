@@ -6,6 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const SENDER_EMAIL = 'gerencia@skilland.ai';
+const SENDER_DISPLAY_NAME = 'Romina Ojeda Brito';
 const GERENCIA_CONFIG_DIR = process.env.GWS_GERENCIA_CONFIG_DIR || '/home/reboot/.config/gws_gerencia';
 const DEFAULT_OUTPUT_DIR = path.resolve('04_outputs/ia_mujeres_crm_execution');
 const DEFAULT_WEEK = '2026-06-08';
@@ -119,16 +120,24 @@ async function gmailApi(configDir, method, endpoint, body) {
 
 function requireAuth() {
   const status = runGws(GERENCIA_CONFIG_DIR, ['auth', 'status']);
+  if (!status.token_valid) {
+    throw new Error(
+      `GWS token is not valid for ${SENDER_EMAIL}: ${status.token_error || 'unknown token error'}`,
+    );
+  }
   if (status.user !== SENDER_EMAIL) {
     throw new Error(`Wrong GWS account. Expected ${SENDER_EMAIL}, got ${status.user || '(unknown)'}`);
   }
-  if (!status.token_valid) throw new Error(`GWS token is not valid for ${SENDER_EMAIL}`);
   return status;
 }
 
 function encodeMimeHeader(value) {
   if (/^[\x00-\x7F]*$/.test(value)) return value;
   return `=?UTF-8?B?${Buffer.from(value, 'utf8').toString('base64')}?=`;
+}
+
+function senderAddress() {
+  return `${encodeMimeHeader(SENDER_DISPLAY_NAME)} <${SENDER_EMAIL}>`;
 }
 
 function base64Url(value) {
@@ -177,7 +186,7 @@ function loadReport({ outputDir, week, subject }) {
 function buildMime({ subject, recipients, html, text }) {
   const boundary = `skilland_report_${crypto.randomUUID()}`;
   const headers = [
-    `From: ${SENDER_EMAIL}`,
+    `From: ${senderAddress()}`,
     `To: ${recipients.join(', ')}`,
     `Subject: ${encodeMimeHeader(subject)}`,
     'MIME-Version: 1.0',

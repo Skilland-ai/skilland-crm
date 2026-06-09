@@ -1,0 +1,27 @@
+{
+  "batch_id": "2026-06-09T15-19-25-330Z_email01v3-internal",
+  "generated_at": "2026-06-09T15:19:36.250Z",
+  "payloads": [
+    {
+      "crm_deal_id": "f077b9be-556c-41e7-abcf-36ffe91b170f",
+      "company_id": "de479d87-fbbc-463e-9203-798811bb60b8",
+      "person_id": "ca2424e2-972a-4377-968d-5929da52a5ed",
+      "recipient_email": "direccion@skilland.ai",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-09_email_01_v3",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_path": "shared/templates/ia-mujeres/assets/Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "derivation_included": false,
+      "html": "<p>Estimado/a Equipo Dirección Skilland,</p>\n\n<p>Me llamo Romina Ojeda Brito. Durante los últimos años he liderado Reboot Academy, un proyecto que nació en Canarias con una idea muy concreta: ayudar a personas que necesitaban reiniciar su trayectoria profesional, muchas de ellas en situaciones de desempleo, vulnerabilidad o falta de acceso a oportunidades tecnológicas, a formarse en habilidades realmente demandadas por el mercado.</p>\n\n<p>Desde ahí hemos formado a más de 1.000 estudiantes, y esa experiencia nos llevó a impulsar el Instituto de Innovación Tecnológica y Educativa para el Desarrollo: una evolución natural para seguir conectando formación, tecnología, metodología e impacto real en el territorio.</p>\n\n<p>También presido Women In STEAM Empowerment Canarias, y desde esa responsabilidad veo con especial claridad la brecha que se está abriendo con la adopción de la Inteligencia Artificial.</p>\n\n<p>Le escribo porque creemos que esta conversación puede ser especialmente relevante para Skilland Dirección — Test IA Mujeres Email 1 v3. La IA puede convertirse en una nueva capa de exclusión laboral femenina o en una oportunidad para abrir acceso a empleo cualificado, autonomía económica y nuevas competencias profesionales para las mujeres de Canarias.</p>\n\n<p>Le adjunto un dosier breve sobre la línea de trabajo que estamos impulsando con organismos públicos de Canarias, con posibles líneas de colaboración. No lo planteamos como un programa cerrado, sino como punto de partida para una conversación: compartirles lo que estamos trabajando, escuchar mejor su contexto territorial, sus objetivos y prioridades, y valorar juntos si puede tener sentido una primera acción de divulgación gratuita en su territorio.</p>\n\n<p>A partir de ahí, si vemos encaje, podríamos explorar posteriormente un proyecto a medida con objetivos concretos y KPIs de impacto.</p>\n\n<p>¿Tendría sentido que nos sentáramos a hablarlo en una primera reunión? Podemos adaptarnos al formato que les resulte más cómodo: llamada, videollamada o encuentro presencial.</p>\n\n\n\n<p>Un saludo,</p>\n",
+      "text": "Estimado/a Equipo Dirección Skilland,\n\nMe llamo Romina Ojeda Brito. Durante los últimos años he liderado Reboot Academy, un proyecto que nació en Canarias con una idea muy concreta: ayudar a personas que necesitaban reiniciar su trayectoria profesional, muchas de ellas en situaciones de desempleo, vulnerabilidad o falta de acceso a oportunidades tecnológicas, a formarse en habilidades realmente demandadas por el mercado.\n\nDesde ahí hemos formado a más de 1.000 estudiantes, y esa experiencia nos llevó a impulsar el Instituto de Innovación Tecnológica y Educativa para el Desarrollo: una evolución natural para seguir conectando formación, tecnología, metodología e impacto real en el territorio.\n\nTambién presido Women In STEAM Empowerment Canarias, y desde esa responsabilidad veo con especial claridad la brecha que se está abriendo con la adopción de la Inteligencia Artificial.\n\nLe escribo porque creemos que esta conversación puede ser especialmente relevante para Skilland Dirección — Test IA Mujeres Email 1 v3. La IA puede convertirse en una nueva capa de exclusión laboral femenina o en una oportunidad para abrir acceso a empleo cualificado, autonomía económica y nuevas competencias profesionales para las mujeres de Canarias.\n\nLe adjunto un dosier breve sobre la línea de trabajo que estamos impulsando con organismos públicos de Canarias, con posibles líneas de colaboración. No lo planteamos como un programa cerrado, sino como punto de partida para una conversación: compartirles lo que estamos trabajando, escuchar mejor su contexto territorial, sus objetivos y prioridades, y valorar juntos si puede tener sentido una primera acción de divulgación gratuita en su territorio.\n\nA partir de ahí, si vemos encaje, podríamos explorar posteriormente un proyecto a medida con objetivos concretos y KPIs de impacto.\n\n¿Tendría sentido que nos sentáramos a hablarlo en una primera reunión? Podemos adaptarnos al formato que les resulte más cómodo: llamada, videollamada o encuentro presencial.\n\nUn saludo,",
+      "safeguards": [
+        "payload_only",
+        "no_gmail_draft_created",
+        "no_email_sent"
+      ]
+    }
+  ]
+}

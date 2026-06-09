@@ -2,6 +2,8 @@
 
 Fecha: 2026-06-08
 
+> Estado historico: este reporte de correccion UTF-8 queda supersedido para Email 1 por `04_outputs/ia_mujeres_crm_execution/2026-06-09_email_01_v3_crm_sync.md`. Sus referencias al asset anterior y a firma inyectada documentan una validacion pasada; no son instrucciones vigentes.
+
 ## Resultado
 
 Estado: aprobado para revisión interna. No se ha enviado ningún email externo.

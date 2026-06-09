@@ -39,6 +39,19 @@ Motivo: Raúl necesita abrir un deal y ver el hilo asociado sin buscar en output
 - `duplicatePossible`
 - `genericEmail`
 
+## Identidad de template vigente
+
+Para proximos envios de Email 1, `lastEmailTemplate` puede seguir registrando `email_01`, pero no debe interpretarse como Email 1 anterior. La referencia vigente es `2026-06-09_email_01_v3`, documentada en `04_outputs/ia_mujeres_crm_execution/2026-06-09_email_01_v3_crm_sync.md`.
+
+Valores esperados en la siguiente tanda real:
+
+- `lastEmailTemplate`: `email_01`.
+- `lastEmailSubject`: `Una preocupación que quería compartir con usted`.
+- Variables minimas antes de generar/enviar: `[nombre]`, `[entidad]`, `[territorio]`, `[derivacion_si_corresponde]`.
+- Buzon generico o interlocutor dudoso: derivacion insertada en el cuerpo.
+- Adjunto Email 1: `Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf`.
+- Firma: validada por Gmail/GWS; no hardcodeada en template ni cuerpo.
+
 ## Mapeo por evento
 
 | Evento | Campos actualizados | Nota | Tarea |
