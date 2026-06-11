@@ -18,9 +18,83 @@ const RAUL_ARTILES_WORKSPACE_MEMBER_ID = '323c2357-853d-45bc-ad7d-1703de9deef6';
 const RAUL_ARTILES_EMAIL = 'raul@reboot.academy';
 const TASK_REVIEW_DRAFT_EMAIL_1 = '[IA Mujeres] Revisar draft Email 1';
 const TASK_REVIEW_FOLLOW_UP_1 = '[IA Mujeres] Revisar respuesta / preparar Follow-up 1';
-const EMAIL_01_VERSION = '2026-06-09_email_01_v3';
+const EMAIL_01_VERSION = '2026-06-11_email_01_v4_1';
 const EMAIL_01_DERIVATION_HTML =
-  '<p>Si no es la persona adecuada, agradecería que pudiera derivarlo al área responsable de igualdad, empleo, mujer, políticas sociales o desarrollo local.</p>';
+  '<p>Si cree que esta conversación corresponde a otra persona del equipo, le agradecería mucho que pudiera reenviárselo o indicarme con quién hablar.</p>';
+const FEMALE_FIRST_NAMES = new Set([
+  'adela',
+  'agueda',
+  'ana',
+  'andrea',
+  'angela',
+  'ariadna',
+  'beatriz',
+  'belen',
+  'candelaria',
+  'carmen',
+  'cathaysa',
+  'cristina',
+  'daina',
+  'elena',
+  'elisabet',
+  'elsa',
+  'esther',
+  'eugenia',
+  'fatima',
+  'gloria',
+  'inmaculada',
+  'irene',
+  'isabel',
+  'josefa',
+  'laura',
+  'maria',
+  'mercedes',
+  'montserrat',
+  'natalia',
+  'patricia',
+  'purificacion',
+  'raquel',
+  'rosa',
+  'sara',
+  'teresa',
+  'yessica',
+]);
+const MALE_FIRST_NAMES = new Set([
+  'adrian',
+  'alejandro',
+  'antonio',
+  'carlos',
+  'efrain',
+  'francisco',
+  'jose',
+  'juan',
+  'marcial',
+  'miguel',
+  'oliver',
+  'pedro',
+  'raul',
+  'ricardo',
+]);
+const FIRST_NAME_DISPLAY_BY_NORMALIZED_NAME = new Map([
+  ['adrian', 'Adrián'],
+  ['agueda', 'Águeda'],
+  ['alvaro', 'Álvaro'],
+  ['angela', 'Ángela'],
+  ['belen', 'Belén'],
+  ['cathaysa', 'Cathaysa'],
+  ['daina', 'Daina'],
+  ['efrain', 'Efraín'],
+  ['elena', 'Elena'],
+  ['elisabet', 'Elisabet'],
+  ['equipo', 'equipo'],
+  ['jose', 'José'],
+  ['maria', 'María'],
+  ['marcial', 'Marcial'],
+  ['purificacion', 'Purificación'],
+  ['raul', 'Raúl'],
+  ['rosa', 'Rosa'],
+  ['yessica', 'Yessica'],
+]);
 const GENERIC_EMAIL_PREFIXES = new Set([
   'administracion',
   'agencia',
@@ -291,19 +365,53 @@ function htmlToText(html) {
     .trim();
 }
 
+function normalizeSpanishValue(value) {
+  return String(value ?? '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+}
+
+function firstGivenName(personName) {
+  return String(personName ?? '').trim().split(/\s+/).filter(Boolean)[0] ?? '';
+}
+
+function inferGreeting(personName) {
+  const firstName = firstGivenName(personName);
+  const normalizedFirstName = normalizeSpanishValue(firstName);
+
+  if (!firstName || normalizedFirstName === 'unknown') return 'Estimado equipo';
+  const displayFirstName = FIRST_NAME_DISPLAY_BY_NORMALIZED_NAME.get(normalizedFirstName) ?? displaySpanishValue(firstName);
+  if (FEMALE_FIRST_NAMES.has(normalizedFirstName)) return `Estimada ${displayFirstName}`;
+  if (MALE_FIRST_NAMES.has(normalizedFirstName)) return `Estimado ${displayFirstName}`;
+
+  return `Estimado ${displayFirstName}`;
+}
+
+function naturalTerritory(candidate) {
+  const organizationType = normalizeSpanishValue(candidate.organization_type);
+  const municipality = displaySpanishValue(candidate.municipality);
+  const island = displaySpanishValue(candidate.island);
+
+  if (organizationType === 'ayuntamiento' && municipality && normalizeSpanishValue(municipality) !== 'unknown') {
+    return municipality;
+  }
+
+  return island || municipality || 'su territorio';
+}
+
 function renderEmail01(candidate) {
   const missingFields = missingEmail01Fields(candidate);
   if (missingFields.length > 0) {
     throw new Error(
-      `Cannot render Email 1 v3 for ${candidate.crm_deal_id}: missing ${missingFields.join(', ')}`,
+      `Cannot render Email 1 v4.1 for ${candidate.crm_deal_id}: missing ${missingFields.join(', ')}`,
     );
   }
 
   let html = fs.readFileSync(EMAIL_01_TEMPLATE, 'utf8');
   const replacements = {
-    nombre: displaySpanishValue(candidate.person_name || 'equipo'),
-    entidad: displaySpanishValue(candidate.company_name || candidate.deal_name),
-    territorio: displaySpanishValue(candidate.island || candidate.municipality),
+    saludo_nombre: inferGreeting(candidate.person_name),
+    territorio: naturalTerritory(candidate),
     derivacion_si_corresponde: shouldIncludeDerivation(candidate) ? EMAIL_01_DERIVATION_HTML : '',
   };
   for (const [key, value] of Object.entries(replacements)) {
@@ -316,7 +424,7 @@ function renderEmail01(candidate) {
   const unresolved = html.match(/{{[^}]+}}/g) ?? [];
   if (unresolved.length > 0) {
     throw new Error(
-      `Cannot render Email 1 v3 for ${candidate.crm_deal_id}: unresolved placeholders ${[...new Set(unresolved)].join(', ')}`,
+      `Cannot render Email 1 v4.1 for ${candidate.crm_deal_id}: unresolved placeholders ${[...new Set(unresolved)].join(', ')}`,
     );
   }
   return {
@@ -328,8 +436,6 @@ function renderEmail01(candidate) {
 
 function missingEmail01Fields(candidate) {
   const missing = [];
-  if (!candidate.person_name) missing.push('nombre');
-  if (!candidate.company_name && !candidate.deal_name) missing.push('entidad');
   if (!candidate.island && !candidate.municipality) missing.push('territorio');
   return missing;
 }
@@ -1260,8 +1366,8 @@ ${rows.length ? rows.join('\n') : '| - | - | - | - | - | - | - |'}
 
 ## Validación pendiente
 
-- Revisar Email 1 v3, entidad, territorio y derivación si aplica.
-- Confirmar adjunto v2 y firma Gmail/GWS.
+- Revisar Email 1 v4.1, saludo, territorio y derivación si aplica.
+- Confirmar adjunto v2 y firma explícita en cuerpo.
 - Confirmar autorización humana.
 - Crear drafts externos solo con modo dedicado y flags de confirmación.
 `;
@@ -1302,7 +1408,7 @@ async function modeMarkDraftCreated(client, args) {
     }, args.apply);
     const task = await createTask(client, {
       title: `[IA Mujeres] Revisar draft Email 1`,
-      markdown: `Revisar cuerpo Email 1 v3, entidad, territorio, derivación si aplica, firma Gmail/GWS y adjunto v2 antes de autorizar envío.\n\nBatch: ${args.batchId}`,
+      markdown: `Revisar cuerpo Email 1 v4.1, saludo, territorio, derivación si aplica, firma explícita en cuerpo y adjunto v2 antes de autorizar envío.\n\nBatch: ${args.batchId}`,
       opportunityId: entry.crm_deal_id,
       personId: entry.person_id,
       companyId: entry.company_id,

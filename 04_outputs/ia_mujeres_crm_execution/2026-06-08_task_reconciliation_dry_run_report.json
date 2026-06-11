@@ -1,12 +1,12 @@
 {
   "mode": "dry-run",
-  "generated_at": "2026-06-08T13:07:23.351Z",
+  "generated_at": "2026-06-11T11:23:27.731Z",
   "assignee": {
     "id": "323c2357-853d-45bc-ad7d-1703de9deef6",
     "email": "raul@reboot.academy",
     "name": "Raúl Artiles"
   },
-  "inspected": 20,
+  "inspected": 88,
   "updated": [],
   "planned": []
 }

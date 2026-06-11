@@ -1,0 +1,81 @@
+{
+  "batch_id": "2026-06-10T08-04-10-524Z_ayuntamientos-email01-01",
+  "sent_at": "2026-06-10T08:13:06.421Z",
+  "sent": [
+    {
+      "crm_deal_id": "76b148ce-e5a9-4d97-8214-1a486be67225",
+      "company_id": "de690b5c-223a-416c-a2c5-cf51c65e7189",
+      "person_id": "a501a0b4-97bc-400b-b5be-4950aafa9ce3",
+      "recipient_email": "igualdad@sanbartolome.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-09_email_01_v3",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailMessageId": "19eb097a604ab727",
+      "gmailThreadId": "19eb097510a97deb",
+      "sentAt": "2026-06-10T08:13:09.693Z"
+    },
+    {
+      "crm_deal_id": "7b9093de-c30e-4c5d-a9ac-04306e5f38e1",
+      "company_id": "fea05375-f503-40c0-9a03-565d25667b52",
+      "person_id": "702d9777-fcf6-4413-a988-ba55b80d7fbb",
+      "recipient_email": "promotora-igualdad@villadelaorotava.org",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-09_email_01_v3",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailMessageId": "19eb097b6da4baf7",
+      "gmailThreadId": "19eb0975b59562c2",
+      "sentAt": "2026-06-10T08:13:13.647Z"
+    },
+    {
+      "crm_deal_id": "7e4bd5d4-e200-4be4-9a45-7685b5cecca9",
+      "company_id": "6204092a-4679-4d92-8345-db3e4c7f68e2",
+      "person_id": "c5ed47d0-ad15-4bcc-8270-8b60de6bfa3a",
+      "recipient_email": "serviciossociales@puntagorda.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-09_email_01_v3",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailMessageId": "19eb097c112fcff2",
+      "gmailThreadId": "19eb097623f785be",
+      "sentAt": "2026-06-10T08:13:15.998Z"
+    },
+    {
+      "crm_deal_id": "84bacdc0-ca2f-483e-87e8-82796b710481",
+      "company_id": "f55fff70-d7d5-4de1-b51d-18a5f34bbead",
+      "person_id": "1df395f3-0343-4baf-b7bc-ed126eb21a2a",
+      "recipient_email": "igualdad@maspalomas.com",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-09_email_01_v3",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailMessageId": "19eb097c6f27f58d",
+      "gmailThreadId": "19eb0976f63a82e1",
+      "sentAt": "2026-06-10T08:13:17.835Z"
+    },
+    {
+      "crm_deal_id": "8d2cf934-9ffa-4b07-b39d-b22e32d8be0b",
+      "company_id": "48ecf6d6-03c8-4d94-b147-06fc92c4766d",
+      "person_id": "641d37a4-d2a9-4a61-a3de-c16b419d9b25",
+      "recipient_email": "ssociales@garafia.org",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-09_email_01_v3",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailMessageId": "19eb097cf108aaf4",
+      "gmailThreadId": "19eb09779713f801",
+      "sentAt": "2026-06-10T08:13:19.870Z"
+    }
+  ]
+}

@@ -15,12 +15,16 @@ function parseArgs(argv) {
     limit: DEFAULT_LIMIT,
     outputDir: DEFAULT_OUTPUT_DIR,
     eventsPath: DEFAULT_EVENTS_PATH,
+    organizationType: undefined,
+    batchLabel: undefined,
   };
 
   for (const arg of argv) {
     if (arg.startsWith('--limit=')) args.limit = Number(arg.slice('--limit='.length));
     else if (arg.startsWith('--output-dir=')) args.outputDir = path.resolve(arg.slice('--output-dir='.length));
     else if (arg.startsWith('--events=')) args.eventsPath = path.resolve(arg.slice('--events='.length));
+    else if (arg.startsWith('--organization-type=')) args.organizationType = arg.slice('--organization-type='.length);
+    else if (arg.startsWith('--batch-label=')) args.batchLabel = arg.slice('--batch-label='.length);
     else if (arg === '--help' || arg === '-h') {
       printHelp();
       process.exit(0);
@@ -41,6 +45,7 @@ function printHelp() {
 
 Usage:
   node scripts/ia_mujeres_authorized_bulk_batch.mjs --limit=20
+  node scripts/ia_mujeres_authorized_bulk_batch.mjs --limit=10 --organization-type=ayuntamiento --batch-label=ayuntamientos-email01
 
 This planner creates local batch_<id>_plan.json files only. It does not create
 Gmail drafts, send email, or mutate CRM. It is designed for an already-approved
@@ -169,6 +174,17 @@ function normalize(value) {
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase();
+}
+
+function slug(value) {
+  return normalize(value)
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '') || 'batch';
+}
+
+function organizationTypeMatches(candidate, expectedType) {
+  if (!expectedType) return true;
+  return normalize(candidate.organization_type) === normalize(expectedType);
 }
 
 function displaySpanishValue(value) {
@@ -359,9 +375,10 @@ function renderMasterReport(report) {
     `| ${candidate.deal_name} | ${candidate.email || '-'} | ${candidate.exclusion_reasons.join(', ')} |`,
   );
 
-  return `# IA Mujeres Authorized Bulk 20 Plan
+  return `# IA Mujeres Authorized Bulk Plan
 
 Generado: ${report.generated_at}
+Scope: ${report.scope.organization_type ? `organizationType=${report.scope.organization_type}` : 'all'}
 
 ## Resumen
 
@@ -386,7 +403,8 @@ ${hardRows.length ? hardRows.join('\n') : '| - | - | - |'}
 
 ## Decisión operativa
 
-- El usuario autorizó una tanda real de 20.
+- El usuario autorizó una tanda real de ${report.requested_limit}.
+- Filtro operativo aplicado: ${report.scope.organization_type ? `solo organizationType=${report.scope.organization_type}` : 'sin filtro de organizationType'}.
 - No se selecciona ningún deal con Santa Cruz.
 - No se selecciona ningún deal de Cabildo de Tenerife.
 - Los sublotes quedan en archivos estándar \`batch_<id>_plan.json\` para reutilizar los runners con límite de 5.
@@ -401,9 +419,19 @@ async function main() {
   const opportunities = await fetchOpportunities(client);
   const events = readEvents(args.eventsPath);
   const sentRecipients = eventSentRecipients(events);
+  const scopeSlug = args.organizationType ? `org-${slug(args.organizationType)}` : 'all';
+  const batchLabel = slug(args.batchLabel ?? `${scopeSlug}-bulk${args.limit}`);
   const campaignCandidates = opportunities
     .map((opportunity, index) => ({ candidate: toCandidate(opportunity, sentRecipients), index }))
-    .filter(({ candidate }) => candidate.exclusion_reasons[0] !== 'not_ia_mujeres_campaign');
+    .filter(({ candidate }) => candidate.exclusion_reasons[0] !== 'not_ia_mujeres_campaign')
+    .map(({ candidate, index }) => {
+      const scopedCandidate = { ...candidate, exclusion_reasons: [...candidate.exclusion_reasons] };
+      if (!organizationTypeMatches(scopedCandidate, args.organizationType)) {
+        scopedCandidate.exclusion_reasons.push('organization_type_mismatch');
+        scopedCandidate.eligible = false;
+      }
+      return { candidate: scopedCandidate, index };
+    });
 
   const eligible = campaignCandidates
     .filter(({ candidate }) => candidate.eligible)
@@ -423,14 +451,15 @@ async function main() {
   }
 
   const generatedAt = new Date().toISOString();
-  const baseBatchId = generatedAt.replace(/[:.]/g, '-');
+  const timestamp = generatedAt.replace(/[:.]/g, '-');
+  const baseBatchId = `${timestamp}_${batchLabel}`;
   const hardExcluded = excluded.filter((candidate) =>
     candidate.exclusion_reasons.includes('hard_excluded_santa_cruz') ||
     candidate.exclusion_reasons.includes('hard_excluded_cabildo_tenerife')
   );
 
   const subBatches = chunk(eligible, SUB_BATCH_SIZE).map((selected, index) => {
-    const batchId = `${baseBatchId}_bulk20-${String(index + 1).padStart(2, '0')}`;
+    const batchId = `${baseBatchId}-${String(index + 1).padStart(2, '0')}`;
     const selectedIds = new Set(selected.map((candidate) => candidate.crm_deal_id));
     const batchExcluded = excluded.filter((candidate) => !selectedIds.has(candidate.crm_deal_id));
     const plan = {
@@ -445,7 +474,8 @@ async function main() {
         'Planning only; no Gmail draft creation.',
         'Planning only; no external send.',
         'Sub-batch size stays at 5 for the existing Gmail safeguards.',
-        'User authorized this expanded batch on 2026-06-08.',
+        'User explicitly authorized this real Email 1 batch.',
+        ...(args.organizationType ? [`Scope filter: organizationType=${args.organizationType}.`] : []),
         'Hard excludes: Santa Cruz and Cabildo de Tenerife.',
         'Generic/manual/duplicate flags are not hard blockers in this authorized bulk run; they are retained as warnings.',
       ],
@@ -469,11 +499,16 @@ async function main() {
     requested_limit: args.limit,
     selected_count: eligible.length,
     campaign_opportunities_seen: campaignCandidates.length,
+    scope: {
+      organization_type: args.organizationType ?? null,
+      batch_label: batchLabel,
+    },
     hard_excluded: hardExcluded,
     sub_batches: subBatches,
   };
-  const jsonPath = path.join(args.outputDir, '2026-06-08_authorized_bulk_20_plan.json');
-  const mdPath = path.join(args.outputDir, '2026-06-08_authorized_bulk_20_plan.md');
+  const reportBase = `${timestamp}_${batchLabel}_authorized_bulk_plan`;
+  const jsonPath = path.join(args.outputDir, `${reportBase}.json`);
+  const mdPath = path.join(args.outputDir, `${reportBase}.md`);
   writeJson(jsonPath, report);
   fs.writeFileSync(mdPath, renderMasterReport(report));
 

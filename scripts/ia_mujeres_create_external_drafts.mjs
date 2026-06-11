@@ -264,13 +264,13 @@ function verifyDraftMessage({ message, payload, rendered }) {
   };
 }
 
-function email01V3Validation(payload, rendered) {
+function email01TemplateValidation(payload, rendered) {
   const unresolvedPlaceholders = rendered.bodyHtml.match(/{{[^}]+}}/g) ?? [];
   const forbiddenBodyUrls = FORBIDDEN_BODY_URLS.filter((url) =>
     payload.html.includes(url),
   );
   const derivationTextPresent = rendered.bodyHtml.includes(
-    'Si no es la persona adecuada, agradecería que pudiera derivarlo al área responsable',
+    'Si cree que esta conversación corresponde a otra persona del equipo',
   );
 
   return {
@@ -282,18 +282,18 @@ function email01V3Validation(payload, rendered) {
     derivationTextPresent,
     derivationMatchesPayload: Boolean(payload.derivation_included) === derivationTextPresent,
     expectedAttachmentNameMatches: rendered.attachmentFilename === EXPECTED_ATTACHMENT_NAME,
-    htmlHasV3Copy: rendered.bodyHtml.includes('Le adjunto un dosier breve') &&
-      rendered.bodyHtml.includes('primera acción de divulgación gratuita'),
+    htmlHasExpectedCopy: rendered.bodyHtml.includes('Le adjunto un dosier breve') &&
+      rendered.bodyHtml.includes('primera acción gratuita de divulgación'),
   };
 }
 
-function assertEmail01V3Validation(payload, validation) {
+function assertEmail01TemplateValidation(payload, validation) {
   const failures = [];
   if (!validation.noForbiddenBodyUrls) failures.push('forbidden_body_urls');
   if (validation.unresolvedPlaceholders.length > 0) failures.push('unresolved_placeholders');
   if (!validation.derivationMatchesPayload) failures.push('derivation_mismatch');
   if (!validation.expectedAttachmentNameMatches) failures.push('wrong_attachment_name');
-  if (!validation.htmlHasV3Copy) failures.push('missing_v3_copy');
+  if (!validation.htmlHasExpectedCopy) failures.push('missing_expected_copy');
 
   if (failures.length > 0) {
     throw new Error(
@@ -350,7 +350,7 @@ async function main() {
       'Does not send emails.',
       'Max 5 payloads.',
       'Requires --confirm-create-external-drafts with --apply.',
-      'Requires Gmail signature from account settings and Email 1 v3 dossier attachment.',
+      'Requires Email 1 v4.1 body copy and dossier attachment.',
     ],
     drafts: [],
   };
@@ -362,15 +362,15 @@ async function main() {
     }
     const attachmentStat = fs.statSync(attachmentPath);
     const rendered = buildMime({ payload, signatureHtml, attachmentPath });
-    const email01Validation = email01V3Validation(payload, rendered);
-    assertEmail01V3Validation(payload, email01Validation);
+    const email01Validation = email01TemplateValidation(payload, rendered);
+    assertEmail01TemplateValidation(payload, email01Validation);
     const validationBase = {
       attachmentPath,
       attachmentName: rendered.attachmentFilename,
       attachmentBytes: attachmentStat.size,
       signaturePresent: Boolean(signatureHtml),
       htmlHasAccents: /años|tecnológicas|formación|conversación|reunión|acción|Inteligencia Artificial/.test(rendered.bodyHtml),
-      email01V3: email01Validation,
+      email01: email01Validation,
     };
 
     if (!args.apply) {

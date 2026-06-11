@@ -2,9 +2,11 @@
 
 Fecha: 2026-06-09
 
+> Documento histórico. Sustituido para próximas iteraciones por `04_outputs/ia_mujeres_crm_execution/2026-06-11_email_01_v4_1_crm_sync.md`.
+
 ## Estado
 
-Documento operativo vigente para sincronizar CRM/GWS con el handoff de Funnel Academy de Email 1 v3.
+Documento operativo histórico del handoff de Funnel Academy de Email 1 v3.
 
 Estado actualizado tras implementacion operativa:
 

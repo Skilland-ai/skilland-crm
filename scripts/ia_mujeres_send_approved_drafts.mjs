@@ -82,22 +82,36 @@ async function getAccessToken(configDir) {
   return json.access_token;
 }
 
+function isRetryableGmailStatus(status) {
+  return [429, 500, 502, 503, 504].includes(status);
+}
+
 async function gmailApi(configDir, method, endpoint, body) {
   const token = await getAccessToken(configDir);
-  const response = await fetch(`https://gmail.googleapis.com/gmail/v1/users/me${endpoint}`, {
-    method,
-    headers: {
-      authorization: `Bearer ${token}`,
-      'content-type': 'application/json',
-    },
-    body: body === undefined ? undefined : JSON.stringify(body),
-  });
-  const text = await response.text();
-  const json = text ? JSON.parse(text) : {};
-  if (!response.ok) {
-    throw new Error(`Gmail API ${method} ${endpoint} failed: ${JSON.stringify(json).slice(0, 700)}`);
+  for (let attempt = 0; attempt < 4; attempt += 1) {
+    const response = await fetch(`https://gmail.googleapis.com/gmail/v1/users/me${endpoint}`, {
+      method,
+      headers: {
+        authorization: `Bearer ${token}`,
+        'content-type': 'application/json',
+      },
+      body: body === undefined ? undefined : JSON.stringify(body),
+    });
+    const text = await response.text();
+    const json = text ? JSON.parse(text) : {};
+    if (!response.ok && isRetryableGmailStatus(response.status) && attempt < 3) {
+      await new Promise((resolve) => setTimeout(resolve, 1500 * (attempt + 1)));
+      continue;
+    }
+    if (!response.ok) {
+      const error = new Error(`Gmail API ${method} ${endpoint} failed: ${JSON.stringify(json).slice(0, 700)}`);
+      error.status = response.status;
+      error.response = json;
+      throw error;
+    }
+    return json;
   }
-  return json;
+  throw new Error(`Gmail API ${method} ${endpoint} retry loop exhausted.`);
 }
 
 function requireAuth() {
@@ -123,6 +137,35 @@ function readDraftMap(outputDir, batchId) {
   return { draftMapPath, drafts };
 }
 
+function readEvents(outputDir) {
+  const eventsPath = path.join(outputDir, 'events.ndjson');
+  if (!fs.existsSync(eventsPath)) return [];
+  return fs.readFileSync(eventsPath, 'utf8')
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line, index) => {
+      try {
+        return JSON.parse(line);
+      } catch (error) {
+        throw new Error(`Invalid JSON in ${eventsPath}:${index + 1}: ${error.message}`);
+      }
+    });
+}
+
+function existingSentEventsByDraftId(outputDir, batchId) {
+  return new Map(
+    readEvents(outputDir)
+      .filter((event) =>
+        event.campaign_name === CAMPAIGN_NAME &&
+        event.event_type === 'email_sent' &&
+        event.metadata?.batch_id === batchId &&
+        event.draft_id
+      )
+      .map((event) => [event.draft_id, event]),
+  );
+}
+
 async function getDraft(draftId) {
   return gmailApi(GERENCIA_CONFIG_DIR, 'GET', `/drafts/${encodeURIComponent(draftId)}?format=metadata`);
 }
@@ -140,6 +183,7 @@ async function main() {
   fs.mkdirSync(args.outputDir, { recursive: true });
   const auth = requireAuth();
   const { draftMapPath, drafts } = readDraftMap(args.outputDir, args.batchId);
+  const existingSentEvents = existingSentEventsByDraftId(args.outputDir, args.batchId);
 
   const report = {
     generated_at: new Date().toISOString(),
@@ -157,6 +201,17 @@ async function main() {
   };
 
   for (const draft of drafts) {
+    const existingSent = existingSentEvents.get(draft.gmailDraftId);
+    if (existingSent) {
+      report.sent.push({
+        ...draft,
+        status: 'already_sent',
+        sentAt: existingSent.occurred_at,
+        gmailMessageId: existingSent.message_id,
+        gmailThreadId: existingSent.thread_id,
+      });
+      continue;
+    }
     await getDraft(draft.gmailDraftId);
     if (!args.apply) {
       report.sent.push({

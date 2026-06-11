@@ -1,0 +1,27 @@
+{
+  "batch_id": "2026-06-11T11-23-35-373Z",
+  "generated_at": "2026-06-11T11:23:35.484Z",
+  "payloads": [
+    {
+      "crm_deal_id": "f466c7f3-0685-474e-a483-376183b594ba",
+      "company_id": "ef4e8092-e0e8-438d-87d2-59473e97618c",
+      "person_id": "632f72e1-8192-4e89-a31e-fcb45455815b",
+      "recipient_email": "yessica.perez@santacruzdelapalma.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-09_email_01_v3",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_path": "shared/templates/ia-mujeres/assets/Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "derivation_included": false,
+      "html": "<p>Estimado/a Yessica Pérez López,</p>\n\n<p>Me llamo Romina Ojeda Brito. Durante los últimos años he liderado Reboot Academy, un proyecto que nació en Canarias con una idea muy concreta: ayudar a personas que necesitaban reiniciar su trayectoria profesional, muchas de ellas en situaciones de desempleo, vulnerabilidad o falta de acceso a oportunidades tecnológicas, a formarse en habilidades realmente demandadas por el mercado.</p>\n\n<p>Desde ahí hemos formado a más de 1.000 estudiantes, y esa experiencia nos llevó a impulsar el Instituto de Innovación Tecnológica y Educativa para el Desarrollo: una evolución natural para seguir conectando formación, tecnología, metodología e impacto real en el territorio.</p>\n\n<p>También presido Women In STEAM Empowerment Canarias, y desde esa responsabilidad veo con especial claridad la brecha que se está abriendo con la adopción de la Inteligencia Artificial.</p>\n\n<p>Le escribo porque creemos que esta conversación puede ser especialmente relevante para Ayuntamiento de Santa Cruz de La Palma. La IA puede convertirse en una nueva capa de exclusión laboral femenina o en una oportunidad para abrir acceso a empleo cualificado, autonomía económica y nuevas competencias profesionales para las mujeres de La Palma.</p>\n\n<p>Le adjunto un dosier breve sobre la línea de trabajo que estamos impulsando con organismos públicos de Canarias, con posibles líneas de colaboración. No lo planteamos como un programa cerrado, sino como punto de partida para una conversación: compartirles lo que estamos trabajando, escuchar mejor su contexto territorial, sus objetivos y prioridades, y valorar juntos si puede tener sentido una primera acción de divulgación gratuita en su territorio.</p>\n\n<p>A partir de ahí, si vemos encaje, podríamos explorar posteriormente un proyecto a medida con objetivos concretos y KPIs de impacto.</p>\n\n<p>¿Tendría sentido que nos sentáramos a hablarlo en una primera reunión? Podemos adaptarnos al formato que les resulte más cómodo: llamada, videollamada o encuentro presencial.</p>\n\n\n\n<p>Un saludo,</p>\n",
+      "text": "Estimado/a Yessica Pérez López,\n\nMe llamo Romina Ojeda Brito. Durante los últimos años he liderado Reboot Academy, un proyecto que nació en Canarias con una idea muy concreta: ayudar a personas que necesitaban reiniciar su trayectoria profesional, muchas de ellas en situaciones de desempleo, vulnerabilidad o falta de acceso a oportunidades tecnológicas, a formarse en habilidades realmente demandadas por el mercado.\n\nDesde ahí hemos formado a más de 1.000 estudiantes, y esa experiencia nos llevó a impulsar el Instituto de Innovación Tecnológica y Educativa para el Desarrollo: una evolución natural para seguir conectando formación, tecnología, metodología e impacto real en el territorio.\n\nTambién presido Women In STEAM Empowerment Canarias, y desde esa responsabilidad veo con especial claridad la brecha que se está abriendo con la adopción de la Inteligencia Artificial.\n\nLe escribo porque creemos que esta conversación puede ser especialmente relevante para Ayuntamiento de Santa Cruz de La Palma. La IA puede convertirse en una nueva capa de exclusión laboral femenina o en una oportunidad para abrir acceso a empleo cualificado, autonomía económica y nuevas competencias profesionales para las mujeres de La Palma.\n\nLe adjunto un dosier breve sobre la línea de trabajo que estamos impulsando con organismos públicos de Canarias, con posibles líneas de colaboración. No lo planteamos como un programa cerrado, sino como punto de partida para una conversación: compartirles lo que estamos trabajando, escuchar mejor su contexto territorial, sus objetivos y prioridades, y valorar juntos si puede tener sentido una primera acción de divulgación gratuita en su territorio.\n\nA partir de ahí, si vemos encaje, podríamos explorar posteriormente un proyecto a medida con objetivos concretos y KPIs de impacto.\n\n¿Tendría sentido que nos sentáramos a hablarlo en una primera reunión? Podemos adaptarnos al formato que les resulte más cómodo: llamada, videollamada o encuentro presencial.\n\nUn saludo,",
+      "safeguards": [
+        "payload_only",
+        "no_gmail_draft_created",
+        "no_email_sent"
+      ]
+    }
+  ]
+}

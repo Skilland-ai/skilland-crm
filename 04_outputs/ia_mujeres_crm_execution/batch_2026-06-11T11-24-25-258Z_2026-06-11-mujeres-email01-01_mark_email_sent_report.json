@@ -1,0 +1,197 @@
+{
+  "mode": "apply",
+  "batch_id": "2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01",
+  "updated": [
+    {
+      "crm_deal_id": "4e35bde0-2436-4f66-a697-3531084cf176",
+      "updateData": {
+        "gmailMessageId": "19eb6819b17cded6",
+        "gmailThreadId": "19eb68144b9ec3e2",
+        "iaMujeresFunnelStage": "EMAIL_1_SENT",
+        "outreachStatus": "sent_first_email",
+        "firstEmailSentAt": "2026-06-11T11:46:46.632Z",
+        "lastEmailSentAt": "2026-06-11T11:46:46.632Z",
+        "followUpDueAt": "2026-06-21T11:46:46.632Z",
+        "lastEmailEventAt": "2026-06-11T11:46:46.632Z",
+        "lastEmailEventType": "email_sent",
+        "activeBatchId": "2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01",
+        "lastEmailTemplate": "email_01",
+        "lastEmailSubject": "Una preocupación que quería compartir con usted"
+      },
+      "closedPreviousTasks": [
+        {
+          "id": "39de5cbd-8ad9-4206-8105-ba20b5b0e1c6",
+          "title": "[IA Mujeres] Revisar draft Email 1",
+          "previousStatus": "TODO",
+          "previousAssigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6",
+          "updateData": {
+            "status": "DONE"
+          }
+        }
+      ],
+      "note": {
+        "id": "0365c847-2836-474d-98bf-352c43a3ec5a",
+        "title": "[IA Mujeres] Email 1 enviado"
+      },
+      "task": {
+        "id": "79155607-ed88-4aeb-b6fb-193874abb0e7",
+        "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+        "dueAt": "2026-06-21T11:46:46.632Z",
+        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
+      }
+    },
+    {
+      "crm_deal_id": "4f11e95d-aacb-4741-a491-5162c88d032d",
+      "updateData": {
+        "gmailMessageId": "19eb681a2f421689",
+        "gmailThreadId": "19eb681503e90485",
+        "iaMujeresFunnelStage": "EMAIL_1_SENT",
+        "outreachStatus": "sent_first_email",
+        "firstEmailSentAt": "2026-06-11T11:46:48.436Z",
+        "lastEmailSentAt": "2026-06-11T11:46:48.436Z",
+        "followUpDueAt": "2026-06-21T11:46:48.436Z",
+        "lastEmailEventAt": "2026-06-11T11:46:48.436Z",
+        "lastEmailEventType": "email_sent",
+        "activeBatchId": "2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01",
+        "lastEmailTemplate": "email_01",
+        "lastEmailSubject": "Una preocupación que quería compartir con usted"
+      },
+      "closedPreviousTasks": [
+        {
+          "id": "b6174dc6-a4d6-4eec-bcc7-a379d4f9dc0b",
+          "title": "[IA Mujeres] Revisar draft Email 1",
+          "previousStatus": "TODO",
+          "previousAssigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6",
+          "updateData": {
+            "status": "DONE"
+          }
+        }
+      ],
+      "note": {
+        "id": "76a07c5d-786d-45a4-9d8b-cadd9d16ac7e",
+        "title": "[IA Mujeres] Email 1 enviado"
+      },
+      "task": {
+        "id": "cce22b6e-1dc9-472d-8d79-d0959c3f4a72",
+        "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+        "dueAt": "2026-06-21T11:46:48.436Z",
+        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
+      }
+    },
+    {
+      "crm_deal_id": "6145462a-d3e3-4d1b-99d3-5def9d2d0f7d",
+      "updateData": {
+        "gmailMessageId": "19eb681b37212821",
+        "gmailThreadId": "19eb6815b7554070",
+        "iaMujeresFunnelStage": "EMAIL_1_SENT",
+        "outreachStatus": "sent_first_email",
+        "firstEmailSentAt": "2026-06-11T11:46:52.477Z",
+        "lastEmailSentAt": "2026-06-11T11:46:52.477Z",
+        "followUpDueAt": "2026-06-21T11:46:52.477Z",
+        "lastEmailEventAt": "2026-06-11T11:46:52.477Z",
+        "lastEmailEventType": "email_sent",
+        "activeBatchId": "2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01",
+        "lastEmailTemplate": "email_01",
+        "lastEmailSubject": "Una preocupación que quería compartir con usted"
+      },
+      "closedPreviousTasks": [
+        {
+          "id": "02b13c7f-df81-4e9b-af1f-4040e095a3c2",
+          "title": "[IA Mujeres] Revisar draft Email 1",
+          "previousStatus": "TODO",
+          "previousAssigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6",
+          "updateData": {
+            "status": "DONE"
+          }
+        }
+      ],
+      "note": {
+        "id": "692b1468-95ea-415a-b97b-ebfa3fa5a8bd",
+        "title": "[IA Mujeres] Email 1 enviado"
+      },
+      "task": {
+        "id": "d58790b8-696b-4d1b-ae8d-573ef5e1789d",
+        "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+        "dueAt": "2026-06-21T11:46:52.477Z",
+        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
+      }
+    },
+    {
+      "crm_deal_id": "6cd8408e-910a-47c0-b783-fb7b0d215f04",
+      "updateData": {
+        "gmailMessageId": "19eb681bc819802f",
+        "gmailThreadId": "19eb68164555be1a",
+        "iaMujeresFunnelStage": "EMAIL_1_SENT",
+        "outreachStatus": "sent_first_email",
+        "firstEmailSentAt": "2026-06-11T11:46:54.939Z",
+        "lastEmailSentAt": "2026-06-11T11:46:54.939Z",
+        "followUpDueAt": "2026-06-21T11:46:54.939Z",
+        "lastEmailEventAt": "2026-06-11T11:46:54.939Z",
+        "lastEmailEventType": "email_sent",
+        "activeBatchId": "2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01",
+        "lastEmailTemplate": "email_01",
+        "lastEmailSubject": "Una preocupación que quería compartir con usted"
+      },
+      "closedPreviousTasks": [
+        {
+          "id": "da160f7c-c86b-4666-aad2-a1b55d08a7a2",
+          "title": "[IA Mujeres] Revisar draft Email 1",
+          "previousStatus": "TODO",
+          "previousAssigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6",
+          "updateData": {
+            "status": "DONE"
+          }
+        }
+      ],
+      "note": {
+        "id": "55e8ed97-acd6-48d6-bc9c-cf1ffa5c9781",
+        "title": "[IA Mujeres] Email 1 enviado"
+      },
+      "task": {
+        "id": "2d5eca55-5240-4e5b-a12c-b3eaf96bef84",
+        "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+        "dueAt": "2026-06-21T11:46:54.939Z",
+        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
+      }
+    },
+    {
+      "crm_deal_id": "893a7696-1f44-4643-98cc-b5934a0be71f",
+      "updateData": {
+        "gmailMessageId": "19eb681c94094ef6",
+        "gmailThreadId": "19eb6816e50f3f02",
+        "iaMujeresFunnelStage": "EMAIL_1_SENT",
+        "outreachStatus": "sent_first_email",
+        "firstEmailSentAt": "2026-06-11T11:46:58.263Z",
+        "lastEmailSentAt": "2026-06-11T11:46:58.263Z",
+        "followUpDueAt": "2026-06-21T11:46:58.263Z",
+        "lastEmailEventAt": "2026-06-11T11:46:58.263Z",
+        "lastEmailEventType": "email_sent",
+        "activeBatchId": "2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01",
+        "lastEmailTemplate": "email_01",
+        "lastEmailSubject": "Una preocupación que quería compartir con usted"
+      },
+      "closedPreviousTasks": [
+        {
+          "id": "044bc090-ec46-458b-ad2c-cc266405bee7",
+          "title": "[IA Mujeres] Revisar draft Email 1",
+          "previousStatus": "TODO",
+          "previousAssigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6",
+          "updateData": {
+            "status": "DONE"
+          }
+        }
+      ],
+      "note": {
+        "id": "a6c8b622-c967-4226-8f40-6e1237739a76",
+        "title": "[IA Mujeres] Email 1 enviado"
+      },
+      "task": {
+        "id": "bb66bc68-822a-452a-8f85-f4f244e0b122",
+        "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+        "dueAt": "2026-06-21T11:46:58.263Z",
+        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
+      }
+    }
+  ],
+  "planned": []
+}

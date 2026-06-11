@@ -17,12 +17,12 @@ const IA_STAGE = 'NOT_SENT';
 const OUTPUT_DIR = path.resolve('04_outputs/ia_mujeres_crm_execution');
 
 const DEFAULT_TEST_EMAIL = 'sales@reboot.academy';
-const SOURCE_TYPE = 'internal_email_01_v3_validation';
+const SOURCE_TYPE = 'internal_email_01_v4_1_validation';
 const SOURCE_FILE = 'scripts/ia_mujeres_email_01_v3_internal_test.mjs';
 
 let TEST_EMAIL = DEFAULT_TEST_EMAIL;
-let TEST_COMPANY_NAME = 'Reboot Academy/Canarias — Test IA Mujeres Email 1 v3';
-let TEST_OPPORTUNITY_NAME = 'Reboot Academy/Canarias — IA Mujeres 2026 — Test Email 1 v3';
+let TEST_COMPANY_NAME = 'Reboot Academy/Canarias — Test IA Mujeres Email 1 v4.1';
+let TEST_OPPORTUNITY_NAME = 'Reboot Academy/Canarias — IA Mujeres 2026 — Test Email 1 v4.1';
 let TEST_PERSON_FIRST_NAME = 'Equipo';
 let TEST_PERSON_LAST_NAME = 'Ventas Reboot';
 let TEST_JOB_TITLE = 'Equipo interno de ventas';
@@ -56,7 +56,7 @@ function parseArgs(argv) {
 }
 
 function printHelp() {
-  console.log(`IA Mujeres Email 1 v3 internal CRM test
+  console.log(`IA Mujeres Email 1 v4.1 internal CRM test
 
 Usage:
   node scripts/ia_mujeres_email_01_v3_internal_test.mjs
@@ -75,8 +75,8 @@ function configureRecipient(recipientEmail) {
     TEST_PERSON_FIRST_NAME = 'Equipo';
     TEST_PERSON_LAST_NAME = 'Ventas Reboot';
     TEST_JOB_TITLE = 'Equipo interno de ventas';
-    TEST_COMPANY_NAME = 'Reboot Academy/Canarias — Test IA Mujeres Email 1 v3';
-    TEST_OPPORTUNITY_NAME = 'Reboot Academy/Canarias — IA Mujeres 2026 — Test Email 1 v3';
+    TEST_COMPANY_NAME = 'Reboot Academy/Canarias — Test IA Mujeres Email 1 v4.1';
+    TEST_OPPORTUNITY_NAME = 'Reboot Academy/Canarias — IA Mujeres 2026 — Test Email 1 v4.1';
     return;
   }
 
@@ -84,8 +84,8 @@ function configureRecipient(recipientEmail) {
     TEST_PERSON_FIRST_NAME = 'Equipo';
     TEST_PERSON_LAST_NAME = 'Dirección Skilland';
     TEST_JOB_TITLE = 'Equipo interno de dirección';
-    TEST_COMPANY_NAME = 'Skilland Dirección — Test IA Mujeres Email 1 v3';
-    TEST_OPPORTUNITY_NAME = 'Skilland Dirección — IA Mujeres 2026 — Test Email 1 v3';
+    TEST_COMPANY_NAME = 'Skilland Dirección — Test IA Mujeres Email 1 v4.1';
+    TEST_OPPORTUNITY_NAME = 'Skilland Dirección — IA Mujeres 2026 — Test Email 1 v4.1';
     return;
   }
 
@@ -96,8 +96,8 @@ function configureRecipient(recipientEmail) {
   TEST_PERSON_FIRST_NAME = 'Equipo';
   TEST_PERSON_LAST_NAME = label;
   TEST_JOB_TITLE = `Equipo interno ${label}`;
-  TEST_COMPANY_NAME = `${label} — Test IA Mujeres Email 1 v3`;
-  TEST_OPPORTUNITY_NAME = `${label} — IA Mujeres 2026 — Test Email 1 v3`;
+  TEST_COMPANY_NAME = `${label} — Test IA Mujeres Email 1 v4.1`;
+  TEST_OPPORTUNITY_NAME = `${label} — IA Mujeres 2026 — Test Email 1 v4.1`;
 }
 
 function normalizeText(value) {
@@ -179,7 +179,7 @@ function companyData() {
     sourceType: SOURCE_TYPE,
     sourceFile: SOURCE_FILE,
     icpSegment: 'internal_test',
-    qualityFlags: 'internal_test;email_01_v3;dossier_blue_v2',
+    qualityFlags: 'internal_test;email_01_v4_1;dossier_blue_v2',
     highConfidence: true,
     genericEmail: false,
     needsManualReview: false,
@@ -216,7 +216,7 @@ function personData(companyId) {
     sourceType: SOURCE_TYPE,
     sourceFile: SOURCE_FILE,
     icpSegment: 'internal_test',
-    qualityFlags: 'internal_test;email_01_v3;dossier_blue_v2',
+    qualityFlags: 'internal_test;email_01_v4_1;dossier_blue_v2',
     highConfidence: true,
     genericEmail: false,
     needsManualReview: false,
@@ -265,7 +265,7 @@ function opportunityData({ companyId, personId, businessLineId, batchId }) {
     sourceType: SOURCE_TYPE,
     sourceFile: SOURCE_FILE,
     icpSegment: 'internal_test',
-    qualityFlags: 'internal_test;email_01_v3;dossier_blue_v2',
+    qualityFlags: 'internal_test;email_01_v4_1;dossier_blue_v2',
     highConfidence: true,
     genericEmail: false,
     needsManualReview: false,
@@ -368,13 +368,13 @@ async function upsertOpportunity(client, existing, ids, apply) {
 }
 
 async function createNote(client, { opportunityId, personId, companyId, batchId }, apply) {
-  const title = '[IA Mujeres] Experimento interno Email 1 v3';
+  const title = '[IA Mujeres] Experimento interno Email 1 v4.1';
   const markdown = [
-    'Experimento interno para validar Email 1 v3 antes de nuevas tandas reales.',
+    'Experimento interno para validar Email 1 v4.1 antes de nuevas tandas reales.',
     '',
     `- Destinatario: ${TEST_EMAIL}`,
     '- Template: email_01',
-    '- Version: 2026-06-09_email_01_v3',
+    '- Version: 2026-06-11_email_01_v4_1',
     '- Adjunto: Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf',
     `- Batch: ${batchId}`,
     '- Alcance: deal interno, no contacto externo.',
@@ -420,7 +420,7 @@ function buildPlan({ batchId, opportunity, company, person }) {
     island: 'Canarias',
     municipality: 'Canarias',
     icp_segment: 'internal_test',
-    quality_flags: 'internal_test;email_01_v3;dossier_blue_v2',
+    quality_flags: 'internal_test;email_01_v4_1;dossier_blue_v2',
     outreach_status: OUTREACH_STATUS,
     ia_mujeres_funnel_stage: IA_STAGE,
     high_confidence: true,
@@ -436,13 +436,13 @@ function buildPlan({ batchId, opportunity, company, person }) {
     schema_version: '1.0',
     batch_id: batchId,
     generated_at: new Date().toISOString(),
-    mode: 'internal-email-01-v3-test',
+    mode: 'internal-email-01-v4-1-test',
     campaign_name: CAMPAIGN_NAME,
     business_line: BUSINESS_LINE_NAME,
     limit: 1,
     safeguards: [
       `Internal recipient only: ${TEST_EMAIL}.`,
-      'Uses normal Email 1 v3 payload generation and Gmail draft creation path.',
+      'Uses normal Email 1 v4.1 payload generation and Gmail draft creation path.',
       'No external public-sector contact is touched by this batch.',
       'Send requires the dedicated approved-draft sender confirmation.',
     ],
@@ -459,7 +459,7 @@ function buildPlan({ batchId, opportunity, company, person }) {
 }
 
 function renderReview(plan, report) {
-  return `# IA Mujeres Email 1 v3 Internal Test
+  return `# IA Mujeres Email 1 v4.1 Internal Test
 
 Batch ID: \`${plan.batch_id}\`
 
@@ -486,7 +486,7 @@ function writeOutputs(outputDir, plan, report) {
   fs.mkdirSync(outputDir, { recursive: true });
   const jsonPath = path.join(outputDir, `batch_${plan.batch_id}_plan.json`);
   const reviewPath = path.join(outputDir, `batch_${plan.batch_id}_review.md`);
-  const reportPath = path.join(outputDir, `2026-06-09_email_01_v3_internal_test_report.json`);
+  const reportPath = path.join(outputDir, `2026-06-11_email_01_v4_1_internal_test_report.json`);
   fs.writeFileSync(jsonPath, JSON.stringify(plan, null, 2));
   fs.writeFileSync(reviewPath, renderReview(plan, report));
   fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
@@ -497,7 +497,7 @@ async function main() {
   const args = parseArgs(process.argv.slice(2));
   configureRecipient(args.recipientEmail);
   const client = new TwentyClient(readTwentyCredentials());
-  const batchId = args.batchId ?? `${new Date().toISOString().replace(/[:.]/g, '-')}_email01v3-internal`;
+  const batchId = args.batchId ?? `${new Date().toISOString().replace(/[:.]/g, '-')}_email01v4-1-internal`;
   const workspace = await fetchWorkspaceData(client);
 
   const businessLine = workspace.businessLines.find((item) => item.name === BUSINESS_LINE_NAME);

@@ -8,7 +8,7 @@ import path from 'node:path';
 const DATE = '2026-06-08';
 const CAMPAIGN_NAME = 'IA Mujeres 2026';
 const BUSINESS_LINE = 'SkilLand IA Mujeres';
-const TEMPLATE_NAME = 'email_01_v3';
+const TEMPLATE_NAME = 'email_01_v4_1';
 const SEQUENCE_STEP = 1;
 const SENDER_DISPLAY_NAME = 'Romina Ojeda Brito';
 const SENDER_EMAIL = 'gerencia@skilland.ai';
@@ -253,8 +253,7 @@ function renderTemplate(replacements) {
 
 function buildBodies(signatureHtml) {
   const templateHtml = renderTemplate({
-    nombre: 'equipo de ventas',
-    entidad: 'Reboot Academy/Canarias',
+    saludo_nombre: 'Estimado equipo',
     territorio: 'Canarias',
     derivacion_si_corresponde: '',
   });
@@ -377,8 +376,8 @@ function verifyMessageShape(message, attachmentFilename, bodyHtml) {
     noForbiddenBodyUrls: FORBIDDEN_BODY_URLS.every((url) => !bodyHtml.includes(url)),
     forbiddenBodyUrls: FORBIDDEN_BODY_URLS.filter((url) => bodyHtml.includes(url)),
     unresolvedPlaceholders: [...new Set(bodyHtml.match(/{{[^}]+}}/g) ?? [])],
-    htmlHasV3Copy: bodyHtml.includes('Le adjunto un dosier breve') &&
-      bodyHtml.includes('primera acción de divulgación gratuita'),
+    htmlHasExpectedCopy: bodyHtml.includes('Le adjunto un dosier breve') &&
+      bodyHtml.includes('primera acción gratuita de divulgación'),
     attachmentPresent: filenames.includes(attachmentFilename),
     expectedAttachmentNameMatches: attachmentFilename === EXPECTED_ATTACHMENT_NAME,
     signatureMechanism: 'gmail_sendAs_signature_injected_by_runner',
@@ -618,12 +617,12 @@ async function main() {
   const rendered = buildMime({ attachmentPath: args.attachment, attachmentName: args.attachmentName, signatureHtml });
   const previews = writePreviewFiles(args.outputDir, rendered);
   report.preview = previews;
-  report.validations.email_01_v3 = {
+  report.validations.email_01_v4_1 = {
     no_forbidden_body_urls: FORBIDDEN_BODY_URLS.every((url) => !rendered.bodyHtml.includes(url)),
     forbidden_body_urls: FORBIDDEN_BODY_URLS.filter((url) => rendered.bodyHtml.includes(url)),
     unresolved_placeholders: [...new Set(rendered.bodyHtml.match(/{{[^}]+}}/g) ?? [])],
-    has_v3_copy: rendered.bodyHtml.includes('Le adjunto un dosier breve') &&
-      rendered.bodyHtml.includes('primera acción de divulgación gratuita'),
+    has_expected_copy: rendered.bodyHtml.includes('Le adjunto un dosier breve') &&
+      rendered.bodyHtml.includes('primera acción gratuita de divulgación'),
   };
 
   const raw = base64Url(rendered.mime);

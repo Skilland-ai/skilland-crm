@@ -1,0 +1,70 @@
+{
+  "generated_at": "2026-06-11T11:47:08.301Z",
+  "action": "launch-approved-batch",
+  "mode": "apply",
+  "batch_id": "2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01",
+  "safeguards": [
+    "Harness delegates to specialized runners; it does not bypass their confirmations.",
+    "Batch size remains capped at 5 by underlying runners.",
+    "CRM mutations require --apply.",
+    "External draft creation and sending require explicit confirmation flags."
+  ],
+  "steps": [
+    {
+      "command": "node scripts/ia_mujeres_create_external_drafts.mjs --batch-id=2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01 --output-dir=/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution --apply --confirm-create-external-drafts",
+      "status": "ok",
+      "json": {
+        "status": "ok",
+        "mode": "apply",
+        "batch_id": "2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01",
+        "drafts": 5,
+        "reportPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/batch_2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01_external_drafts_report.json",
+        "draftMapPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/batch_2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01_draft_map.json"
+      }
+    },
+    {
+      "command": "node scripts/ia_mujeres_batch_runner.mjs --mode=mark-draft-created --output-dir=/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution --batch-id=2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01 --draft-map=/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/batch_2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01_draft_map.json --apply",
+      "status": "ok",
+      "json": {
+        "status": "ok",
+        "reportPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/batch_2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01_mark_draft_created_report.json",
+        "changed": 5,
+        "planned": 0
+      }
+    },
+    {
+      "command": "node scripts/ia_mujeres_send_approved_drafts.mjs --batch-id=2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01 --output-dir=/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution --apply --confirm-send-approved-drafts",
+      "status": "ok",
+      "json": {
+        "status": "ok",
+        "mode": "apply",
+        "batch_id": "2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01",
+        "drafts": 5,
+        "reportPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/batch_2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01_send_report.json",
+        "sentMapPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/batch_2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01_sent_map.json"
+      }
+    },
+    {
+      "command": "node scripts/ia_mujeres_batch_runner.mjs --mode=mark-email-sent --output-dir=/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution --batch-id=2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01 --sent-map=/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/batch_2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01_sent_map.json --apply",
+      "status": "ok",
+      "json": {
+        "status": "ok",
+        "reportPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/batch_2026-06-11T11-24-25-258Z_2026-06-11-mujeres-email01-01_mark_email_sent_report.json",
+        "changed": 5,
+        "planned": 0
+      }
+    },
+    {
+      "command": "node scripts/ia_mujeres_batch_runner.mjs --mode=reconcile-tasks --output-dir=/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution --apply",
+      "status": "ok",
+      "json": {
+        "status": "ok",
+        "reportPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/2026-06-08_task_reconciliation_apply_report.json",
+        "inspected": 98,
+        "changed": 0,
+        "planned": 0
+      }
+    }
+  ],
+  "derived": {}
+}

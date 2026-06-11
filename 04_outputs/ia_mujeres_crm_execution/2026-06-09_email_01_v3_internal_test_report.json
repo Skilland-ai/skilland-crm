@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-06-09T15:19:26.851Z",
+  "generated_at": "2026-06-11T12:11:19.309Z",
   "mode": "apply",
-  "batch_id": "2026-06-09T15-19-25-330Z_email01v3-internal",
+  "batch_id": "2026-06-11T12-11-17-363Z_email01v3-internal",
   "company": {
-    "action": "created",
-    "id": "de479d87-fbbc-463e-9203-798811bb60b8",
-    "name": "Skilland Dirección — Test IA Mujeres Email 1 v3"
+    "action": "updated_existing",
+    "id": "f6738b85-7741-4935-8294-e8ba4ccd1249",
+    "name": "Reboot Academy/Canarias — Test IA Mujeres Email 1 v3"
   },
   "person": {
-    "action": "created",
-    "id": "ca2424e2-972a-4377-968d-5929da52a5ed",
-    "name": "Equipo Dirección Skilland"
+    "action": "updated_existing",
+    "id": "96cece3c-3ad2-4031-ae3a-e6be38ec4e6a",
+    "name": "Equipo Ventas Reboot"
   },
   "opportunity": {
-    "action": "created",
-    "id": "f077b9be-556c-41e7-abcf-36ffe91b170f",
-    "name": "Skilland Dirección — IA Mujeres 2026 — Test Email 1 v3"
+    "action": "updated_existing",
+    "id": "a1765c77-6576-4690-86d7-4ad3badb833c",
+    "name": "Reboot Academy/Canarias — IA Mujeres 2026 — Test Email 1 v3"
   },
   "note": {
     "action": "created",
-    "id": "ec3adf1d-4148-45dc-b051-7a77a73717b7",
+    "id": "453fbb10-1326-421b-bd63-4ea7004fa420",
     "title": "[IA Mujeres] Experimento interno Email 1 v3"
   }
 }
