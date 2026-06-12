@@ -1,14 +1,14 @@
 # Reboot Orientation CRM Import
 
 - Mode: dry_run
-- Generated at: 2026-06-09T10:39:47.766Z
+- Generated at: 2026-06-12T07:23:03.189Z
 - Business Line: Skilland School
 - Campaign: Reboot Intro Qualification Funnel
 - Owner: Raúl Artiles (raul@reboot.academy)
 - Stage: IN_MEETINGS
 - Source leads: 4
-- Excluded leads: 1
-- Imported leads: 3
+- Excluded leads: 0
+- Imported leads: 4
 
 ## Results
 
@@ -38,4 +38,13 @@
 - Person: updated_existing (9ab03316-b9eb-4945-8564-b8c3625073ab)
 - Opportunity: updated_existing (fb407ea2-77d5-48c3-b972-2c439e054612)
 - Opportunity name: Matteo Neri Neri - Reboot Orientation Funnel
+
+### Michel Nory García
+
+- Email: michelnory_noestoyaqui@hotmail.com
+- Amount: 500 EUR
+- Task date: 2026-06-12
+- Person: created
+- Opportunity: created
+- Opportunity name: Michel Nory García - Reboot Orientation Funnel
 

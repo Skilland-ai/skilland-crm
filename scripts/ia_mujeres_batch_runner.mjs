@@ -18,63 +18,9 @@ const RAUL_ARTILES_WORKSPACE_MEMBER_ID = '323c2357-853d-45bc-ad7d-1703de9deef6';
 const RAUL_ARTILES_EMAIL = 'raul@reboot.academy';
 const TASK_REVIEW_DRAFT_EMAIL_1 = '[IA Mujeres] Revisar draft Email 1';
 const TASK_REVIEW_FOLLOW_UP_1 = '[IA Mujeres] Revisar respuesta / preparar Follow-up 1';
-const EMAIL_01_VERSION = '2026-06-11_email_01_v4_1';
+const EMAIL_01_VERSION = '2026-06-12_email_01_v4_2';
 const EMAIL_01_DERIVATION_HTML =
   '<p>Si cree que esta conversación corresponde a otra persona del equipo, le agradecería mucho que pudiera reenviárselo o indicarme con quién hablar.</p>';
-const FEMALE_FIRST_NAMES = new Set([
-  'adela',
-  'agueda',
-  'ana',
-  'andrea',
-  'angela',
-  'ariadna',
-  'beatriz',
-  'belen',
-  'candelaria',
-  'carmen',
-  'cathaysa',
-  'cristina',
-  'daina',
-  'elena',
-  'elisabet',
-  'elsa',
-  'esther',
-  'eugenia',
-  'fatima',
-  'gloria',
-  'inmaculada',
-  'irene',
-  'isabel',
-  'josefa',
-  'laura',
-  'maria',
-  'mercedes',
-  'montserrat',
-  'natalia',
-  'patricia',
-  'purificacion',
-  'raquel',
-  'rosa',
-  'sara',
-  'teresa',
-  'yessica',
-]);
-const MALE_FIRST_NAMES = new Set([
-  'adrian',
-  'alejandro',
-  'antonio',
-  'carlos',
-  'efrain',
-  'francisco',
-  'jose',
-  'juan',
-  'marcial',
-  'miguel',
-  'oliver',
-  'pedro',
-  'raul',
-  'ricardo',
-]);
 const FIRST_NAME_DISPLAY_BY_NORMALIZED_NAME = new Map([
   ['adrian', 'Adrián'],
   ['agueda', 'Águeda'],
@@ -376,16 +322,14 @@ function firstGivenName(personName) {
   return String(personName ?? '').trim().split(/\s+/).filter(Boolean)[0] ?? '';
 }
 
-function inferGreeting(personName) {
+function renderGreeting(personName) {
   const firstName = firstGivenName(personName);
   const normalizedFirstName = normalizeSpanishValue(firstName);
 
-  if (!firstName || normalizedFirstName === 'unknown') return 'Estimado equipo';
+  if (!firstName || normalizedFirstName === 'unknown') return 'Buenos días';
   const displayFirstName = FIRST_NAME_DISPLAY_BY_NORMALIZED_NAME.get(normalizedFirstName) ?? displaySpanishValue(firstName);
-  if (FEMALE_FIRST_NAMES.has(normalizedFirstName)) return `Estimada ${displayFirstName}`;
-  if (MALE_FIRST_NAMES.has(normalizedFirstName)) return `Estimado ${displayFirstName}`;
 
-  return `Estimado ${displayFirstName}`;
+  return `Hola ${displayFirstName}`;
 }
 
 function naturalTerritory(candidate) {
@@ -404,13 +348,13 @@ function renderEmail01(candidate) {
   const missingFields = missingEmail01Fields(candidate);
   if (missingFields.length > 0) {
     throw new Error(
-      `Cannot render Email 1 v4.1 for ${candidate.crm_deal_id}: missing ${missingFields.join(', ')}`,
+      `Cannot render Email 1 v4.2 for ${candidate.crm_deal_id}: missing ${missingFields.join(', ')}`,
     );
   }
 
   let html = fs.readFileSync(EMAIL_01_TEMPLATE, 'utf8');
   const replacements = {
-    saludo_nombre: inferGreeting(candidate.person_name),
+    saludo_nombre: renderGreeting(candidate.person_name),
     territorio: naturalTerritory(candidate),
     derivacion_si_corresponde: shouldIncludeDerivation(candidate) ? EMAIL_01_DERIVATION_HTML : '',
   };
@@ -424,7 +368,7 @@ function renderEmail01(candidate) {
   const unresolved = html.match(/{{[^}]+}}/g) ?? [];
   if (unresolved.length > 0) {
     throw new Error(
-      `Cannot render Email 1 v4.1 for ${candidate.crm_deal_id}: unresolved placeholders ${[...new Set(unresolved)].join(', ')}`,
+      `Cannot render Email 1 v4.2 for ${candidate.crm_deal_id}: unresolved placeholders ${[...new Set(unresolved)].join(', ')}`,
     );
   }
   return {
@@ -1366,7 +1310,7 @@ ${rows.length ? rows.join('\n') : '| - | - | - | - | - | - | - |'}
 
 ## Validación pendiente
 
-- Revisar Email 1 v4.1, saludo, territorio y derivación si aplica.
+- Revisar Email 1 v4.2, saludo neutro, territorio y derivación si aplica.
 - Confirmar adjunto v2 y firma explícita en cuerpo.
 - Confirmar autorización humana.
 - Crear drafts externos solo con modo dedicado y flags de confirmación.
@@ -1408,7 +1352,7 @@ async function modeMarkDraftCreated(client, args) {
     }, args.apply);
     const task = await createTask(client, {
       title: `[IA Mujeres] Revisar draft Email 1`,
-      markdown: `Revisar cuerpo Email 1 v4.1, saludo, territorio, derivación si aplica, firma explícita en cuerpo y adjunto v2 antes de autorizar envío.\n\nBatch: ${args.batchId}`,
+      markdown: `Revisar cuerpo Email 1 v4.2, saludo neutro, territorio, derivación si aplica, firma explícita en cuerpo y adjunto v2 antes de autorizar envío.\n\nBatch: ${args.batchId}`,
       opportunityId: entry.crm_deal_id,
       personId: entry.person_id,
       companyId: entry.company_id,

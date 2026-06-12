@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-06-12T07:01:05.880Z",
+  "mode": "dry-run",
+  "gmail_profile": "gerencia@skilland.ai",
+  "query": "newer_than:14d (from:mailer-daemon OR from:postmaster OR from:\"Mail Delivery Subsystem\" OR subject:Undeliverable OR subject:\"Delivery Status Notification\" OR subject:\"Mail delivery failed\")",
+  "sent_events_seen": 58,
+  "gmail_bounce_candidates_seen": 3,
+  "new_bounces_detected": 1,
+  "detected": [
+    {
+      "schema_version": "1.0",
+      "campaign_name": "IA Mujeres 2026",
+      "business_line": "SkilLand IA Mujeres",
+      "event_type": "bounce_detected",
+      "event_id": "ecb5e31e-5260-4ace-b05d-41cdd3cde642",
+      "occurred_at": "2026-06-12T06:56:06.000Z",
+      "sender_email": "gerencia@skilland.ai",
+      "recipient_email": "registro@aytoagulo.com",
+      "subject": "Delivery Status Notification (Failure)",
+      "crm_deal_id": "1f5d917b-fd84-4094-89b8-c51d765b9d8e",
+      "crm_person_id": "623720ec-6b90-4bf0-acf3-6624d208ec33",
+      "crm_company_id": "101a6710-74ac-4015-8bde-28a0b381bde7",
+      "message_id": "19eba9dd5cd654f3",
+      "thread_id": "19eba9721bb4428a",
+      "metadata": {
+        "batch_id": "2026-06-12T06-19-39-574Z_ayuntamientos-email01-v4-1-2026-06-12-02",
+        "source": "gmail_dsn_scan",
+        "dsn_from": "Mail Delivery Subsystem <mailer-daemon@googlemail.com>",
+        "original_message_id": "19eba977483e10a6",
+        "bounce_status": "5.4.1",
+        "bounce_reason": "recipient_address_rejected",
+        "diagnostic": "Recipient address rejected"
+      }
+    }
+  ]
+}

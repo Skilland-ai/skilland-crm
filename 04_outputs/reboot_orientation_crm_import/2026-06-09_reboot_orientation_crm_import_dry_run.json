@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-09T10:39:47.766Z",
+  "generatedAt": "2026-06-12T07:23:03.189Z",
   "mode": "dry_run",
   "sourceLeadCount": 4,
-  "excludedLeadCount": 1,
-  "importedLeadCount": 3,
+  "excludedLeadCount": 0,
+  "importedLeadCount": 4,
   "businessLine": {
     "id": "39333da4-6562-4600-9055-2a3d5360aed4",
     "name": "Skilland School"
@@ -98,6 +98,33 @@
         "reused": true,
         "title": "Sesion 1:1 Orientacion y prospeccion",
         "dueAt": "2026-06-15T08:00:00.000Z"
+      }
+    },
+    {
+      "lead": {
+        "name": "Michel Nory García",
+        "email": "michelnory_noestoyaqui@hotmail.com",
+        "supabaseId": "dbe56818-a3a1-4ca9-b860-b85b5dc02cb1"
+      },
+      "amount": 500,
+      "dueDate": "2026-06-12",
+      "person": {
+        "action": "created",
+        "id": null
+      },
+      "opportunity": {
+        "action": "created",
+        "id": null,
+        "name": "Michel Nory García - Reboot Orientation Funnel"
+      },
+      "note": {
+        "planned": true,
+        "title": "Lead Supabase - Michel Nory García"
+      },
+      "task": {
+        "planned": true,
+        "title": "Sesion 1:1 Orientacion y prospeccion",
+        "dueAt": "2026-06-12T08:00:00.000Z"
       }
     }
   ]

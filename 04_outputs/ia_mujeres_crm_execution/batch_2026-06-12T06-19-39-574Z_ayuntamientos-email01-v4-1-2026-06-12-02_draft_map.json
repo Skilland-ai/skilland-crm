@@ -1,0 +1,81 @@
+{
+  "batch_id": "2026-06-12T06-19-39-574Z_ayuntamientos-email01-v4-1-2026-06-12-02",
+  "created_at": "2026-06-12T06:48:45.201Z",
+  "drafts": [
+    {
+      "crm_deal_id": "1f5d917b-fd84-4094-89b8-c51d765b9d8e",
+      "company_id": "101a6710-74ac-4015-8bde-28a0b381bde7",
+      "person_id": "623720ec-6b90-4bf0-acf3-6624d208ec33",
+      "recipient_email": "registro@aytoagulo.com",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-11_email_01_v4_1",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailDraftId": "r-3194712115147626215",
+      "gmailMessageId": "19eba9721bb4428a",
+      "gmailThreadId": "19eba9721bb4428a"
+    },
+    {
+      "crm_deal_id": "2358d9c6-10eb-4945-a845-bf0d79818707",
+      "company_id": "1132b3c3-be16-414b-979c-e0bb9c0067c7",
+      "person_id": "6f148e2a-c219-4dcc-a32b-7c7bfed117a7",
+      "recipient_email": "serviciossociales@valsequillogc.net",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-11_email_01_v4_1",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailDraftId": "r7678541335589921122",
+      "gmailMessageId": "19eba972b1b95a2e",
+      "gmailThreadId": "19eba972b1b95a2e"
+    },
+    {
+      "crm_deal_id": "240b113d-529c-47af-b385-dbae9c6194e9",
+      "company_id": "a205197c-2cd6-4d4d-b4cb-b0407a87137f",
+      "person_id": "d3a03da9-9219-4f58-911d-2c790f893051",
+      "recipient_email": "serviciossociales@sanandresysauces.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-11_email_01_v4_1",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailDraftId": "r-8665938131831791166",
+      "gmailMessageId": "19eba973530c047b",
+      "gmailThreadId": "19eba973530c047b"
+    },
+    {
+      "crm_deal_id": "33bb9a4e-9784-401f-a85c-7caf29be477c",
+      "company_id": "926bbb26-ea83-4f1b-a4cf-1b40082f30fc",
+      "person_id": "0cff732d-8303-4b24-b5e9-9d6706e3e1a0",
+      "recipient_email": "serviciossociales@elpaso.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-11_email_01_v4_1",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailDraftId": "r8789353584461204622",
+      "gmailMessageId": "19eba9741ad137a6",
+      "gmailThreadId": "19eba9741ad137a6"
+    },
+    {
+      "crm_deal_id": "3c94a4ce-042c-401b-b292-c49a220c20c5",
+      "company_id": "03a24adf-bf34-41e9-a5c0-71c2c56f5f3a",
+      "person_id": "6fafc8a5-a8c0-4181-8ac9-5b991c97baf6",
+      "recipient_email": "serviciossociales.fasnia@gmail.com",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-11_email_01_v4_1",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailDraftId": "r-6944484581207073537",
+      "gmailMessageId": "19eba974b335e64f",
+      "gmailThreadId": "19eba974b335e64f"
+    }
+  ]
+}

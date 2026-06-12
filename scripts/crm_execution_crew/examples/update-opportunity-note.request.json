@@ -1,0 +1,33 @@
+{
+  "requester": "women_funnel_batch_crew",
+  "mode": "dry_run",
+  "intent": "Update one opportunity and attach an audit note",
+  "scope": {
+    "businessLine": "SkilLand IA Mujeres"
+  },
+  "constraints": {
+    "maxRecords": 10,
+    "requireHumanConfirmation": true,
+    "allowCreate": true,
+    "allowUpdate": true,
+    "allowDelete": false,
+    "allowMetadataChanges": false
+  },
+  "operations": [
+    {
+      "type": "update_opportunity",
+      "lookup": {
+        "opportunityId": "00000000-0000-0000-0000-000000000000"
+      },
+      "data": {
+        "iaMujeresFunnelStage": "BATCH_READY",
+        "lastEmailSentAt": "2026-06-11T09:00:00.000Z"
+      },
+      "note": {
+        "title": "Women funnel batch update",
+        "markdown": "Incluida en hornada de envio IA Mujeres 2026-06-11."
+      }
+    }
+  ]
+}
+

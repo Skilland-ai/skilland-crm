@@ -1,0 +1,293 @@
+{
+  "requester": "crm_transcript_review",
+  "mode": "dry_run",
+  "intent": "Crear en CRM las oportunidades revisadas de IA Mujeres desde la reunion con Fran Galante y adjuntar notas/tareas operativas",
+  "scope": {
+    "businessLine": "SkilLand IA Mujeres",
+    "campaignName": "IA Mujeres 2026",
+    "source": "Fathom recap 2026-06-09"
+  },
+  "constraints": {
+    "maxRecords": 50,
+    "requireHumanConfirmation": true,
+    "allowCreate": true,
+    "allowUpdate": false,
+    "allowDelete": false,
+    "allowMetadataChanges": false
+  },
+  "operations": [
+    {
+      "type": "create_opportunity",
+      "lookup": {
+        "companyId": "a9bb5cde-7915-4c35-9c32-76409d4766a4"
+      },
+      "data": {
+        "name": "IA Mujeres - subvenciones IRPF colectivos vulnerables",
+        "stage": "POSSIBLE_OPPORTUNITY",
+        "businessLineName": "SkilLand IA Mujeres",
+        "campaignName": "IA Mujeres 2026",
+        "iaMujeresFunnelStage": "MEETING_PROPOSED",
+        "outreachStatus": "meeting_proposed",
+        "sourceType": "fathom_meeting_recap",
+        "sourceFile": "Fathom recap 2026-06-09 - Fran Galante",
+        "organizationType": "gobierno_autonomico",
+        "departmentArea": "Bienestar Social / subvenciones IRPF",
+        "icpSegment": "subvenciones_irpf_colectivos_vulnerables",
+        "qualityFlags": "warm_intro;fran_galante;requires_association_partner",
+        "needsManualReview": true,
+        "highConfidence": true,
+        "duplicatePossible": false,
+        "company": {
+          "connect": {
+            "where": {
+              "id": "a9bb5cde-7915-4c35-9c32-76409d4766a4"
+            }
+          }
+        }
+      },
+      "note": {
+        "title": "[IA Mujeres] Origen - reunion Fran Galante",
+        "markdown": "Entidad: Gobierno de Canarias. Correccion revisada: no es SIC4Change. Via de financiacion por subvenciones IRPF para colectivos vulnerables, estimada en 60.000-90.000 EUR por proyecto. Nota operativa: Fran debe explorar con que asociaciones podemos presentarnos para que ellas soliciten la subvencion."
+      },
+      "task": {
+        "title": "[IA Mujeres] Fran - explorar asociaciones candidatas para subvencion IRPF",
+        "markdown": "Explorar asociaciones que atiendan colectivos vulnerables y puedan presentar la subvencion IRPF del Gobierno de Canarias. Fuente: Fathom recap 2026-06-09, revisado por direccion."
+      }
+    },
+    {
+      "type": "create_opportunity",
+      "lookup": {
+        "companyId": "21a87fdc-ebf9-4eaf-bb54-5e2059bf2c84",
+        "personId": "f0985d49-1822-4345-9fbc-3515913be1a5"
+      },
+      "data": {
+        "name": "IA Mujeres - SIC4Change",
+        "stage": "POSSIBLE_OPPORTUNITY",
+        "businessLineName": "SkilLand IA Mujeres",
+        "campaignName": "IA Mujeres 2026",
+        "iaMujeresFunnelStage": "MEETING_PROPOSED",
+        "outreachStatus": "meeting_proposed",
+        "sourceType": "fathom_meeting_recap",
+        "sourceFile": "Fathom recap 2026-06-09 - Fran Galante",
+        "organizationType": "asociacion_partner",
+        "departmentArea": "Colectivos vulnerables / colaboracion",
+        "icpSegment": "partner_subvenciones_o_directo",
+        "qualityFlags": "warm_intro;romina_contact;fran_galante",
+        "needsManualReview": true,
+        "highConfidence": true,
+        "duplicatePossible": false,
+        "company": {
+          "connect": {
+            "where": {
+              "id": "21a87fdc-ebf9-4eaf-bb54-5e2059bf2c84"
+            }
+          }
+        },
+        "pointOfContact": {
+          "connect": {
+            "where": {
+              "id": "f0985d49-1822-4345-9fbc-3515913be1a5"
+            }
+          }
+        }
+      },
+      "note": {
+        "title": "[IA Mujeres] Origen - reunion Fran Galante",
+        "markdown": "Deal especifico SIC4Change / Science for Change. Puede ir por subvenciones o sin subvenciones. Correccion revisada: es una oportunidad propia, separada de la via IRPF Gobierno de Canarias. Contacto a traves de Romina."
+      },
+      "task": {
+        "title": "[IA Mujeres] Romina - contactar SIC4Change",
+        "markdown": "Contactar SIC4Change / Science for Change a traves de Romina y explorar colaboracion IA Mujeres, con o sin subvencion."
+      }
+    },
+    {
+      "type": "create_opportunity",
+      "lookup": {
+        "companyId": "23b33e31-d3ad-4d32-b6ec-b65b408386ff"
+      },
+      "data": {
+        "name": "IA Mujeres - contrato directo Telde",
+        "stage": "POSSIBLE_OPPORTUNITY",
+        "businessLineName": "SkilLand IA Mujeres",
+        "campaignName": "IA Mujeres 2026",
+        "iaMujeresFunnelStage": "MEETING_PROPOSED",
+        "outreachStatus": "meeting_proposed",
+        "sourceType": "fathom_meeting_recap",
+        "sourceFile": "Fathom recap 2026-06-09 - Fran Galante",
+        "organizationType": "ayuntamiento",
+        "departmentArea": "Contratos directos / igualdad",
+        "icpSegment": "contrato_menor_directo",
+        "qualityFlags": "warm_intro;monica_munoz;fran_galante",
+        "needsManualReview": true,
+        "highConfidence": true,
+        "duplicatePossible": false,
+        "company": {
+          "connect": {
+            "where": {
+              "id": "23b33e31-d3ad-4d32-b6ec-b65b408386ff"
+            }
+          }
+        }
+      },
+      "note": {
+        "title": "[IA Mujeres] Origen - reunion Fran Galante",
+        "markdown": "Oportunidad de contrato directo en Telde ligada a la introduccion de Monica Munoz. Nota revisada: Fran ve bien esta via y debe impulsarse como oportunidad separada."
+      },
+      "task": {
+        "title": "[IA Mujeres] Fran - contactar Monica Munoz por Telde",
+        "markdown": "Contactar a Monica Munoz para proponer estrategia conjunta y explorar contrato directo IA Mujeres con Ayuntamiento de Telde."
+      }
+    },
+    {
+      "type": "create_opportunity",
+      "lookup": {
+        "companyId": "fdbc3a18-8305-4c7d-8b51-13e965077f14"
+      },
+      "data": {
+        "name": "IA Mujeres - Rosa Davila",
+        "stage": "POSSIBLE_OPPORTUNITY",
+        "businessLineName": "SkilLand IA Mujeres",
+        "campaignName": "IA Mujeres 2026",
+        "iaMujeresFunnelStage": "MEETING_PROPOSED",
+        "outreachStatus": "meeting_proposed",
+        "sourceType": "fathom_meeting_recap",
+        "sourceFile": "Fathom recap 2026-06-09 - Fran Galante",
+        "organizationType": "cabildo",
+        "departmentArea": "Introduccion estrategica",
+        "icpSegment": "warm_intro_administracion_publica",
+        "qualityFlags": "warm_intro;rosa_davila;fran_galante",
+        "needsManualReview": true,
+        "highConfidence": true,
+        "duplicatePossible": false,
+        "company": {
+          "connect": {
+            "where": {
+              "id": "fdbc3a18-8305-4c7d-8b51-13e965077f14"
+            }
+          }
+        }
+      },
+      "note": {
+        "title": "[IA Mujeres] Origen - reunion Fran Galante",
+        "markdown": "Rosa Davila aparece como contacto de Fran para abrir oportunidad y orientar venta publica de IA Mujeres. Revisado: mantener esta oportunidad."
+      },
+      "task": {
+        "title": "[IA Mujeres] Fran - contactar Rosa Davila",
+        "markdown": "Contactar a Rosa Davila y coordinar posible reunion o introduccion con Romina para IA Mujeres."
+      }
+    },
+    {
+      "type": "create_opportunity",
+      "lookup": {},
+      "data": {
+        "name": "IA Mujeres - Elena Mañez",
+        "stage": "POSSIBLE_OPPORTUNITY",
+        "businessLineName": "SkilLand IA Mujeres",
+        "campaignName": "IA Mujeres 2026",
+        "iaMujeresFunnelStage": "MEETING_PROPOSED",
+        "outreachStatus": "meeting_proposed",
+        "sourceType": "fathom_meeting_recap",
+        "sourceFile": "Fathom recap 2026-06-09 - Fran Galante",
+        "organizationType": "contacto_estrategico",
+        "departmentArea": "Estrategia administracion publica",
+        "icpSegment": "warm_intro_administracion_publica",
+        "qualityFlags": "warm_intro;elena_manez;romina",
+        "needsManualReview": true,
+        "highConfidence": true,
+        "duplicatePossible": false
+      },
+      "note": {
+        "title": "[IA Mujeres] Origen - reunion Fran Galante",
+        "markdown": "Elena Mañez aporta orientacion estrategica sobre venta a administracion publica. Revisado: mantener esta oportunidad."
+      },
+      "task": {
+        "title": "[IA Mujeres] Romina - contactar Elena Mañez",
+        "markdown": "Contactar a Elena Mañez para solicitar reunion estrategica sobre como navegar ventas de IA Mujeres a administracion publica."
+      }
+    },
+    {
+      "type": "create_opportunity",
+      "lookup": {
+        "companyId": "0d39186a-62be-45a4-83b7-5fe7ea520ca4"
+      },
+      "data": {
+        "name": "IA Mujeres - ULL - Monica Dios",
+        "stage": "POSSIBLE_OPPORTUNITY",
+        "businessLineName": "SkilLand IA Mujeres",
+        "campaignName": "IA Mujeres 2026",
+        "iaMujeresFunnelStage": "MEETING_PROPOSED",
+        "outreachStatus": "meeting_proposed",
+        "sourceType": "fathom_meeting_recap",
+        "sourceFile": "Fathom recap 2026-06-09 - Fran Galante",
+        "organizationType": "universidad",
+        "departmentArea": "Laboratorio de Innovacion Social",
+        "icpSegment": "piloto_universidad",
+        "qualityFlags": "warm_intro;ull;fran_galante",
+        "needsManualReview": true,
+        "highConfidence": true,
+        "duplicatePossible": false,
+        "company": {
+          "connect": {
+            "where": {
+              "id": "0d39186a-62be-45a4-83b7-5fe7ea520ca4"
+            }
+          }
+        }
+      },
+      "note": {
+        "title": "[IA Mujeres] Origen - reunion Fran Galante",
+        "markdown": "Monica Dios (ULL), responsable del Laboratorio de Innovacion Social, posible socia para un piloto IA Mujeres. Revisado: mantener separado del deal de Julio Brito."
+      },
+      "task": {
+        "title": "[IA Mujeres] Fran - contactar Monica Dios ULL",
+        "markdown": "Contactar a Monica Dios para explorar proyecto piloto con el Laboratorio de Innovacion Social de la ULL."
+      }
+    },
+    {
+      "type": "create_opportunity",
+      "lookup": {
+        "companyId": "0d39186a-62be-45a4-83b7-5fe7ea520ca4",
+        "personId": "e13596c6-8485-47ed-9f29-92846b6824b9"
+      },
+      "data": {
+        "name": "IA Mujeres - ULL - Julio Brito",
+        "stage": "POSSIBLE_OPPORTUNITY",
+        "businessLineName": "SkilLand IA Mujeres",
+        "campaignName": "IA Mujeres 2026",
+        "iaMujeresFunnelStage": "MEETING_PROPOSED",
+        "outreachStatus": "meeting_proposed",
+        "sourceType": "fathom_meeting_recap",
+        "sourceFile": "Fathom recap 2026-06-09 - Fran Galante",
+        "organizationType": "universidad",
+        "departmentArea": "Direccion / gerencia ULL",
+        "icpSegment": "piloto_universidad",
+        "qualityFlags": "warm_intro;ull;romina;pending_microcredential_project",
+        "needsManualReview": true,
+        "highConfidence": true,
+        "duplicatePossible": false,
+        "company": {
+          "connect": {
+            "where": {
+              "id": "0d39186a-62be-45a4-83b7-5fe7ea520ca4"
+            }
+          }
+        },
+        "pointOfContact": {
+          "connect": {
+            "where": {
+              "id": "e13596c6-8485-47ed-9f29-92846b6824b9"
+            }
+          }
+        }
+      },
+      "note": {
+        "title": "[IA Mujeres] Origen - reunion Fran Galante",
+        "markdown": "Julio Brito (ULL), gerente general y superior de Monica Dios. Revisado: mantener separado del deal de Monica Dios. Romina presentara el proyecto IA Mujeres despues de resolver el proyecto pendiente de microcredencial con la ULL."
+      },
+      "task": {
+        "title": "[IA Mujeres] Romina - hablar con Julio Brito ULL",
+        "markdown": "Hablar con Julio Brito sobre IA Mujeres despues de encarrilar o resolver el proyecto pendiente de microcredencial ULL."
+      }
+    }
+  ]
+}

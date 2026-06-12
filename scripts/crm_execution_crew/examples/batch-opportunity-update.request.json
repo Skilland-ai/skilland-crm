@@ -1,0 +1,45 @@
+{
+  "requester": "women_funnel_batch_crew",
+  "mode": "dry_run",
+  "intent": "Mark selected opportunities as ready for batch send and create audit notes",
+  "scope": {
+    "businessLine": "SkilLand IA Mujeres",
+    "batchId": "2026-06-11-demo"
+  },
+  "constraints": {
+    "maxRecords": 200,
+    "requireHumanConfirmation": true,
+    "allowCreate": true,
+    "allowUpdate": true,
+    "allowDelete": false,
+    "allowMetadataChanges": false
+  },
+  "operations": [
+    {
+      "type": "update_opportunity",
+      "lookup": {
+        "personEmail": "persona@example.com",
+        "companyDomain": "example.com"
+      },
+      "data": {
+        "iaMujeresFunnelStage": "BATCH_READY",
+        "lastEmailSentAt": "2026-06-11T09:00:00.000Z"
+      },
+      "note": {
+        "title": "Women funnel batch update",
+        "markdown": "Incluida en hornada de envio IA Mujeres 2026-06-11."
+      }
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "personEmail": "otra.persona@example.com",
+        "companyDomain": "example.org"
+      },
+      "title": "Revisar respuesta IA Mujeres",
+      "markdown": "Tarea creada por CRM Execution Crew para seguimiento de tanda.",
+      "dueAt": "2026-06-12T09:00:00.000Z"
+    }
+  ]
+}
+

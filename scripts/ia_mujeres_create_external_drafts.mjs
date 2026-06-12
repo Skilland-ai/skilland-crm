@@ -269,12 +269,15 @@ function email01TemplateValidation(payload, rendered) {
   const forbiddenBodyUrls = FORBIDDEN_BODY_URLS.filter((url) =>
     payload.html.includes(url),
   );
+  const genderedGreetingMatches = rendered.bodyHtml.match(/<p>\s*Estimad[oa]\b[^<]*<\/p>/gi) ?? [];
   const derivationTextPresent = rendered.bodyHtml.includes(
     'Si cree que esta conversación corresponde a otra persona del equipo',
   );
 
   return {
     templateVersion: payload.template_version ?? null,
+    noGenderedGreeting: genderedGreetingMatches.length === 0,
+    genderedGreetingMatches: [...new Set(genderedGreetingMatches)],
     noForbiddenBodyUrls: forbiddenBodyUrls.length === 0,
     forbiddenBodyUrls,
     unresolvedPlaceholders: [...new Set(unresolvedPlaceholders)],
@@ -289,6 +292,7 @@ function email01TemplateValidation(payload, rendered) {
 
 function assertEmail01TemplateValidation(payload, validation) {
   const failures = [];
+  if (!validation.noGenderedGreeting) failures.push('gendered_greeting');
   if (!validation.noForbiddenBodyUrls) failures.push('forbidden_body_urls');
   if (validation.unresolvedPlaceholders.length > 0) failures.push('unresolved_placeholders');
   if (!validation.derivationMatchesPayload) failures.push('derivation_mismatch');
@@ -350,7 +354,7 @@ async function main() {
       'Does not send emails.',
       'Max 5 payloads.',
       'Requires --confirm-create-external-drafts with --apply.',
-      'Requires Email 1 v4.1 body copy and dossier attachment.',
+      'Requires Email 1 v4.2 body copy, neutral greeting, and dossier attachment.',
     ],
     drafts: [],
   };

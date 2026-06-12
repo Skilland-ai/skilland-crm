@@ -22,6 +22,7 @@ const SOURCE_TYPE = 'supabase_orientation_funnel';
 const SOURCE_FILE = 'Reboot-Intro-Cualification-Funnel/orientation_leads';
 
 const TASK_DATES_BY_EMAIL = new Map([
+  ['michelnory_noestoyaqui@hotmail.com', '2026-06-12'],
   ['nerimatte85@gmail.com', '2026-06-15'],
   ['seergiohr98@gmail.com', '2026-06-09'],
   ['netnck@gmail.com', '2026-06-12'],

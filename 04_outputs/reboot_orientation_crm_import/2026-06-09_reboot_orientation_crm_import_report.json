@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-09T08:13:18.007Z",
+  "generatedAt": "2026-06-12T07:23:16.798Z",
   "mode": "apply",
   "sourceLeadCount": 4,
-  "excludedLeadCount": 1,
-  "importedLeadCount": 3,
+  "excludedLeadCount": 0,
+  "importedLeadCount": 4,
   "businessLine": {
     "id": "39333da4-6562-4600-9055-2a3d5360aed4",
     "name": "Skilland School"
@@ -55,20 +55,20 @@
       "amount": 750,
       "dueDate": "2026-06-09",
       "person": {
-        "action": "created",
+        "action": "updated_existing",
         "id": "6cfd9264-4b7a-4f3a-8e7d-d6e623838c4a"
       },
       "opportunity": {
-        "action": "created",
+        "action": "updated_existing",
         "id": "c377222f-3116-4ff6-a775-6fb169247513",
         "name": "Sergio Hernández Ramírez - Reboot Orientation Funnel"
       },
       "note": {
-        "id": "83dafd04-da14-4989-905d-69503181cfd5",
+        "reused": true,
         "title": "Lead Supabase - Sergio Hernández Ramírez"
       },
       "task": {
-        "id": "72957eae-5c49-484a-b47c-de2df50b2152",
+        "reused": true,
         "title": "Sesion 1:1 Orientacion y prospeccion",
         "dueAt": "2026-06-09T08:00:00.000Z"
       }
@@ -82,22 +82,49 @@
       "amount": 3000,
       "dueDate": "2026-06-15",
       "person": {
-        "action": "created",
+        "action": "updated_existing",
         "id": "9ab03316-b9eb-4945-8564-b8c3625073ab"
       },
       "opportunity": {
-        "action": "created",
+        "action": "updated_existing",
         "id": "fb407ea2-77d5-48c3-b972-2c439e054612",
         "name": "Matteo Neri Neri - Reboot Orientation Funnel"
       },
       "note": {
-        "id": "d01c8c55-87ac-4ac4-ad09-2231e155d35b",
+        "reused": true,
         "title": "Lead Supabase - Matteo Neri Neri"
       },
       "task": {
-        "id": "0f7dfb9d-0ab0-458f-8426-2bf3b83ec078",
+        "reused": true,
         "title": "Sesion 1:1 Orientacion y prospeccion",
         "dueAt": "2026-06-15T08:00:00.000Z"
+      }
+    },
+    {
+      "lead": {
+        "name": "Michel Nory García",
+        "email": "michelnory_noestoyaqui@hotmail.com",
+        "supabaseId": "dbe56818-a3a1-4ca9-b860-b85b5dc02cb1"
+      },
+      "amount": 500,
+      "dueDate": "2026-06-12",
+      "person": {
+        "action": "created",
+        "id": "ab6aad07-9531-485e-b8ea-2aa2863072e5"
+      },
+      "opportunity": {
+        "action": "created",
+        "id": "bedc9db1-fb8d-4513-871d-6b3600f9bbf7",
+        "name": "Michel Nory García - Reboot Orientation Funnel"
+      },
+      "note": {
+        "id": "20491878-7530-46a0-b97f-842c693e57e7",
+        "title": "Lead Supabase - Michel Nory García"
+      },
+      "task": {
+        "id": "9abe7273-cf4e-43bf-bf58-6d5000a64290",
+        "title": "Sesion 1:1 Orientacion y prospeccion",
+        "dueAt": "2026-06-12T08:00:00.000Z"
       }
     }
   ]
