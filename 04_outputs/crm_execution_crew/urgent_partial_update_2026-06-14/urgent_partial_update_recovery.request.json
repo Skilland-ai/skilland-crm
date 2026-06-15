@@ -1,0 +1,116 @@
+{
+  "requester": "crm_urgent_partial_update_2026_06_14_recovery",
+  "mode": "dry_run",
+  "intent": "Recuperar solo operaciones fallidas por rate limit del apply parcial 2026-06-14; no duplicar operaciones aplicadas.",
+  "scope": {
+    "sourceApplyLog": "04_outputs/crm_execution_crew/urgent_partial_update_2026-06-14/session_2026-06-14T19-55-38-393Z.json",
+    "excluded": [
+      "SkilLand IA Mujeres",
+      "IA Mujeres funnel dedicado"
+    ]
+  },
+  "constraints": {
+    "maxRecords": 50,
+    "requireHumanConfirmation": true,
+    "allowCreate": true,
+    "allowUpdate": true,
+    "allowDelete": false,
+    "allowMetadataChanges": false
+  },
+  "operations": [
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "cbae8c00-1c19-49e0-9792-bbd2be0431b3"
+      },
+      "title": "Matriculación, bienvenida y acceso al campus — Bootcamp Paula",
+      "markdown": "Gestionar matriculación, bienvenida y acceso al campus para Bootcamp Paula.",
+      "dueAt": "2026-06-18T07:00:00.000Z"
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "cbae8c00-1c19-49e0-9792-bbd2be0431b3"
+      },
+      "title": "Emitir/gestionar primera factura — Bootcamp Paula",
+      "markdown": "Emitir o gestionar primera factura de Bootcamp Paula.",
+      "dueAt": "2026-06-18T07:00:00.000Z"
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "3d266d7e-f636-4c2b-bdd6-a17b4b35cbee"
+      },
+      "title": "Estado operativo — Eros Calixto Full Stack Bootcamp",
+      "markdown": "Mantener en ejecución.\n\n- El sistema actual no soporta recurrencia de tareas desde CRM Execution Crew.\n- Se crea la primera tutoría del viernes 19/06/2026 a las 13:00 Europe/Madrid.\n- Queda además follow-up de cobro/facturación pendiente."
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "3d266d7e-f636-4c2b-bdd6-a17b4b35cbee"
+      },
+      "title": "Tutoría recurrente viernes 13:00 — Eros Calixto (primera sesión)",
+      "markdown": "Primera tarea de tutoría semanal. Recurrencia no soportada por el sistema; crear siguientes manualmente si procede.",
+      "dueAt": "2026-06-19T11:00:00.000Z"
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "3d266d7e-f636-4c2b-bdd6-a17b4b35cbee"
+      },
+      "title": "Follow-up cobro / facturación pendiente Eros",
+      "markdown": "Revisar y hacer seguimiento de cobro/facturación pendiente de Eros.",
+      "dueAt": "2026-06-19T07:00:00.000Z"
+    },
+    {
+      "type": "close_task",
+      "lookup": {
+        "taskId": "202f0f4c-27b1-4afd-a775-0f1959b81074"
+      }
+    },
+    {
+      "type": "update_opportunity",
+      "lookup": {
+        "opportunityId": "f1afda1d-6f85-4386-ba0b-9e65a01019ea"
+      },
+      "data": {
+        "stage": "CLOSED"
+      }
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "f1afda1d-6f85-4386-ba0b-9e65a01019ea"
+      },
+      "title": "Cierre comercial — Proexca IA para Directivos",
+      "markdown": "Deal cobrado, ejecutado y cerrado.\n\n- Se cierra/limpia la tarea activa periódica de dinamización.\n- Se mueve a Cerrado porque existe stage CLOSED en metadata."
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "4ad0088d-f55d-43a8-bdd2-9182a0ee4b92"
+      },
+      "title": "Hablar con Romi — alinear estrategia FGULL microcredenciales",
+      "markdown": "Alinear con Romi estrategia FGULL: dinamización, demanda, adopción y caso de éxito comercializable.",
+      "dueAt": "2026-06-15T07:00:00.000Z"
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "4ad0088d-f55d-43a8-bdd2-9182a0ee4b92"
+      },
+      "title": "Reunión de Ricardo y enfoque de coordinación de la ejecución del proyecto",
+      "markdown": "Revisar coordinación de ejecución del proyecto. Contexto de calendario/correo parcialmente verificado por invitación de coordinación el 18/06; Ricardo pendiente de verificación específica.",
+      "dueAt": "2026-06-18T07:00:00.000Z"
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "94c09679-41ba-4608-b5cd-12fe55884216"
+      },
+      "title": "Buscar tres proveedores/presupuestos adicionales para contratación Casa África",
+      "markdown": "Preparar tres referencias/proveedores/presupuestos adicionales si hacen falta para contratación Casa África.",
+      "dueAt": "2026-06-16T07:00:00.000Z"
+    }
+  ]
+}

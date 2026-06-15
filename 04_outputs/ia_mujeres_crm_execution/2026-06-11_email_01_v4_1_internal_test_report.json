@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-06-15T07:05:25.319Z",
+  "mode": "apply",
+  "batch_id": "2026-06-15T07-05-23-077Z_email01v4-1-internal",
+  "company": {
+    "action": "created",
+    "id": "d71fd471-1692-4c63-84c3-6794c62f89ea",
+    "name": "Reboot Academy/Canarias — Test IA Mujeres Email 1 v4.1"
+  },
+  "person": {
+    "action": "updated_existing",
+    "id": "96cece3c-3ad2-4031-ae3a-e6be38ec4e6a",
+    "name": "Equipo Ventas Reboot"
+  },
+  "opportunity": {
+    "action": "created",
+    "id": "20277b67-d6e4-436b-934f-8572d1cbd764",
+    "name": "Reboot Academy/Canarias — IA Mujeres 2026 — Test Email 1 v4.1"
+  },
+  "note": {
+    "action": "created",
+    "id": "92ee672f-d353-4576-a15d-f6b3f989a956",
+    "title": "[IA Mujeres] Experimento interno Email 1 v4.1"
+  }
+}

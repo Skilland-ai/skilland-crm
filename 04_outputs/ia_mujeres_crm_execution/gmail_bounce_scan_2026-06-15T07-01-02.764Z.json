@@ -1,0 +1,10 @@
+{
+  "generated_at": "2026-06-15T07:01:02.764Z",
+  "mode": "apply",
+  "gmail_profile": "gerencia@skilland.ai",
+  "query": "newer_than:7d (from:mailer-daemon OR from:postmaster OR from:\"Mail Delivery Subsystem\" OR subject:Undeliverable OR subject:\"Delivery Status Notification\" OR subject:\"Mail delivery failed\")",
+  "sent_events_seen": 58,
+  "gmail_bounce_candidates_seen": 3,
+  "new_bounces_detected": 0,
+  "detected": []
+}

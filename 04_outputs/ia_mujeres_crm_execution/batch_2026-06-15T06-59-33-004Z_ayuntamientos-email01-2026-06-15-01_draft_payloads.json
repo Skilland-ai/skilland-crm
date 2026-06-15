@@ -1,0 +1,111 @@
+{
+  "batch_id": "2026-06-15T06-59-33-004Z_ayuntamientos-email01-2026-06-15-01",
+  "generated_at": "2026-06-15T07:08:54.627Z",
+  "payloads": [
+    {
+      "crm_deal_id": "3f058b12-df22-474a-b3e9-208d55b256c0",
+      "company_id": "bc8c009e-c4a3-4e60-84ff-87a071be6189",
+      "person_id": "067573c6-597c-41cf-b351-208364b34af9",
+      "recipient_email": "ayuntamiento@sansebastiangomera.org",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-15_email_01_v4_5",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_path": "shared/templates/ia-mujeres/assets/Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "derivation_included": true,
+      "html": "<p>Buenos días Ana,</p>\n\n<p>Soy Romina Ojeda Brito. Le escribo porque estamos abriendo conversaciones con instituciones canarias sobre un reto muy concreto: que la IA no amplíe aún más la brecha laboral y de oportunidades de muchas mujeres.</p>\n\n<p>Fundé Reboot Academy en 2019 para traer a Canarias el modelo bootcamp tecnológico, con el que hemos ayudado a más de 1.000 personas a reorientar su carrera hacia perfiles digitales. Además, presido WISE Canarias, Women in STEAM Empowerment Canarias, la primera Asociación de Mujeres en el sector Tecnológico de la historia de Canarias, desde donde trabajamos para acercar ciencia, tecnología e innovación a más mujeres.</p>\n\n<p>Creemos que la IA puede ser una oportunidad histórica, pero solo si se acerca de forma útil y comprensible a quienes hoy están más lejos de ella: mujeres en búsqueda de empleo, emprendedoras, profesionales de sectores tradicionales o personas que necesitan actualizarse.</p>\n\n<p>Le adjunto un dosier breve del proyecto que estamos impulsando con organismos públicos de Canarias. Nos gustaría valorar si tendría sentido para mujeres de San Sebastian de La Gomera y, si encaja, proponer una primera acción gratuita de divulgación.</p>\n\n<p>¿Le encajaría una llamada breve o agendar una reunión en la fecha que nos cuadre?</p>\n\n<p>Si cree que esta conversación corresponde a otra persona del equipo, le agradecería mucho que pudiera reenviárselo o indicarme con quién hablar.</p>\n\n<p>Un saludo,</p>\n\n<p>Romina Ojeda Brito</p>\n",
+      "text": "Buenos días Ana,\n\nSoy Romina Ojeda Brito. Le escribo porque estamos abriendo conversaciones con instituciones canarias sobre un reto muy concreto: que la IA no amplíe aún más la brecha laboral y de oportunidades de muchas mujeres.\n\nFundé Reboot Academy en 2019 para traer a Canarias el modelo bootcamp tecnológico, con el que hemos ayudado a más de 1.000 personas a reorientar su carrera hacia perfiles digitales. Además, presido WISE Canarias, Women in STEAM Empowerment Canarias, la primera Asociación de Mujeres en el sector Tecnológico de la historia de Canarias, desde donde trabajamos para acercar ciencia, tecnología e innovación a más mujeres.\n\nCreemos que la IA puede ser una oportunidad histórica, pero solo si se acerca de forma útil y comprensible a quienes hoy están más lejos de ella: mujeres en búsqueda de empleo, emprendedoras, profesionales de sectores tradicionales o personas que necesitan actualizarse.\n\nLe adjunto un dosier breve del proyecto que estamos impulsando con organismos públicos de Canarias. Nos gustaría valorar si tendría sentido para mujeres de San Sebastian de La Gomera y, si encaja, proponer una primera acción gratuita de divulgación.\n\n¿Le encajaría una llamada breve o agendar una reunión en la fecha que nos cuadre?\n\nSi cree que esta conversación corresponde a otra persona del equipo, le agradecería mucho que pudiera reenviárselo o indicarme con quién hablar.\n\nUn saludo,\n\nRomina Ojeda Brito",
+      "safeguards": [
+        "payload_only",
+        "no_gmail_draft_created",
+        "no_email_sent"
+      ]
+    },
+    {
+      "crm_deal_id": "49cbfc3d-e94f-425c-9b7d-c492724fa622",
+      "company_id": "8b13d5a3-f333-4c4d-9ba6-cc192153c4fd",
+      "person_id": "23c31ee2-547b-4ac1-9af5-c532c81c6f60",
+      "recipient_email": "portalweb@arona.org",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-15_email_01_v4_5",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_path": "shared/templates/ia-mujeres/assets/Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "derivation_included": true,
+      "html": "<p>Buenos días Ruth,</p>\n\n<p>Soy Romina Ojeda Brito. Le escribo porque estamos abriendo conversaciones con instituciones canarias sobre un reto muy concreto: que la IA no amplíe aún más la brecha laboral y de oportunidades de muchas mujeres.</p>\n\n<p>Fundé Reboot Academy en 2019 para traer a Canarias el modelo bootcamp tecnológico, con el que hemos ayudado a más de 1.000 personas a reorientar su carrera hacia perfiles digitales. Además, presido WISE Canarias, Women in STEAM Empowerment Canarias, la primera Asociación de Mujeres en el sector Tecnológico de la historia de Canarias, desde donde trabajamos para acercar ciencia, tecnología e innovación a más mujeres.</p>\n\n<p>Creemos que la IA puede ser una oportunidad histórica, pero solo si se acerca de forma útil y comprensible a quienes hoy están más lejos de ella: mujeres en búsqueda de empleo, emprendedoras, profesionales de sectores tradicionales o personas que necesitan actualizarse.</p>\n\n<p>Le adjunto un dosier breve del proyecto que estamos impulsando con organismos públicos de Canarias. Nos gustaría valorar si tendría sentido para mujeres de Arona y, si encaja, proponer una primera acción gratuita de divulgación.</p>\n\n<p>¿Le encajaría una llamada breve o agendar una reunión en la fecha que nos cuadre?</p>\n\n<p>Si cree que esta conversación corresponde a otra persona del equipo, le agradecería mucho que pudiera reenviárselo o indicarme con quién hablar.</p>\n\n<p>Un saludo,</p>\n\n<p>Romina Ojeda Brito</p>\n",
+      "text": "Buenos días Ruth,\n\nSoy Romina Ojeda Brito. Le escribo porque estamos abriendo conversaciones con instituciones canarias sobre un reto muy concreto: que la IA no amplíe aún más la brecha laboral y de oportunidades de muchas mujeres.\n\nFundé Reboot Academy en 2019 para traer a Canarias el modelo bootcamp tecnológico, con el que hemos ayudado a más de 1.000 personas a reorientar su carrera hacia perfiles digitales. Además, presido WISE Canarias, Women in STEAM Empowerment Canarias, la primera Asociación de Mujeres en el sector Tecnológico de la historia de Canarias, desde donde trabajamos para acercar ciencia, tecnología e innovación a más mujeres.\n\nCreemos que la IA puede ser una oportunidad histórica, pero solo si se acerca de forma útil y comprensible a quienes hoy están más lejos de ella: mujeres en búsqueda de empleo, emprendedoras, profesionales de sectores tradicionales o personas que necesitan actualizarse.\n\nLe adjunto un dosier breve del proyecto que estamos impulsando con organismos públicos de Canarias. Nos gustaría valorar si tendría sentido para mujeres de Arona y, si encaja, proponer una primera acción gratuita de divulgación.\n\n¿Le encajaría una llamada breve o agendar una reunión en la fecha que nos cuadre?\n\nSi cree que esta conversación corresponde a otra persona del equipo, le agradecería mucho que pudiera reenviárselo o indicarme con quién hablar.\n\nUn saludo,\n\nRomina Ojeda Brito",
+      "safeguards": [
+        "payload_only",
+        "no_gmail_draft_created",
+        "no_email_sent"
+      ]
+    },
+    {
+      "crm_deal_id": "59332304-d74e-4582-931c-cdf418d39ad6",
+      "company_id": "a393c3d0-9de2-4932-a509-589338387016",
+      "person_id": "a56cd85d-1f7e-4cd0-8139-e34ba162ea20",
+      "recipient_email": "serviciossociales@ayuntamientotuineje.com",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-15_email_01_v4_5",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_path": "shared/templates/ia-mujeres/assets/Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "derivation_included": true,
+      "html": "<p>Buenos días Lucia,</p>\n\n<p>Soy Romina Ojeda Brito. Le escribo porque estamos abriendo conversaciones con instituciones canarias sobre un reto muy concreto: que la IA no amplíe aún más la brecha laboral y de oportunidades de muchas mujeres.</p>\n\n<p>Fundé Reboot Academy en 2019 para traer a Canarias el modelo bootcamp tecnológico, con el que hemos ayudado a más de 1.000 personas a reorientar su carrera hacia perfiles digitales. Además, presido WISE Canarias, Women in STEAM Empowerment Canarias, la primera Asociación de Mujeres en el sector Tecnológico de la historia de Canarias, desde donde trabajamos para acercar ciencia, tecnología e innovación a más mujeres.</p>\n\n<p>Creemos que la IA puede ser una oportunidad histórica, pero solo si se acerca de forma útil y comprensible a quienes hoy están más lejos de ella: mujeres en búsqueda de empleo, emprendedoras, profesionales de sectores tradicionales o personas que necesitan actualizarse.</p>\n\n<p>Le adjunto un dosier breve del proyecto que estamos impulsando con organismos públicos de Canarias. Nos gustaría valorar si tendría sentido para mujeres de Tuineje y, si encaja, proponer una primera acción gratuita de divulgación.</p>\n\n<p>¿Le encajaría una llamada breve o agendar una reunión en la fecha que nos cuadre?</p>\n\n<p>Si cree que esta conversación corresponde a otra persona del equipo, le agradecería mucho que pudiera reenviárselo o indicarme con quién hablar.</p>\n\n<p>Un saludo,</p>\n\n<p>Romina Ojeda Brito</p>\n",
+      "text": "Buenos días Lucia,\n\nSoy Romina Ojeda Brito. Le escribo porque estamos abriendo conversaciones con instituciones canarias sobre un reto muy concreto: que la IA no amplíe aún más la brecha laboral y de oportunidades de muchas mujeres.\n\nFundé Reboot Academy en 2019 para traer a Canarias el modelo bootcamp tecnológico, con el que hemos ayudado a más de 1.000 personas a reorientar su carrera hacia perfiles digitales. Además, presido WISE Canarias, Women in STEAM Empowerment Canarias, la primera Asociación de Mujeres en el sector Tecnológico de la historia de Canarias, desde donde trabajamos para acercar ciencia, tecnología e innovación a más mujeres.\n\nCreemos que la IA puede ser una oportunidad histórica, pero solo si se acerca de forma útil y comprensible a quienes hoy están más lejos de ella: mujeres en búsqueda de empleo, emprendedoras, profesionales de sectores tradicionales o personas que necesitan actualizarse.\n\nLe adjunto un dosier breve del proyecto que estamos impulsando con organismos públicos de Canarias. Nos gustaría valorar si tendría sentido para mujeres de Tuineje y, si encaja, proponer una primera acción gratuita de divulgación.\n\n¿Le encajaría una llamada breve o agendar una reunión en la fecha que nos cuadre?\n\nSi cree que esta conversación corresponde a otra persona del equipo, le agradecería mucho que pudiera reenviárselo o indicarme con quién hablar.\n\nUn saludo,\n\nRomina Ojeda Brito",
+      "safeguards": [
+        "payload_only",
+        "no_gmail_draft_created",
+        "no_email_sent"
+      ]
+    },
+    {
+      "crm_deal_id": "5afdfbd0-4b0c-4ec6-bbb6-b192eb5f68c8",
+      "company_id": "17829498-b29e-43e1-89ed-8e48f5e72c3e",
+      "person_id": "b4c049d1-a601-4305-932a-8863b8193d0e",
+      "recipient_email": "igualdad@santamariadeguia.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-15_email_01_v4_5",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_path": "shared/templates/ia-mujeres/assets/Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "derivation_included": true,
+      "html": "<p>Buenos días,</p>\n\n<p>Soy Romina Ojeda Brito. Le escribo porque estamos abriendo conversaciones con instituciones canarias sobre un reto muy concreto: que la IA no amplíe aún más la brecha laboral y de oportunidades de muchas mujeres.</p>\n\n<p>Fundé Reboot Academy en 2019 para traer a Canarias el modelo bootcamp tecnológico, con el que hemos ayudado a más de 1.000 personas a reorientar su carrera hacia perfiles digitales. Además, presido WISE Canarias, Women in STEAM Empowerment Canarias, la primera Asociación de Mujeres en el sector Tecnológico de la historia de Canarias, desde donde trabajamos para acercar ciencia, tecnología e innovación a más mujeres.</p>\n\n<p>Creemos que la IA puede ser una oportunidad histórica, pero solo si se acerca de forma útil y comprensible a quienes hoy están más lejos de ella: mujeres en búsqueda de empleo, emprendedoras, profesionales de sectores tradicionales o personas que necesitan actualizarse.</p>\n\n<p>Le adjunto un dosier breve del proyecto que estamos impulsando con organismos públicos de Canarias. Nos gustaría valorar si tendría sentido para mujeres de Santa Maria de Guia y, si encaja, proponer una primera acción gratuita de divulgación.</p>\n\n<p>¿Le encajaría una llamada breve o agendar una reunión en la fecha que nos cuadre?</p>\n\n<p>Si cree que esta conversación corresponde a otra persona del equipo, le agradecería mucho que pudiera reenviárselo o indicarme con quién hablar.</p>\n\n<p>Un saludo,</p>\n\n<p>Romina Ojeda Brito</p>\n",
+      "text": "Buenos días,\n\nSoy Romina Ojeda Brito. Le escribo porque estamos abriendo conversaciones con instituciones canarias sobre un reto muy concreto: que la IA no amplíe aún más la brecha laboral y de oportunidades de muchas mujeres.\n\nFundé Reboot Academy en 2019 para traer a Canarias el modelo bootcamp tecnológico, con el que hemos ayudado a más de 1.000 personas a reorientar su carrera hacia perfiles digitales. Además, presido WISE Canarias, Women in STEAM Empowerment Canarias, la primera Asociación de Mujeres en el sector Tecnológico de la historia de Canarias, desde donde trabajamos para acercar ciencia, tecnología e innovación a más mujeres.\n\nCreemos que la IA puede ser una oportunidad histórica, pero solo si se acerca de forma útil y comprensible a quienes hoy están más lejos de ella: mujeres en búsqueda de empleo, emprendedoras, profesionales de sectores tradicionales o personas que necesitan actualizarse.\n\nLe adjunto un dosier breve del proyecto que estamos impulsando con organismos públicos de Canarias. Nos gustaría valorar si tendría sentido para mujeres de Santa Maria de Guia y, si encaja, proponer una primera acción gratuita de divulgación.\n\n¿Le encajaría una llamada breve o agendar una reunión en la fecha que nos cuadre?\n\nSi cree que esta conversación corresponde a otra persona del equipo, le agradecería mucho que pudiera reenviárselo o indicarme con quién hablar.\n\nUn saludo,\n\nRomina Ojeda Brito",
+      "safeguards": [
+        "payload_only",
+        "no_gmail_draft_created",
+        "no_email_sent"
+      ]
+    },
+    {
+      "crm_deal_id": "70c113a5-bad4-4e09-975d-21e6e70eecb1",
+      "company_id": "19d55634-a9f8-4a50-bafe-a0e358aaf046",
+      "person_id": "634f56cd-1baa-432b-b8dc-586b8f00d82b",
+      "recipient_email": "ayuntamiento@vallegranrey.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-15_email_01_v4_5",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_path": "shared/templates/ia-mujeres/assets/Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "derivation_included": true,
+      "html": "<p>Buenos días Lorena,</p>\n\n<p>Soy Romina Ojeda Brito. Le escribo porque estamos abriendo conversaciones con instituciones canarias sobre un reto muy concreto: que la IA no amplíe aún más la brecha laboral y de oportunidades de muchas mujeres.</p>\n\n<p>Fundé Reboot Academy en 2019 para traer a Canarias el modelo bootcamp tecnológico, con el que hemos ayudado a más de 1.000 personas a reorientar su carrera hacia perfiles digitales. Además, presido WISE Canarias, Women in STEAM Empowerment Canarias, la primera Asociación de Mujeres en el sector Tecnológico de la historia de Canarias, desde donde trabajamos para acercar ciencia, tecnología e innovación a más mujeres.</p>\n\n<p>Creemos que la IA puede ser una oportunidad histórica, pero solo si se acerca de forma útil y comprensible a quienes hoy están más lejos de ella: mujeres en búsqueda de empleo, emprendedoras, profesionales de sectores tradicionales o personas que necesitan actualizarse.</p>\n\n<p>Le adjunto un dosier breve del proyecto que estamos impulsando con organismos públicos de Canarias. Nos gustaría valorar si tendría sentido para mujeres de Valle Gran Rey y, si encaja, proponer una primera acción gratuita de divulgación.</p>\n\n<p>¿Le encajaría una llamada breve o agendar una reunión en la fecha que nos cuadre?</p>\n\n<p>Si cree que esta conversación corresponde a otra persona del equipo, le agradecería mucho que pudiera reenviárselo o indicarme con quién hablar.</p>\n\n<p>Un saludo,</p>\n\n<p>Romina Ojeda Brito</p>\n",
+      "text": "Buenos días Lorena,\n\nSoy Romina Ojeda Brito. Le escribo porque estamos abriendo conversaciones con instituciones canarias sobre un reto muy concreto: que la IA no amplíe aún más la brecha laboral y de oportunidades de muchas mujeres.\n\nFundé Reboot Academy en 2019 para traer a Canarias el modelo bootcamp tecnológico, con el que hemos ayudado a más de 1.000 personas a reorientar su carrera hacia perfiles digitales. Además, presido WISE Canarias, Women in STEAM Empowerment Canarias, la primera Asociación de Mujeres en el sector Tecnológico de la historia de Canarias, desde donde trabajamos para acercar ciencia, tecnología e innovación a más mujeres.\n\nCreemos que la IA puede ser una oportunidad histórica, pero solo si se acerca de forma útil y comprensible a quienes hoy están más lejos de ella: mujeres en búsqueda de empleo, emprendedoras, profesionales de sectores tradicionales o personas que necesitan actualizarse.\n\nLe adjunto un dosier breve del proyecto que estamos impulsando con organismos públicos de Canarias. Nos gustaría valorar si tendría sentido para mujeres de Valle Gran Rey y, si encaja, proponer una primera acción gratuita de divulgación.\n\n¿Le encajaría una llamada breve o agendar una reunión en la fecha que nos cuadre?\n\nSi cree que esta conversación corresponde a otra persona del equipo, le agradecería mucho que pudiera reenviárselo o indicarme con quién hablar.\n\nUn saludo,\n\nRomina Ojeda Brito",
+      "safeguards": [
+        "payload_only",
+        "no_gmail_draft_created",
+        "no_email_sent"
+      ]
+    }
+  ]
+}

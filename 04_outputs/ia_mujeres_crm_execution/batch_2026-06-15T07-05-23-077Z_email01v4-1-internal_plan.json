@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "2026-06-15T07-05-23-077Z_email01v4-1-internal",
+  "generated_at": "2026-06-15T07:05:25.319Z",
+  "mode": "internal-email-01-v4-1-test",
+  "campaign_name": "IA Mujeres 2026",
+  "business_line": "SkilLand IA Mujeres",
+  "limit": 1,
+  "safeguards": [
+    "Internal recipient only: sales@reboot.academy.",
+    "Uses normal Email 1 v4.1 payload generation and Gmail draft creation path.",
+    "No external public-sector contact is touched by this batch.",
+    "Send requires the dedicated approved-draft sender confirmation."
+  ],
+  "summary": {
+    "crm_opportunities_seen": 1,
+    "campaign_opportunities_seen": 1,
+    "eligible_count": 1,
+    "selected_count": 1,
+    "excluded_count": 0
+  },
+  "selected": [
+    {
+      "crm_deal_id": "20277b67-d6e4-436b-934f-8572d1cbd764",
+      "deal_name": "Reboot Academy/Canarias — IA Mujeres 2026 — Test Email 1 v4.1",
+      "company_id": "d71fd471-1692-4c63-84c3-6794c62f89ea",
+      "company_name": "Reboot Academy/Canarias — Test IA Mujeres Email 1 v4.1",
+      "person_id": "96cece3c-3ad2-4031-ae3a-e6be38ec4e6a",
+      "person_name": "Equipo Ventas Reboot",
+      "email": "sales@reboot.academy",
+      "organization_type": "internal_test",
+      "department_area": "Validación CRM/GWS",
+      "island": "Canarias",
+      "municipality": "Canarias",
+      "icp_segment": "internal_test",
+      "quality_flags": "internal_test;email_01_v4_1;dossier_blue_v2",
+      "outreach_status": "pending_first_email",
+      "ia_mujeres_funnel_stage": "NOT_SENT",
+      "high_confidence": true,
+      "generic_email": false,
+      "needs_manual_review": false,
+      "duplicate_possible": false,
+      "eligible": true,
+      "exclusion_reasons": [],
+      "internal_test": true
+    }
+  ],
+  "excluded": []
+}

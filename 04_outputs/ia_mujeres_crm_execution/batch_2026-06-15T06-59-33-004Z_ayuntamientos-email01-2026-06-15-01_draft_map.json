@@ -1,0 +1,81 @@
+{
+  "batch_id": "2026-06-15T06-59-33-004Z_ayuntamientos-email01-2026-06-15-01",
+  "created_at": "2026-06-15T07:09:26.961Z",
+  "drafts": [
+    {
+      "crm_deal_id": "3f058b12-df22-474a-b3e9-208d55b256c0",
+      "company_id": "bc8c009e-c4a3-4e60-84ff-87a071be6189",
+      "person_id": "067573c6-597c-41cf-b351-208364b34af9",
+      "recipient_email": "ayuntamiento@sansebastiangomera.org",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-15_email_01_v4_5",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailDraftId": "r-8856779075253129408",
+      "gmailMessageId": "19eca1d2838e029a",
+      "gmailThreadId": "19eca1d2838e029a"
+    },
+    {
+      "crm_deal_id": "49cbfc3d-e94f-425c-9b7d-c492724fa622",
+      "company_id": "8b13d5a3-f333-4c4d-9ba6-cc192153c4fd",
+      "person_id": "23c31ee2-547b-4ac1-9af5-c532c81c6f60",
+      "recipient_email": "portalweb@arona.org",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-15_email_01_v4_5",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailDraftId": "r1998731731856582587",
+      "gmailMessageId": "19eca1d329429414",
+      "gmailThreadId": "19eca1d329429414"
+    },
+    {
+      "crm_deal_id": "59332304-d74e-4582-931c-cdf418d39ad6",
+      "company_id": "a393c3d0-9de2-4932-a509-589338387016",
+      "person_id": "a56cd85d-1f7e-4cd0-8139-e34ba162ea20",
+      "recipient_email": "serviciossociales@ayuntamientotuineje.com",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-15_email_01_v4_5",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailDraftId": "r-4041089539386162707",
+      "gmailMessageId": "19eca1d3caf43132",
+      "gmailThreadId": "19eca1d3caf43132"
+    },
+    {
+      "crm_deal_id": "5afdfbd0-4b0c-4ec6-bbb6-b192eb5f68c8",
+      "company_id": "17829498-b29e-43e1-89ed-8e48f5e72c3e",
+      "person_id": "b4c049d1-a601-4305-932a-8863b8193d0e",
+      "recipient_email": "igualdad@santamariadeguia.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-15_email_01_v4_5",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailDraftId": "r8422745691593815489",
+      "gmailMessageId": "19eca1d4837b6107",
+      "gmailThreadId": "19eca1d4837b6107"
+    },
+    {
+      "crm_deal_id": "70c113a5-bad4-4e09-975d-21e6e70eecb1",
+      "company_id": "19d55634-a9f8-4a50-bafe-a0e358aaf046",
+      "person_id": "634f56cd-1baa-432b-b8dc-586b8f00d82b",
+      "recipient_email": "ayuntamiento@vallegranrey.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-15_email_01_v4_5",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailDraftId": "r2577811630894995924",
+      "gmailMessageId": "19eca1d525547d07",
+      "gmailThreadId": "19eca1d525547d07"
+    }
+  ]
+}

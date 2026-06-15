@@ -1,0 +1,73 @@
+{
+  "mode": "dry_run",
+  "startedAt": "2026-06-14T19:54:50.908Z",
+  "finishedAt": "2026-06-14T19:54:54.494Z",
+  "outputDir": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_execution_crew/urgent_partial_update_2026-06-14",
+  "requestPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_execution_crew/urgent_partial_update_2026-06-14/urgent_partial_update.request.json",
+  "crewLogPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_execution_crew/urgent_partial_update_2026-06-14/session_2026-06-14T19-54-54-466Z.json",
+  "verificationPath": null,
+  "status": "dry_run_completed",
+  "blockers": [],
+  "warnings": [],
+  "plannedSourceCounts": {
+    "updateOpportunity": 4,
+    "createOpportunity": 4,
+    "createNote": 17,
+    "createTask": 19,
+    "closeTask": 5
+  },
+  "appliedCrewSummary": {
+    "planned": 85,
+    "applied": 0,
+    "failed": 0
+  },
+  "appliedSourceCounts": {
+    "updateRecords": 0,
+    "createOpportunity": 0,
+    "createNotes": 0,
+    "createTasks": 0,
+    "closeTasks": 0
+  },
+  "externalOperations": [
+    {
+      "type": "create_company",
+      "status": "planned",
+      "key": "camaraTenerife",
+      "data": {
+        "name": "Cámara de Comercio de Tenerife",
+        "businessLineName": "Skilland EU Platform",
+        "sourceType": "crm_urgent_partial_update",
+        "sourceFile": "urgent-partial-update-2026-06-14"
+      }
+    },
+    {
+      "type": "create_company",
+      "status": "planned",
+      "key": "femete",
+      "data": {
+        "name": "FEMETE",
+        "businessLineName": "Skilland EU Platform",
+        "sourceType": "crm_urgent_partial_update",
+        "sourceFile": "urgent-partial-update-2026-06-14"
+      }
+    },
+    {
+      "type": "create_task",
+      "status": "planned_post_crew",
+      "targetOpportunityName": "Casa África — Plataforma EU",
+      "title": "Buscar tres proveedores/presupuestos adicionales para contratación Casa África",
+      "dueAt": "2026-06-16T07:00:00.000Z"
+    }
+  ],
+  "stagesModified": [
+    "FEMEPA / Consorcio Casa África — Plataforma EU: PENDING_SIGNATURE -> IN_EXECUTION",
+    "Turismo Camara Comercio - jornada Raul: IN_EXECUTION -> CLOSED",
+    "Proexca — IA para Directivos: IN_EXECUTION -> CLOSED"
+  ],
+  "amountsModified": [
+    "Casa África — Paquete Formativo AfricanTech: 10000 EUR -> 2500 EUR",
+    "FEMEPA / Consorcio Casa África — Plataforma EU: 16000 EUR -> 4000 EUR"
+  ],
+  "verification": null,
+  "crmWritten": false
+}

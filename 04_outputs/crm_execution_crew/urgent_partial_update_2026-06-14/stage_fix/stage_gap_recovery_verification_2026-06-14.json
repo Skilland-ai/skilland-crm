@@ -1,0 +1,72 @@
+{
+  "checkedAt": "2026-06-14T20:07:12.528Z",
+  "query": "VerifyStageGapRecovery opportunities(first: 500)",
+  "scope": "Solo 4 opportunity IDs incluidos en stage_gap_recovery.request.json",
+  "expectedCount": 4,
+  "foundCount": 4,
+  "allStagesMatch": true,
+  "rows": [
+    {
+      "id": "e9490f49-d435-4257-a8d5-2770888bd3dd",
+      "expectedName": "Casa Africa - AfricanTech Curso 1 (junio 2026)",
+      "actualName": "Casa África — AfricanTech Curso 1 (junio 2026)",
+      "businessLine": "Skilland EU Platform",
+      "company": "Casa África",
+      "expectedStage": "PENDING_SIGNATURE",
+      "actualStage": "PENDING_SIGNATURE",
+      "stageMatches": true,
+      "amount": {
+        "amountMicros": 2500000000,
+        "currencyCode": "EUR"
+      },
+      "updatedAt": "2026-06-14T20:06:39.231Z"
+    },
+    {
+      "id": "32f9e57b-60f5-473c-a208-aeface10c7f1",
+      "expectedName": "Casa Africa - AfricanTech Curso 2 (noviembre 2026)",
+      "actualName": "Casa África — AfricanTech Curso 2 (noviembre 2026)",
+      "businessLine": "Skilland EU Platform",
+      "company": "Casa África",
+      "expectedStage": "PENDING_SIGNATURE",
+      "actualStage": "PENDING_SIGNATURE",
+      "stageMatches": true,
+      "amount": {
+        "amountMicros": 2500000000,
+        "currencyCode": "EUR"
+      },
+      "updatedAt": "2026-06-14T20:06:39.333Z"
+    },
+    {
+      "id": "94c09679-41ba-4608-b5cd-12fe55884216",
+      "expectedName": "Casa Africa - Plataforma EU",
+      "actualName": "Casa África — Plataforma EU",
+      "businessLine": "Skilland EU Platform",
+      "company": "Casa África",
+      "expectedStage": "PENDING_SIGNATURE",
+      "actualStage": "PENDING_SIGNATURE",
+      "stageMatches": true,
+      "amount": {
+        "amountMicros": 4000000000,
+        "currencyCode": "EUR"
+      },
+      "updatedAt": "2026-06-14T20:06:39.434Z"
+    },
+    {
+      "id": "4ad0088d-f55d-43a8-bdd2-9182a0ee4b92",
+      "expectedName": "FGULL - Proyectos Microcredenciales (Plugin Moodle + Motor IA)",
+      "actualName": "FGULL — Proyectos Microcredenciales (Plugin Moodle + Motor IA)",
+      "businessLine": "REBOOT ACADEMY",
+      "company": "FGULL — Fundación General Universidad de La Laguna",
+      "expectedStage": "IN_EXECUTION",
+      "actualStage": "IN_EXECUTION",
+      "stageMatches": true,
+      "amount": {
+        "amountMicros": 15000000000,
+        "currencyCode": "EUR"
+      },
+      "updatedAt": "2026-06-14T20:06:39.599Z"
+    }
+  ],
+  "iaMujeresTouched": [],
+  "outOfScopeTouched": []
+}

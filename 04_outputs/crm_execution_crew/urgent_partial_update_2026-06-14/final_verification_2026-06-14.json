@@ -1,0 +1,264 @@
+{
+  "checkedAt": "2026-06-14T20:00:06.588Z",
+  "foundDeals": 16,
+  "missingDeals": [],
+  "iaMujeresTouched": [],
+  "createdCompanies": [
+    {
+      "id": "7a68ccc3-e38f-473a-915c-5d7c629305ca",
+      "name": "Cámara de Comercio de Tenerife",
+      "businessLineName": "Skilland EU Platform"
+    },
+    {
+      "id": "0fbd1e4a-e832-4551-8fec-990f74f432e2",
+      "name": "FEMETE",
+      "businessLineName": "Skilland EU Platform"
+    }
+  ],
+  "keyDeals": {
+    "Casa África — AfricanTech Curso 1 (junio 2026)": {
+      "id": "e9490f49-d435-4257-a8d5-2770888bd3dd",
+      "stage": "PENDING_SIGNATURE",
+      "amount": {
+        "amountMicros": 2500000000,
+        "currencyCode": "EUR"
+      },
+      "businessLine": "Skilland EU Platform",
+      "company": "Casa África",
+      "contact": "yojeda@casafrica.es"
+    },
+    "Casa África — AfricanTech Curso 2 (noviembre 2026)": {
+      "id": "32f9e57b-60f5-473c-a208-aeface10c7f1",
+      "stage": "PENDING_SIGNATURE",
+      "amount": {
+        "amountMicros": 2500000000,
+        "currencyCode": "EUR"
+      },
+      "businessLine": "Skilland EU Platform",
+      "company": "Casa África",
+      "contact": "yojeda@casafrica.es"
+    },
+    "FEMEPA — Plataforma EU": {
+      "id": "90b13255-35df-4756-b7fc-884f39354164",
+      "stage": "IN_EXECUTION",
+      "amount": {
+        "amountMicros": 4000000000,
+        "currencyCode": "EUR"
+      },
+      "businessLine": "Skilland EU Platform",
+      "company": "FEMEPA",
+      "contact": "mario.perez@femepa.es"
+    },
+    "Casa África — Plataforma EU": {
+      "id": "94c09679-41ba-4608-b5cd-12fe55884216",
+      "stage": "PENDING_SIGNATURE",
+      "amount": {
+        "amountMicros": 4000000000,
+        "currencyCode": "EUR"
+      },
+      "businessLine": "Skilland EU Platform",
+      "company": "Casa África",
+      "contact": "yojeda@casafrica.es"
+    },
+    "Cámara de Comercio de Tenerife — Plataforma EU": {
+      "id": "d3f9f2e8-b0e2-4ce2-82d0-ecfae2c6f7ba",
+      "stage": "PENDING_SIGNATURE",
+      "amount": {
+        "amountMicros": 4000000000,
+        "currencyCode": "EUR"
+      },
+      "businessLine": "Skilland EU Platform",
+      "company": "Cámara de Comercio de Tenerife",
+      "contact": null
+    },
+    "FEMETE — Plataforma EU": {
+      "id": "459847b7-d38c-4561-8086-534d8eea5f91",
+      "stage": "PENDING_SIGNATURE",
+      "amount": {
+        "amountMicros": 4000000000,
+        "currencyCode": "EUR"
+      },
+      "businessLine": "Skilland EU Platform",
+      "company": "FEMETE",
+      "contact": null
+    },
+    "EPI 10 - DISCOVERY CONSULTING": {
+      "id": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "stage": "PROPUESTA_PRESENTADA_NEGOCIACION",
+      "amount": {
+        "amountMicros": 4700000000,
+        "currencyCode": "EUR"
+      },
+      "businessLine": "SkiLand Consulting",
+      "company": "EPI 10 Salud",
+      "contact": "carmensosa@epi10.es"
+    },
+    "Bootcamp Ejército - Pedro León Millán": {
+      "id": "3a2eda13-f59b-431c-ba96-9701e13066e1",
+      "stage": "PROPUESTA_PRESENTADA_NEGOCIACION",
+      "amount": {
+        "amountMicros": 3315000000,
+        "currencyCode": "EUR"
+      },
+      "businessLine": "Skilland School",
+      "company": null,
+      "contact": null
+    },
+    "Science for Change — Piloto Plataforma (1 Creator + 20 Student)": {
+      "id": "c9f9df40-d5fa-48bd-9cd0-f1614e940f88",
+      "stage": "PROPUESTA_PRESENTADA_NEGOCIACION",
+      "amount": {
+        "amountMicros": 1750000000,
+        "currencyCode": "EUR"
+      },
+      "businessLine": "Skilland School",
+      "company": "Science for Change",
+      "contact": "rosa.arias@scienceforchange.eu"
+    },
+    "UPCT — Piloto Microcredenciales": {
+      "id": "314abcbc-3718-4ad0-9941-59d15473423f",
+      "stage": "PROPUESTA_PRESENTADA_NEGOCIACION",
+      "amount": {
+        "amountMicros": null,
+        "currencyCode": "EUR"
+      },
+      "businessLine": "Skilland MicroCred",
+      "company": "UPCT",
+      "contact": "josefina.leon@upct.es"
+    },
+    "ULPGC — Microcredenciales": {
+      "id": "51d1fe86-8772-4e0e-bf3b-50a82ca22454",
+      "stage": "PROPUESTA_PRESENTADA_NEGOCIACION",
+      "amount": {
+        "amountMicros": 2500000000,
+        "currencyCode": "EUR"
+      },
+      "businessLine": "Skilland MicroCred",
+      "company": "ULPGC",
+      "contact": "c.microcredenciales@ulpgc.es"
+    },
+    "Turismo Camara Comercio - jornada Raul": {
+      "id": "a21bd7ae-e49d-4c06-9b8b-6706cee7b982",
+      "stage": "CLOSED",
+      "amount": {
+        "amountMicros": 600000000,
+        "currencyCode": "EUR"
+      },
+      "businessLine": "REBOOT ACADEMY",
+      "company": "Cámara de Comercio de Gran Canaria",
+      "contact": "rocioestevez@camaragc.es"
+    },
+    "Bootcamp Paula": {
+      "id": "cbae8c00-1c19-49e0-9792-bbd2be0431b3",
+      "stage": "IN_EXECUTION",
+      "amount": {
+        "amountMicros": 3000000000,
+        "currencyCode": "EUR"
+      },
+      "businessLine": "Skilland School",
+      "company": null,
+      "contact": null
+    },
+    "Eros Calixto - Full Stack Bootcamp": {
+      "id": "3d266d7e-f636-4c2b-bdd6-a17b4b35cbee",
+      "stage": "IN_EXECUTION",
+      "amount": {
+        "amountMicros": 3000000000,
+        "currencyCode": "EUR"
+      },
+      "businessLine": "Skilland School",
+      "company": null,
+      "contact": "eros.mm@hotmail.com"
+    },
+    "Proexca — IA para Directivos": {
+      "id": "f1afda1d-6f85-4386-ba0b-9e65a01019ea",
+      "stage": "CLOSED",
+      "amount": {
+        "amountMicros": 12900000000,
+        "currencyCode": "USD"
+      },
+      "businessLine": "Skilland School",
+      "company": "Proexca — Gobierno de Canarias",
+      "contact": "j.lorenzo@proexca.es"
+    },
+    "FGULL — Proyectos Microcredenciales (Plugin Moodle + Motor IA)": {
+      "id": "4ad0088d-f55d-43a8-bdd2-9182a0ee4b92",
+      "stage": "IN_EXECUTION",
+      "amount": {
+        "amountMicros": 15000000000,
+        "currencyCode": "EUR"
+      },
+      "businessLine": "REBOOT ACADEMY",
+      "company": "FGULL — Fundación General Universidad de La Laguna",
+      "contact": "gerencia@fg.ull.es"
+    }
+  },
+  "expectedNotes": {
+    "totalExpected": 17,
+    "totalFound": 17,
+    "missing": [],
+    "duplicates": []
+  },
+  "expectedTasks": {
+    "totalExpected": 20,
+    "totalFound": 20,
+    "missing": [],
+    "duplicates": []
+  },
+  "closedTasks": {
+    "expected": 5,
+    "closed": 5,
+    "details": [
+      {
+        "title": "Seguimiento Consorcio ",
+        "matches": [
+          {
+            "deal": "FEMEPA — Plataforma EU",
+            "status": "DONE",
+            "id": "865f0b3b-9d31-4dfd-a130-55e68cef5a71"
+          }
+        ]
+      },
+      {
+        "title": "Escribir a Josefa (UPCT) para reunión de feedback sobre dosier microcredenciales",
+        "matches": [
+          {
+            "deal": "UPCT — Piloto Microcredenciales",
+            "status": "DONE",
+            "id": "2cdd4a10-10b3-4920-872a-bebb66fca5ab"
+          }
+        ]
+      },
+      {
+        "title": "Reflotar  y coordinar reunion post dossier",
+        "matches": [
+          {
+            "deal": "UPCT — Piloto Microcredenciales",
+            "status": "DONE",
+            "id": "d393b822-815b-45d3-9dc5-ef8cc96a00df"
+          }
+        ]
+      },
+      {
+        "title": "Enviar a Cristina (ULPGC) memoria académica y detalle MCDU completados",
+        "matches": [
+          {
+            "deal": "ULPGC — Microcredenciales",
+            "status": "DONE",
+            "id": "8b0e6c9c-1cf1-4a98-98e6-bfc6dfd295ce"
+          }
+        ]
+      },
+      {
+        "title": "PERIODICO: correo dinamización PROEXCA",
+        "matches": [
+          {
+            "deal": "Proexca — IA para Directivos",
+            "status": "DONE",
+            "id": "202f0f4c-27b1-4afd-a775-0f1959b81074"
+          }
+        ]
+      }
+    ]
+  }
+}

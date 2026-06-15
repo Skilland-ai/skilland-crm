@@ -37,31 +37,17 @@
     {
       "crm_deal_id": "1f5d917b-fd84-4094-89b8-c51d765b9d8e",
       "event_id": "0086191f-6901-4ac2-b0c1-a26448a40254",
-      "updateData": {
-        "iaMujeresFunnelStage": "WRONG_CONTACT_MANUAL_REVIEW",
-        "outreachStatus": "bounce_detected",
-        "lastEmailEventAt": "2026-06-12T06:56:06.000Z",
-        "lastEmailEventType": "bounce_detected"
-      },
-      "closedPreviousTasks": [
-        {
-          "id": "ed29ceaf-c474-4447-85e9-a645e9f2b11f",
-          "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
-          "previousStatus": "TODO",
-          "previousAssigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6",
-          "updateData": {
-            "status": "DONE"
-          }
-        }
-      ],
+      "alreadyRecorded": true,
+      "updateData": null,
+      "closedPreviousTasks": [],
       "note": {
-        "id": "44bcd2f8-ea53-46d4-864a-478cb2b962e8",
-        "title": "[IA Mujeres] Bounce detectado"
+        "skipped": true,
+        "reason": "bounce_detected_already_recorded"
       },
       "task": {
+        "reused": true,
         "id": "0efad2e0-2def-4c0c-ab7e-0713d2a8e015",
-        "title": "[IA Mujeres] Revisar bounce / contacto incorrecto",
-        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
+        "title": "[IA Mujeres] Revisar bounce / contacto incorrecto"
       }
     }
   ],

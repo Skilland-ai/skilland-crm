@@ -329,7 +329,7 @@ function renderGreeting(personName) {
   if (!firstName || normalizedFirstName === 'unknown') return 'Buenos días';
   const displayFirstName = FIRST_NAME_DISPLAY_BY_NORMALIZED_NAME.get(normalizedFirstName) ?? displaySpanishValue(firstName);
 
-  return `Hola ${displayFirstName}`;
+  return `Buenos días ${displayFirstName}`;
 }
 
 function naturalTerritory(candidate) {

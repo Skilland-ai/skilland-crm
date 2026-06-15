@@ -1,0 +1,65 @@
+{
+  "requester": "crm_urgent_partial_update_2026_06_14_stage_gap_recovery",
+  "mode": "dry_run",
+  "intent": "Corregir solo los stages que quedaron desalineados tras la auditoria post-apply de la actualizacion urgente parcial del 2026-06-14. No crear notas, no crear tareas, no cerrar tareas y no tocar IA Mujeres ni deals fuera de estos cuatro IDs.",
+  "scope": {
+    "source": "Auditoria read-only posterior al apply/recovery de la actualizacion urgente parcial 2026-06-14.",
+    "includedOpportunityIds": [
+      "e9490f49-d435-4257-a8d5-2770888bd3dd",
+      "32f9e57b-60f5-473c-a208-aeface10c7f1",
+      "94c09679-41ba-4608-b5cd-12fe55884216",
+      "4ad0088d-f55d-43a8-bdd2-9182a0ee4b92"
+    ],
+    "excluded": [
+      "SkilLand IA Mujeres",
+      "IA Mujeres funnel dedicado",
+      "Deals fuera de las tandas 1A, 1B y 2"
+    ]
+  },
+  "constraints": {
+    "maxRecords": 4,
+    "requireHumanConfirmation": true,
+    "allowCreate": false,
+    "allowUpdate": true,
+    "allowDelete": false,
+    "allowMetadataChanges": false
+  },
+  "operations": [
+    {
+      "type": "update_opportunity",
+      "lookup": {
+        "opportunityId": "e9490f49-d435-4257-a8d5-2770888bd3dd"
+      },
+      "data": {
+        "stage": "PENDING_SIGNATURE"
+      }
+    },
+    {
+      "type": "update_opportunity",
+      "lookup": {
+        "opportunityId": "32f9e57b-60f5-473c-a208-aeface10c7f1"
+      },
+      "data": {
+        "stage": "PENDING_SIGNATURE"
+      }
+    },
+    {
+      "type": "update_opportunity",
+      "lookup": {
+        "opportunityId": "94c09679-41ba-4608-b5cd-12fe55884216"
+      },
+      "data": {
+        "stage": "PENDING_SIGNATURE"
+      }
+    },
+    {
+      "type": "update_opportunity",
+      "lookup": {
+        "opportunityId": "4ad0088d-f55d-43a8-bdd2-9182a0ee4b92"
+      },
+      "data": {
+        "stage": "IN_EXECUTION"
+      }
+    }
+  ]
+}

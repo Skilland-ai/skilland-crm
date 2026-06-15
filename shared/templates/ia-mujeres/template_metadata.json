@@ -1,7 +1,7 @@
 {
   "email_01": {
     "subject": "Una preocupación que quería compartir con usted",
-    "version": "2026-06-12_email_01_v4_2",
+    "version": "2026-06-15_email_01_v4_5",
     "attachmentPolicy": "dossier_blue_v2",
     "attachmentPath": "shared/templates/ia-mujeres/assets/Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
     "attachmentMimeName": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf"

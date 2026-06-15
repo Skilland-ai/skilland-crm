@@ -1,0 +1,108 @@
+{
+  "noteId": "2c4338ba-6d98-4983-8557-617076e01c6e",
+  "applied": [
+    {
+      "body": {
+        "noteId": "2c4338ba-6d98-4983-8557-617076e01c6e",
+        "targetOpportunityId": "4ad0088d-f55d-43a8-bdd2-9182a0ee4b92"
+      },
+      "response": {
+        "createNoteTarget": {
+          "targetProjectId": null,
+          "id": "482a99e6-4541-44d9-9bd2-7f5334e21666",
+          "targetCompanyId": null,
+          "noteId": "2c4338ba-6d98-4983-8557-617076e01c6e",
+          "targetPersonId": null,
+          "targetOpportunityId": "4ad0088d-f55d-43a8-bdd2-9182a0ee4b92",
+          "createdAt": "2026-06-14T19:59:21.205Z",
+          "updatedAt": "2026-06-14T19:59:21.205Z",
+          "deletedAt": null,
+          "targetBusinessLineId": null,
+          "createdBy": {
+            "source": "API",
+            "workspaceMemberId": null,
+            "name": "Romi",
+            "context": {}
+          },
+          "updatedBy": {
+            "source": "API",
+            "workspaceMemberId": null,
+            "name": "Romi",
+            "context": {}
+          },
+          "position": -486,
+          "searchVector": null
+        }
+      }
+    },
+    {
+      "body": {
+        "noteId": "2c4338ba-6d98-4983-8557-617076e01c6e",
+        "targetPersonId": "e13596c6-8485-47ed-9f29-92846b6824b9"
+      },
+      "response": {
+        "createNoteTarget": {
+          "targetProjectId": null,
+          "id": "9a56cd5d-a98f-4151-8d78-41e2fe361b5c",
+          "targetCompanyId": null,
+          "noteId": "2c4338ba-6d98-4983-8557-617076e01c6e",
+          "targetPersonId": "e13596c6-8485-47ed-9f29-92846b6824b9",
+          "targetOpportunityId": null,
+          "createdAt": "2026-06-14T19:59:21.304Z",
+          "updatedAt": "2026-06-14T19:59:21.304Z",
+          "deletedAt": null,
+          "targetBusinessLineId": null,
+          "createdBy": {
+            "source": "API",
+            "workspaceMemberId": null,
+            "name": "Romi",
+            "context": {}
+          },
+          "updatedBy": {
+            "source": "API",
+            "workspaceMemberId": null,
+            "name": "Romi",
+            "context": {}
+          },
+          "position": -487,
+          "searchVector": null
+        }
+      }
+    },
+    {
+      "body": {
+        "noteId": "2c4338ba-6d98-4983-8557-617076e01c6e",
+        "targetCompanyId": "0d39186a-62be-45a4-83b7-5fe7ea520ca4"
+      },
+      "response": {
+        "createNoteTarget": {
+          "targetProjectId": null,
+          "id": "04776b77-5003-40b9-a2f1-6b9bb66e79df",
+          "targetCompanyId": "0d39186a-62be-45a4-83b7-5fe7ea520ca4",
+          "noteId": "2c4338ba-6d98-4983-8557-617076e01c6e",
+          "targetPersonId": null,
+          "targetOpportunityId": null,
+          "createdAt": "2026-06-14T19:59:21.400Z",
+          "updatedAt": "2026-06-14T19:59:21.400Z",
+          "deletedAt": null,
+          "targetBusinessLineId": null,
+          "createdBy": {
+            "source": "API",
+            "workspaceMemberId": null,
+            "name": "Romi",
+            "context": {}
+          },
+          "updatedBy": {
+            "source": "API",
+            "workspaceMemberId": null,
+            "name": "Romi",
+            "context": {}
+          },
+          "position": -488,
+          "searchVector": null
+        }
+      }
+    }
+  ],
+  "status": "applied"
+}

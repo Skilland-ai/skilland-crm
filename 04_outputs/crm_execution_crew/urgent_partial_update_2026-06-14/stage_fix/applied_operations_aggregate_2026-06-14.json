@@ -1,0 +1,67 @@
+{
+  "files": [
+    "04_outputs/crm_execution_crew/urgent_partial_update_2026-06-14/session_2026-06-14T19-55-38-393Z.json",
+    "04_outputs/crm_execution_crew/urgent_partial_update_2026-06-14/recovery/session_2026-06-14T19-58-26-556Z.json",
+    "04_outputs/crm_execution_crew/urgent_partial_update_2026-06-14/stage_fix/session_2026-06-14T20-06-37-508Z.json"
+  ],
+  "lowLevelApplied": 90,
+  "byOperationType": {
+    "update_record:opportunity": 8,
+    "create_note": 17,
+    "link_note_to_targets": 16,
+    "create_task": 20,
+    "link_task_to_targets": 20,
+    "create_record:opportunity": 4,
+    "update_record:task": 5
+  },
+  "uniqueDealsUpdatedViaUpdateRecord": 7,
+  "updateOpportunityRecordIds": [
+    "e9490f49-d435-4257-a8d5-2770888bd3dd",
+    "90b13255-35df-4756-b7fc-884f39354164",
+    "a21bd7ae-e49d-4c06-9b8b-6706cee7b982",
+    "f1afda1d-6f85-4386-ba0b-9e65a01019ea",
+    "32f9e57b-60f5-473c-a208-aeface10c7f1",
+    "94c09679-41ba-4608-b5cd-12fe55884216",
+    "4ad0088d-f55d-43a8-bdd2-9182a0ee4b92"
+  ],
+  "dealsCreatedViaCrew": 4,
+  "createOpportunityResults": [
+    {
+      "id": "32f9e57b-60f5-473c-a208-aeface10c7f1",
+      "name": "Casa África — AfricanTech Curso 2 (noviembre 2026)",
+      "sourceOperationIndex": 4
+    },
+    {
+      "id": "94c09679-41ba-4608-b5cd-12fe55884216",
+      "name": "Casa África — Plataforma EU",
+      "sourceOperationIndex": 9
+    },
+    {
+      "id": "d3f9f2e8-b0e2-4ce2-82d0-ecfae2c6f7ba",
+      "name": "Cámara de Comercio de Tenerife — Plataforma EU",
+      "sourceOperationIndex": 10
+    },
+    {
+      "id": "459847b7-d38c-4561-8086-534d8eea5f91",
+      "name": "FEMETE — Plataforma EU",
+      "sourceOperationIndex": 11
+    }
+  ],
+  "notesCreatedViaCrew": 17,
+  "tasksCreatedViaCrew": 20,
+  "tasksClosedViaCrew": 5,
+  "closeTaskRecordIds": [
+    "865f0b3b-9d31-4dfd-a130-55e68cef5a71",
+    "2cdd4a10-10b3-4920-872a-bebb66fca5ab",
+    "d393b822-815b-45d3-9dc5-ef8cc96a00df",
+    "8b0e6c9c-1cf1-4a98-98e6-bfc6dfd295ce",
+    "202f0f4c-27b1-4afd-a775-0f1959b81074"
+  ],
+  "initialRateLimitFailuresRecovered": 19,
+  "finalApplyFailuresOutsideRecoveredInitial": [],
+  "manualRecovery": {
+    "file": "04_outputs/crm_execution_crew/urgent_partial_update_2026-06-14/recovery/fgull_orphan_note_link_2026-06-14.json",
+    "status": "applied",
+    "noteId": "2c4338ba-6d98-4983-8557-617076e01c6e"
+  }
+}

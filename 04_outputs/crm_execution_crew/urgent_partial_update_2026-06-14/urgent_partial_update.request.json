@@ -1,0 +1,480 @@
+{
+  "requester": "crm_urgent_partial_update_2026_06_14",
+  "mode": "dry_run",
+  "intent": "Actualizar CRM con tandas 1A, 1B y 2 validadas el 2026-06-14, excluyendo IA Mujeres y deals fuera de scope.",
+  "scope": {
+    "batches": [
+      "1A Casa Africa / AfricanTech",
+      "1B Propuesta presentada",
+      "2 En ejecucion"
+    ],
+    "excluded": [
+      "SkilLand IA Mujeres",
+      "IA Mujeres funnel dedicado"
+    ],
+    "sourceFile": "urgent-partial-update-2026-06-14"
+  },
+  "constraints": {
+    "maxRecords": 200,
+    "requireHumanConfirmation": true,
+    "allowCreate": true,
+    "allowUpdate": true,
+    "allowDelete": false,
+    "allowMetadataChanges": false
+  },
+  "operations": [
+    {
+      "type": "update_opportunity",
+      "lookup": {
+        "opportunityId": "e9490f49-d435-4257-a8d5-2770888bd3dd"
+      },
+      "data": {
+        "name": "Casa África — AfricanTech Curso 1 (junio 2026)",
+        "stage": "PENDING_SIGNATURE",
+        "amount": {
+          "amountMicros": 2500000000,
+          "currencyCode": "EUR"
+        },
+        "businessLineName": "Skilland EU Platform",
+        "businessLine": {
+          "connect": {
+            "where": {
+              "id": "250623ae-5f16-4995-b8fb-d115a96ef112"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "e9490f49-d435-4257-a8d5-2770888bd3dd"
+      },
+      "title": "Actualización comercial — Casa África AfricanTech cursos 2026",
+      "markdown": "Conversación telefónica con Yurena Ojeda el 12/06/2026.\n\n- El paquete formativo original de 4 cursos / 10.000 EUR deja de representar la realidad comercial 2026.\n- En 2026 se mantienen dos cursos: curso 1 en junio junto con plataforma, y curso 2 previsto para contratación/adjudicación en Q4, probablemente noviembre.\n- Los otros dos cursos quedan como contexto para otro ejercicio y no deben mantenerse como pipeline activo 2026.\n- Gmail read-only: hilo \"Propuesta Plataforma AfricanTech\" confirma intercambio con Yurena entre 10-12/06/2026; Yurena propuso llamada y el 12/06 indicó que llamaría al liberarse. El hilo también confirma que FEMEPA avanzaba/cerraba y que FEMETE y Cámara Tenerife seguían pendientes."
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "e9490f49-d435-4257-a8d5-2770888bd3dd"
+      },
+      "title": "Preparar/enviar oferta, memoria técnica y presupuesto conjunto Casa África — plataforma + curso 1",
+      "markdown": "Presentar oferta, memoria técnica y presupuesto conjunto con la plataforma, integrando curso 1 y parte de plataforma de Casa África.",
+      "dueAt": "2026-06-16T07:00:00.000Z"
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "e9490f49-d435-4257-a8d5-2770888bd3dd"
+      },
+      "title": "Buscar tres proveedores/presupuestos adicionales para Casa África / AfricanTech",
+      "markdown": "Preparar tres referencias/proveedores/presupuestos adicionales si hacen falta para articular contratación.",
+      "dueAt": "2026-06-16T07:00:00.000Z"
+    },
+    {
+      "type": "create_opportunity",
+      "lookup": {},
+      "data": {
+        "name": "Casa África — AfricanTech Curso 2 (noviembre 2026)",
+        "stage": "PENDING_SIGNATURE",
+        "amount": {
+          "amountMicros": 2500000000,
+          "currencyCode": "EUR"
+        },
+        "companyId": "bcfe090f-81e6-486c-ba6d-6d5df7bb3e13",
+        "pointOfContactId": "be98f639-a9d9-4019-b552-01be94e72737",
+        "businessLineName": "Skilland EU Platform",
+        "businessLine": {
+          "connect": {
+            "where": {
+              "id": "250623ae-5f16-4995-b8fb-d115a96ef112"
+            }
+          }
+        }
+      },
+      "note": {
+        "title": "Contexto comercial — AfricanTech Curso 2 Q4 2026",
+        "markdown": "Segundo curso de Casa África/AfricanTech previsto para Q4 2026, probablemente noviembre.\n\n- Separado del curso 1 para reflejar la contratación real por fases.\n- Mantener como pendiente de firma porque la contratación está prevista pero no formalizada.\n- No crear deals 2026 para los otros dos cursos del paquete original; quedan como contexto para otro ejercicio."
+      },
+      "task": {
+        "title": "Tantear contratación Q4 Casa África — AfricanTech Curso 2",
+        "markdown": "Segundo curso previsto para adjudicación/contratación en Q4, probablemente noviembre. Tantear timing, presupuesto y vía administrativa.",
+        "dueAt": "2026-10-01T07:00:00.000Z"
+      }
+    },
+    {
+      "type": "close_task",
+      "lookup": {
+        "taskId": "865f0b3b-9d31-4dfd-a130-55e68cef5a71"
+      }
+    },
+    {
+      "type": "update_opportunity",
+      "lookup": {
+        "opportunityId": "90b13255-35df-4756-b7fc-884f39354164"
+      },
+      "data": {
+        "name": "FEMEPA — Plataforma EU",
+        "stage": "IN_EXECUTION",
+        "amount": {
+          "amountMicros": 4000000000,
+          "currencyCode": "EUR"
+        },
+        "businessLineName": "Skilland EU Platform",
+        "businessLine": {
+          "connect": {
+            "where": {
+              "id": "250623ae-5f16-4995-b8fb-d115a96ef112"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "90b13255-35df-4756-b7fc-884f39354164"
+      },
+      "title": "Split comercial — Plataforma EU consorcio AfricanTech",
+      "markdown": "El deal original de 16.000 EUR mezclaba cuatro contrataciones de plataforma.\n\n- Se parte en cuatro oportunidades independientes de 4.000 EUR: FEMEPA, Casa África, Cámara de Comercio de Tenerife y FEMETE.\n- La tarea antigua \"Seguimiento Consorcio\" queda obsoleta y se marca como DONE.\n- El deal original se reutiliza como FEMEPA — Plataforma EU para evitar duplicados."
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "90b13255-35df-4756-b7fc-884f39354164"
+      },
+      "title": "Estado comercial — FEMEPA Plataforma EU firmado/vendido",
+      "markdown": "FEMEPA es el socio más adelantado del consorcio AfricanTech.\n\n- Estado comercial: firmado/vendido.\n- Se mueve a En ejecución.\n- Gmail read-only: Raúl Batista (FEMEPA) envió el 10/06/2026 contratos firmados; el contrato de encargo ya constaba firmado por ambas partes y el contrato FEMEPA traía cambios menores para evaluación del servicio."
+    },
+    {
+      "type": "create_opportunity",
+      "lookup": {},
+      "data": {
+        "name": "Casa África — Plataforma EU",
+        "stage": "PENDING_SIGNATURE",
+        "amount": {
+          "amountMicros": 4000000000,
+          "currencyCode": "EUR"
+        },
+        "companyId": "bcfe090f-81e6-486c-ba6d-6d5df7bb3e13",
+        "pointOfContactId": "be98f639-a9d9-4019-b552-01be94e72737",
+        "businessLineName": "Skilland EU Platform",
+        "businessLine": {
+          "connect": {
+            "where": {
+              "id": "250623ae-5f16-4995-b8fb-d115a96ef112"
+            }
+          }
+        }
+      },
+      "note": {
+        "title": "Estado comercial — Casa África Plataforma EU",
+        "markdown": "Yurena validó/OK a la parte de plataforma de Casa África.\n\n- Hay que presentar memoria técnica junto con la propuesta del primer curso AfricanTech de junio.\n- Gmail read-only: hilo \"Propuesta Plataforma AfricanTech\" confirma intercambio con Yurena entre 10-12/06/2026; Yurena propuso llamada y el 12/06 indicó que llamaría al liberarse. El hilo también confirma que FEMEPA avanzaba/cerraba y que FEMETE y Cámara Tenerife seguían pendientes."
+      },
+      "task": {
+        "title": "Preparar memoria técnica conjunta Casa África — plataforma + curso 1",
+        "markdown": "Preparar memoria técnica conjunta para plataforma + curso 1 de Casa África/AfricanTech.",
+        "dueAt": "2026-06-16T07:00:00.000Z"
+      }
+    },
+    {
+      "type": "create_opportunity",
+      "lookup": {},
+      "data": {
+        "name": "Cámara de Comercio de Tenerife — Plataforma EU",
+        "stage": "PENDING_SIGNATURE",
+        "amount": {
+          "amountMicros": 4000000000,
+          "currencyCode": "EUR"
+        },
+        "companyId": "7a68ccc3-e38f-473a-915c-5d7c629305ca",
+        "businessLineName": "Skilland EU Platform",
+        "businessLine": {
+          "connect": {
+            "where": {
+              "id": "250623ae-5f16-4995-b8fb-d115a96ef112"
+            }
+          }
+        }
+      },
+      "note": {
+        "title": "Estado comercial — Cámara Tenerife Plataforma EU",
+        "markdown": "Socio con menos interacciones directas dentro del consorcio AfricanTech.\n\n- Bloqueo principal: cómo articular adjudicación/contratación pública.\n- Hay que dar claridad de próximos pasos y evitar que se enfríe.\n- Pendiente localizar teléfono/interlocutor directo."
+      },
+      "task": {
+        "title": "Contactar Cámara Tenerife — desbloquear contratación Plataforma EU",
+        "markdown": "Localizar teléfono/interlocutor, contactar, alinear siguientes pasos y aclarar vía de contratación pública.",
+        "dueAt": "2026-06-17T07:00:00.000Z"
+      }
+    },
+    {
+      "type": "create_opportunity",
+      "lookup": {},
+      "data": {
+        "name": "FEMETE — Plataforma EU",
+        "stage": "PENDING_SIGNATURE",
+        "amount": {
+          "amountMicros": 4000000000,
+          "currencyCode": "EUR"
+        },
+        "companyId": "0fbd1e4a-e832-4551-8fec-990f74f432e2",
+        "businessLineName": "Skilland EU Platform",
+        "businessLine": {
+          "connect": {
+            "where": {
+              "id": "250623ae-5f16-4995-b8fb-d115a96ef112"
+            }
+          }
+        }
+      },
+      "note": {
+        "title": "Estado comercial — FEMETE Plataforma EU",
+        "markdown": "Caso similar a FEMEPA, pero todavía sin conversación directa suficiente.\n\n- No es adjudicación pública; debería articularse como contrato comercial.\n- Hay que activar contacto directo por teléfono."
+      },
+      "task": {
+        "title": "Localizar contacto/teléfono FEMETE y activar cierre Plataforma EU",
+        "markdown": "Localizar contacto/teléfono FEMETE y activar cierre comercial de Plataforma EU.",
+        "dueAt": "2026-06-17T07:00:00.000Z"
+      }
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "9c4fc972-e555-41e7-ace1-37125fb73734"
+      },
+      "title": "Actualización comercial — propuesta EPI10 MVP enviada",
+      "markdown": "Propuesta presentada el 12/06/2026.\n\n- El proyecto mutó desde automatizaciones/scope sencillo a desarrollo software serio.\n- Carmen indicó que la revisaría el lunes 15/06/2026.\n- Gmail read-only: el 12/06/2026 se envió a Carmen y Tomás la propuesta técnica y económica \"EPI10 Salud MVP 1.0\"; el mensaje plantea revisar, resolver dudas y, si hay OK, agendar kick-off operativo."
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "9c4fc972-e555-41e7-ace1-37125fb73734"
+      },
+      "title": "Follow-up Carmen — revisión propuesta EPI10",
+      "markdown": "Hacer follow-up con Carmen sobre revisión de propuesta EPI10 MVP 1.0 y decidir si se avanza a OK/kick-off.",
+      "dueAt": "2026-06-16T07:00:00.000Z"
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "3a2eda13-f59b-431c-ba96-9701e13066e1"
+      },
+      "title": "Estado comercial — propuesta Bootcamp Ejército",
+      "markdown": "Sin actualización conocida desde envío de propuesta.\n\n- Gmail read-only: el 01/06/2026 Pedro León pidió presupuesto actualizado, incluyendo n8n/automatización; se enviaron sílabos y presupuestos, y Pedro respondió \"Recibido... Los tramitamos\". No consta cierre posterior en el hilo leído.\n- Próximo paso: follow-up para conocer estado de tramitación y si hay bloqueos."
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "3a2eda13-f59b-431c-ba96-9701e13066e1"
+      },
+      "title": "Follow-up Pedro León Millán — propuesta Bootcamp Ejército",
+      "markdown": "Contactar a Pedro León Millán para revisar estado de tramitación de la propuesta y próximos pasos.",
+      "dueAt": "2026-06-19T07:00:00.000Z"
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "c9f9df40-d5fa-48bd-9cd0-f1614e940f88"
+      },
+      "title": "Estado comercial — Science for Change piloto plataforma",
+      "markdown": "Sin respuesta clara tras propuesta y follow-up anterior.\n\n- Gmail read-only: Leticia/Science for Change indicó el 05/05/2026 que valorarían internamente la propuesta; el 11/05 se propuso reunión para aterrizar piloto. No se detectó respuesta sustantiva posterior en el hilo leído.\n- Próximo paso: follow-up serio para decidir sí/no o identificar bloqueos."
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "c9f9df40-d5fa-48bd-9cd0-f1614e940f88"
+      },
+      "title": "Follow-up serio Science for Change — decidir sí/no o bloqueos",
+      "markdown": "Pedir respuesta clara sobre el piloto, bloqueos internos o decisión de no avanzar.",
+      "dueAt": "2026-06-16T07:00:00.000Z"
+    },
+    {
+      "type": "close_task",
+      "lookup": {
+        "taskId": "2cdd4a10-10b3-4920-872a-bebb66fca5ab"
+      }
+    },
+    {
+      "type": "close_task",
+      "lookup": {
+        "taskId": "d393b822-815b-45d3-9dc5-ef8cc96a00df"
+      }
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "314abcbc-3718-4ad0-9941-59d15473423f"
+      },
+      "title": "Estado post-dossier — UPCT microcredenciales",
+      "markdown": "Seguimiento posterior al dossier de microcredenciales.\n\n- Gmail read-only: Josefa indicó el 11/05/2026 que ya había informado a la Vicerrectora y quedaba a la espera de hueco para reunión. No se detectó cierre posterior en el hilo leído.\n- Se cierran tareas antiguas de reflote/follow-up porque se crea una tarea nueva y más actualizada."
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "314abcbc-3718-4ad0-9941-59d15473423f"
+      },
+      "title": "Follow-up Josefa UPCT — agendar reunión feedback dossier",
+      "markdown": "Contactar a Josefa para agendar reunión de feedback sobre el dossier y valorar piloto/reformulación o pausa.",
+      "dueAt": "2026-06-15T07:00:00.000Z"
+    },
+    {
+      "type": "close_task",
+      "lookup": {
+        "taskId": "8b0e6c9c-1cf1-4a98-98e6-bfc6dfd295ce"
+      }
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "51d1fe86-8772-4e0e-bf3b-50a82ca22454"
+      },
+      "title": "Actualización comercial — ULPGC microcredenciales",
+      "markdown": "Se envió documentación solicitada a Cristina.\n\n- Cristina pidió tiempo por cierre de curso.\n- Pendiente de verificación en correo: la búsqueda Gmail de esta ejecución fue ruidosa y no confirmó un hilo fiable en primera página.\n- Próximo paso interno: hablar con Romi para estrategia de verano antes del follow-up externo."
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "51d1fe86-8772-4e0e-bf3b-50a82ca22454"
+      },
+      "title": "Hablar con Romi — estrategia ULPGC microcredenciales verano",
+      "markdown": "Alinear con Romi la estrategia ULPGC para verano antes de retomar con Cristina.",
+      "dueAt": "2026-06-15T07:00:00.000Z"
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "51d1fe86-8772-4e0e-bf3b-50a82ca22454"
+      },
+      "title": "Follow-up Cristina ULPGC — documentación microcredencial",
+      "markdown": "Follow-up con Cristina sobre documentación enviada y tiempos tras cierre de curso.",
+      "dueAt": "2026-06-16T07:00:00.000Z"
+    },
+    {
+      "type": "update_opportunity",
+      "lookup": {
+        "opportunityId": "a21bd7ae-e49d-4c06-9b8b-6706cee7b982"
+      },
+      "data": {
+        "stage": "CLOSED"
+      }
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "a21bd7ae-e49d-4c06-9b8b-6706cee7b982"
+      },
+      "title": "Cierre comercial — Turismo Cámara Comercio jornada Raúl",
+      "markdown": "Deal cerrado, cobrado y ejecutado.\n\n- No se detectan tareas abiertas de ejecución en el preflight.\n- Se mueve a Cerrado.\n- Siguiente paso comercial: definir reimpacto a Rocío / Cámara GC."
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "a21bd7ae-e49d-4c06-9b8b-6706cee7b982"
+      },
+      "title": "Sentarme con GPT para definir reimpacto comercial a Rocío / Cámara GC",
+      "markdown": "Preparar estrategia de reimpacto comercial con Rocío / Cámara de Comercio de Gran Canaria a partir de la jornada ejecutada.",
+      "dueAt": "2026-06-24T07:00:00.000Z"
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "cbae8c00-1c19-49e0-9792-bbd2be0431b3"
+      },
+      "title": "Estado comercial — Bootcamp Paula vendido/en ejecución",
+      "markdown": "Bootcamp Paula ya vendido; se mantiene en ejecución.\n\n- Pendiente de verificación en correo: no se localizó hilo fiable en la búsqueda Gmail de esta ejecución.\n- Próximos pasos: matriculación/bienvenida/acceso al campus y primera factura."
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "cbae8c00-1c19-49e0-9792-bbd2be0431b3"
+      },
+      "title": "Matriculación, bienvenida y acceso al campus — Bootcamp Paula",
+      "markdown": "Gestionar matriculación, bienvenida y acceso al campus para Bootcamp Paula.",
+      "dueAt": "2026-06-18T07:00:00.000Z"
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "cbae8c00-1c19-49e0-9792-bbd2be0431b3"
+      },
+      "title": "Emitir/gestionar primera factura — Bootcamp Paula",
+      "markdown": "Emitir o gestionar primera factura de Bootcamp Paula.",
+      "dueAt": "2026-06-18T07:00:00.000Z"
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "3d266d7e-f636-4c2b-bdd6-a17b4b35cbee"
+      },
+      "title": "Estado operativo — Eros Calixto Full Stack Bootcamp",
+      "markdown": "Mantener en ejecución.\n\n- El sistema actual no soporta recurrencia de tareas desde CRM Execution Crew.\n- Se crea la primera tutoría del viernes 19/06/2026 a las 13:00 Europe/Madrid.\n- Queda además follow-up de cobro/facturación pendiente."
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "3d266d7e-f636-4c2b-bdd6-a17b4b35cbee"
+      },
+      "title": "Tutoría recurrente viernes 13:00 — Eros Calixto (primera sesión)",
+      "markdown": "Primera tarea de tutoría semanal. Recurrencia no soportada por el sistema; crear siguientes manualmente si procede.",
+      "dueAt": "2026-06-19T11:00:00.000Z"
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "3d266d7e-f636-4c2b-bdd6-a17b4b35cbee"
+      },
+      "title": "Follow-up cobro / facturación pendiente Eros",
+      "markdown": "Revisar y hacer seguimiento de cobro/facturación pendiente de Eros.",
+      "dueAt": "2026-06-19T07:00:00.000Z"
+    },
+    {
+      "type": "close_task",
+      "lookup": {
+        "taskId": "202f0f4c-27b1-4afd-a775-0f1959b81074"
+      }
+    },
+    {
+      "type": "update_opportunity",
+      "lookup": {
+        "opportunityId": "f1afda1d-6f85-4386-ba0b-9e65a01019ea"
+      },
+      "data": {
+        "stage": "CLOSED"
+      }
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "f1afda1d-6f85-4386-ba0b-9e65a01019ea"
+      },
+      "title": "Cierre comercial — Proexca IA para Directivos",
+      "markdown": "Deal cobrado, ejecutado y cerrado.\n\n- Se cierra/limpia la tarea activa periódica de dinamización.\n- Se mueve a Cerrado porque existe stage CLOSED en metadata."
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "4ad0088d-f55d-43a8-bdd2-9182a0ee4b92"
+      },
+      "title": "Nota estratégica — FGULL fábrica de microcredenciales",
+      "markdown": "FGULL ya pagó software/proyectos y se mantiene en ejecución.\n\n- Se construyó una fábrica de microcredenciales.\n- Falta dinamización, demanda y adopción.\n- Objetivo: convertirlo en caso de éxito para vender a universidades y consorcios europeos.\n- Posibles acciones: webinars, jornadas informativas, dinamización y captación de empresas.\n- Gmail read-only: hay invitación aceptada para \"Recap Coordinación Proyecto Microcredenciales\" el 18/06/2026 12:30-13:30 WEST con Fer, Romina y contactos FGULL. Contexto de Ricardo pendiente de verificación específica."
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "4ad0088d-f55d-43a8-bdd2-9182a0ee4b92"
+      },
+      "title": "Hablar con Romi — alinear estrategia FGULL microcredenciales",
+      "markdown": "Alinear con Romi estrategia FGULL: dinamización, demanda, adopción y caso de éxito comercializable.",
+      "dueAt": "2026-06-15T07:00:00.000Z"
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "4ad0088d-f55d-43a8-bdd2-9182a0ee4b92"
+      },
+      "title": "Reunión de Ricardo y enfoque de coordinación de la ejecución del proyecto",
+      "markdown": "Revisar coordinación de ejecución del proyecto. Contexto de calendario/correo parcialmente verificado por invitación de coordinación el 18/06; Ricardo pendiente de verificación específica.",
+      "dueAt": "2026-06-18T07:00:00.000Z"
+    }
+  ]
+}

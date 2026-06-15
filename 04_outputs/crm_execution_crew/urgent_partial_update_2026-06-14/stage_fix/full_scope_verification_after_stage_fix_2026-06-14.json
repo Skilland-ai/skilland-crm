@@ -1,0 +1,464 @@
+{
+  "checkedAt": "2026-06-14T20:08:53.400Z",
+  "queryLimits": {
+    "opportunitiesFirst": 500,
+    "noteTargetsFirst": 200,
+    "taskTargetsFirst": 200
+  },
+  "expectedDeals": 16,
+  "foundDeals": 16,
+  "expectedNotes": 17,
+  "expectedOpenTasks": 20,
+  "expectedClosedTasks": 5,
+  "gapCount": 0,
+  "gaps": [],
+  "iaMujeresTouched": [],
+  "rows": [
+    {
+      "name": "Casa África — AfricanTech Curso 1 (junio 2026)",
+      "id": "e9490f49-d435-4257-a8d5-2770888bd3dd",
+      "stage": "PENDING_SIGNATURE",
+      "expectedStage": "PENDING_SIGNATURE",
+      "amount": {
+        "amountMicros": 2500000000,
+        "currencyCode": "EUR"
+      },
+      "expectedAmountEUR": 2500,
+      "businessLine": "Skilland EU Platform",
+      "notesMatched": 1,
+      "tasksExpectedOpen": 2,
+      "tasksExpectedClosed": 0,
+      "openTasks": [
+        {
+          "id": "0f80a1af-8d00-495e-8fc2-040957409a07",
+          "title": "Preparar/enviar oferta, memoria técnica y presupuesto conjunto Casa África — plataforma + curso 1",
+          "dueAt": "2026-06-16T07:00:00.000Z",
+          "status": "TODO"
+        },
+        {
+          "id": "249088c1-4f8a-4bf8-a790-8ea2c573470d",
+          "title": "Buscar tres proveedores/presupuestos adicionales para Casa África / AfricanTech",
+          "dueAt": "2026-06-16T07:00:00.000Z",
+          "status": "TODO"
+        }
+      ],
+      "closedTasksMatched": [],
+      "gaps": []
+    },
+    {
+      "name": "Casa África — AfricanTech Curso 2 (noviembre 2026)",
+      "id": "32f9e57b-60f5-473c-a208-aeface10c7f1",
+      "stage": "PENDING_SIGNATURE",
+      "expectedStage": "PENDING_SIGNATURE",
+      "amount": {
+        "amountMicros": 2500000000,
+        "currencyCode": "EUR"
+      },
+      "expectedAmountEUR": 2500,
+      "businessLine": "Skilland EU Platform",
+      "notesMatched": 1,
+      "tasksExpectedOpen": 1,
+      "tasksExpectedClosed": 0,
+      "openTasks": [
+        {
+          "id": "7d814ffe-e764-40f0-bf51-620275b6614c",
+          "title": "Tantear contratación Q4 Casa África — AfricanTech Curso 2",
+          "dueAt": "2026-10-01T07:00:00.000Z",
+          "status": "TODO"
+        }
+      ],
+      "closedTasksMatched": [],
+      "gaps": []
+    },
+    {
+      "name": "FEMEPA — Plataforma EU",
+      "id": "90b13255-35df-4756-b7fc-884f39354164",
+      "stage": "IN_EXECUTION",
+      "expectedStage": "IN_EXECUTION",
+      "amount": {
+        "amountMicros": 4000000000,
+        "currencyCode": "EUR"
+      },
+      "expectedAmountEUR": 4000,
+      "businessLine": "Skilland EU Platform",
+      "notesMatched": 2,
+      "tasksExpectedOpen": 0,
+      "tasksExpectedClosed": 1,
+      "openTasks": [],
+      "closedTasksMatched": [
+        {
+          "title": "Seguimiento Consorcio",
+          "matched": true
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "name": "Casa África — Plataforma EU",
+      "id": "94c09679-41ba-4608-b5cd-12fe55884216",
+      "stage": "PENDING_SIGNATURE",
+      "expectedStage": "PENDING_SIGNATURE",
+      "amount": {
+        "amountMicros": 4000000000,
+        "currencyCode": "EUR"
+      },
+      "expectedAmountEUR": 4000,
+      "businessLine": "Skilland EU Platform",
+      "notesMatched": 1,
+      "tasksExpectedOpen": 2,
+      "tasksExpectedClosed": 0,
+      "openTasks": [
+        {
+          "id": "14aeff0d-89ec-40e3-b53b-0acf867f594b",
+          "title": "Preparar memoria técnica conjunta Casa África — plataforma + curso 1",
+          "dueAt": "2026-06-16T07:00:00.000Z",
+          "status": "TODO"
+        },
+        {
+          "id": "633e71be-a592-423a-b0de-ff5af2497f70",
+          "title": "Buscar tres proveedores/presupuestos adicionales para contratación Casa África",
+          "dueAt": "2026-06-16T07:00:00.000Z",
+          "status": "TODO"
+        }
+      ],
+      "closedTasksMatched": [],
+      "gaps": []
+    },
+    {
+      "name": "Cámara de Comercio de Tenerife — Plataforma EU",
+      "id": "d3f9f2e8-b0e2-4ce2-82d0-ecfae2c6f7ba",
+      "stage": "PENDING_SIGNATURE",
+      "expectedStage": "PENDING_SIGNATURE",
+      "amount": {
+        "amountMicros": 4000000000,
+        "currencyCode": "EUR"
+      },
+      "expectedAmountEUR": 4000,
+      "businessLine": "Skilland EU Platform",
+      "notesMatched": 1,
+      "tasksExpectedOpen": 1,
+      "tasksExpectedClosed": 0,
+      "openTasks": [
+        {
+          "id": "7f1b8e54-a1da-4ccb-ba90-9211b49f4915",
+          "title": "Contactar Cámara Tenerife — desbloquear contratación Plataforma EU",
+          "dueAt": "2026-06-17T07:00:00.000Z",
+          "status": "TODO"
+        }
+      ],
+      "closedTasksMatched": [],
+      "gaps": []
+    },
+    {
+      "name": "FEMETE — Plataforma EU",
+      "id": "459847b7-d38c-4561-8086-534d8eea5f91",
+      "stage": "PENDING_SIGNATURE",
+      "expectedStage": "PENDING_SIGNATURE",
+      "amount": {
+        "amountMicros": 4000000000,
+        "currencyCode": "EUR"
+      },
+      "expectedAmountEUR": 4000,
+      "businessLine": "Skilland EU Platform",
+      "notesMatched": 1,
+      "tasksExpectedOpen": 1,
+      "tasksExpectedClosed": 0,
+      "openTasks": [
+        {
+          "id": "0e1b96e8-e9e1-42d3-a693-be5858d3132d",
+          "title": "Localizar contacto/teléfono FEMETE y activar cierre Plataforma EU",
+          "dueAt": "2026-06-17T07:00:00.000Z",
+          "status": "TODO"
+        }
+      ],
+      "closedTasksMatched": [],
+      "gaps": []
+    },
+    {
+      "name": "EPI 10 - DISCOVERY CONSULTING",
+      "id": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "stage": "PROPUESTA_PRESENTADA_NEGOCIACION",
+      "expectedStage": null,
+      "amount": {
+        "amountMicros": 4700000000,
+        "currencyCode": "EUR"
+      },
+      "expectedAmountEUR": null,
+      "businessLine": "SkiLand Consulting",
+      "notesMatched": 1,
+      "tasksExpectedOpen": 1,
+      "tasksExpectedClosed": 0,
+      "openTasks": [
+        {
+          "id": "55934261-b78b-4f57-bb38-aa010ded5b21",
+          "title": "Follow-up Carmen — revisión propuesta EPI10",
+          "dueAt": "2026-06-16T07:00:00.000Z",
+          "status": "TODO"
+        }
+      ],
+      "closedTasksMatched": [],
+      "gaps": []
+    },
+    {
+      "name": "Bootcamp Ejército - Pedro León Millán",
+      "id": "3a2eda13-f59b-431c-ba96-9701e13066e1",
+      "stage": "PROPUESTA_PRESENTADA_NEGOCIACION",
+      "expectedStage": null,
+      "amount": {
+        "amountMicros": 3315000000,
+        "currencyCode": "EUR"
+      },
+      "expectedAmountEUR": null,
+      "businessLine": "Skilland School",
+      "notesMatched": 1,
+      "tasksExpectedOpen": 1,
+      "tasksExpectedClosed": 0,
+      "openTasks": [
+        {
+          "id": "370dbb91-c158-48ca-ba25-b4976f896e6d",
+          "title": "Follow-up Pedro León Millán — propuesta Bootcamp Ejército",
+          "dueAt": "2026-06-19T07:00:00.000Z",
+          "status": "TODO"
+        }
+      ],
+      "closedTasksMatched": [],
+      "gaps": []
+    },
+    {
+      "name": "Science for Change — Piloto Plataforma (1 Creator + 20 Student)",
+      "id": "c9f9df40-d5fa-48bd-9cd0-f1614e940f88",
+      "stage": "PROPUESTA_PRESENTADA_NEGOCIACION",
+      "expectedStage": null,
+      "amount": {
+        "amountMicros": 1750000000,
+        "currencyCode": "EUR"
+      },
+      "expectedAmountEUR": null,
+      "businessLine": "Skilland School",
+      "notesMatched": 1,
+      "tasksExpectedOpen": 1,
+      "tasksExpectedClosed": 0,
+      "openTasks": [
+        {
+          "id": "039f4a76-c2b7-492f-8806-22e1d11ca431",
+          "title": "Follow-up serio Science for Change — decidir sí/no o bloqueos",
+          "dueAt": "2026-06-16T07:00:00.000Z",
+          "status": "TODO"
+        }
+      ],
+      "closedTasksMatched": [],
+      "gaps": []
+    },
+    {
+      "name": "UPCT — Piloto Microcredenciales",
+      "id": "314abcbc-3718-4ad0-9941-59d15473423f",
+      "stage": "PROPUESTA_PRESENTADA_NEGOCIACION",
+      "expectedStage": null,
+      "amount": {
+        "amountMicros": null,
+        "currencyCode": "EUR"
+      },
+      "expectedAmountEUR": null,
+      "businessLine": "Skilland MicroCred",
+      "notesMatched": 1,
+      "tasksExpectedOpen": 1,
+      "tasksExpectedClosed": 2,
+      "openTasks": [
+        {
+          "id": "060e878b-4544-4967-9607-caa607297ff2",
+          "title": "Follow-up Josefa UPCT — agendar reunión feedback dossier",
+          "dueAt": "2026-06-15T07:00:00.000Z",
+          "status": "TODO"
+        }
+      ],
+      "closedTasksMatched": [
+        {
+          "title": "Escribir a Josefa (UPCT) para reunión de feedback sobre dosier microcredenciales",
+          "matched": true
+        },
+        {
+          "title": "Reflotar  y coordinar reunion post dossier",
+          "matched": true
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "name": "ULPGC — Microcredenciales",
+      "id": "51d1fe86-8772-4e0e-bf3b-50a82ca22454",
+      "stage": "PROPUESTA_PRESENTADA_NEGOCIACION",
+      "expectedStage": null,
+      "amount": {
+        "amountMicros": 2500000000,
+        "currencyCode": "EUR"
+      },
+      "expectedAmountEUR": null,
+      "businessLine": "Skilland MicroCred",
+      "notesMatched": 1,
+      "tasksExpectedOpen": 2,
+      "tasksExpectedClosed": 1,
+      "openTasks": [
+        {
+          "id": "babf8a1b-c8ea-45ae-a725-5a8206fa0687",
+          "title": "Hablar con Romi — estrategia ULPGC microcredenciales verano",
+          "dueAt": "2026-06-15T07:00:00.000Z",
+          "status": "TODO"
+        },
+        {
+          "id": "062690f0-8c58-419d-9139-adfc2ef1f335",
+          "title": "Follow-up Cristina ULPGC — documentación microcredencial",
+          "dueAt": "2026-06-16T07:00:00.000Z",
+          "status": "TODO"
+        }
+      ],
+      "closedTasksMatched": [
+        {
+          "title": "Enviar a Cristina (ULPGC) memoria académica y detalle MCDU completados",
+          "matched": true
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "name": "Turismo Camara Comercio - jornada Raul",
+      "id": "a21bd7ae-e49d-4c06-9b8b-6706cee7b982",
+      "stage": "CLOSED",
+      "expectedStage": "CLOSED",
+      "amount": {
+        "amountMicros": 600000000,
+        "currencyCode": "EUR"
+      },
+      "expectedAmountEUR": null,
+      "businessLine": "REBOOT ACADEMY",
+      "notesMatched": 1,
+      "tasksExpectedOpen": 1,
+      "tasksExpectedClosed": 0,
+      "openTasks": [
+        {
+          "id": "84894b66-78bc-4a7a-b783-375574ce98bd",
+          "title": "Sentarme con GPT para definir reimpacto comercial a Rocío / Cámara GC",
+          "dueAt": "2026-06-24T07:00:00.000Z",
+          "status": "TODO"
+        }
+      ],
+      "closedTasksMatched": [],
+      "gaps": []
+    },
+    {
+      "name": "Bootcamp Paula",
+      "id": "cbae8c00-1c19-49e0-9792-bbd2be0431b3",
+      "stage": "IN_EXECUTION",
+      "expectedStage": "IN_EXECUTION",
+      "amount": {
+        "amountMicros": 3000000000,
+        "currencyCode": "EUR"
+      },
+      "expectedAmountEUR": null,
+      "businessLine": "Skilland School",
+      "notesMatched": 1,
+      "tasksExpectedOpen": 2,
+      "tasksExpectedClosed": 0,
+      "openTasks": [
+        {
+          "id": "6a5b4ff4-1219-4442-b10c-39ae1378a153",
+          "title": "Matriculación, bienvenida y acceso al campus — Bootcamp Paula",
+          "dueAt": "2026-06-18T07:00:00.000Z",
+          "status": "TODO"
+        },
+        {
+          "id": "ac051d4c-e509-466f-a6e9-9ca2e8e72762",
+          "title": "Emitir/gestionar primera factura — Bootcamp Paula",
+          "dueAt": "2026-06-18T07:00:00.000Z",
+          "status": "TODO"
+        }
+      ],
+      "closedTasksMatched": [],
+      "gaps": []
+    },
+    {
+      "name": "Eros Calixto - Full Stack Bootcamp",
+      "id": "3d266d7e-f636-4c2b-bdd6-a17b4b35cbee",
+      "stage": "IN_EXECUTION",
+      "expectedStage": "IN_EXECUTION",
+      "amount": {
+        "amountMicros": 3000000000,
+        "currencyCode": "EUR"
+      },
+      "expectedAmountEUR": null,
+      "businessLine": "Skilland School",
+      "notesMatched": 1,
+      "tasksExpectedOpen": 2,
+      "tasksExpectedClosed": 0,
+      "openTasks": [
+        {
+          "id": "060b18e1-7466-4680-94fe-7ff801997ed9",
+          "title": "Tutoría recurrente viernes 13:00 — Eros Calixto (primera sesión)",
+          "dueAt": "2026-06-19T11:00:00.000Z",
+          "status": "TODO"
+        },
+        {
+          "id": "521bd7cf-2af1-48bf-9c6b-a0e890e1c5e4",
+          "title": "Follow-up cobro / facturación pendiente Eros",
+          "dueAt": "2026-06-19T07:00:00.000Z",
+          "status": "TODO"
+        }
+      ],
+      "closedTasksMatched": [],
+      "gaps": []
+    },
+    {
+      "name": "Proexca — IA para Directivos",
+      "id": "f1afda1d-6f85-4386-ba0b-9e65a01019ea",
+      "stage": "CLOSED",
+      "expectedStage": "CLOSED",
+      "amount": {
+        "amountMicros": 12900000000,
+        "currencyCode": "USD"
+      },
+      "expectedAmountEUR": null,
+      "businessLine": "Skilland School",
+      "notesMatched": 1,
+      "tasksExpectedOpen": 0,
+      "tasksExpectedClosed": 1,
+      "openTasks": [],
+      "closedTasksMatched": [
+        {
+          "title": "PERIODICO: correo dinamización PROEXCA",
+          "matched": true
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "name": "FGULL — Proyectos Microcredenciales (Plugin Moodle + Motor IA)",
+      "id": "4ad0088d-f55d-43a8-bdd2-9182a0ee4b92",
+      "stage": "IN_EXECUTION",
+      "expectedStage": "IN_EXECUTION",
+      "amount": {
+        "amountMicros": 15000000000,
+        "currencyCode": "EUR"
+      },
+      "expectedAmountEUR": null,
+      "businessLine": "REBOOT ACADEMY",
+      "notesMatched": 1,
+      "tasksExpectedOpen": 2,
+      "tasksExpectedClosed": 0,
+      "openTasks": [
+        {
+          "id": "7735f8c2-e200-4cf2-b433-72561827aeff",
+          "title": "Hablar con Romi — alinear estrategia FGULL microcredenciales",
+          "dueAt": "2026-06-15T07:00:00.000Z",
+          "status": "TODO"
+        },
+        {
+          "id": "9740e2a4-344b-4a38-ad71-8ae5ec331ffd",
+          "title": "Reunión de Ricardo y enfoque de coordinación de la ejecución del proyecto",
+          "dueAt": "2026-06-18T07:00:00.000Z",
+          "status": "TODO"
+        }
+      ],
+      "closedTasksMatched": [],
+      "gaps": []
+    }
+  ]
+}
