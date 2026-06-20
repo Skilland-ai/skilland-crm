@@ -681,6 +681,8 @@ function pickHelpfulContextFields(deal, nextStepFieldName) {
     ['campaignName', 'campaignName'],
     ['meetingStatus', 'meetingStatus'],
     ['meetingDate', 'meetingDate'],
+    ['commercialStatus', 'commercialStatus'],
+    ['estadoComercial', 'estadoComercial'],
     ['followUpDueAt', 'followUpDueAt'],
     ['lastReplyAt', 'lastReplyAt'],
     ['lastEmailSentAt', 'lastEmailSentAt'],

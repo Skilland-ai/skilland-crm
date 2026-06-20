@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-06-20T16:16:39.250Z",
+  "mode": "dry_run",
+  "lead": {
+    "name": "Victor Garcia Roman",
+    "email": "victorgarciaroman95@gmail.com",
+    "supabaseId": "46ff23eb-2c3b-4638-8381-f59ad67a873d"
+  },
+  "person": {
+    "action": "created",
+    "id": null
+  },
+  "opportunity": {
+    "action": "created",
+    "id": null,
+    "name": "Victor Garcia Roman - Reboot Orientation Funnel"
+  },
+  "note": {
+    "action": "created",
+    "planned": true,
+    "title": "Lead Supabase - Victor Garcia Roman"
+  },
+  "meetingTask": {
+    "action": "created",
+    "planned": true,
+    "title": "Sesion 1:1 Orientacion y prospeccion",
+    "dueAt": "2026-06-22T12:15:00.000Z"
+  },
+  "prepTask": {
+    "action": "created",
+    "planned": true,
+    "title": "Preparar material potencial para Victor Garcia Roman",
+    "dueAt": "2026-06-20T08:00:00.000Z"
+  }
+}
