@@ -189,6 +189,7 @@
   "version": "0.2.1",
   "nx": {},
   "scripts": {
+    "crm:aikount": "node scripts/crm_aikount_ops/harness.mjs",
     "crm:execute": "node scripts/crm_execution_crew/harness.mjs",
     "crm:review": "node scripts/crm_manual_update_crew/harness.mjs",
     "docs:generate": "tsx packages/twenty-docs/scripts/generate-docs-json.ts",
