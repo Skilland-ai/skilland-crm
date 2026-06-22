@@ -120,27 +120,27 @@
     }
   ],
   "opportunities": {
-    "total": 164,
+    "total": 165,
     "campaign": 112,
     "byStage": {
       "POSSIBLE_OPPORTUNITY": 112
     },
     "byOutreachStatus": {
-      "pending_first_email": 35,
-      "sent_first_email": 65,
+      "sent_first_email": 90,
       "meeting_proposed": 8,
       "bounce_detected": 3,
+      "pending_first_email": 10,
       "replied": 1
     },
     "byIaMujeresFunnelStage": {
-      "NOT_SENT": 35,
-      "EMAIL_1_SENT": 65,
+      "EMAIL_1_SENT": 90,
       "MEETING_PROPOSED": 9,
-      "WRONG_CONTACT_MANUAL_REVIEW": 3
+      "WRONG_CONTACT_MANUAL_REVIEW": 3,
+      "NOT_SENT": 10
     },
     "needsManualReview": 70,
     "duplicatePossible": 11,
     "genericEmail": 54,
-    "withGmailThreadId": 69
+    "withGmailThreadId": 94
   }
 }

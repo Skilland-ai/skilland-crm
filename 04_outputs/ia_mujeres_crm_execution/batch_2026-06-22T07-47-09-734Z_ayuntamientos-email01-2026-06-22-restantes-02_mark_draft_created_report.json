@@ -1,0 +1,55 @@
+{
+  "mode": "apply",
+  "batch_id": "2026-06-22T07-47-09-734Z_ayuntamientos-email01-2026-06-22-restantes-02",
+  "updated": [
+    {
+      "crm_deal_id": "f906acb9-81eb-4a90-829b-353f39ccee67",
+      "updateData": {
+        "gmailDraftId": "r7979888615152006133",
+        "iaMujeresFunnelStage": "DRAFT_CREATED",
+        "outreachStatus": "draft_created",
+        "lastEmailEventAt": "2026-06-22T07:49:22.016Z",
+        "lastEmailEventType": "draft_created",
+        "activeBatchId": "2026-06-22T07-47-09-734Z_ayuntamientos-email01-2026-06-22-restantes-02",
+        "lastEmailTemplate": "email_01",
+        "lastEmailSubject": "Una preocupación que quería compartir con usted",
+        "gmailMessageId": "19eee4e2211fbd6a",
+        "gmailThreadId": "19eee4e2211fbd6a"
+      },
+      "note": {
+        "id": "25149834-394f-426c-aaef-8c5483b2962e",
+        "title": "[IA Mujeres] Draft Email 1 creado"
+      },
+      "task": {
+        "id": "18adb6d0-d3a1-4711-b80f-2f81f3d679bd",
+        "title": "[IA Mujeres] Revisar draft Email 1",
+        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
+      }
+    },
+    {
+      "crm_deal_id": "ffca6190-dbaa-4398-903f-49cadca62688",
+      "updateData": {
+        "gmailDraftId": "r-6307599205391155537",
+        "iaMujeresFunnelStage": "DRAFT_CREATED",
+        "outreachStatus": "draft_created",
+        "lastEmailEventAt": "2026-06-22T07:49:23.306Z",
+        "lastEmailEventType": "draft_created",
+        "activeBatchId": "2026-06-22T07-47-09-734Z_ayuntamientos-email01-2026-06-22-restantes-02",
+        "lastEmailTemplate": "email_01",
+        "lastEmailSubject": "Una preocupación que quería compartir con usted",
+        "gmailMessageId": "19eee4e2c334d6d4",
+        "gmailThreadId": "19eee4e2c334d6d4"
+      },
+      "note": {
+        "id": "127621c1-63f4-4682-8be4-9777f56858dd",
+        "title": "[IA Mujeres] Draft Email 1 creado"
+      },
+      "task": {
+        "id": "cc680af7-7ac9-4b9a-997e-e51b090c3cfd",
+        "title": "[IA Mujeres] Revisar draft Email 1",
+        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
+      }
+    }
+  ],
+  "planned": []
+}

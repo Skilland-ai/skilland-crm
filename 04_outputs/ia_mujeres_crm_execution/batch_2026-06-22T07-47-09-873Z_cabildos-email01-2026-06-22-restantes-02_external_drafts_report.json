@@ -1,0 +1,187 @@
+{
+  "generated_at": "2026-06-22T07:51:42.209Z",
+  "mode": "apply",
+  "batch_id": "2026-06-22T07-47-09-873Z_cabildos-email01-2026-06-22-restantes-02",
+  "payload_path": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/batch_2026-06-22T07-47-09-873Z_cabildos-email01-2026-06-22-restantes-02_draft_payloads.json",
+  "sender": "gerencia@skilland.ai",
+  "attachment": {
+    "default_path": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/shared/templates/ia-mujeres/assets/Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+    "expected_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf"
+  },
+  "auth": {
+    "user": "gerencia@skilland.ai",
+    "token_valid": true,
+    "storage": "encrypted"
+  },
+  "safeguards": [
+    "Creates Gmail drafts only.",
+    "Does not send emails.",
+    "Max 5 payloads.",
+    "Requires --confirm-create-external-drafts with --apply.",
+    "Requires Email 1 v4.2 body copy, neutral greeting, and dossier attachment."
+  ],
+  "drafts": [
+    {
+      "crm_deal_id": "9304746f-6652-4efa-9f0a-a1feb9cc7d03",
+      "company_id": "e28b8340-b3e8-4af0-a032-e7156968f2ff",
+      "person_id": "5d03163f-6d69-418d-bbcf-1b42197396bb",
+      "recipient_email": "gobiernoabierto@cabildodelanzarote.com",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-15_email_01_v4_5",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailDraftId": "r1612980820839089480",
+      "gmailMessageId": "19eee505bcfcb422",
+      "gmailThreadId": "19eee505bcfcb422",
+      "validation": {
+        "attachmentPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/shared/templates/ia-mujeres/assets/Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+        "attachmentName": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+        "attachmentBytes": 2825604,
+        "signaturePresent": true,
+        "htmlHasAccents": true,
+        "email01": {
+          "templateVersion": "2026-06-15_email_01_v4_5",
+          "noGenderedGreeting": true,
+          "genderedGreetingMatches": [],
+          "noForbiddenBodyUrls": true,
+          "forbiddenBodyUrls": [],
+          "unresolvedPlaceholders": [],
+          "derivationIncluded": true,
+          "derivationTextPresent": true,
+          "derivationMatchesPayload": true,
+          "expectedAttachmentNameMatches": true,
+          "htmlHasExpectedCopy": true
+        },
+        "draft": {
+          "fromOk": true,
+          "fromDisplayNameOk": true,
+          "toOk": true,
+          "subjectOk": true,
+          "attachmentPresent": true,
+          "expectedAttachmentNameMatches": true,
+          "signaturePresent": true,
+          "filenames": [
+            "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf"
+          ],
+          "mimeTypes": [
+            "multipart/mixed",
+            "multipart/alternative",
+            "text/plain",
+            "text/html",
+            "application/pdf"
+          ]
+        }
+      }
+    },
+    {
+      "crm_deal_id": "cfc9f347-2373-4b78-9200-6858392fa9e7",
+      "company_id": "947e837e-cdbc-4809-b450-1fb68e4f3dd9",
+      "person_id": "868b8b6f-fefe-407f-ab8c-46f98ada8251",
+      "recipient_email": "cabildo@cabildodelapalma.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-15_email_01_v4_5",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailDraftId": "r-202141636696991564",
+      "gmailMessageId": "19eee5065abe6192",
+      "gmailThreadId": "19eee5065abe6192",
+      "validation": {
+        "attachmentPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/shared/templates/ia-mujeres/assets/Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+        "attachmentName": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+        "attachmentBytes": 2825604,
+        "signaturePresent": true,
+        "htmlHasAccents": true,
+        "email01": {
+          "templateVersion": "2026-06-15_email_01_v4_5",
+          "noGenderedGreeting": true,
+          "genderedGreetingMatches": [],
+          "noForbiddenBodyUrls": true,
+          "forbiddenBodyUrls": [],
+          "unresolvedPlaceholders": [],
+          "derivationIncluded": true,
+          "derivationTextPresent": true,
+          "derivationMatchesPayload": true,
+          "expectedAttachmentNameMatches": true,
+          "htmlHasExpectedCopy": true
+        },
+        "draft": {
+          "fromOk": true,
+          "fromDisplayNameOk": true,
+          "toOk": true,
+          "subjectOk": true,
+          "attachmentPresent": true,
+          "expectedAttachmentNameMatches": true,
+          "signaturePresent": true,
+          "filenames": [
+            "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf"
+          ],
+          "mimeTypes": [
+            "multipart/mixed",
+            "multipart/alternative",
+            "text/plain",
+            "text/html",
+            "application/pdf"
+          ]
+        }
+      }
+    },
+    {
+      "crm_deal_id": "f8356a67-c017-4306-838f-3aff3837bdf3",
+      "company_id": "947e837e-cdbc-4809-b450-1fb68e4f3dd9",
+      "person_id": "b8f07ae7-03ae-43b4-8934-e0a198433f2f",
+      "recipient_email": "servicio.empleo@cablapalma.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-15_email_01_v4_5",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailDraftId": "r4207968725631960774",
+      "gmailMessageId": "19eee506e940503c",
+      "gmailThreadId": "19eee506e940503c",
+      "validation": {
+        "attachmentPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/shared/templates/ia-mujeres/assets/Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+        "attachmentName": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+        "attachmentBytes": 2825604,
+        "signaturePresent": true,
+        "htmlHasAccents": true,
+        "email01": {
+          "templateVersion": "2026-06-15_email_01_v4_5",
+          "noGenderedGreeting": true,
+          "genderedGreetingMatches": [],
+          "noForbiddenBodyUrls": true,
+          "forbiddenBodyUrls": [],
+          "unresolvedPlaceholders": [],
+          "derivationIncluded": true,
+          "derivationTextPresent": true,
+          "derivationMatchesPayload": true,
+          "expectedAttachmentNameMatches": true,
+          "htmlHasExpectedCopy": true
+        },
+        "draft": {
+          "fromOk": true,
+          "fromDisplayNameOk": true,
+          "toOk": true,
+          "subjectOk": true,
+          "attachmentPresent": true,
+          "expectedAttachmentNameMatches": true,
+          "signaturePresent": true,
+          "filenames": [
+            "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf"
+          ],
+          "mimeTypes": [
+            "multipart/mixed",
+            "multipart/alternative",
+            "text/plain",
+            "text/html",
+            "application/pdf"
+          ]
+        }
+      }
+    }
+  ]
+}

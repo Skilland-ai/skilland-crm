@@ -16,6 +16,12 @@ import { resolveOrPrepareContact } from './kernel/contact-resolver.mjs';
 import { planAikountOperations } from './kernel/planner.mjs';
 import { reviewAikountOperationPlan } from './kernel/reviewer.mjs';
 import { executeAikountOperationPlan } from './kernel/executor.mjs';
+import {
+  addFileContainerItems,
+  buildRequestFromContainerItem,
+  defaultFileContainer,
+  recordFileContainerAttempt,
+} from './kernel/file-container.mjs';
 import { runAikountDocumentInterviewSkill } from './skills/aikount-document-interview.skill.mjs';
 
 const CRM_SNAPSHOT = {
@@ -276,4 +282,114 @@ test('registry persists to disk and reloads state', () => {
 
   const reloaded = loadRegistry(tmpDir);
   assert.equal(reloaded.contacts['company:company-1'].contactId, 'contact-1');
+});
+
+test('file container stages mixed deliverable and structured request data', () => {
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'crm-aikount-container-'));
+  const deliverablePath = path.join(tmpDir, 'presupuesto-acme.pdf');
+  const dataPath = path.join(tmpDir, 'presupuesto-acme.json');
+  fs.writeFileSync(deliverablePath, '%PDF-1.4 test');
+  fs.writeFileSync(
+    dataPath,
+    JSON.stringify({
+      action: 'create_quote',
+      dealLookup: { opportunityId: 'opp-1' },
+      documentKey: '20260622-0900-01',
+      document: { docDate: '2026-06-22', currency: 'EUR' },
+      lines: [{ description: 'Servicio', quantity: 1, unit_price: 250 }],
+    }),
+  );
+
+  const [item] = addFileContainerItems({
+    outputDir: tmpDir,
+    inputPath: deliverablePath,
+    dataFilePath: dataPath,
+    kind: 'quote',
+    requester: 'unit_test',
+  });
+
+  assert.equal(item.kind, 'quote');
+  assert.equal(item.sourceMode, 'mixed');
+  assert.equal(item.structuredRequest.action, 'create_quote');
+  assert.equal(item.structuredRequest.answers.lines.length, 1);
+  assert.equal(fs.existsSync(item.files[0].storedPath), true);
+
+  const request = buildRequestFromContainerItem({
+    item,
+    requester: 'unit_test',
+    mode: 'dry_run',
+  });
+
+  assert.equal(request.action, 'create_quote');
+  assert.equal(request.dealLookup.opportunityId, 'opp-1');
+  assert.equal(request.answers.documentKey, '20260622-0900-01');
+  assert.equal(request.answers.lines[0].description, 'Servicio');
+  assert.deepEqual(request.container.itemIds, [item.id]);
+  assert.equal(request.container.files.length, 1);
+});
+
+test('file container expands structured batches into separate items', () => {
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'crm-aikount-container-'));
+  const dataPath = path.join(tmpDir, 'batch.json');
+  fs.writeFileSync(
+    dataPath,
+    JSON.stringify({
+      items: [
+        {
+          action: 'create_quote',
+          dealLookup: { search: 'Acme' },
+          documentKey: 'quote-1',
+          lines: [{ description: 'Uno', quantity: 1, unit_price: 100 }],
+        },
+        {
+          action: 'create_quote',
+          dealLookup: { search: 'Beta' },
+          documentKey: 'quote-2',
+          lines: [{ description: 'Dos', quantity: 1, unit_price: 200 }],
+        },
+      ],
+    }),
+  );
+
+  const items = addFileContainerItems({
+    outputDir: tmpDir,
+    dataFilePath: dataPath,
+    kind: 'quote',
+    requester: 'unit_test',
+  });
+
+  assert.equal(items.length, 2);
+  assert.equal(items[0].sourceMode, 'structured');
+  assert.equal(items[0].structuredRequest.answers.documentKey, 'quote-1');
+  assert.equal(items[1].structuredRequest.dealLookup.search, 'Beta');
+});
+
+test('file container keeps dry-run pending and marks apply completed as registered', () => {
+  const container = defaultFileContainer();
+  container.items.push({
+    id: 'aikountfile_test',
+    status: 'pending',
+    kind: 'invoice',
+    sourceMode: 'structured',
+    files: [],
+    attempts: [],
+  });
+
+  recordFileContainerAttempt(container, 'aikountfile_test', {
+    requestId: 'req-dry-run',
+    status: 'dry_run_completed',
+    effectiveMode: 'dry_run',
+  });
+
+  assert.equal(container.items[0].status, 'pending');
+  assert.equal(container.items[0].lastDryRunRequestId, 'req-dry-run');
+
+  recordFileContainerAttempt(container, 'aikountfile_test', {
+    requestId: 'req-apply',
+    status: 'apply_completed',
+    effectiveMode: 'apply',
+  });
+
+  assert.equal(container.items[0].status, 'registered');
+  assert.equal(container.items[0].registeredRequestId, 'req-apply');
 });

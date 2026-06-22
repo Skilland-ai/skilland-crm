@@ -1,0 +1,51 @@
+{
+  "batch_id": "2026-06-22T07-47-09-873Z_cabildos-email01-2026-06-22-restantes-02",
+  "sent_at": "2026-06-22T07:51:53.848Z",
+  "sent": [
+    {
+      "crm_deal_id": "9304746f-6652-4efa-9f0a-a1feb9cc7d03",
+      "company_id": "e28b8340-b3e8-4af0-a032-e7156968f2ff",
+      "person_id": "5d03163f-6d69-418d-bbcf-1b42197396bb",
+      "recipient_email": "gobiernoabierto@cabildodelanzarote.com",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-15_email_01_v4_5",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailMessageId": "19eee5088d27576d",
+      "gmailThreadId": "19eee505bcfcb422",
+      "sentAt": "2026-06-22T07:51:56.231Z"
+    },
+    {
+      "crm_deal_id": "cfc9f347-2373-4b78-9200-6858392fa9e7",
+      "company_id": "947e837e-cdbc-4809-b450-1fb68e4f3dd9",
+      "person_id": "868b8b6f-fefe-407f-ab8c-46f98ada8251",
+      "recipient_email": "cabildo@cabildodelapalma.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-15_email_01_v4_5",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailMessageId": "19eee5091b2ceaf7",
+      "gmailThreadId": "19eee5065abe6192",
+      "sentAt": "2026-06-22T07:51:58.054Z"
+    },
+    {
+      "crm_deal_id": "f8356a67-c017-4306-838f-3aff3837bdf3",
+      "company_id": "947e837e-cdbc-4809-b450-1fb68e4f3dd9",
+      "person_id": "b8f07ae7-03ae-43b4-8934-e0a198433f2f",
+      "recipient_email": "servicio.empleo@cablapalma.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-15_email_01_v4_5",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailMessageId": "19eee5099bddba5e",
+      "gmailThreadId": "19eee506e940503c",
+      "sentAt": "2026-06-22T07:52:00.467Z"
+    }
+  ]
+}

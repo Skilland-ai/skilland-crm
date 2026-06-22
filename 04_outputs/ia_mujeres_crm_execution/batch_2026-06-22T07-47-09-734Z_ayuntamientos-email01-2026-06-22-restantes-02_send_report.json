@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-06-22T07:49:25.137Z",
+  "mode": "apply",
+  "batch_id": "2026-06-22T07-47-09-734Z_ayuntamientos-email01-2026-06-22-restantes-02",
+  "draft_map_path": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/ia_mujeres_crm_execution/batch_2026-06-22T07-47-09-734Z_ayuntamientos-email01-2026-06-22-restantes-02_draft_map.json",
+  "sender": "gerencia@skilland.ai",
+  "auth": {
+    "user": "gerencia@skilland.ai",
+    "token_valid": true,
+    "storage": "encrypted"
+  },
+  "safeguards": [
+    "Sends only drafts listed in batch_<id>_draft_map.json.",
+    "Max 5 drafts.",
+    "Requires --apply and --confirm-send-approved-drafts."
+  ],
+  "sent": [
+    {
+      "crm_deal_id": "f906acb9-81eb-4a90-829b-353f39ccee67",
+      "company_id": "0d2fc625-c6f1-414e-9c5a-ed754338aa67",
+      "person_id": "ee59ff38-e2f9-4c64-8f83-2401f616109d",
+      "recipient_email": "ayuntamiento@matanceros.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-15_email_01_v4_5",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailDraftId": "r7979888615152006133",
+      "gmailMessageId": "19eee4e442a41f4a",
+      "gmailThreadId": "19eee4e2211fbd6a",
+      "status": "sent",
+      "sentAt": "2026-06-22T07:49:27.505Z"
+    },
+    {
+      "crm_deal_id": "ffca6190-dbaa-4398-903f-49cadca62688",
+      "company_id": "6fe9529b-e330-423a-b4ee-68bd3392e579",
+      "person_id": "3d5921be-28af-4e0a-8b0b-df18eb3dc159",
+      "recipient_email": "ayuntamiento@vallehermosoweb.es",
+      "sender_email": "gerencia@skilland.ai",
+      "subject": "Una preocupación que quería compartir con usted",
+      "template_name": "email_01",
+      "template_version": "2026-06-15_email_01_v4_5",
+      "attachment_policy": "dossier_blue_v2",
+      "attachment_mime_name": "Mujeres, IA y el Futuro del Trabajo · Dossier — SkilLand v2.pdf",
+      "gmailDraftId": "r-6307599205391155537",
+      "gmailMessageId": "19eee4e4b96d07bd",
+      "gmailThreadId": "19eee4e2c334d6d4",
+      "status": "sent",
+      "sentAt": "2026-06-22T07:49:29.334Z"
+    }
+  ]
+}

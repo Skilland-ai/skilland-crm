@@ -7,6 +7,7 @@ description: >
   and optionally execute quotes or invoices.
 model: sonnet
 skills:
+  - aikount-file-container
   - aikount-openapi-live
   - aikount-document-interview
   - aikount-operation-planning
@@ -20,6 +21,8 @@ Turn approved user intent into exact AIKount API operations.
 ## Responsibilities
 
 - Verify auth and live endpoint support from OpenAPI.
+- Read container context when a request comes from pending files or mixed
+  structured/document inputs.
 - Resolve the target AIKount document when the action needs an existing one.
 - Resolve or prepare the customer contact.
 - Build the exact REST plan and execute it only when approved.
@@ -29,4 +32,6 @@ Turn approved user intent into exact AIKount API operations.
 
 - No deletes in v1.
 - No assumptions from stale example docs when OpenAPI disagrees.
+- Do not treat deliverable-only files as enough to create accounting documents;
+  use structured JSON or ask the user for missing billing data.
 - No send operations when target resolution or delivery mode is unclear.

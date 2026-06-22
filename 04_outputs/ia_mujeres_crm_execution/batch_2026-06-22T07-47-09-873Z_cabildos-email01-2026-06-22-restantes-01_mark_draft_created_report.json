@@ -1,0 +1,127 @@
+{
+  "mode": "apply",
+  "batch_id": "2026-06-22T07-47-09-873Z_cabildos-email01-2026-06-22-restantes-01",
+  "updated": [
+    {
+      "crm_deal_id": "00b05f75-5bbb-4938-8d99-579c9a848cef",
+      "updateData": {
+        "gmailDraftId": "r-4191991237564714029",
+        "iaMujeresFunnelStage": "DRAFT_CREATED",
+        "outreachStatus": "draft_created",
+        "lastEmailEventAt": "2026-06-22T07:50:01.070Z",
+        "lastEmailEventType": "draft_created",
+        "activeBatchId": "2026-06-22T07-47-09-873Z_cabildos-email01-2026-06-22-restantes-01",
+        "lastEmailTemplate": "email_01",
+        "lastEmailSubject": "Una preocupación que quería compartir con usted",
+        "gmailMessageId": "19eee4ea1e9ed883",
+        "gmailThreadId": "19eee4ea1e9ed883"
+      },
+      "note": {
+        "id": "d31d7b5e-c0b2-4cf5-81fb-7ad57027eafc",
+        "title": "[IA Mujeres] Draft Email 1 creado"
+      },
+      "task": {
+        "id": "9aacf5ab-f14e-4a7c-9479-94b983683cc1",
+        "title": "[IA Mujeres] Revisar draft Email 1",
+        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
+      }
+    },
+    {
+      "crm_deal_id": "3b74b7ea-ec81-47a0-94e5-10970db0df59",
+      "updateData": {
+        "gmailDraftId": "r6148400302355719473",
+        "iaMujeresFunnelStage": "DRAFT_CREATED",
+        "outreachStatus": "draft_created",
+        "lastEmailEventAt": "2026-06-22T07:50:05.140Z",
+        "lastEmailEventType": "draft_created",
+        "activeBatchId": "2026-06-22T07-47-09-873Z_cabildos-email01-2026-06-22-restantes-01",
+        "lastEmailTemplate": "email_01",
+        "lastEmailSubject": "Una preocupación que quería compartir con usted",
+        "gmailMessageId": "19eee4eaaab2ffaa",
+        "gmailThreadId": "19eee4eaaab2ffaa"
+      },
+      "note": {
+        "id": "056211c4-565c-44bb-a19f-b60bb6d979c6",
+        "title": "[IA Mujeres] Draft Email 1 creado"
+      },
+      "task": {
+        "id": "9baacb7c-1b67-4851-849c-859427f58a4d",
+        "title": "[IA Mujeres] Revisar draft Email 1",
+        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
+      }
+    },
+    {
+      "crm_deal_id": "7166fe3b-4bac-41a5-9333-71b180e6ca7c",
+      "updateData": {
+        "gmailDraftId": "r-7029157392794236300",
+        "iaMujeresFunnelStage": "DRAFT_CREATED",
+        "outreachStatus": "draft_created",
+        "lastEmailEventAt": "2026-06-22T07:50:06.044Z",
+        "lastEmailEventType": "draft_created",
+        "activeBatchId": "2026-06-22T07-47-09-873Z_cabildos-email01-2026-06-22-restantes-01",
+        "lastEmailTemplate": "email_01",
+        "lastEmailSubject": "Una preocupación que quería compartir con usted",
+        "gmailMessageId": "19eee4eb333b510e",
+        "gmailThreadId": "19eee4eb333b510e"
+      },
+      "note": {
+        "id": "fcfffcfd-3d9d-43f7-9c23-7057d779fb34",
+        "title": "[IA Mujeres] Draft Email 1 creado"
+      },
+      "task": {
+        "id": "ce8ac102-e6d2-4f01-ac88-fb89aba727bb",
+        "title": "[IA Mujeres] Revisar draft Email 1",
+        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
+      }
+    },
+    {
+      "crm_deal_id": "8dcba042-8c5b-4fec-bd0a-88d795f4a32e",
+      "updateData": {
+        "gmailDraftId": "r4823863826929457879",
+        "iaMujeresFunnelStage": "DRAFT_CREATED",
+        "outreachStatus": "draft_created",
+        "lastEmailEventAt": "2026-06-22T07:50:07.180Z",
+        "lastEmailEventType": "draft_created",
+        "activeBatchId": "2026-06-22T07-47-09-873Z_cabildos-email01-2026-06-22-restantes-01",
+        "lastEmailTemplate": "email_01",
+        "lastEmailSubject": "Una preocupación que quería compartir con usted",
+        "gmailMessageId": "19eee4ebddb50d7b",
+        "gmailThreadId": "19eee4ebddb50d7b"
+      },
+      "note": {
+        "id": "af504a75-fe38-49b8-9ad6-e9d9a07a2a8a",
+        "title": "[IA Mujeres] Draft Email 1 creado"
+      },
+      "task": {
+        "id": "4201d419-985e-433f-911b-50e743d492c3",
+        "title": "[IA Mujeres] Revisar draft Email 1",
+        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
+      }
+    },
+    {
+      "crm_deal_id": "6a6ba862-9107-41c6-a3f8-1c66089ad209",
+      "updateData": {
+        "gmailDraftId": "r-6732612994276403051",
+        "iaMujeresFunnelStage": "DRAFT_CREATED",
+        "outreachStatus": "draft_created",
+        "lastEmailEventAt": "2026-06-22T07:50:08.103Z",
+        "lastEmailEventType": "draft_created",
+        "activeBatchId": "2026-06-22T07-47-09-873Z_cabildos-email01-2026-06-22-restantes-01",
+        "lastEmailTemplate": "email_01",
+        "lastEmailSubject": "Una preocupación que quería compartir con usted",
+        "gmailMessageId": "19eee4ec535db960",
+        "gmailThreadId": "19eee4ec535db960"
+      },
+      "note": {
+        "id": "4f91a851-e151-4d59-9f35-e090fc10b003",
+        "title": "[IA Mujeres] Draft Email 1 creado"
+      },
+      "task": {
+        "id": "96685efb-4abd-44ef-9801-cc97ebd10a50",
+        "title": "[IA Mujeres] Revisar draft Email 1",
+        "assigneeId": "323c2357-853d-45bc-ad7d-1703de9deef6"
+      }
+    }
+  ],
+  "planned": []
+}

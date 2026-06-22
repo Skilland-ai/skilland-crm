@@ -48,6 +48,7 @@ export function parseAikountActionRequest(input) {
     selectedMappings: isObject(input.selectedMappings) ? input.selectedMappings : {},
     answers: isObject(input.answers) ? input.answers : {},
     constraints: normalizeConstraints(input.constraints),
+    container: normalizeContainerContext(input.container),
   };
 }
 
@@ -128,6 +129,24 @@ function normalizeConstraints(raw) {
     allowCreate: booleanOrDefault(constraints.allowCreate, true),
     allowUpdate: booleanOrDefault(constraints.allowUpdate, true),
     allowSend: booleanOrDefault(constraints.allowSend, true),
+  };
+}
+
+function normalizeContainerContext(raw) {
+  if (!isObject(raw)) {
+    return null;
+  }
+
+  const itemIds = Array.isArray(raw.itemIds)
+    ? raw.itemIds.map((item) => String(item)).filter(Boolean)
+    : [];
+
+  return {
+    itemIds,
+    sourceMode: nonEmptyString(raw.sourceMode) ? raw.sourceMode : null,
+    files: Array.isArray(raw.files) ? raw.files : [],
+    title: nonEmptyString(raw.title) ? raw.title : null,
+    notes: nonEmptyString(raw.notes) ? raw.notes : null,
   };
 }
 

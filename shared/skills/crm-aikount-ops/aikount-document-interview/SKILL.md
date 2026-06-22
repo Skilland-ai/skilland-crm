@@ -11,6 +11,9 @@ description: Interview the user for missing AIKount document data in an interact
 2. Ask only for missing billing data.
 3. Prefer a minimal valid document over guessing.
 4. Offer follow-up actions only after the base document is clear.
+5. When a request comes from the file container, use structured data first and
+   treat user-made deliverables as reference unless the user explicitly provides
+   the missing billing fields.
 
 ## Ask for
 
@@ -25,4 +28,5 @@ description: Interview the user for missing AIKount document data in an interact
 ## Restrictions
 
 - Never invent lines or tax choices.
+- Never infer accounting payloads from deliverable filenames alone.
 - If the target document is ambiguous, stop and ask.

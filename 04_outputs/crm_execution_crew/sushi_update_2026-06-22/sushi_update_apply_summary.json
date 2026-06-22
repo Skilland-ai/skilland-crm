@@ -1,0 +1,1025 @@
+{
+  "mode": "apply",
+  "startedAt": "2026-06-22T08:06:23.883Z",
+  "finishedAt": "2026-06-22T08:06:36.154Z",
+  "outputDir": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_execution_crew/sushi_update_2026-06-22",
+  "requestPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_execution_crew/sushi_update_2026-06-22/sushi_update.request.json",
+  "planPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_execution_crew/sushi_update_2026-06-22/sushi_update_apply_plan.json",
+  "sessionPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_execution_crew/sushi_update_2026-06-22/session_2026-06-22T08-06-23-883Z.json",
+  "status": "apply_completed",
+  "crmWritten": true,
+  "iaMujeresTouched": false,
+  "resolvedDeals": 43,
+  "blockers": [],
+  "warnings": [
+    {
+      "code": "canceled_status_unavailable",
+      "message": "Task status CANCELED is not available; obsolete/canceled tasks will be marked DONE and logged."
+    }
+  ],
+  "preflight": {
+    "blockers": [],
+    "warnings": [
+      {
+        "code": "canceled_status_unavailable",
+        "message": "Task status CANCELED is not available; obsolete/canceled tasks will be marked DONE and logged."
+      }
+    ]
+  },
+  "plannedCounts": {
+    "planned": 29,
+    "noOp": 64,
+    "blocked": 0,
+    "byType": {
+      "create_task": 17,
+      "update_task": 10,
+      "create_note": 2
+    }
+  },
+  "executionSummary": {
+    "planned": 0,
+    "applied": 29,
+    "noOp": 64,
+    "blocked": 0,
+    "failed": 0
+  },
+  "dryRunSourceCounts": {
+    "create_task": 17,
+    "update_task": 10,
+    "create_note": 2
+  },
+  "appliedSourceCounts": {
+    "create_task": 17,
+    "update_task": 10,
+    "create_note": 2
+  },
+  "dealsUpdated": [],
+  "tasksMarkedDone": [
+    {
+      "dealName": "Bootcamp Paula",
+      "taskId": "6a5b4ff4-1219-4442-b10c-39ae1378a153",
+      "title": "Matriculación, bienvenida y acceso al campus — Bootcamp Paula",
+      "dueAt": null,
+      "status": "DONE"
+    },
+    {
+      "dealName": "EPI 10 - DISCOVERY CONSULTING",
+      "taskId": "55934261-b78b-4f57-bb38-aa010ded5b21",
+      "title": "Follow-up Carmen — revisión propuesta EPI10",
+      "dueAt": null,
+      "status": "DONE"
+    },
+    {
+      "dealName": "Michel Nory García - Reboot Orientation Funnel",
+      "taskId": "9abe7273-cf4e-43bf-bf58-6d5000a64290",
+      "title": "Sesion 1:1 Orientacion y prospeccion",
+      "dueAt": null,
+      "status": "DONE"
+    },
+    {
+      "dealName": "Michel Nory García - Reboot Orientation Funnel",
+      "taskId": "64e60866-51a9-452c-b298-9cd9728a49bd",
+      "title": "Enviar propuesta Michel Nory",
+      "dueAt": "2026-06-22T07:00:00.000Z",
+      "status": "DONE"
+    },
+    {
+      "dealName": "Cámara de Comercio de Tenerife — Plataforma EU",
+      "taskId": "7f1b8e54-a1da-4ccb-ba90-9211b49f4915",
+      "title": "Contactar Cámara Tenerife — desbloquear contratación Plataforma EU",
+      "dueAt": "2026-06-17T07:00:00.000Z",
+      "status": "DONE"
+    }
+  ],
+  "tasksCreated": [
+    {
+      "dealName": "Eros Calixto - Full Stack Bootcamp",
+      "title": "Nuevo follow-up cobro / facturación pendiente Eros",
+      "dueAt": "2026-07-15T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "dealName": "Eros Calixto - Full Stack Bootcamp",
+      "title": "Tutoría Eros Calixto — seguimiento bootcamp",
+      "dueAt": "2026-06-23T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "dealName": "Bootcamp Paula",
+      "title": "Resolver ticket técnico de acceso al campus — Bootcamp Paula",
+      "dueAt": "2026-06-22T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "dealName": "EPI 10 - DISCOVERY CONSULTING",
+      "title": "Enviar contrato EPI10 para firma",
+      "dueAt": "2026-06-22T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "dealName": "EPI 10 - DISCOVERY CONSULTING",
+      "title": "Enviar primera factura EPI10",
+      "dueAt": "2026-06-26T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "dealName": "Divi -  Migración Drive + Automat emails",
+      "title": "Follow-up Divi / DClick — feedback propuesta",
+      "dueAt": "2026-06-22T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "dealName": "Michel Nory García - Reboot Orientation Funnel",
+      "title": "Follow-up Michel Nory — propuesta enviada",
+      "dueAt": "2026-06-22T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "dealName": "Sergio Hernández Ramírez - Reboot Orientation Funnel",
+      "title": "Enviar contrato Sergio Hernández para firma",
+      "dueAt": "2026-06-22T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "dealName": "Sergio Hernández Ramírez - Reboot Orientation Funnel",
+      "title": "Enviar factura Sergio Hernández",
+      "dueAt": "2026-06-23T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "dealName": "FEMEPA — Plataforma EU",
+      "title": "Enviar primeras facturas FEMEPA",
+      "dueAt": "2026-06-24T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "dealName": "FEMEPA — Plataforma EU",
+      "title": "Mandar correo de coordinación completa FEMEPA / Plataforma EU",
+      "dueAt": "2026-06-24T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "dealName": "Casa África — AfricanTech Curso 1 (junio 2026)",
+      "title": "Escribir a Yurena — revisar cambios necesarios en la oferta",
+      "dueAt": "2026-06-22T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "dealName": "Casa África — AfricanTech Curso 1 (junio 2026)",
+      "title": "Enviar de nuevo oferta Casa África — Curso 1 + plataforma",
+      "dueAt": "2026-06-22T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "dealName": "Casa África — Plataforma EU",
+      "title": "Escribir a Yurena — revisar cambios necesarios en la oferta integrada",
+      "dueAt": "2026-06-22T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "dealName": "Casa África — Plataforma EU",
+      "title": "Enviar de nuevo oferta integrada Casa África — Plataforma + Curso 1",
+      "dueAt": "2026-06-22T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "dealName": "Cámara de Comercio de Tenerife — Plataforma EU",
+      "title": "Enviar memoria técnica descriptiva y presupuesto — Cámara Tenerife",
+      "dueAt": "2026-06-22T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "dealName": "Cámara de Comercio de Tenerife — Plataforma EU",
+      "title": "Contactar Marlen Cámara — confirmar si necesitan tres proveedores adicionales",
+      "dueAt": "2026-06-23T07:00:00.000Z",
+      "status": "TODO"
+    }
+  ],
+  "tasksRescheduled": [
+    {
+      "dealName": "Michel Nory García - Reboot Orientation Funnel",
+      "taskId": "64e60866-51a9-452c-b298-9cd9728a49bd",
+      "title": "Enviar propuesta Michel Nory",
+      "dueAt": "2026-06-22T07:00:00.000Z",
+      "status": "DONE"
+    },
+    {
+      "dealName": "Victor Garcia Roman - Reboot Orientation Funnel",
+      "taskId": "f6dfdaa5-ef00-4f52-9b03-5d41c775dd69",
+      "title": "Preparar material potencial para Victor Garcia Roman",
+      "dueAt": "2026-06-22T07:00:00.000Z",
+      "status": null
+    },
+    {
+      "dealName": "Matteo Neri Neri - Reboot Orientation Funnel",
+      "taskId": "0f7dfb9d-0ab0-458f-8426-2bf3b83ec078",
+      "title": "Sesion 1:1 Orientacion y prospeccion",
+      "dueAt": "2026-06-23T07:00:00.000Z",
+      "status": null
+    },
+    {
+      "dealName": "Casa África — AfricanTech Curso 1 (junio 2026)",
+      "taskId": "249088c1-4f8a-4bf8-a790-8ea2c573470d",
+      "title": "Buscar tres proveedores/presupuestos adicionales para Casa África / AfricanTech",
+      "dueAt": "2026-06-23T07:00:00.000Z",
+      "status": null
+    },
+    {
+      "dealName": "Casa África — Plataforma EU",
+      "taskId": "633e71be-a592-423a-b0de-ff5af2497f70",
+      "title": "Buscar tres proveedores/presupuestos adicionales para contratación Casa África",
+      "dueAt": "2026-06-23T07:00:00.000Z",
+      "status": null
+    },
+    {
+      "dealName": "FEMETE — Plataforma EU",
+      "taskId": "0e1b96e8-e9e1-42d3-a693-be5858d3132d",
+      "title": "Localizar contacto/teléfono FEMETE y activar cierre Plataforma EU",
+      "dueAt": "2026-06-23T07:00:00.000Z",
+      "status": null
+    },
+    {
+      "dealName": "Cámara de Comercio de Tenerife — Plataforma EU",
+      "taskId": "7f1b8e54-a1da-4ccb-ba90-9211b49f4915",
+      "title": "Contactar Cámara Tenerife — desbloquear contratación Plataforma EU",
+      "dueAt": "2026-06-17T07:00:00.000Z",
+      "status": "DONE"
+    }
+  ],
+  "stagesChanged": [],
+  "notesCreated": [
+    {
+      "dealName": "EPI 10 - DISCOVERY CONSULTING",
+      "title": "Venta cerrada — EPI10 MVP"
+    },
+    {
+      "dealName": "Sergio Hernández Ramírez - Reboot Orientation Funnel",
+      "title": "Venta pendiente de firma — Sergio Hernández"
+    }
+  ],
+  "noOps": [
+    {
+      "dealName": "FGULL — Proyectos Microcredenciales (Plugin Moodle + Motor IA)",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Reunión de Recap enfoque de coordinación de la ejecución del proyecto"
+    },
+    {
+      "dealName": "FGULL — Proyectos Microcredenciales (Plugin Moodle + Motor IA)",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Hablar con Romi — alinear estrategia FGULL microcredenciales"
+    },
+    {
+      "dealName": "FGULL — Proyectos Microcredenciales (Plugin Moodle + Motor IA)",
+      "kind": "create_note",
+      "reason": "Note already exists with same title: Actualización recap — FGULL microcredenciales"
+    },
+    {
+      "dealName": "FGULL — Proyectos Microcredenciales (Plugin Moodle + Motor IA)",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Reunión de planificación verano FGULL — baja actividad"
+    },
+    {
+      "dealName": "FGULL — Proyectos Microcredenciales (Plugin Moodle + Motor IA)",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Definir scope piloto externo FGULL — microcredenciales docentes universitarios"
+    },
+    {
+      "dealName": "Turismo Camara Comercio - jornada Raul",
+      "kind": "reschedule_task",
+      "reason": "Task already scheduled: Sentarme con GPT para definir reimpacto comercial a Rocío / Cámara GC"
+    },
+    {
+      "dealName": "BES EDITORIAL",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up BES Editorial — revisar sedes electrónicas"
+    },
+    {
+      "dealName": "Lola Azero - Automatiz",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up Lola Azero — revisar sedes electrónicas"
+    },
+    {
+      "dealName": "EXGEA SL - Pyme Digital",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up EXGEA SL — revisar sedes electrónicas"
+    },
+    {
+      "dealName": "MALOLE AGENCIA VIAJES",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Hablar con Leonor — decidir continuidad proyecto Malole"
+    },
+    {
+      "dealName": "María Mateos — Producto Innovación Educativa con IA",
+      "kind": "update_stage",
+      "reason": "Stage already ON_HOLD."
+    },
+    {
+      "dealName": "María Mateos — Producto Innovación Educativa con IA",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Procesar info y hacer primer boceto diseño de producto (María Mateos)"
+    },
+    {
+      "dealName": "María Mateos — Producto Innovación Educativa con IA",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Segunda reunión con María Mateos — mapear ecosistema"
+    },
+    {
+      "dealName": "María Mateos — Producto Innovación Educativa con IA",
+      "kind": "create_note",
+      "reason": "Note already exists with same title: Pausa operativa — María Mateos"
+    },
+    {
+      "dealName": "Universidad de Alicante CFPUA — Microcredenciales",
+      "kind": "update_stage",
+      "reason": "Stage already ON_HOLD."
+    },
+    {
+      "dealName": "Universidad de Alicante CFPUA — Microcredenciales",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up Universidad de Alicante CFPUA — retomar microcredenciales tras verano"
+    },
+    {
+      "dealName": "CRUE — Grupo Microcredenciales",
+      "kind": "update_stage",
+      "reason": "Stage already ON_HOLD."
+    },
+    {
+      "dealName": "CRUE — Grupo Microcredenciales",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up CRUE Microcredenciales — retomar tras verano"
+    },
+    {
+      "dealName": "UDC — Microcredenciales",
+      "kind": "update_stage",
+      "reason": "Stage already ON_HOLD."
+    },
+    {
+      "dealName": "UDC — Microcredenciales",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up UDC Microcredenciales — retomar tras verano"
+    },
+    {
+      "dealName": "INTA — Microcredenciales",
+      "kind": "update_stage",
+      "reason": "Stage already ON_HOLD."
+    },
+    {
+      "dealName": "INTA — Microcredenciales",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up INTA Microcredenciales — retomar tras verano"
+    },
+    {
+      "dealName": "Talentón Automati IG Whatsapp",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Decidir reactivación Talentón / Estefanía"
+    },
+    {
+      "dealName": "CONETIC - Presupuesto Paquete Certificados Alfabetización",
+      "kind": "update_stage",
+      "reason": "Stage already LOST."
+    },
+    {
+      "dealName": "CONETIC - Presupuesto Paquete Certificados Alfabetización",
+      "kind": "close_open_tasks",
+      "reason": "No open tasks to close."
+    },
+    {
+      "dealName": "Talenton Comercio IA ",
+      "kind": "update_stage",
+      "reason": "Stage already LOST."
+    },
+    {
+      "dealName": "Talenton Comercio IA ",
+      "kind": "close_open_tasks",
+      "reason": "No open tasks to close."
+    },
+    {
+      "dealName": "Talenton IA - IA para emprendimiento",
+      "kind": "update_stage",
+      "reason": "Stage already LOST."
+    },
+    {
+      "dealName": "Talenton IA - IA para emprendimiento",
+      "kind": "close_open_tasks",
+      "reason": "No open tasks to close."
+    },
+    {
+      "dealName": "SkilLand LMS — quiero una demo de la plataforma",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up Daniel / VIU — demo SkilLand LMS"
+    },
+    {
+      "dealName": "Titularísimos - Admin automation",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up Titularísimos — reflotar admin automation"
+    },
+    {
+      "dealName": "SPET Turismo Tenerife - Formación IA",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up Ricardo / SPET — retomar tras verano"
+    },
+    {
+      "dealName": "RED CIDE — IA360 v2 — Programa adopción IA empresas",
+      "kind": "update_stage",
+      "reason": "Stage already LOST."
+    },
+    {
+      "dealName": "RED CIDE — IA360 v2 — Programa adopción IA empresas",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Aterrizar con Carlitos"
+    },
+    {
+      "dealName": "RED CIDE — IA360 v2 — Programa adopción IA empresas",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Preparar versión comercial/institucional del briefing IA360 v2 para Red CIDE"
+    },
+    {
+      "dealName": "RED CIDE — IA360 v2 — Programa adopción IA empresas",
+      "kind": "create_note",
+      "reason": "Note already exists with same title: Cierre comercial — RED CIDE IA360 v2"
+    },
+    {
+      "dealName": "Sheikh Sidi ahmed Sidi ahmed - Reboot Orientation Funnel",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: FOLLOW-UP"
+    },
+    {
+      "dealName": "Sheikh Sidi ahmed Sidi ahmed - Reboot Orientation Funnel",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Nuevo follow-up Sheikh Sidi ahmed"
+    },
+    {
+      "dealName": "Science for Change — Piloto Plataforma (1 Creator + 20 Student)",
+      "kind": "reschedule_task",
+      "reason": "Task already scheduled: Follow-up serio Science for Change — decidir sí/no o bloqueos"
+    },
+    {
+      "dealName": "Bootcamp Ejército - Pedro León Millán",
+      "kind": "reschedule_task",
+      "reason": "Task already scheduled: Follow-up Pedro León Millán — propuesta Bootcamp Ejército"
+    },
+    {
+      "dealName": "ACIISI - Hormiga",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Pensar entregable/catálogo para retomar ACIISI / Hormiga"
+    },
+    {
+      "dealName": "Proexca — IA para Directivos",
+      "kind": "update_stage",
+      "reason": "Stage already CLOSED."
+    },
+    {
+      "dealName": "Proexca — IA para Directivos",
+      "kind": "close_open_tasks",
+      "reason": "No open tasks to close."
+    },
+    {
+      "dealName": "Proexca — IA para Directivos",
+      "kind": "create_note",
+      "reason": "Note already exists with same title: Cierre definitivo — Proexca IA para Directivos"
+    },
+    {
+      "dealName": "Science for Change — Consultoría Microcredenciales",
+      "kind": "update_stage",
+      "reason": "Stage already ON_HOLD."
+    },
+    {
+      "dealName": "Science for Change — Consultoría Microcredenciales",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Revisar consultoría MicroCred S4C si avanza piloto plataforma"
+    },
+    {
+      "dealName": "Universidad de Jaén — Microcredenciales",
+      "kind": "update_stage",
+      "reason": "Stage already ON_HOLD."
+    },
+    {
+      "dealName": "Universidad de Jaén — Microcredenciales",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up Universidad de Jaén — retomar microcredenciales tras verano"
+    },
+    {
+      "dealName": "UPCT — Piloto Microcredenciales",
+      "kind": "update_stage",
+      "reason": "Stage already ON_HOLD."
+    },
+    {
+      "dealName": "UPCT — Piloto Microcredenciales",
+      "kind": "reschedule_task",
+      "reason": "Task already scheduled: Follow-up Josefa UPCT — retomar feedback dossier tras verano"
+    },
+    {
+      "dealName": "Science for Change — EU Platform",
+      "kind": "update_stage",
+      "reason": "Stage already ON_HOLD."
+    },
+    {
+      "dealName": "Science for Change — EU Platform",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Revisar EU Platform S4C si avanza piloto plataforma"
+    },
+    {
+      "dealName": "ULPGC — Microcredenciales",
+      "kind": "reschedule_task",
+      "reason": "Task already scheduled: Follow-up Cristina ULPGC — documentación microcredencial"
+    },
+    {
+      "dealName": "ULPGC — Microcredenciales",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Pensar cómo vehiculizar bootcamps como microcredenciales universitarias"
+    },
+    {
+      "dealName": "Eros Calixto - Full Stack Bootcamp",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Follow-up cobro / facturación pendiente Eros"
+    },
+    {
+      "dealName": "Eros Calixto - Full Stack Bootcamp",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Tutoría recurrente viernes 13:00 — Eros Calixto (primera sesión)"
+    },
+    {
+      "dealName": "Bootcamp Paula",
+      "kind": "reschedule_task",
+      "reason": "Task already scheduled: Emitir/gestionar primera factura — Bootcamp Paula"
+    },
+    {
+      "dealName": "EPI 10 - DISCOVERY CONSULTING",
+      "kind": "update_stage",
+      "reason": "Stage already PENDING_SIGNATURE."
+    },
+    {
+      "dealName": "Sergio Hernández Ramírez - Reboot Orientation Funnel",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Oferta a medida Sergio Hernández Ramos"
+    },
+    {
+      "dealName": "Sergio Hernández Ramírez - Reboot Orientation Funnel",
+      "kind": "update_stage",
+      "reason": "Stage already PENDING_SIGNATURE."
+    },
+    {
+      "dealName": "Victor Garcia Roman - Reboot Orientation Funnel",
+      "kind": "ensure_task",
+      "reason": "Task already exists and is up to date: Sesion 1:1 Orientacion y prospeccion"
+    },
+    {
+      "dealName": "Casa África — AfricanTech Curso 1 (junio 2026)",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Preparar/enviar oferta, memoria técnica y presupuesto conjunto Casa África — plataforma + curso 1"
+    },
+    {
+      "dealName": "Casa África — Plataforma EU",
+      "kind": "done_if_not_reflected",
+      "reason": "Requested done action already reflected by task: Preparar memoria técnica conjunta Casa África — plataforma + curso 1"
+    },
+    {
+      "dealName": "Casa África — AfricanTech Curso 2 (noviembre 2026)",
+      "kind": "no_change",
+      "reason": "Mantener tarea futura de Q4/octubre sin cambios."
+    }
+  ],
+  "blockedOperations": [],
+  "verification": {
+    "status": "verified",
+    "checks": [
+      {
+        "operationId": "sushi_057_create_task",
+        "status": "verified",
+        "title": "Nuevo follow-up cobro / facturación pendiente Eros",
+        "task": {
+          "id": "06da8006-c555-4ac5-818b-af323330e852",
+          "title": "Nuevo follow-up cobro / facturación pendiente Eros",
+          "status": "TODO",
+          "dueAt": "2026-07-15T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-07-15T07:00:00.000Z",
+          "status": "TODO"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_058_create_task",
+        "status": "verified",
+        "title": "Tutoría Eros Calixto — seguimiento bootcamp",
+        "task": {
+          "id": "8b8e39dc-84da-47b1-8880-3c08b60efb59",
+          "title": "Tutoría Eros Calixto — seguimiento bootcamp",
+          "status": "TODO",
+          "dueAt": "2026-06-23T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-23T07:00:00.000Z",
+          "status": "TODO"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_059_update_task",
+        "status": "verified",
+        "taskId": "6a5b4ff4-1219-4442-b10c-39ae1378a153",
+        "task": {
+          "id": "6a5b4ff4-1219-4442-b10c-39ae1378a153",
+          "title": "Matriculación, bienvenida y acceso al campus — Bootcamp Paula",
+          "status": "DONE",
+          "dueAt": "2026-06-18T07:00:00.000Z"
+        },
+        "expected": {
+          "status": "DONE"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_061_create_task",
+        "status": "verified",
+        "title": "Resolver ticket técnico de acceso al campus — Bootcamp Paula",
+        "task": {
+          "id": "13502b20-7283-4eb8-b8d8-215de14f124a",
+          "title": "Resolver ticket técnico de acceso al campus — Bootcamp Paula",
+          "status": "TODO",
+          "dueAt": "2026-06-22T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-22T07:00:00.000Z",
+          "status": "TODO"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_062_update_task",
+        "status": "verified",
+        "taskId": "55934261-b78b-4f57-bb38-aa010ded5b21",
+        "task": {
+          "id": "55934261-b78b-4f57-bb38-aa010ded5b21",
+          "title": "Follow-up Carmen — revisión propuesta EPI10",
+          "status": "DONE",
+          "dueAt": "2026-06-16T07:00:00.000Z"
+        },
+        "expected": {
+          "status": "DONE"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_063_create_note",
+        "status": "verified",
+        "title": "Venta cerrada — EPI10 MVP",
+        "noteId": "04e16e3c-3159-4a15-9b83-aa8050bdcf2f"
+      },
+      {
+        "operationId": "sushi_065_create_task",
+        "status": "verified",
+        "title": "Enviar contrato EPI10 para firma",
+        "task": {
+          "id": "046b38a5-4891-449c-b495-1eaf65f3d2ec",
+          "title": "Enviar contrato EPI10 para firma",
+          "status": "TODO",
+          "dueAt": "2026-06-22T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-22T07:00:00.000Z",
+          "status": "TODO"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_066_create_task",
+        "status": "verified",
+        "title": "Enviar primera factura EPI10",
+        "task": {
+          "id": "ebda8413-3872-4c3f-a91f-7601a04bf0d6",
+          "title": "Enviar primera factura EPI10",
+          "status": "TODO",
+          "dueAt": "2026-06-26T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-26T07:00:00.000Z",
+          "status": "TODO"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_067_create_task",
+        "status": "verified",
+        "title": "Follow-up Divi / DClick — feedback propuesta",
+        "task": {
+          "id": "cea65351-0644-4f12-a465-c474479670c8",
+          "title": "Follow-up Divi / DClick — feedback propuesta",
+          "status": "TODO",
+          "dueAt": "2026-06-22T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-22T07:00:00.000Z",
+          "status": "TODO"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_068_update_task",
+        "status": "verified",
+        "taskId": "9abe7273-cf4e-43bf-bf58-6d5000a64290",
+        "task": {
+          "id": "9abe7273-cf4e-43bf-bf58-6d5000a64290",
+          "title": "Sesion 1:1 Orientacion y prospeccion",
+          "status": "DONE",
+          "dueAt": "2026-06-16T08:00:00.000Z"
+        },
+        "expected": {
+          "status": "DONE"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_069_update_task",
+        "status": "verified",
+        "taskId": "64e60866-51a9-452c-b298-9cd9728a49bd",
+        "task": {
+          "id": "64e60866-51a9-452c-b298-9cd9728a49bd",
+          "title": "Enviar propuesta Michel Nory",
+          "status": "DONE",
+          "dueAt": "2026-06-22T07:00:00.000Z"
+        },
+        "expected": {
+          "status": "DONE",
+          "dueAt": "2026-06-22T07:00:00.000Z"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_070_create_task",
+        "status": "verified",
+        "title": "Follow-up Michel Nory — propuesta enviada",
+        "task": {
+          "id": "d64106f5-cc4e-4539-977c-43dc9bfd3944",
+          "title": "Follow-up Michel Nory — propuesta enviada",
+          "status": "TODO",
+          "dueAt": "2026-06-22T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-22T07:00:00.000Z",
+          "status": "TODO"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_072_create_note",
+        "status": "verified",
+        "title": "Venta pendiente de firma — Sergio Hernández",
+        "noteId": "4e56cb34-c857-40aa-8db3-af272d95f5d9"
+      },
+      {
+        "operationId": "sushi_074_create_task",
+        "status": "verified",
+        "title": "Enviar contrato Sergio Hernández para firma",
+        "task": {
+          "id": "4ac58266-81b1-4118-b622-f0cab2abfcb7",
+          "title": "Enviar contrato Sergio Hernández para firma",
+          "status": "TODO",
+          "dueAt": "2026-06-22T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-22T07:00:00.000Z",
+          "status": "TODO"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_075_create_task",
+        "status": "verified",
+        "title": "Enviar factura Sergio Hernández",
+        "task": {
+          "id": "7f446f4b-a813-4261-b3c1-61f562583ce1",
+          "title": "Enviar factura Sergio Hernández",
+          "status": "TODO",
+          "dueAt": "2026-06-23T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-23T07:00:00.000Z",
+          "status": "TODO"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_076_update_task",
+        "status": "verified",
+        "taskId": "f6dfdaa5-ef00-4f52-9b03-5d41c775dd69",
+        "task": {
+          "id": "f6dfdaa5-ef00-4f52-9b03-5d41c775dd69",
+          "title": "Preparar material potencial para Victor Garcia Roman",
+          "status": "TODO",
+          "dueAt": "2026-06-22T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-22T07:00:00.000Z"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_078_update_task",
+        "status": "verified",
+        "taskId": "0f7dfb9d-0ab0-458f-8426-2bf3b83ec078",
+        "task": {
+          "id": "0f7dfb9d-0ab0-458f-8426-2bf3b83ec078",
+          "title": "Sesion 1:1 Orientacion y prospeccion",
+          "status": "TODO",
+          "dueAt": "2026-06-23T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-23T07:00:00.000Z"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_079_create_task",
+        "status": "verified",
+        "title": "Enviar primeras facturas FEMEPA",
+        "task": {
+          "id": "7722de72-f182-404b-aea9-f90872ebd571",
+          "title": "Enviar primeras facturas FEMEPA",
+          "status": "TODO",
+          "dueAt": "2026-06-24T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-24T07:00:00.000Z",
+          "status": "TODO"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_080_create_task",
+        "status": "verified",
+        "title": "Mandar correo de coordinación completa FEMEPA / Plataforma EU",
+        "task": {
+          "id": "66b174f0-b62d-42dc-9101-e07d028a4337",
+          "title": "Mandar correo de coordinación completa FEMEPA / Plataforma EU",
+          "status": "TODO",
+          "dueAt": "2026-06-24T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-24T07:00:00.000Z",
+          "status": "TODO"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_082_update_task",
+        "status": "verified",
+        "taskId": "249088c1-4f8a-4bf8-a790-8ea2c573470d",
+        "task": {
+          "id": "249088c1-4f8a-4bf8-a790-8ea2c573470d",
+          "title": "Buscar tres proveedores/presupuestos adicionales para Casa África / AfricanTech",
+          "status": "TODO",
+          "dueAt": "2026-06-23T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-23T07:00:00.000Z"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_083_create_task",
+        "status": "verified",
+        "title": "Escribir a Yurena — revisar cambios necesarios en la oferta",
+        "task": {
+          "id": "a0f8e4b2-7b7b-4d6c-b2f1-90bf97575719",
+          "title": "Escribir a Yurena — revisar cambios necesarios en la oferta",
+          "status": "TODO",
+          "dueAt": "2026-06-22T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-22T07:00:00.000Z",
+          "status": "TODO"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_084_create_task",
+        "status": "verified",
+        "title": "Enviar de nuevo oferta Casa África — Curso 1 + plataforma",
+        "task": {
+          "id": "05c5e632-791f-4fac-80f7-306c52dfddd3",
+          "title": "Enviar de nuevo oferta Casa África — Curso 1 + plataforma",
+          "status": "TODO",
+          "dueAt": "2026-06-22T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-22T07:00:00.000Z",
+          "status": "TODO"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_086_update_task",
+        "status": "verified",
+        "taskId": "633e71be-a592-423a-b0de-ff5af2497f70",
+        "task": {
+          "id": "633e71be-a592-423a-b0de-ff5af2497f70",
+          "title": "Buscar tres proveedores/presupuestos adicionales para contratación Casa África",
+          "status": "TODO",
+          "dueAt": "2026-06-23T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-23T07:00:00.000Z"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_087_create_task",
+        "status": "verified",
+        "title": "Escribir a Yurena — revisar cambios necesarios en la oferta integrada",
+        "task": {
+          "id": "296561a5-6943-4f60-9a33-a6861beb7ece",
+          "title": "Escribir a Yurena — revisar cambios necesarios en la oferta integrada",
+          "status": "TODO",
+          "dueAt": "2026-06-22T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-22T07:00:00.000Z",
+          "status": "TODO"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_088_create_task",
+        "status": "verified",
+        "title": "Enviar de nuevo oferta integrada Casa África — Plataforma + Curso 1",
+        "task": {
+          "id": "b760c298-a2ef-4d7e-8040-ce3c3c6214e4",
+          "title": "Enviar de nuevo oferta integrada Casa África — Plataforma + Curso 1",
+          "status": "TODO",
+          "dueAt": "2026-06-22T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-22T07:00:00.000Z",
+          "status": "TODO"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_090_update_task",
+        "status": "verified",
+        "taskId": "0e1b96e8-e9e1-42d3-a693-be5858d3132d",
+        "task": {
+          "id": "0e1b96e8-e9e1-42d3-a693-be5858d3132d",
+          "title": "Localizar contacto/teléfono FEMETE y activar cierre Plataforma EU",
+          "status": "TODO",
+          "dueAt": "2026-06-23T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-23T07:00:00.000Z"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_091_update_task",
+        "status": "verified",
+        "taskId": "7f1b8e54-a1da-4ccb-ba90-9211b49f4915",
+        "task": {
+          "id": "7f1b8e54-a1da-4ccb-ba90-9211b49f4915",
+          "title": "Contactar Cámara Tenerife — desbloquear contratación Plataforma EU",
+          "status": "DONE",
+          "dueAt": "2026-06-17T07:00:00.000Z"
+        },
+        "expected": {
+          "status": "DONE",
+          "dueAt": "2026-06-17T07:00:00.000Z"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_092_create_task",
+        "status": "verified",
+        "title": "Enviar memoria técnica descriptiva y presupuesto — Cámara Tenerife",
+        "task": {
+          "id": "6ed805b8-2467-4314-8643-2b23cf73cd7e",
+          "title": "Enviar memoria técnica descriptiva y presupuesto — Cámara Tenerife",
+          "status": "TODO",
+          "dueAt": "2026-06-22T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-22T07:00:00.000Z",
+          "status": "TODO"
+        },
+        "mismatches": []
+      },
+      {
+        "operationId": "sushi_093_create_task",
+        "status": "verified",
+        "title": "Contactar Marlen Cámara — confirmar si necesitan tres proveedores adicionales",
+        "task": {
+          "id": "4c84468b-5d63-491e-90c1-2c8397aa9dc9",
+          "title": "Contactar Marlen Cámara — confirmar si necesitan tres proveedores adicionales",
+          "status": "TODO",
+          "dueAt": "2026-06-23T07:00:00.000Z"
+        },
+        "expected": {
+          "dueAt": "2026-06-23T07:00:00.000Z",
+          "status": "TODO"
+        },
+        "mismatches": []
+      }
+    ]
+  },
+  "vicente": null
+}

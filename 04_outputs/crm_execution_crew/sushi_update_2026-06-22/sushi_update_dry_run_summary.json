@@ -1,0 +1,520 @@
+{
+  "mode": "dry_run",
+  "startedAt": "2026-06-22T08:06:59.983Z",
+  "finishedAt": "2026-06-22T08:07:01.239Z",
+  "outputDir": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_execution_crew/sushi_update_2026-06-22",
+  "requestPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_execution_crew/sushi_update_2026-06-22/sushi_update.request.json",
+  "planPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_execution_crew/sushi_update_2026-06-22/sushi_update_dry_run_plan.json",
+  "sessionPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_execution_crew/sushi_update_2026-06-22/session_2026-06-22T08-06-59-983Z.json",
+  "status": "dry_run_completed",
+  "crmWritten": false,
+  "iaMujeresTouched": false,
+  "resolvedDeals": 43,
+  "blockers": [],
+  "warnings": [
+    {
+      "code": "canceled_status_unavailable",
+      "message": "Task status CANCELED is not available; obsolete/canceled tasks will be marked DONE and logged."
+    }
+  ],
+  "preflight": {
+    "blockers": [],
+    "warnings": [
+      {
+        "code": "canceled_status_unavailable",
+        "message": "Task status CANCELED is not available; obsolete/canceled tasks will be marked DONE and logged."
+      }
+    ]
+  },
+  "plannedCounts": {
+    "planned": 0,
+    "noOp": 93,
+    "blocked": 0,
+    "byType": {}
+  },
+  "executionSummary": {
+    "planned": 0,
+    "applied": 0,
+    "noOp": 93,
+    "blocked": 0,
+    "failed": 0
+  },
+  "dryRunSourceCounts": {},
+  "appliedSourceCounts": {},
+  "dealsUpdated": [],
+  "tasksMarkedDone": [],
+  "tasksCreated": [],
+  "tasksRescheduled": [],
+  "stagesChanged": [],
+  "notesCreated": [],
+  "noOps": [
+    {
+      "dealName": "FGULL — Proyectos Microcredenciales (Plugin Moodle + Motor IA)",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Reunión de Recap enfoque de coordinación de la ejecución del proyecto"
+    },
+    {
+      "dealName": "FGULL — Proyectos Microcredenciales (Plugin Moodle + Motor IA)",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Hablar con Romi — alinear estrategia FGULL microcredenciales"
+    },
+    {
+      "dealName": "FGULL — Proyectos Microcredenciales (Plugin Moodle + Motor IA)",
+      "kind": "create_note",
+      "reason": "Note already exists with same title: Actualización recap — FGULL microcredenciales"
+    },
+    {
+      "dealName": "FGULL — Proyectos Microcredenciales (Plugin Moodle + Motor IA)",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Reunión de planificación verano FGULL — baja actividad"
+    },
+    {
+      "dealName": "FGULL — Proyectos Microcredenciales (Plugin Moodle + Motor IA)",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Definir scope piloto externo FGULL — microcredenciales docentes universitarios"
+    },
+    {
+      "dealName": "Turismo Camara Comercio - jornada Raul",
+      "kind": "reschedule_task",
+      "reason": "Task already scheduled: Sentarme con GPT para definir reimpacto comercial a Rocío / Cámara GC"
+    },
+    {
+      "dealName": "BES EDITORIAL",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up BES Editorial — revisar sedes electrónicas"
+    },
+    {
+      "dealName": "Lola Azero - Automatiz",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up Lola Azero — revisar sedes electrónicas"
+    },
+    {
+      "dealName": "EXGEA SL - Pyme Digital",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up EXGEA SL — revisar sedes electrónicas"
+    },
+    {
+      "dealName": "MALOLE AGENCIA VIAJES",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Hablar con Leonor — decidir continuidad proyecto Malole"
+    },
+    {
+      "dealName": "María Mateos — Producto Innovación Educativa con IA",
+      "kind": "update_stage",
+      "reason": "Stage already ON_HOLD."
+    },
+    {
+      "dealName": "María Mateos — Producto Innovación Educativa con IA",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Procesar info y hacer primer boceto diseño de producto (María Mateos)"
+    },
+    {
+      "dealName": "María Mateos — Producto Innovación Educativa con IA",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Segunda reunión con María Mateos — mapear ecosistema"
+    },
+    {
+      "dealName": "María Mateos — Producto Innovación Educativa con IA",
+      "kind": "create_note",
+      "reason": "Note already exists with same title: Pausa operativa — María Mateos"
+    },
+    {
+      "dealName": "Universidad de Alicante CFPUA — Microcredenciales",
+      "kind": "update_stage",
+      "reason": "Stage already ON_HOLD."
+    },
+    {
+      "dealName": "Universidad de Alicante CFPUA — Microcredenciales",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up Universidad de Alicante CFPUA — retomar microcredenciales tras verano"
+    },
+    {
+      "dealName": "CRUE — Grupo Microcredenciales",
+      "kind": "update_stage",
+      "reason": "Stage already ON_HOLD."
+    },
+    {
+      "dealName": "CRUE — Grupo Microcredenciales",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up CRUE Microcredenciales — retomar tras verano"
+    },
+    {
+      "dealName": "UDC — Microcredenciales",
+      "kind": "update_stage",
+      "reason": "Stage already ON_HOLD."
+    },
+    {
+      "dealName": "UDC — Microcredenciales",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up UDC Microcredenciales — retomar tras verano"
+    },
+    {
+      "dealName": "INTA — Microcredenciales",
+      "kind": "update_stage",
+      "reason": "Stage already ON_HOLD."
+    },
+    {
+      "dealName": "INTA — Microcredenciales",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up INTA Microcredenciales — retomar tras verano"
+    },
+    {
+      "dealName": "Talentón Automati IG Whatsapp",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Decidir reactivación Talentón / Estefanía"
+    },
+    {
+      "dealName": "CONETIC - Presupuesto Paquete Certificados Alfabetización",
+      "kind": "update_stage",
+      "reason": "Stage already LOST."
+    },
+    {
+      "dealName": "CONETIC - Presupuesto Paquete Certificados Alfabetización",
+      "kind": "close_open_tasks",
+      "reason": "No open tasks to close."
+    },
+    {
+      "dealName": "Talenton Comercio IA ",
+      "kind": "update_stage",
+      "reason": "Stage already LOST."
+    },
+    {
+      "dealName": "Talenton Comercio IA ",
+      "kind": "close_open_tasks",
+      "reason": "No open tasks to close."
+    },
+    {
+      "dealName": "Talenton IA - IA para emprendimiento",
+      "kind": "update_stage",
+      "reason": "Stage already LOST."
+    },
+    {
+      "dealName": "Talenton IA - IA para emprendimiento",
+      "kind": "close_open_tasks",
+      "reason": "No open tasks to close."
+    },
+    {
+      "dealName": "SkilLand LMS — quiero una demo de la plataforma",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up Daniel / VIU — demo SkilLand LMS"
+    },
+    {
+      "dealName": "Titularísimos - Admin automation",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up Titularísimos — reflotar admin automation"
+    },
+    {
+      "dealName": "SPET Turismo Tenerife - Formación IA",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up Ricardo / SPET — retomar tras verano"
+    },
+    {
+      "dealName": "RED CIDE — IA360 v2 — Programa adopción IA empresas",
+      "kind": "update_stage",
+      "reason": "Stage already LOST."
+    },
+    {
+      "dealName": "RED CIDE — IA360 v2 — Programa adopción IA empresas",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Aterrizar con Carlitos"
+    },
+    {
+      "dealName": "RED CIDE — IA360 v2 — Programa adopción IA empresas",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Preparar versión comercial/institucional del briefing IA360 v2 para Red CIDE"
+    },
+    {
+      "dealName": "RED CIDE — IA360 v2 — Programa adopción IA empresas",
+      "kind": "create_note",
+      "reason": "Note already exists with same title: Cierre comercial — RED CIDE IA360 v2"
+    },
+    {
+      "dealName": "Sheikh Sidi ahmed Sidi ahmed - Reboot Orientation Funnel",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: FOLLOW-UP"
+    },
+    {
+      "dealName": "Sheikh Sidi ahmed Sidi ahmed - Reboot Orientation Funnel",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Nuevo follow-up Sheikh Sidi ahmed"
+    },
+    {
+      "dealName": "Science for Change — Piloto Plataforma (1 Creator + 20 Student)",
+      "kind": "reschedule_task",
+      "reason": "Task already scheduled: Follow-up serio Science for Change — decidir sí/no o bloqueos"
+    },
+    {
+      "dealName": "Bootcamp Ejército - Pedro León Millán",
+      "kind": "reschedule_task",
+      "reason": "Task already scheduled: Follow-up Pedro León Millán — propuesta Bootcamp Ejército"
+    },
+    {
+      "dealName": "ACIISI - Hormiga",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Pensar entregable/catálogo para retomar ACIISI / Hormiga"
+    },
+    {
+      "dealName": "Proexca — IA para Directivos",
+      "kind": "update_stage",
+      "reason": "Stage already CLOSED."
+    },
+    {
+      "dealName": "Proexca — IA para Directivos",
+      "kind": "close_open_tasks",
+      "reason": "No open tasks to close."
+    },
+    {
+      "dealName": "Proexca — IA para Directivos",
+      "kind": "create_note",
+      "reason": "Note already exists with same title: Cierre definitivo — Proexca IA para Directivos"
+    },
+    {
+      "dealName": "Science for Change — Consultoría Microcredenciales",
+      "kind": "update_stage",
+      "reason": "Stage already ON_HOLD."
+    },
+    {
+      "dealName": "Science for Change — Consultoría Microcredenciales",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Revisar consultoría MicroCred S4C si avanza piloto plataforma"
+    },
+    {
+      "dealName": "Universidad de Jaén — Microcredenciales",
+      "kind": "update_stage",
+      "reason": "Stage already ON_HOLD."
+    },
+    {
+      "dealName": "Universidad de Jaén — Microcredenciales",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up Universidad de Jaén — retomar microcredenciales tras verano"
+    },
+    {
+      "dealName": "UPCT — Piloto Microcredenciales",
+      "kind": "update_stage",
+      "reason": "Stage already ON_HOLD."
+    },
+    {
+      "dealName": "UPCT — Piloto Microcredenciales",
+      "kind": "reschedule_task",
+      "reason": "Task already scheduled: Follow-up Josefa UPCT — retomar feedback dossier tras verano"
+    },
+    {
+      "dealName": "Science for Change — EU Platform",
+      "kind": "update_stage",
+      "reason": "Stage already ON_HOLD."
+    },
+    {
+      "dealName": "Science for Change — EU Platform",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Revisar EU Platform S4C si avanza piloto plataforma"
+    },
+    {
+      "dealName": "ULPGC — Microcredenciales",
+      "kind": "reschedule_task",
+      "reason": "Task already scheduled: Follow-up Cristina ULPGC — documentación microcredencial"
+    },
+    {
+      "dealName": "ULPGC — Microcredenciales",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Pensar cómo vehiculizar bootcamps como microcredenciales universitarias"
+    },
+    {
+      "dealName": "Eros Calixto - Full Stack Bootcamp",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Follow-up cobro / facturación pendiente Eros"
+    },
+    {
+      "dealName": "Eros Calixto - Full Stack Bootcamp",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Tutoría recurrente viernes 13:00 — Eros Calixto (primera sesión)"
+    },
+    {
+      "dealName": "Eros Calixto - Full Stack Bootcamp",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Nuevo follow-up cobro / facturación pendiente Eros"
+    },
+    {
+      "dealName": "Eros Calixto - Full Stack Bootcamp",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Tutoría Eros Calixto — seguimiento bootcamp"
+    },
+    {
+      "dealName": "Bootcamp Paula",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Matriculación, bienvenida y acceso al campus — Bootcamp Paula"
+    },
+    {
+      "dealName": "Bootcamp Paula",
+      "kind": "reschedule_task",
+      "reason": "Task already scheduled: Emitir/gestionar primera factura — Bootcamp Paula"
+    },
+    {
+      "dealName": "Bootcamp Paula",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Resolver ticket técnico de acceso al campus — Bootcamp Paula"
+    },
+    {
+      "dealName": "EPI 10 - DISCOVERY CONSULTING",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Follow-up Carmen — revisión propuesta EPI10"
+    },
+    {
+      "dealName": "EPI 10 - DISCOVERY CONSULTING",
+      "kind": "create_note",
+      "reason": "Note already exists with same title: Venta cerrada — EPI10 MVP"
+    },
+    {
+      "dealName": "EPI 10 - DISCOVERY CONSULTING",
+      "kind": "update_stage",
+      "reason": "Stage already PENDING_SIGNATURE."
+    },
+    {
+      "dealName": "EPI 10 - DISCOVERY CONSULTING",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Enviar contrato EPI10 para firma"
+    },
+    {
+      "dealName": "EPI 10 - DISCOVERY CONSULTING",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Enviar primera factura EPI10"
+    },
+    {
+      "dealName": "Divi -  Migración Drive + Automat emails",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up Divi / DClick — feedback propuesta"
+    },
+    {
+      "dealName": "Michel Nory García - Reboot Orientation Funnel",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Sesion 1:1 Orientacion y prospeccion"
+    },
+    {
+      "dealName": "Michel Nory García - Reboot Orientation Funnel",
+      "kind": "done_or_create_task",
+      "reason": "Task already DONE: Enviar propuesta Michel Nory"
+    },
+    {
+      "dealName": "Michel Nory García - Reboot Orientation Funnel",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Follow-up Michel Nory — propuesta enviada"
+    },
+    {
+      "dealName": "Sergio Hernández Ramírez - Reboot Orientation Funnel",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Oferta a medida Sergio Hernández Ramos"
+    },
+    {
+      "dealName": "Sergio Hernández Ramírez - Reboot Orientation Funnel",
+      "kind": "create_note",
+      "reason": "Note already exists with same title: Venta pendiente de firma — Sergio Hernández"
+    },
+    {
+      "dealName": "Sergio Hernández Ramírez - Reboot Orientation Funnel",
+      "kind": "update_stage",
+      "reason": "Stage already PENDING_SIGNATURE."
+    },
+    {
+      "dealName": "Sergio Hernández Ramírez - Reboot Orientation Funnel",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Enviar contrato Sergio Hernández para firma"
+    },
+    {
+      "dealName": "Sergio Hernández Ramírez - Reboot Orientation Funnel",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Enviar factura Sergio Hernández"
+    },
+    {
+      "dealName": "Victor Garcia Roman - Reboot Orientation Funnel",
+      "kind": "reschedule_task",
+      "reason": "Task already scheduled: Preparar material potencial para Victor Garcia Roman"
+    },
+    {
+      "dealName": "Victor Garcia Roman - Reboot Orientation Funnel",
+      "kind": "ensure_task",
+      "reason": "Task already exists and is up to date: Sesion 1:1 Orientacion y prospeccion"
+    },
+    {
+      "dealName": "Matteo Neri Neri - Reboot Orientation Funnel",
+      "kind": "reschedule_task",
+      "reason": "Task already scheduled: Sesion 1:1 Orientacion y prospeccion"
+    },
+    {
+      "dealName": "FEMEPA — Plataforma EU",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Enviar primeras facturas FEMEPA"
+    },
+    {
+      "dealName": "FEMEPA — Plataforma EU",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Mandar correo de coordinación completa FEMEPA / Plataforma EU"
+    },
+    {
+      "dealName": "Casa África — AfricanTech Curso 1 (junio 2026)",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Preparar/enviar oferta, memoria técnica y presupuesto conjunto Casa África — plataforma + curso 1"
+    },
+    {
+      "dealName": "Casa África — AfricanTech Curso 1 (junio 2026)",
+      "kind": "reschedule_task",
+      "reason": "Task already scheduled: Buscar tres proveedores/presupuestos adicionales para Casa África / AfricanTech"
+    },
+    {
+      "dealName": "Casa África — AfricanTech Curso 1 (junio 2026)",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Escribir a Yurena — revisar cambios necesarios en la oferta"
+    },
+    {
+      "dealName": "Casa África — AfricanTech Curso 1 (junio 2026)",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Enviar de nuevo oferta Casa África — Curso 1 + plataforma"
+    },
+    {
+      "dealName": "Casa África — Plataforma EU",
+      "kind": "done_if_not_reflected",
+      "reason": "Requested done action already reflected by task: Preparar memoria técnica conjunta Casa África — plataforma + curso 1"
+    },
+    {
+      "dealName": "Casa África — Plataforma EU",
+      "kind": "reschedule_task",
+      "reason": "Task already scheduled: Buscar tres proveedores/presupuestos adicionales para contratación Casa África"
+    },
+    {
+      "dealName": "Casa África — Plataforma EU",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Escribir a Yurena — revisar cambios necesarios en la oferta integrada"
+    },
+    {
+      "dealName": "Casa África — Plataforma EU",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Enviar de nuevo oferta integrada Casa África — Plataforma + Curso 1"
+    },
+    {
+      "dealName": "Casa África — AfricanTech Curso 2 (noviembre 2026)",
+      "kind": "no_change",
+      "reason": "Mantener tarea futura de Q4/octubre sin cambios."
+    },
+    {
+      "dealName": "FEMETE — Plataforma EU",
+      "kind": "reschedule_task",
+      "reason": "Task already scheduled: Localizar contacto/teléfono FEMETE y activar cierre Plataforma EU"
+    },
+    {
+      "dealName": "Cámara de Comercio de Tenerife — Plataforma EU",
+      "kind": "mark_task_done",
+      "reason": "Task already DONE: Contactar Cámara Tenerife — desbloquear contratación Plataforma EU"
+    },
+    {
+      "dealName": "Cámara de Comercio de Tenerife — Plataforma EU",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Enviar memoria técnica descriptiva y presupuesto — Cámara Tenerife"
+    },
+    {
+      "dealName": "Cámara de Comercio de Tenerife — Plataforma EU",
+      "kind": "create_task",
+      "reason": "Task already exists and is up to date: Contactar Marlen Cámara — confirmar si necesitan tres proveedores adicionales"
+    }
+  ],
+  "blockedOperations": [],
+  "verification": null,
+  "vicente": null
+}

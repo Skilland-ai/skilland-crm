@@ -8,6 +8,11 @@ export function formatAikountOpsResult(result) {
   lines.push(`Log: ${result.logPath}`);
   lines.push(`Review: ${result.reviewPath}`);
 
+  if (result.request.container?.itemIds?.length) {
+    lines.push(`Container items: ${result.request.container.itemIds.join(', ')}`);
+    lines.push(`Container source: ${result.request.container.sourceMode ?? 'unknown'}`);
+  }
+
   if (result.crmSnapshot) {
     lines.push(
       `Deal: ${result.crmSnapshot.name} (${result.crmSnapshot.opportunityId})`,
@@ -78,6 +83,10 @@ export function renderReviewMarkdown(result) {
   lines.push(`- Action: \`${result.request.action}\``);
   lines.push(`- Mode: \`${result.effectiveMode}\``);
   lines.push(`- Status: \`${result.status}\``);
+  if (result.request.container?.itemIds?.length) {
+    lines.push(`- Container items: \`${result.request.container.itemIds.join(', ')}\``);
+    lines.push(`- Container source: \`${result.request.container.sourceMode ?? 'unknown'}\``);
+  }
   if (result.crmSnapshot) {
     lines.push(`- Deal: \`${result.crmSnapshot.name}\``);
   }

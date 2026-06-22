@@ -1,0 +1,39 @@
+{
+  "source": "vicente_de_la_cruz_creation",
+  "startedAt": "2026-06-22T08:17:14.564Z",
+  "finishedAt": "2026-06-22T08:17:15.515Z",
+  "assumptions": {
+    "interpretedTaskDate": "2026-06-22",
+    "reason": "User wrote 2021, but the request is to create fresh tasks during the 2026-06-22 session.",
+    "createdOnlyOpportunityNoteTasks": true,
+    "createdNoPersonOrCompany": true
+  },
+  "duplicateCheck": {
+    "opportunityMatches": [],
+    "peopleMatches": [],
+    "companyMatches": []
+  },
+  "created": {
+    "opportunity": {
+      "id": "3d1abe6d-1f29-4671-bdb4-b36acb4fe621",
+      "name": "Delta13 Sec / UDIMA — Microcredenciales y partnership universitario",
+      "stage": "IN_MEETINGS"
+    },
+    "note": {
+      "id": "e54a66a6-5ca5-4d93-82d1-7cd68100b5d7",
+      "title": "Contexto inicial — Vicente de la Cruz / Delta13 Sec"
+    },
+    "tasks": [
+      {
+        "id": "fb458a74-def8-4f1e-b54f-7b50aea5d182",
+        "title": "Delta13 Sec — hablar con Romina sobre implantación en cátedra UDIMA",
+        "dueAt": "2026-06-22T07:00:00.000Z"
+      },
+      {
+        "id": "36fdbfa4-d761-4b74-86d9-0fe2bf631d01",
+        "title": "Delta13 Sec — hablar con Romina sobre partnership Delta13 Sec + Skilland",
+        "dueAt": "2026-06-22T07:00:00.000Z"
+      }
+    ]
+  }
+}
