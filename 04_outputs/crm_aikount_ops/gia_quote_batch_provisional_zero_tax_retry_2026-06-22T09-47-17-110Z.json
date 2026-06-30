@@ -1,0 +1,62 @@
+[
+  {
+    "key": "epi10",
+    "requestId": "aikountops_2026-06-22T09-47-13-360Z_b5a1330e",
+    "status": "apply_completed",
+    "deal": {
+      "id": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "name": "EPI 10 - DISCOVERY CONSULTING"
+    },
+    "warnings": [],
+    "blockingIssues": [],
+    "quote": null,
+    "contact": null,
+    "logPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_aikount_ops/session_2026-06-22T09-47-13-359Z.json",
+    "reviewPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_aikount_ops/session_2026-06-22T09-47-13-359Z.md"
+  },
+  {
+    "key": "femete",
+    "requestId": "aikountops_2026-06-22T09-47-14-734Z_d40453b8",
+    "status": "apply_completed",
+    "deal": {
+      "id": "459847b7-d38c-4561-8086-534d8eea5f91",
+      "name": "FEMETE — Plataforma EU"
+    },
+    "warnings": [],
+    "blockingIssues": [],
+    "quote": null,
+    "contact": null,
+    "logPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_aikount_ops/session_2026-06-22T09-47-14-734Z.json",
+    "reviewPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_aikount_ops/session_2026-06-22T09-47-14-734Z.md"
+  },
+  {
+    "key": "camara_tenerife",
+    "requestId": "aikountops_2026-06-22T09-47-15-527Z_e20c91b5",
+    "status": "apply_completed",
+    "deal": {
+      "id": "d3f9f2e8-b0e2-4ce2-82d0-ecfae2c6f7ba",
+      "name": "Cámara de Comercio de Tenerife — Plataforma EU"
+    },
+    "warnings": [],
+    "blockingIssues": [],
+    "quote": null,
+    "contact": null,
+    "logPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_aikount_ops/session_2026-06-22T09-47-15-527Z.json",
+    "reviewPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_aikount_ops/session_2026-06-22T09-47-15-527Z.md"
+  },
+  {
+    "key": "dclick",
+    "requestId": "aikountops_2026-06-22T09-47-16-228Z_e1c2a935",
+    "status": "apply_completed",
+    "deal": {
+      "id": "55cfbd70-83e1-41c2-a8d5-445b19601535",
+      "name": "Divi -  Migración Drive + Automat emails"
+    },
+    "warnings": [],
+    "blockingIssues": [],
+    "quote": null,
+    "contact": null,
+    "logPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_aikount_ops/session_2026-06-22T09-47-16-228Z.json",
+    "reviewPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_aikount_ops/session_2026-06-22T09-47-16-228Z.md"
+  }
+]

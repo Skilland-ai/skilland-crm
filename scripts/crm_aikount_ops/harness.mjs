@@ -9,6 +9,7 @@ import { formatAikountOpsResult, renderReviewMarkdown } from './kernel/formatter
 import {
   addFileContainerItems,
   buildRequestFromContainerItem,
+  ensureFileContainerScaffold,
   formatFileContainerItems,
   loadFileContainer,
   recordFileContainerAttempt,
@@ -155,6 +156,8 @@ async function main() {
   const outputDir = args.outputDir ?? DEFAULT_OUTPUT_DIR;
 
   try {
+    ensureFileContainerScaffold(outputDir);
+
     if (args.containerAdd || args.containerDataFile) {
       const addedItems = addFileContainerItems({
         outputDir,

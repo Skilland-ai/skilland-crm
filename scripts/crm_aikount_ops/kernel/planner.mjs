@@ -46,25 +46,32 @@ export function planAikountOperations({
       blockingIssues.push(issue('document_key_required', 'A documentKey is required.'));
     }
 
+    const createBody = {
+      contact_id: contactResolution?.contact?.id ?? null,
+      doc_date: interviewData.docDate,
+      due_date: interviewData.dueDate,
+      currency: interviewData.currency,
+      notes: interviewData.notes,
+      lines: interviewData.lines,
+      series_id: interviewData.seriesId,
+      external_id: buildDocumentExternalId(
+        crmSnapshot.opportunityId,
+        documentKind,
+        documentKey,
+      ),
+      external_source: 'skilland-crm',
+    };
+    if (
+      interviewData.headerDiscountPct !== null &&
+      interviewData.headerDiscountPct !== undefined
+    ) {
+      createBody.header_discount_pct = interviewData.headerDiscountPct;
+    }
+
     operations.push({
       id: `${documentKind}:0`,
       type: action,
-      body: {
-        contact_id: contactResolution?.contact?.id ?? null,
-        doc_date: interviewData.docDate,
-        due_date: interviewData.dueDate,
-        currency: interviewData.currency,
-        header_discount_pct: interviewData.headerDiscountPct,
-        notes: interviewData.notes,
-        lines: interviewData.lines,
-        series_id: interviewData.seriesId,
-        external_id: buildDocumentExternalId(
-          crmSnapshot.opportunityId,
-          documentKind,
-          documentKey,
-        ),
-        external_source: 'skilland-crm',
-      },
+      body: createBody,
       contactFromOpId:
         contactResolution?.mode === 'create' ? 'contact:0' : null,
       documentKind,

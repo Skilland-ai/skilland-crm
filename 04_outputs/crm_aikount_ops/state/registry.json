@@ -1,7 +1,165 @@
 {
   "version": 1,
-  "contacts": {},
-  "documents": {},
+  "contacts": {
+    "deal:cbae8c00-1c19-49e0-9792-bbd2be0431b3": {
+      "contactId": "250b0050-a1b4-4b1c-bd73-334c67aa5d80",
+      "source": "crm-aikount-ops",
+      "crmOpportunityId": "cbae8c00-1c19-49e0-9792-bbd2be0431b3",
+      "contactKey": "deal:cbae8c00-1c19-49e0-9792-bbd2be0431b3",
+      "updatedAt": "2026-06-22T09:21:00.643Z"
+    },
+    "person:ab6aad07-9531-485e-b8ea-2aa2863072e5": {
+      "contactId": "3f5294dc-03f9-4208-bbe2-4cf974cca7c3",
+      "source": "crm-aikount-ops",
+      "crmOpportunityId": "bedc9db1-fb8d-4513-871d-6b3600f9bbf7",
+      "contactKey": "person:ab6aad07-9531-485e-b8ea-2aa2863072e5",
+      "updatedAt": "2026-06-22T09:21:01.426Z"
+    },
+    "person:6cfd9264-4b7a-4f3a-8e7d-d6e623838c4a": {
+      "contactId": "d7e2b0ed-f4e3-4ecc-9c18-3fcc26e6b2bc",
+      "source": "crm-aikount-ops",
+      "crmOpportunityId": "c377222f-3116-4ff6-a775-6fb169247513",
+      "contactKey": "person:6cfd9264-4b7a-4f3a-8e7d-d6e623838c4a",
+      "updatedAt": "2026-06-22T09:21:02.284Z"
+    },
+    "company:bc80eea7-3afe-4358-928e-228adff46b1b": {
+      "contactId": "3dbfdd67-9601-465c-8274-3587d7cf8c8b",
+      "source": "crm-aikount-ops",
+      "crmOpportunityId": "90b13255-35df-4756-b7fc-884f39354164",
+      "contactKey": "company:bc80eea7-3afe-4358-928e-228adff46b1b",
+      "updatedAt": "2026-06-22T09:40:27.156Z"
+    },
+    "company:3d1b3057-3808-4726-8854-086b7827e178": {
+      "contactId": "4a3417a7-c264-4c53-bd72-9cca63593a70",
+      "source": "crm-aikount-ops",
+      "crmOpportunityId": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "contactKey": "company:3d1b3057-3808-4726-8854-086b7827e178",
+      "updatedAt": "2026-06-22T09:47:14.571Z"
+    },
+    "company:0fbd1e4a-e832-4551-8fec-990f74f432e2": {
+      "contactId": "5968a43d-f17e-4895-b2bb-b8d29464a59d",
+      "source": "crm-aikount-ops",
+      "crmOpportunityId": "459847b7-d38c-4561-8086-534d8eea5f91",
+      "contactKey": "company:0fbd1e4a-e832-4551-8fec-990f74f432e2",
+      "updatedAt": "2026-06-22T09:47:15.371Z"
+    },
+    "company:7a68ccc3-e38f-473a-915c-5d7c629305ca": {
+      "contactId": "b86fd06c-9ad4-4385-96cf-676bd875437a",
+      "source": "crm-aikount-ops",
+      "crmOpportunityId": "d3f9f2e8-b0e2-4ce2-82d0-ecfae2c6f7ba",
+      "contactKey": "company:7a68ccc3-e38f-473a-915c-5d7c629305ca",
+      "updatedAt": "2026-06-22T09:47:16.068Z"
+    },
+    "company:720ed249-0f3a-47ca-aaa6-49b084d174ee": {
+      "contactId": "471bc08a-ec8e-40f5-aa9b-a084597b9364",
+      "source": "crm-aikount-ops",
+      "crmOpportunityId": "55cfbd70-83e1-41c2-a8d5-445b19601535",
+      "contactKey": "company:720ed249-0f3a-47ca-aaa6-49b084d174ee",
+      "updatedAt": "2026-06-22T09:47:16.958Z"
+    }
+  },
+  "documents": {
+    "3a2eda13-f59b-431c-ba96-9701e13066e1:quote:20260601-mcana-01": {
+      "dealId": "3a2eda13-f59b-431c-ba96-9701e13066e1",
+      "documentKind": "quote",
+      "documentKey": "20260601-mcana-01",
+      "docId": "97ff5e46-49c6-4e8f-9576-61d4a9ca7ed8",
+      "status": "draft",
+      "contactId": "6ec07c1e-e539-4d64-8600-88ae21699d63",
+      "externalId": "crm-opportunity/3a2eda13-f59b-431c-ba96-9701e13066e1/quote/20260601-mcana-01",
+      "updatedAt": "2026-06-22T09:20:59.904Z"
+    },
+    "cbae8c00-1c19-49e0-9792-bbd2be0431b3:quote:20260622-paula-01": {
+      "dealId": "cbae8c00-1c19-49e0-9792-bbd2be0431b3",
+      "documentKind": "quote",
+      "documentKey": "20260622-paula-01",
+      "docId": "ccbc4721-5763-4a15-bf63-7ef7e755ef31",
+      "status": "draft",
+      "contactId": "250b0050-a1b4-4b1c-bd73-334c67aa5d80",
+      "externalId": "crm-opportunity/cbae8c00-1c19-49e0-9792-bbd2be0431b3/quote/20260622-paula-01",
+      "updatedAt": "2026-06-22T09:21:00.757Z"
+    },
+    "bedc9db1-fb8d-4513-871d-6b3600f9bbf7:quote:20260622-michel-01": {
+      "dealId": "bedc9db1-fb8d-4513-871d-6b3600f9bbf7",
+      "documentKind": "quote",
+      "documentKey": "20260622-michel-01",
+      "docId": "abbe7198-710f-4a3a-8ab6-70020e11f02c",
+      "status": "draft",
+      "contactId": "3f5294dc-03f9-4208-bbe2-4cf974cca7c3",
+      "externalId": "crm-opportunity/bedc9db1-fb8d-4513-871d-6b3600f9bbf7/quote/20260622-michel-01",
+      "updatedAt": "2026-06-22T09:21:01.539Z"
+    },
+    "c377222f-3116-4ff6-a775-6fb169247513:quote:20260622-sergio-01": {
+      "dealId": "c377222f-3116-4ff6-a775-6fb169247513",
+      "documentKind": "quote",
+      "documentKey": "20260622-sergio-01",
+      "docId": "fbcbcfec-5748-4431-89db-7fd6a073d836",
+      "status": "draft",
+      "contactId": "d7e2b0ed-f4e3-4ecc-9c18-3fcc26e6b2bc",
+      "externalId": "crm-opportunity/c377222f-3116-4ff6-a775-6fb169247513/quote/20260622-sergio-01",
+      "updatedAt": "2026-06-22T09:21:02.400Z"
+    },
+    "90b13255-35df-4756-b7fc-884f39354164:quote:20260622-femepa-01": {
+      "dealId": "90b13255-35df-4756-b7fc-884f39354164",
+      "documentKind": "quote",
+      "documentKey": "20260622-femepa-01",
+      "docId": "ecbf0341-774c-4adf-b5f2-cfb8fb957b83",
+      "status": "draft",
+      "contactId": "3dbfdd67-9601-465c-8274-3587d7cf8c8b",
+      "externalId": "crm-opportunity/90b13255-35df-4756-b7fc-884f39354164/quote/20260622-femepa-01",
+      "updatedAt": "2026-06-22T09:40:27.280Z"
+    },
+    "94c09679-41ba-4608-b5cd-12fe55884216:quote:20260622-casa-africa-integrado-01": {
+      "dealId": "94c09679-41ba-4608-b5cd-12fe55884216",
+      "documentKind": "quote",
+      "documentKey": "20260622-casa-africa-integrado-01",
+      "docId": "6c8d8764-f9e6-4f18-b11a-e870f6c2e051",
+      "status": "draft",
+      "contactId": "d3d34704-0bb6-4522-8dab-dc9ff3c0f004",
+      "externalId": "crm-opportunity/94c09679-41ba-4608-b5cd-12fe55884216/quote/20260622-casa-africa-integrado-01",
+      "updatedAt": "2026-06-22T09:40:29.151Z"
+    },
+    "9c4fc972-e555-41e7-ace1-37125fb73734:quote:20260622-epi10-01": {
+      "dealId": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "documentKind": "quote",
+      "documentKey": "20260622-epi10-01",
+      "docId": "bf7a568a-037e-412b-8586-7f1ea9436cb8",
+      "status": "draft",
+      "contactId": "4a3417a7-c264-4c53-bd72-9cca63593a70",
+      "externalId": "crm-opportunity/9c4fc972-e555-41e7-ace1-37125fb73734/quote/20260622-epi10-01",
+      "updatedAt": "2026-06-22T09:47:14.702Z"
+    },
+    "459847b7-d38c-4561-8086-534d8eea5f91:quote:20260622-femete-01": {
+      "dealId": "459847b7-d38c-4561-8086-534d8eea5f91",
+      "documentKind": "quote",
+      "documentKey": "20260622-femete-01",
+      "docId": "e9618435-5718-4e78-ab67-676f2a6443e0",
+      "status": "draft",
+      "contactId": "5968a43d-f17e-4895-b2bb-b8d29464a59d",
+      "externalId": "crm-opportunity/459847b7-d38c-4561-8086-534d8eea5f91/quote/20260622-femete-01",
+      "updatedAt": "2026-06-22T09:47:15.499Z"
+    },
+    "d3f9f2e8-b0e2-4ce2-82d0-ecfae2c6f7ba:quote:20260622-camara-tenerife-01": {
+      "dealId": "d3f9f2e8-b0e2-4ce2-82d0-ecfae2c6f7ba",
+      "documentKind": "quote",
+      "documentKey": "20260622-camara-tenerife-01",
+      "docId": "3171d542-c926-4a32-b804-4632dbacaad5",
+      "status": "draft",
+      "contactId": "b86fd06c-9ad4-4385-96cf-676bd875437a",
+      "externalId": "crm-opportunity/d3f9f2e8-b0e2-4ce2-82d0-ecfae2c6f7ba/quote/20260622-camara-tenerife-01",
+      "updatedAt": "2026-06-22T09:47:16.204Z"
+    },
+    "55cfbd70-83e1-41c2-a8d5-445b19601535:quote:20260622-dclick-01": {
+      "dealId": "55cfbd70-83e1-41c2-a8d5-445b19601535",
+      "documentKind": "quote",
+      "documentKey": "20260622-dclick-01",
+      "docId": "94bb174f-24c7-43fe-9aa9-ce416a0f8d3e",
+      "status": "draft",
+      "contactId": "471bc08a-ec8e-40f5-aa9b-a084597b9364",
+      "externalId": "crm-opportunity/55cfbd70-83e1-41c2-a8d5-445b19601535/quote/20260622-dclick-01",
+      "updatedAt": "2026-06-22T09:47:17.088Z"
+    }
+  },
   "sessions": [
     {
       "requestId": "aikountops_2026-06-20T18-46-32-811Z_96750dfa",
@@ -9,6 +167,76 @@
       "status": "dry_run_completed",
       "dealId": "35917dfa-c090-43e8-a637-83cdd1513f17",
       "finishedAt": "2026-06-20T18:46:34.192Z"
+    },
+    {
+      "requestId": "aikountops_2026-06-22T09-20-58-845Z_5a687172",
+      "action": "create_quote",
+      "status": "apply_completed",
+      "dealId": "3a2eda13-f59b-431c-ba96-9701e13066e1",
+      "finishedAt": "2026-06-22T09:20:59.904Z"
+    },
+    {
+      "requestId": "aikountops_2026-06-22T09-21-00-031Z_c97ff89e",
+      "action": "create_quote",
+      "status": "apply_completed",
+      "dealId": "cbae8c00-1c19-49e0-9792-bbd2be0431b3",
+      "finishedAt": "2026-06-22T09:21:00.757Z"
+    },
+    {
+      "requestId": "aikountops_2026-06-22T09-21-00-879Z_314d9a30",
+      "action": "create_quote",
+      "status": "apply_completed",
+      "dealId": "bedc9db1-fb8d-4513-871d-6b3600f9bbf7",
+      "finishedAt": "2026-06-22T09:21:01.539Z"
+    },
+    {
+      "requestId": "aikountops_2026-06-22T09-21-01-656Z_7ccf40f7",
+      "action": "create_quote",
+      "status": "apply_completed",
+      "dealId": "c377222f-3116-4ff6-a775-6fb169247513",
+      "finishedAt": "2026-06-22T09:21:02.400Z"
+    },
+    {
+      "requestId": "aikountops_2026-06-22T09-40-26-431Z_ea71baf2",
+      "action": "create_quote",
+      "status": "apply_completed",
+      "dealId": "90b13255-35df-4756-b7fc-884f39354164",
+      "finishedAt": "2026-06-22T09:40:27.280Z"
+    },
+    {
+      "requestId": "aikountops_2026-06-22T09-40-28-473Z_e1a5df45",
+      "action": "create_quote",
+      "status": "apply_completed",
+      "dealId": "94c09679-41ba-4608-b5cd-12fe55884216",
+      "finishedAt": "2026-06-22T09:40:29.151Z"
+    },
+    {
+      "requestId": "aikountops_2026-06-22T09-47-13-360Z_b5a1330e",
+      "action": "create_quote",
+      "status": "apply_completed",
+      "dealId": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "finishedAt": "2026-06-22T09:47:14.702Z"
+    },
+    {
+      "requestId": "aikountops_2026-06-22T09-47-14-734Z_d40453b8",
+      "action": "create_quote",
+      "status": "apply_completed",
+      "dealId": "459847b7-d38c-4561-8086-534d8eea5f91",
+      "finishedAt": "2026-06-22T09:47:15.499Z"
+    },
+    {
+      "requestId": "aikountops_2026-06-22T09-47-15-527Z_e20c91b5",
+      "action": "create_quote",
+      "status": "apply_completed",
+      "dealId": "d3f9f2e8-b0e2-4ce2-82d0-ecfae2c6f7ba",
+      "finishedAt": "2026-06-22T09:47:16.205Z"
+    },
+    {
+      "requestId": "aikountops_2026-06-22T09-47-16-228Z_e1c2a935",
+      "action": "create_quote",
+      "status": "apply_completed",
+      "dealId": "55cfbd70-83e1-41c2-a8d5-445b19601535",
+      "finishedAt": "2026-06-22T09:47:17.088Z"
     }
   ]
 }

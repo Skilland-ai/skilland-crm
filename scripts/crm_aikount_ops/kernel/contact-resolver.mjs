@@ -72,30 +72,32 @@ function buildContactDraft({ crmSnapshot, contactOverrides }) {
   const company = crmSnapshot.company;
   const person = crmSnapshot.pointOfContact;
   const name =
-    contactOverrides.name ??
-    company?.name ??
-    person?.fullName ??
-    crmSnapshot.name;
+    compactString(contactOverrides.name) ??
+    compactString(company?.name) ??
+    compactString(person?.fullName) ??
+    compactString(crmSnapshot.name);
   return {
     name,
-    legal_name: contactOverrides.legalName ?? company?.name ?? null,
-    vat: contactOverrides.vat ?? null,
+    legal_name: compactString(contactOverrides.legalName) ?? compactString(company?.name),
+    vat: compactString(contactOverrides.vat),
     email:
-      contactOverrides.email ??
-      person?.primaryEmail ??
-      company?.email ??
-      null,
-    phone: contactOverrides.phone ?? company?.phone ?? null,
-    address: company?.address?.street1 ?? null,
-    address_line2: company?.address?.street2 ?? null,
-    city: company?.address?.city ?? null,
-    state: company?.address?.state ?? null,
-    postal_code: company?.address?.postalCode ?? null,
-    country: company?.address?.country ?? null,
+      compactString(contactOverrides.email) ??
+      compactString(person?.primaryEmail) ??
+      compactString(company?.email),
+    phone: compactString(contactOverrides.phone) ?? compactString(company?.phone),
+    address: compactString(contactOverrides.address) ?? compactString(company?.address?.street1),
+    address_line2:
+      compactString(contactOverrides.addressLine2) ?? compactString(company?.address?.street2),
+    city: compactString(contactOverrides.city) ?? compactString(company?.address?.city),
+    state: compactString(contactOverrides.state) ?? compactString(company?.address?.state),
+    postal_code:
+      compactString(contactOverrides.postalCode) ?? compactString(company?.address?.postalCode),
+    country: compactString(contactOverrides.country) ?? compactString(company?.address?.country),
     is_customer: true,
     is_supplier: false,
-    customer_type: company ? 'business' : 'individual',
-    currency: crmSnapshot.currencyCode ?? 'EUR',
+    customer_type:
+      compactString(contactOverrides.customerType) ?? (company ? 'business' : 'individual'),
+    currency: compactString(crmSnapshot.currencyCode) ?? 'EUR',
     external_source: 'skilland-crm',
     notes: `Created from Twenty opportunity ${crmSnapshot.opportunityId}`,
   };
@@ -182,4 +184,12 @@ function normalizeText(value) {
   return String(value ?? '')
     .trim()
     .toLowerCase();
+}
+
+function compactString(value) {
+  if (value === null || value === undefined) {
+    return null;
+  }
+  const normalized = String(value).trim();
+  return normalized.length > 0 ? normalized : null;
 }

@@ -110,6 +110,73 @@ test('contact resolver prepares a create draft when AIKount has no candidates', 
   assert.equal(resolution.draft.vat, 'B12345678');
 });
 
+test('contact resolver applies address overrides from structured input', async () => {
+  const client = {
+    async getContact() {
+      throw new Error('not found');
+    },
+    async listContacts() {
+      return [];
+    },
+  };
+
+  const resolution = await resolveOrPrepareContact({
+    client,
+    registry: defaultRegistry(),
+    crmSnapshot: CRM_SNAPSHOT,
+    contactOverrides: {
+      address: 'C/ Isaac Albeniz, 36',
+      city: 'Galdar',
+      postalCode: '35460',
+      country: 'ES',
+      customerType: 'business',
+    },
+  });
+
+  assert.equal(resolution.mode, 'create');
+  assert.equal(resolution.draft.address, 'C/ Isaac Albeniz, 36');
+  assert.equal(resolution.draft.city, 'Galdar');
+  assert.equal(resolution.draft.postal_code, '35460');
+  assert.equal(resolution.draft.country, 'ES');
+  assert.equal(resolution.draft.customer_type, 'business');
+});
+
+test('contact resolver strips empty strings from contact draft fields', async () => {
+  const client = {
+    async getContact() {
+      throw new Error('not found');
+    },
+    async listContacts() {
+      return [];
+    },
+  };
+
+  const resolution = await resolveOrPrepareContact({
+    client,
+    registry: defaultRegistry(),
+    crmSnapshot: {
+      ...CRM_SNAPSHOT,
+      company: {
+        ...CRM_SNAPSHOT.company,
+        phone: '   ',
+        address: {
+          ...CRM_SNAPSHOT.company.address,
+          street2: '',
+          state: ' ',
+          country: '',
+        },
+      },
+    },
+    contactOverrides: {},
+  });
+
+  assert.equal(resolution.mode, 'create');
+  assert.equal(resolution.draft.phone, null);
+  assert.equal(resolution.draft.address_line2, null);
+  assert.equal(resolution.draft.state, null);
+  assert.equal(resolution.draft.country, null);
+});
+
 test('planner builds create quote with create-contact and send follow-up', () => {
   const request = parseAikountActionRequest({
     requester: 'unit_test',
@@ -153,6 +220,7 @@ test('planner builds create quote with create-contact and send follow-up', () =>
     ['create_contact', 'create_quote', 'send_quote'],
   );
   assert.equal(plan.operations[1].contactFromOpId, 'contact:0');
+  assert.equal('header_discount_pct' in plan.operations[1].body, false);
 });
 
 test('reviewer blocks apply when human confirmation is still missing', () => {

@@ -1,0 +1,3354 @@
+{
+  "generated_at": "2026-06-22T08:54:10.846Z",
+  "mode": "apply",
+  "requested_date": "2026-07-15",
+  "due_at": "2026-07-15T08:00:00.000Z",
+  "campaign_name": "IA Mujeres 2026",
+  "business_line": "SkilLand IA Mujeres",
+  "target_task_title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+  "inspected_tasks": 120,
+  "selected_count": 90,
+  "skipped_count": 30,
+  "selected": [
+    {
+      "task_id": "007ed544-b3e8-40ee-ad40-a048bfd81773",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "8d42202a-8c90-4713-82f0-203162cbd8c6",
+          "name": "Ayuntamiento de Yaiza — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "alcaldia@ayuntamientodeyaiza.es",
+      "company_name": "Ayuntamiento de Yaiza"
+    },
+    {
+      "task_id": "042a226a-bf68-427d-8a22-cb9334b05989",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "acb581e5-9d75-4271-9e43-59f7c1b1b31f",
+          "name": "Ayuntamiento de Fuencaliente de La Palma — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Empleo"
+        }
+      ],
+      "person_email": "servicios.sociales@fuencalientedelapalma.es",
+      "company_name": "Ayuntamiento de Fuencaliente de La Palma"
+    },
+    {
+      "task_id": "04df528f-f879-4207-be90-59513aa41a56",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "7b9093de-c30e-4c5d-a9ac-04306e5f38e1",
+          "name": "Ayuntamiento de La Orotava — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "promotora-igualdad@villadelaorotava.org",
+      "company_name": "Ayuntamiento de La Orotava"
+    },
+    {
+      "task_id": "09cb7426-05dd-44a8-a9e1-a7b62be20f1d",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:51:56.231Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "9304746f-6652-4efa-9f0a-a1feb9cc7d03",
+          "name": "Cabildo de Lanzarote — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:51:56.231Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "cabildo",
+          "icp_segment": "Cabildo - Igualdad"
+        }
+      ],
+      "person_email": "gobiernoabierto@cabildodelanzarote.com",
+      "company_name": "Cabildo de Lanzarote"
+    },
+    {
+      "task_id": "0bf8706f-8ffd-4813-89e0-005c8a306317",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:39:15.237Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "d9e72915-5785-4ff0-ab38-0da5a77d3359",
+          "name": "Ilustre Ayuntamiento de El Rosario — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:39:15.237Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "alcaldia@ayuntamientoelrosario.org",
+      "company_name": "Ilustre Ayuntamiento de El Rosario"
+    },
+    {
+      "task_id": "0e5f6f81-501b-4399-9be1-4829b4a85aac",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "20277b67-d6e4-436b-934f-8572d1cbd764",
+          "name": "Reboot Academy/Canarias — IA Mujeres 2026 — Test Email 1 v4.1",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "internal_test",
+          "icp_segment": "internal_test"
+        }
+      ],
+      "person_email": "sales@reboot.academy",
+      "company_name": "Reboot Academy/Canarias — Test IA Mujeres Email 1 v4.1"
+    },
+    {
+      "task_id": "0f079d27-5dc9-4f0c-8bf0-3db3c9395c6b",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "6221863f-f6db-46a8-885e-dc4b9791e3d6",
+          "name": "Ayuntamiento de El Tanque — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "serviciossociales@eltanque.es",
+      "company_name": "Ayuntamiento de El Tanque"
+    },
+    {
+      "task_id": "0f1afe49-7581-41d6-a91b-c9acbb2f0bb5",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "3208eebb-b21f-4463-ad7e-64a895f195a7",
+          "name": "Ayuntamiento de Las Palmas de Gran Canaria — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "igualdad@laspalmasgc.es",
+      "company_name": "Ayuntamiento de Las Palmas de Gran Canaria"
+    },
+    {
+      "task_id": "0fbf6fff-83ca-4c2f-b799-97599f95434e",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:48:52.729Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "ebbdc26d-b8ea-4a85-8a3c-ad3a911ab3b5",
+          "name": "Excelentisimo Ayuntamiento de Puerto de la Cruz — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:48:52.729Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "derechosocial@puertodelacruz.es",
+      "company_name": "Excelentisimo Ayuntamiento de Puerto de la Cruz"
+    },
+    {
+      "task_id": "18954e03-42b6-445f-a6d8-07f4a243b66e",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "f077b9be-556c-41e7-abcf-36ffe91b170f",
+          "name": "Skilland Dirección — IA Mujeres 2026 — Test Email 1 v3",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "internal_test",
+          "icp_segment": "internal_test"
+        }
+      ],
+      "person_email": "direccion@skilland.ai",
+      "company_name": "Skilland Dirección — Test IA Mujeres Email 1 v3"
+    },
+    {
+      "task_id": "1a2cf901-2390-475d-b723-f2259f583fe2",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "b22b17a6-fc14-4db4-9858-ddcc3156fe51",
+          "name": "Ayuntamiento de Telde — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "mariaeugeniamelian@telde.es",
+      "company_name": "Ayuntamiento de Telde"
+    },
+    {
+      "task_id": "1c51a0fc-f90c-4545-a0f4-86cb4b8b5840",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:39:20.572Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "dda86c2d-2ae2-4bb8-927d-2da20e5b1d65",
+          "name": "Ayuntamiento de Los Silos — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:39:20.572Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "ayuntamiento@lossilos.es",
+      "company_name": "Ayuntamiento de Los Silos"
+    },
+    {
+      "task_id": "1cceb1a7-d738-49bd-9453-8a6f567cd7c5",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "ce8e6fe4-bba6-474a-b3de-59fc3208261e",
+          "name": "Ayuntamiento de Vega de San Mateo — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "maojeda@vegadesanmateo.es",
+      "company_name": "Ayuntamiento de Vega de San Mateo"
+    },
+    {
+      "task_id": "1f1072a2-c881-4f30-9ab0-9175d16d007f",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "ace1cc03-7842-40e3-b874-1f2c5c3cea79",
+          "name": "Ayuntamiento de Guimar — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "pdperez@guimar.es",
+      "company_name": "Ayuntamiento de Guimar"
+    },
+    {
+      "task_id": "207dc556-5d4a-4f25-9201-914ca09e92fc",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:50:17.473Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "7166fe3b-4bac-41a5-9333-71b180e6ca7c",
+          "name": "Cabildo de El Hierro — IA Mujeres 2026 — Empleo",
+          "previous_follow_up_due_at": "2026-07-02T07:50:17.473Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "cabildo",
+          "icp_segment": "Cabildo - Empleo"
+        }
+      ],
+      "person_email": "alopez@elhierro.es",
+      "company_name": "Cabildo de El Hierro"
+    },
+    {
+      "task_id": "25cc2651-e198-4767-854c-2a5193d69e2e",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "33bb9a4e-9784-401f-a85c-7caf29be477c",
+          "name": "Ayuntamiento de El Paso — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "serviciossociales@elpaso.es",
+      "company_name": "Ayuntamiento de El Paso"
+    },
+    {
+      "task_id": "2d5eca55-5240-4e5b-a12c-b3eaf96bef84",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "6cd8408e-910a-47c0-b783-fb7b0d215f04",
+          "name": "Ayuntamiento de Santiago del Teide — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "mariajose@santiagodelteide.es",
+      "company_name": "Ayuntamiento de Santiago del Teide"
+    },
+    {
+      "task_id": "2ea63175-4739-40ad-a927-7c488857a711",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "70c113a5-bad4-4e09-975d-21e6e70eecb1",
+          "name": "Ayuntamiento de Valle Gran Rey — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "ayuntamiento@vallegranrey.es",
+      "company_name": "Ayuntamiento de Valle Gran Rey"
+    },
+    {
+      "task_id": "31ee7b62-034c-4b29-bed5-cde2b7502bd3",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "34a111c3-03e1-4db9-bc3d-43625a0339bd",
+          "name": "Ayuntamiento de San Miguel de Abona — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "servicios.generales@sanmigueldeabona.org",
+      "company_name": "Ayuntamiento de San Miguel de Abona"
+    },
+    {
+      "task_id": "33340400-99a6-438a-827e-5bfba6cb0f52",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "f193d596-2a73-49ce-8cc8-cb730170d980",
+          "name": "Ayuntamiento de Valverde — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "cmbrosed@aytovalverde.org",
+      "company_name": "Ayuntamiento de Valverde"
+    },
+    {
+      "task_id": "3465a2e0-b106-4116-b9ba-1bb78ace0e0d",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:38:16.301Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "9d1a283e-26e0-4db8-926c-71b1be8979db",
+          "name": "Ayuntamiento de Villa de Mazo — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:38:16.301Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "ssociales@villademazo.es",
+      "company_name": "Ayuntamiento de Villa de Mazo"
+    },
+    {
+      "task_id": "37cf55fe-0c38-4238-8333-6596bafa504e",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "8d2cf934-9ffa-4b07-b39d-b22e32d8be0b",
+          "name": "Ayuntamiento de la Villa de Garafía — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "ssociales@garafia.org",
+      "company_name": "Ayuntamiento de la Villa de Garafía"
+    },
+    {
+      "task_id": "39865852-1fc2-4da3-8909-bdf7f26b681d",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "135f2d98-8f75-42b3-b96a-93cd5472a5dc",
+          "name": "Ayuntamiento de Galdar — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "atmendoza@galdar.es",
+      "company_name": "Ayuntamiento de Galdar"
+    },
+    {
+      "task_id": "3a964176-f475-4bbe-a2d5-4560a6c3d909",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "371f4d07-a20a-4b48-a2e0-f48205766841",
+          "name": "Ayuntamiento de Puerto del Rosario — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "t.gutierrez@puertodelrosario.org",
+      "company_name": "Ayuntamiento de Puerto del Rosario"
+    },
+    {
+      "task_id": "40892cca-1913-4399-8448-385489f09306",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "9f5613dc-19d2-4fff-804c-cef78757fb3c",
+          "name": "Ayuntamiento de El Pinar de El Hierro — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "elpinardeelhierro@aytoelpinar.org",
+      "company_name": "Ayuntamiento de El Pinar de El Hierro"
+    },
+    {
+      "task_id": "42159e94-c504-4eb7-ac0e-12365fd45b4f",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "240b113d-529c-47af-b385-dbae9c6194e9",
+          "name": "Ayuntamiento de la Villa y Ciudad de San Andrés y Sauces — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "serviciossociales@sanandresysauces.es",
+      "company_name": "Ayuntamiento de la Villa y Ciudad de San Andrés y Sauces"
+    },
+    {
+      "task_id": "4236def6-be22-4fcd-8407-6167e70085a0",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "5f4806fe-80e3-4afc-a936-190384cfdb87",
+          "name": "Ayuntamiento de Betancuria — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "ssociales@aytobetancuria.org",
+      "company_name": "Ayuntamiento de Betancuria"
+    },
+    {
+      "task_id": "426cbd99-c40a-47b7-ab68-6eb5d1bd2e07",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "84bacdc0-ca2f-483e-87e8-82796b710481",
+          "name": "Ayuntamiento de San Bartolome de Tirajana — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "igualdad@maspalomas.com",
+      "company_name": "Ayuntamiento de San Bartolome de Tirajana"
+    },
+    {
+      "task_id": "44dfc547-4595-4880-82f1-dad290a7693a",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "7e4bd5d4-e200-4be4-9a45-7685b5cecca9",
+          "name": "Ayuntamiento de Puntagorda — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "serviciossociales@puntagorda.es",
+      "company_name": "Ayuntamiento de Puntagorda"
+    },
+    {
+      "task_id": "46a5a761-818d-4ca3-affe-7eabcb825809",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "4923b81f-4f6f-43c5-9c95-b16980004657",
+          "name": "Ayuntamiento de Teguise — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "angonzalezcc@teguise.es",
+      "company_name": "Ayuntamiento de Teguise"
+    },
+    {
+      "task_id": "486c71a5-97eb-4709-8648-603655e5ab43",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "9eb8119e-d395-4e27-88ba-614abc306fc1",
+          "name": "Ayuntamiento de La Frontera — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "rarmas@aytofrontera.org",
+      "company_name": "Ayuntamiento de La Frontera"
+    },
+    {
+      "task_id": "50b62220-e2d0-4dac-86f0-561fda972407",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:51:58.054Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "cfc9f347-2373-4b78-9200-6858392fa9e7",
+          "name": "Cabildo de La Palma — IA Mujeres 2026 — Igualdad / Politicas Sociales",
+          "previous_follow_up_due_at": "2026-07-02T07:51:58.054Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "cabildo",
+          "icp_segment": "Cabildo - Igualdad"
+        }
+      ],
+      "person_email": "cabildo@cabildodelapalma.es",
+      "company_name": "Cabildo de La Palma"
+    },
+    {
+      "task_id": "54bb78f2-70fe-4e35-b566-963bd0270096",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "59332304-d74e-4582-931c-cdf418d39ad6",
+          "name": "Ayuntamiento de Tuineje — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "serviciossociales@ayuntamientotuineje.com",
+      "company_name": "Ayuntamiento de Tuineje"
+    },
+    {
+      "task_id": "54f4a409-a650-4d37-be8a-52e57c50d18a",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:50:19.771Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "8dcba042-8c5b-4fec-bd0a-88d795f4a32e",
+          "name": "Cabildo de Fuerteventura — IA Mujeres 2026 — Igualdad / Politicas Sociales / Participacion Ciudadana",
+          "previous_follow_up_due_at": "2026-07-02T07:50:19.771Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "cabildo",
+          "icp_segment": "Cabildo - Igualdad"
+        }
+      ],
+      "person_email": "familianumerosa@cabildofuer.es",
+      "company_name": "Cabildo de Fuerteventura"
+    },
+    {
+      "task_id": "5cfff4a0-6824-4962-b87d-82aa14c047e5",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:48:57.189Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "ee400011-a509-4609-a736-ae512d8e49c4",
+          "name": "Ayuntamiento de la Villa de Moya — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:48:57.189Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "alcaldia@villademoya.es",
+      "company_name": "Ayuntamiento de la Villa de Moya"
+    },
+    {
+      "task_id": "5dc77daf-eedf-4cf6-ad42-f68cf6118315",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "82b711b6-7e0a-475d-9333-81fbaa46706a",
+          "name": "Ayuntamiento de Buenavista del Norte — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "igualdad@buenavistadelnorte.es",
+      "company_name": "Ayuntamiento de Buenavista del Norte"
+    },
+    {
+      "task_id": "65824b2c-5e7a-4ce0-b53d-5cccb54a7636",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "a8e7b8aa-795c-498c-82ef-6134cf74480d",
+          "name": "Ayuntamiento de Vilaflor de Chasna — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "serviciossociales@vilaflordechasna.es",
+      "company_name": "Ayuntamiento de Vilaflor de Chasna"
+    },
+    {
+      "task_id": "6818cb33-4cd4-49fc-a8df-204fb00d8505",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:38:18.042Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "a761faea-c767-4439-ae54-127b032ef45b",
+          "name": "Ayuntamiento de Los Llanos de Aridane — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:38:18.042Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "igualdadlosllanos@aridane.org",
+      "company_name": "Ayuntamiento de Los Llanos de Aridane"
+    },
+    {
+      "task_id": "705c2efe-34c7-4539-83fb-928bdc778748",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "3a785448-567c-4e0c-8ddc-5ce5ab406f0f",
+          "name": "Ayuntamiento de Garachico — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "candelariaperez@garachico.es",
+      "company_name": "Ayuntamiento de Garachico"
+    },
+    {
+      "task_id": "742b2f00-fd4f-42ad-8efa-5f3e262ba72d",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:52:00.467Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "f8356a67-c017-4306-838f-3aff3837bdf3",
+          "name": "Cabildo de La Palma — IA Mujeres 2026 — Empleo / Educacion",
+          "previous_follow_up_due_at": "2026-07-02T07:52:00.467Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "cabildo",
+          "icp_segment": "Cabildo - Empleo"
+        }
+      ],
+      "person_email": "servicio.empleo@cablapalma.es",
+      "company_name": "Cabildo de La Palma"
+    },
+    {
+      "task_id": "74e90f77-4890-4ab4-b44b-f6625b1d82ff",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:49:27.505Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "f906acb9-81eb-4a90-829b-353f39ccee67",
+          "name": "Ayuntamiento de La Matanza de Acentejo — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:49:27.505Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "ayuntamiento@matanceros.es",
+      "company_name": "Ayuntamiento de La Matanza de Acentejo"
+    },
+    {
+      "task_id": "76749ad6-f67a-4859-a0fd-b7f057eadf09",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "2358d9c6-10eb-4945-a845-bf0d79818707",
+          "name": "Ayuntamiento de Valsequillo de Gran Canaria — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "serviciossociales@valsequillogc.net",
+      "company_name": "Ayuntamiento de Valsequillo de Gran Canaria"
+    },
+    {
+      "task_id": "79155607-ed88-4aeb-b6fb-193874abb0e7",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "4e35bde0-2436-4f66-a697-3531084cf176",
+          "name": "Ayuntamiento de Icod de los Vinos — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "cconcepcionm@aytoicod.es",
+      "company_name": "Ayuntamiento de Icod de los Vinos"
+    },
+    {
+      "task_id": "7b0a4229-df91-4102-b392-b304f174892f",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "763a5d0f-3ee8-4cd9-adc0-4b188dc42f70",
+          "name": "Ayuntamiento de Arrecife — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "bienestarsocial@arrecife.es",
+      "company_name": "Ayuntamiento de Arrecife"
+    },
+    {
+      "task_id": "7de27b9b-d619-474b-88a1-90a60f70b3bb",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:48:49.148Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "e1850189-678b-4779-a24e-f9ffa023fb1a",
+          "name": "Ayuntamiento de Alajero — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:48:49.148Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "concejaliaserviciossociales@ayuntamientoalajero.es",
+      "company_name": "Ayuntamiento de Alajero"
+    },
+    {
+      "task_id": "82a7257e-5acb-49e3-824e-ddb2e0370082",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:38:26.143Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "c8354b9e-44ec-4d87-887f-7383bfd00b93",
+          "name": "Ayuntamiento de La Victoria de Acentejo — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:38:26.143Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "bienestarsocial@lavictoriadeacentejo.es",
+      "company_name": "Ayuntamiento de La Victoria de Acentejo"
+    },
+    {
+      "task_id": "8659bc4f-943a-4aa8-a2ac-c62ce1b55835",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:49:29.334Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "ffca6190-dbaa-4398-903f-49cadca62688",
+          "name": "Ayuntamiento de Vallehermoso — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:49:29.334Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "ayuntamiento@vallehermosoweb.es",
+      "company_name": "Ayuntamiento de Vallehermoso"
+    },
+    {
+      "task_id": "87f81177-d0d8-4720-9511-71b3915ca91b",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "d646a404-e746-4066-9a95-d36e70cc3ef7",
+          "name": "Ayuntamiento de Teror — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "ireneortega@teror.es",
+      "company_name": "Ayuntamiento de Teror"
+    },
+    {
+      "task_id": "88b99fa1-6a90-4bbf-b9a1-17723d773d61",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "323a1248-4027-4652-9622-230337af4940",
+          "name": "Ayuntamiento de Granadilla de Abona — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "emendoza@granadilladeabona.org",
+      "company_name": "Ayuntamiento de Granadilla de Abona"
+    },
+    {
+      "task_id": "8ff19620-8876-430b-a115-f58638e2fb56",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "8df14614-b2cb-4b0e-a1c9-19055bba34cf",
+          "name": "Ayuntamiento de Tinajo — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "yurenacubas@tinajo.es",
+      "company_name": "Ayuntamiento de Tinajo"
+    },
+    {
+      "task_id": "903db51f-333c-4c94-9176-c1b6a0844433",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "25499484-05c0-4b11-9fc8-a79d579518ee",
+          "name": "Ayuntamiento de Barlovento — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "ss.ss@barlovento.es",
+      "company_name": "Ayuntamiento de Barlovento"
+    },
+    {
+      "task_id": "9548e848-6e10-4b54-976b-8d3016a74328",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "10112e85-06f4-45b4-a27d-532b4bc1acc4",
+          "name": "Ayuntamiento de Tias — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "mnsaavedra@ayuntamientodetias.es",
+      "company_name": "Ayuntamiento de Tias"
+    },
+    {
+      "task_id": "a5968973-c871-44b3-8199-7c97d0a8c258",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "c0539318-efbf-4d35-875a-0a6929813b1e",
+          "name": "Ayuntamiento de Arucas — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Desarrollo Local"
+        }
+      ],
+      "person_email": "oarmas@arucas.org",
+      "company_name": "Ayuntamiento de Arucas"
+    },
+    {
+      "task_id": "a9e87921-c955-4f49-b11a-77d42d628909",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "55d35a4b-0679-484c-aab3-63b1d717b5f2",
+          "name": "Ayuntamiento de Guia de Isora — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "serviciossociales@guiadeisora.org",
+      "company_name": "Ayuntamiento de Guia de Isora"
+    },
+    {
+      "task_id": "ababcdcf-b65e-4d0a-9ee1-43609cb71197",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "83775aa6-0056-48e5-861d-b964539a77aa",
+          "name": "Ayuntamiento de Hermigua — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "informacion@villadehermigua.com",
+      "company_name": "Ayuntamiento de Hermigua"
+    },
+    {
+      "task_id": "abaf54f2-c206-484e-8a0b-16e5360fd8b0",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "a1765c77-6576-4690-86d7-4ad3badb833c",
+          "name": "Reboot Academy/Canarias — IA Mujeres 2026 — Test Email 1 v3",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "internal_test",
+          "icp_segment": "internal_test"
+        }
+      ],
+      "person_email": "sales@reboot.academy",
+      "company_name": "Reboot Academy/Canarias — Test IA Mujeres Email 1 v3"
+    },
+    {
+      "task_id": "ac492573-c8ec-434a-82be-76021c270e56",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:39:18.365Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "dada5ca5-f0d8-424c-9cc5-e0b94f70b00b",
+          "name": "Ayuntamiento de la Villa de San Juan de la Rambla — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:39:18.365Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "info@sanjuandelarambla.es",
+      "company_name": "Ayuntamiento de la Villa de San Juan de la Rambla"
+    },
+    {
+      "task_id": "ac83892b-93d5-4e2d-a0c6-a8b21a3903b3",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:50:12.546Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "00b05f75-5bbb-4938-8d99-579c9a848cef",
+          "name": "Cabildo de Fuerteventura — IA Mujeres 2026 — Empleo / Educacion / Juventud",
+          "previous_follow_up_due_at": "2026-07-02T07:50:12.546Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "cabildo",
+          "icp_segment": "Cabildo - Empleo"
+        }
+      ],
+      "person_email": "agenciacolocacion@cabildofuer.es",
+      "company_name": "Cabildo de Fuerteventura"
+    },
+    {
+      "task_id": "ae5d78d1-d3d5-48f7-adf1-774ef37a9177",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "cde37de4-790a-4c22-83d3-3e589e993529",
+          "name": "Ayuntamiento de la Villa de Firgas — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "raquelmartel@firgas.es",
+      "company_name": "Ayuntamiento de la Villa de Firgas"
+    },
+    {
+      "task_id": "b1c57412-b4dc-44e3-837f-5d229d269bac",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "44835ad6-24ee-4132-9b01-7ba22703a745",
+          "name": "Ayuntamiento de Valleseco — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "elsa.montero@valleseco.es",
+      "company_name": "Ayuntamiento de Valleseco"
+    },
+    {
+      "task_id": "b8115037-5cd0-46d8-9177-c86872bc5437",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "bc0f0f3b-a4a5-4465-92f5-efa6bba1d8da",
+          "name": "Ayuntamiento de Santa Lucia de Tirajana — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "olgacaceres@santaluciagc.com",
+      "company_name": "Ayuntamiento de Santa Lucia de Tirajana"
+    },
+    {
+      "task_id": "ba55315e-4571-48ec-b580-302cf2be34e1",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:50:22.999Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "6a6ba862-9107-41c6-a3f8-1c66089ad209",
+          "name": "Cabildo de Gran Canaria — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:50:22.999Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "cabildo",
+          "icp_segment": "Cabildo - Igualdad"
+        }
+      ],
+      "person_email": "igualdadcabildo@grancanaria.com",
+      "company_name": "Cabildo de Gran Canaria"
+    },
+    {
+      "task_id": "bb66bc68-822a-452a-8f85-f4f244e0b122",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "893a7696-1f44-4643-98cc-b5934a0be71f",
+          "name": "Ilustre Ayuntamiento de El Sauzal — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "elisabet.delgado@elsauzal.es",
+      "company_name": "Ilustre Ayuntamiento de El Sauzal"
+    },
+    {
+      "task_id": "bd144bd9-cd4e-4044-8afc-e8436dde829e",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "3209aac0-6da8-4f7e-9f51-deed457d2bae",
+          "name": "Ayuntamiento de la Villa de Tegueste — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "igualdad@tegueste.org",
+      "company_name": "Ayuntamiento de la Villa de Tegueste"
+    },
+    {
+      "task_id": "c095d5b4-e3df-449e-8216-6129bb732951",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "268e2de2-95e4-4ff3-bf8b-366b69cc728b",
+          "name": "Ayuntamiento de Ingenio — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "oliverng@ingenio.es",
+      "company_name": "Ayuntamiento de Ingenio"
+    },
+    {
+      "task_id": "c217f11b-1401-466c-9d80-e589f33da354",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "4126d094-d715-4881-8357-8b59a730bfba",
+          "name": "Ayuntamiento de La Oliva — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "serviciossociales@laoliva.es",
+      "company_name": "Ayuntamiento de La Oliva"
+    },
+    {
+      "task_id": "c25cbd49-6f9a-4502-827d-72fadde5a3ec",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "3f058b12-df22-474a-b3e9-208d55b256c0",
+          "name": "Ayuntamiento de San Sebastian de La Gomera — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "ayuntamiento@sansebastiangomera.org",
+      "company_name": "Ayuntamiento de San Sebastian de La Gomera"
+    },
+    {
+      "task_id": "c5099056-ec7a-4319-af0f-688d917a5a5a",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "88c005e5-e79a-453e-a557-025150b55f94",
+          "name": "Ayuntamiento de la Villa de Arafo — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "registro@arafo.es",
+      "company_name": "Ayuntamiento de la Villa de Arafo"
+    },
+    {
+      "task_id": "c564f1d9-5b18-4faf-b22c-89adbdcc0b13",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:38:23.478Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "c3657d95-8ede-4b70-962f-9bb40c253ebf",
+          "name": "Ayuntamiento de Adeje — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:38:23.478Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "igualdad@adeje.es",
+      "company_name": "Ayuntamiento de Adeje"
+    },
+    {
+      "task_id": "ca92086a-d705-4564-9c73-d63101331596",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "16a4e12e-3509-4cf6-84ee-aac13005e50a",
+          "name": "Ayuntamiento de Aguimes — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "centro.igualdad@aguimes.es",
+      "company_name": "Ayuntamiento de Aguimes"
+    },
+    {
+      "task_id": "cce22b6e-1dc9-472d-8d79-d0959c3f4a72",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "4f11e95d-aacb-4741-a491-5162c88d032d",
+          "name": "Ayuntamiento de Tejeda — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "pvega@tejeda.es",
+      "company_name": "Ayuntamiento de Tejeda"
+    },
+    {
+      "task_id": "ceaec2cb-9d34-4c5e-bb5e-b3a458afa265",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "49cbfc3d-e94f-425c-9b7d-c492724fa622",
+          "name": "Ayuntamiento de Arona — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "portalweb@arona.org",
+      "company_name": "Ayuntamiento de Arona"
+    },
+    {
+      "task_id": "d0f8a8da-0bd8-46bd-bdd6-8e374196323a",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "57e16747-a0af-4886-afc1-a6e65928b900",
+          "name": "Ayuntamiento de Tijarafe — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "tijarafe@tijarafe.org",
+      "company_name": "Ayuntamiento de Tijarafe"
+    },
+    {
+      "task_id": "d58790b8-696b-4d1b-ae8d-573ef5e1789d",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "6145462a-d3e3-4d1b-99d3-5def9d2d0f7d",
+          "name": "Cabildo Insular de La Gomera — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "cabildo",
+          "icp_segment": "Cabildo - Igualdad"
+        }
+      ],
+      "person_email": "rgarcia@lagomera.es",
+      "company_name": "Cabildo Insular de La Gomera"
+    },
+    {
+      "task_id": "d61fc16f-1ba2-405a-b255-4e7812b0e53f",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "0cb13037-3fcc-4cda-9d84-78b6910ebf03",
+          "name": "Ayuntamiento de Artenara — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "informacion@artenara.es",
+      "company_name": "Ayuntamiento de Artenara"
+    },
+    {
+      "task_id": "d6d314c7-1068-4abf-aecb-d75fd968055f",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:48:59.691Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "f6b2ff24-b53a-4284-8ba8-2d9557570dba",
+          "name": "Ayuntamiento de Puntallana — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:48:59.691Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "concejalia_serviciossociales@puntallana.es",
+      "company_name": "Ayuntamiento de Puntallana"
+    },
+    {
+      "task_id": "daa78499-61ae-483a-abb3-109f6017f7c7",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:38:21.844Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "b78e348e-a6a0-4faa-a6f6-a09456315690",
+          "name": "Ayuntamiento de Villa de Arico — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:38:21.844Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "infosac@ayuntamientodearico.com",
+      "company_name": "Ayuntamiento de Villa de Arico"
+    },
+    {
+      "task_id": "dcd09adf-d72e-4523-a648-8228dc51e077",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:50:15.280Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "3b74b7ea-ec81-47a0-94e5-10970db0df59",
+          "name": "Cabildo de El Hierro — IA Mujeres 2026 — Politicas Sociales",
+          "previous_follow_up_due_at": "2026-07-02T07:50:15.280Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "cabildo",
+          "icp_segment": "Cabildo - Politicas Sociales"
+        }
+      ],
+      "person_email": "acarballo@elhierro.es",
+      "company_name": "Cabildo de El Hierro"
+    },
+    {
+      "task_id": "ddb7855f-ac41-4ea1-ae57-c67d5daad32b",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:39:11.861Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "d028d684-80f2-4b38-8283-8dbf0e4e8dfe",
+          "name": "Ilustre Ayuntamiento de La Guancha — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:39:11.861Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "serviciossociales@laguancha.es",
+      "company_name": "Ilustre Ayuntamiento de La Guancha"
+    },
+    {
+      "task_id": "ddebd5df-c1ea-4af5-a890-b5bd6f013363",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "3c94a4ce-042c-401b-b292-c49a220c20c5",
+          "name": "Ayuntamiento de Fasnia — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "serviciossociales.fasnia@gmail.com",
+      "company_name": "Ayuntamiento de Fasnia"
+    },
+    {
+      "task_id": "eaa0cd1b-708d-4765-9419-a43350bc8d36",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "5afdfbd0-4b0c-4ec6-bbb6-b192eb5f68c8",
+          "name": "Ayuntamiento de Santa Maria de Guia de Gran Canaria — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "igualdad@santamariadeguia.es",
+      "company_name": "Ayuntamiento de Santa Maria de Guia de Gran Canaria"
+    },
+    {
+      "task_id": "eb1dec60-5e82-4d85-8057-41a2fd33b70d",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:48:50.928Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "e610c60c-d37d-4ee9-b6ae-a7c56157bb6a",
+          "name": "Ayuntamiento de Haria — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:48:50.928Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "serviciossociales@ayuntamientodeharia.com",
+      "company_name": "Ayuntamiento de Haria"
+    },
+    {
+      "task_id": "ee18ce36-90d9-4d79-8062-75e69e985152",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "cbd2ee82-9930-4871-9da8-e25e37dcf311",
+          "name": "Ayuntamiento de la Villa de Santa Brigida — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": null,
+      "company_name": null
+    },
+    {
+      "task_id": "ee2a4a8d-638a-4ef1-b29e-f72605d4fccb",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "60796cdb-99b7-47bc-8bde-38405e75726a",
+          "name": "Ayuntamiento de Tacoronte — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "jacarsal@aytotacoronte.org",
+      "company_name": "Ayuntamiento de Tacoronte"
+    },
+    {
+      "task_id": "f4831314-b29e-425f-850c-f8de07958081",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "6fc5ac05-2dc2-43b8-8a89-77c60abe7f23",
+          "name": "Ayuntamiento de Santa Ursula — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "egonzalez@aytosantaursula.com",
+      "company_name": "Ayuntamiento de Santa Ursula"
+    },
+    {
+      "task_id": "f57c3ce9-7b83-4b16-b56d-616c61faabe0",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "78a32807-2b2e-4707-ae3b-46e4a32a0ceb",
+          "name": "Ayuntamiento de Agaete — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "mcrosario@agaete.es",
+      "company_name": "Ayuntamiento de Agaete"
+    },
+    {
+      "task_id": "f8ae0c8d-3683-48e0-ad14-42b9122f7aab",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-07-02T07:39:06.978Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "cb611878-b99e-4b3d-a84d-c293d0f3eee1",
+          "name": "Ayuntamiento de Pajara — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-07-02T07:39:06.978Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "servicesociales@pajara.es",
+      "company_name": "Ayuntamiento de Pajara"
+    },
+    {
+      "task_id": "f8e09f3c-9429-4c88-9b0a-ae55ca784635",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "850048ed-0a5d-481d-9fb2-1be0d3cf6e77",
+          "name": "Ayuntamiento de Mogan — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "molivam@mogan.es",
+      "company_name": "Ayuntamiento de Mogan"
+    },
+    {
+      "task_id": "f9aee6f2-673b-4375-b178-69bac2ab9eed",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "01392d12-2925-42b5-b527-bbfc71bc784d",
+          "name": "Ayuntamiento de Candelaria — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "mujer2@candelaria.es",
+      "company_name": "Ayuntamiento de Candelaria"
+    },
+    {
+      "task_id": "fa598d93-a8ad-4b82-8a3e-30c306f9564c",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "76b148ce-e5a9-4d97-8214-1a486be67225",
+          "name": "Ayuntamiento de San Bartolome — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+          "outreach_status": "sent_first_email",
+          "ia_mujeres_funnel_stage": "EMAIL_1_SENT",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "igualdad@sanbartolome.es",
+      "company_name": "Ayuntamiento de San Bartolome"
+    }
+  ],
+  "skipped": [
+    {
+      "task_id": "039f4a76-c2b7-492f-8806-22e1d11ca431",
+      "title": "Follow-up serio Science for Change — decidir sí/no o bloqueos",
+      "status": "TODO",
+      "previous_due_at": "2026-06-24T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": "rosa.arias@scienceforchange.eu",
+      "company_name": "Science for Change",
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "060e878b-4544-4967-9607-caa607297ff2",
+      "title": "Follow-up Josefa UPCT — retomar feedback dossier tras verano",
+      "status": "TODO",
+      "previous_due_at": "2026-09-01T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": "josefina.leon@upct.es",
+      "company_name": "UPCT",
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "062690f0-8c58-419d-9139-adfc2ef1f335",
+      "title": "Follow-up Cristina ULPGC — documentación microcredencial",
+      "status": "TODO",
+      "previous_due_at": "2026-07-06T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": "c.microcredenciales@ulpgc.es",
+      "company_name": "ULPGC",
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "06da8006-c555-4ac5-818b-af323330e852",
+      "title": "Nuevo follow-up cobro / facturación pendiente Eros",
+      "status": "TODO",
+      "previous_due_at": "2026-07-15T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": "eros.mm@hotmail.com",
+      "company_name": null,
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "1c9d5aa9-17cc-4265-a186-6627591e0ab1",
+      "title": "Follow-up Lola Azero — revisar sedes electrónicas",
+      "status": "TODO",
+      "previous_due_at": "2026-06-30T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": null,
+      "company_name": null,
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "1df9cad5-7c31-4a4d-97c3-227e664d4198",
+      "title": "Follow-up Titularísimos — reflotar admin automation",
+      "status": "TODO",
+      "previous_due_at": "2026-07-01T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": null,
+      "company_name": null,
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "2284bca5-a4c4-4ccd-997c-634ec4ab77bf",
+      "title": "2. Enviar correo de follow-up post reunión",
+      "status": "DONE",
+      "previous_due_at": "2026-03-18T11:40:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": null,
+      "company_name": null,
+      "reason": [
+        "not_follow_up_1_title",
+        "task_done",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "28826227-2cb8-42fc-8a73-c598d8ea262f",
+      "title": "Follow-up Universidad de Jaén — retomar microcredenciales tras verano",
+      "status": "TODO",
+      "previous_due_at": "2026-09-01T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": "froca@ujaen.es",
+      "company_name": "Universidad de Jaén",
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "2d2eb092-c90e-4027-a9d1-b930dd1ab96f",
+      "title": "Follow-up Universidad de Alicante CFPUA — retomar microcredenciales tras verano",
+      "status": "TODO",
+      "previous_due_at": "2026-09-01T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": "javier.montiel@ua.es",
+      "company_name": "Universidad de Alicante",
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "370dbb91-c158-48ca-ba25-b4976f896e6d",
+      "title": "Follow-up Pedro León Millán — propuesta Bootcamp Ejército",
+      "status": "TODO",
+      "previous_due_at": "2026-06-24T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": null,
+      "company_name": null,
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "4e61e868-3377-4ef1-aaba-2ec2aec5f74c",
+      "title": "FOLLOW-UP",
+      "status": "DONE",
+      "previous_due_at": "2026-06-18T15:04:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": null,
+      "company_name": null,
+      "reason": [
+        "not_follow_up_1_title",
+        "task_done",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "521bd7cf-2af1-48bf-9c6b-a0e890e1c5e4",
+      "title": "Follow-up cobro / facturación pendiente Eros",
+      "status": "DONE",
+      "previous_due_at": "2026-06-19T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": "eros.mm@hotmail.com",
+      "company_name": null,
+      "reason": [
+        "not_follow_up_1_title",
+        "task_done",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "55934261-b78b-4f57-bb38-aa010ded5b21",
+      "title": "Follow-up Carmen — revisión propuesta EPI10",
+      "status": "DONE",
+      "previous_due_at": "2026-06-16T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": "carmensosa@epi10.es",
+      "company_name": "EPI 10 Salud",
+      "reason": [
+        "not_follow_up_1_title",
+        "task_done",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "78f01ddc-7ef8-40a6-a2ce-838510a6f0c4",
+      "title": "Nuevo follow-up Sheikh Sidi ahmed",
+      "status": "TODO",
+      "previous_due_at": "2026-06-28T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": "netnck@gmail.com",
+      "company_name": null,
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "8da84750-7828-47e0-913b-96af93376c84",
+      "title": "Follow-up cobro Gabino Brito — 3.848 EUR pendientes",
+      "status": "DONE",
+      "previous_due_at": "2026-03-19T17:02:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [],
+      "person_email": null,
+      "company_name": null,
+      "reason": [
+        "not_follow_up_1_title",
+        "task_done",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "93695ce3-5989-4cc0-a204-738d213d2103",
+      "title": "Follow-up firma contrato y emision factura",
+      "status": "DONE",
+      "previous_due_at": "2026-04-16T08:28:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [],
+      "person_email": null,
+      "company_name": null,
+      "reason": [
+        "not_follow_up_1_title",
+        "task_done",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "93b79388-e5e5-4387-96a3-e24f4f8f633b",
+      "title": "Nuevo follow-up cobro / facturación pendiente Eros",
+      "status": "TODO",
+      "previous_due_at": "2026-07-15T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": null,
+      "company_name": null,
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "981803fd-64f6-4c2d-9447-50a4f2bd2248",
+      "title": "PRIORITARIO: Follow-up Conde Expósito — avanzar cobros FGULL",
+      "status": "DONE",
+      "previous_due_at": "2026-03-19T00:00:00.000Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [],
+      "person_email": null,
+      "company_name": null,
+      "reason": [
+        "not_follow_up_1_title",
+        "task_done",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "a0633cf6-cd5a-460f-8c8f-dc49625fd9eb",
+      "title": "Follow-up CRUE Microcredenciales — retomar tras verano",
+      "status": "TODO",
+      "previous_due_at": "2026-09-01T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": "g.garcia@crue.org",
+      "company_name": "CRUE",
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "a2ea1230-e0e1-4ef1-95fa-7e6e44fa17ff",
+      "title": "Follow-up INTA Microcredenciales — retomar tras verano",
+      "status": "TODO",
+      "previous_due_at": "2026-09-01T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": "aramgin@inta.es",
+      "company_name": "INTA",
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "a5c9f26f-78a7-4300-814c-15f285d8087a",
+      "title": "Follow-up EXGEA SL — revisar sedes electrónicas",
+      "status": "TODO",
+      "previous_due_at": "2026-06-30T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": null,
+      "company_name": null,
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "a9471db9-968d-4786-8bfb-91f2a1efd7f6",
+      "title": "Follow-up UDC Microcredenciales — retomar tras verano",
+      "status": "TODO",
+      "previous_due_at": "2026-09-01T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": "innovacion.otc@udc.gal",
+      "company_name": "UDC",
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "aab48f01-0c1f-4c19-9696-638742dfbfd7",
+      "title": "Follow-up BES Editorial — revisar sedes electrónicas",
+      "status": "TODO",
+      "previous_due_at": "2026-06-30T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": null,
+      "company_name": null,
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "c304689d-1d21-469c-9753-26af67ebda78",
+      "title": "Follow-up Daniel / VIU — demo SkilLand LMS",
+      "status": "TODO",
+      "previous_due_at": "2026-07-01T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": "dcubero@universidadviu.com",
+      "company_name": "Valencian International University (VIU)",
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "c56c1ac2-dcdf-447b-bfe8-00441709f677",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "DONE",
+      "previous_due_at": "2026-06-18T13:25:25.844Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "9aadaaf3-7580-468e-bda9-dcd9933860b4",
+          "name": "Ayuntamiento de La Aldea de San Nicolas — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-18T13:25:25.844Z",
+          "outreach_status": "bounce_detected",
+          "ia_mujeres_funnel_stage": "WRONG_CONTACT_MANUAL_REVIEW",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Ayuntamiento - Igualdad"
+        }
+      ],
+      "person_email": "oac@aytolaaldea.com",
+      "company_name": "Ayuntamiento de La Aldea de San Nicolas",
+      "reason": [
+        "task_done"
+      ]
+    },
+    {
+      "task_id": "cea65351-0644-4f12-a465-c474479670c8",
+      "title": "Follow-up Divi / DClick — feedback propuesta",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": "mariagalmonacid@dclickconsultores.com",
+      "company_name": "Dclickconsultores",
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "d5097cf2-ad23-4995-9adf-c04f07e0c638",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "DONE",
+      "previous_due_at": "2026-06-18T13:32:10.004Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "579f4cf5-6e74-4466-8696-c5af529747d6",
+          "name": "Ayuntamiento de Antigua — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-18T13:32:10.004Z",
+          "outreach_status": "bounce_detected",
+          "ia_mujeres_funnel_stage": "WRONG_CONTACT_MANUAL_REVIEW",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "services.sociales@ayto-antigua.es",
+      "company_name": "Ayuntamiento de Antigua",
+      "reason": [
+        "task_done"
+      ]
+    },
+    {
+      "task_id": "d64106f5-cc4e-4539-977c-43dc9bfd3944",
+      "title": "Follow-up Michel Nory — propuesta enviada",
+      "status": "TODO",
+      "previous_due_at": "2026-06-22T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": "michelnory_noestoyaqui@hotmail.com",
+      "company_name": null,
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "da10ad5b-28b7-45ec-9449-44d6b6cc87e4",
+      "title": "Follow-up Ricardo / SPET — retomar tras verano",
+      "status": "TODO",
+      "previous_due_at": "2026-08-26T07:00:00.000Z",
+      "assignee_email": null,
+      "opportunities": [],
+      "person_email": null,
+      "company_name": "SPET Turismo Tenerife",
+      "reason": [
+        "not_follow_up_1_title",
+        "not_linked_to_ia_mujeres_opportunity"
+      ]
+    },
+    {
+      "task_id": "ed29ceaf-c474-4447-85e9-a645e9f2b11f",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1",
+      "status": "DONE",
+      "previous_due_at": "2026-06-22T06:49:08.662Z",
+      "assignee_email": "raul@reboot.academy",
+      "opportunities": [
+        {
+          "id": "1f5d917b-fd84-4094-89b8-c51d765b9d8e",
+          "name": "Ayuntamiento de Agulo — IA Mujeres 2026",
+          "previous_follow_up_due_at": "2026-06-22T06:49:08.662Z",
+          "outreach_status": "bounce_detected",
+          "ia_mujeres_funnel_stage": "WRONG_CONTACT_MANUAL_REVIEW",
+          "organization_type": "ayuntamiento",
+          "icp_segment": "Entidad Publica - Igualdad/Empleo"
+        }
+      ],
+      "person_email": "registro@aytoagulo.com",
+      "company_name": "Ayuntamiento de Agulo",
+      "reason": [
+        "task_done"
+      ]
+    }
+  ],
+  "updated_tasks": [
+    {
+      "task_id": "007ed544-b3e8-40ee-ad40-a048bfd81773",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "042a226a-bf68-427d-8a22-cb9334b05989",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "04df528f-f879-4207-be90-59513aa41a56",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "09cb7426-05dd-44a8-a9e1-a7b62be20f1d",
+      "previous_due_at": "2026-07-02T07:51:56.231Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "0bf8706f-8ffd-4813-89e0-005c8a306317",
+      "previous_due_at": "2026-07-02T07:39:15.237Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "0e5f6f81-501b-4399-9be1-4829b4a85aac",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "0f079d27-5dc9-4f0c-8bf0-3db3c9395c6b",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "0f1afe49-7581-41d6-a91b-c9acbb2f0bb5",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "0fbf6fff-83ca-4c2f-b799-97599f95434e",
+      "previous_due_at": "2026-07-02T07:48:52.729Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "18954e03-42b6-445f-a6d8-07f4a243b66e",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "1a2cf901-2390-475d-b723-f2259f583fe2",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "1c51a0fc-f90c-4545-a0f4-86cb4b8b5840",
+      "previous_due_at": "2026-07-02T07:39:20.572Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "1cceb1a7-d738-49bd-9453-8a6f567cd7c5",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "1f1072a2-c881-4f30-9ab0-9175d16d007f",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "207dc556-5d4a-4f25-9201-914ca09e92fc",
+      "previous_due_at": "2026-07-02T07:50:17.473Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "25cc2651-e198-4767-854c-2a5193d69e2e",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "2d5eca55-5240-4e5b-a12c-b3eaf96bef84",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "2ea63175-4739-40ad-a927-7c488857a711",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "31ee7b62-034c-4b29-bed5-cde2b7502bd3",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "33340400-99a6-438a-827e-5bfba6cb0f52",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "3465a2e0-b106-4116-b9ba-1bb78ace0e0d",
+      "previous_due_at": "2026-07-02T07:38:16.301Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "37cf55fe-0c38-4238-8333-6596bafa504e",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "39865852-1fc2-4da3-8909-bdf7f26b681d",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "3a964176-f475-4bbe-a2d5-4560a6c3d909",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "40892cca-1913-4399-8448-385489f09306",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "42159e94-c504-4eb7-ac0e-12365fd45b4f",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "4236def6-be22-4fcd-8407-6167e70085a0",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "426cbd99-c40a-47b7-ab68-6eb5d1bd2e07",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "44dfc547-4595-4880-82f1-dad290a7693a",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "46a5a761-818d-4ca3-affe-7eabcb825809",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "486c71a5-97eb-4709-8648-603655e5ab43",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "50b62220-e2d0-4dac-86f0-561fda972407",
+      "previous_due_at": "2026-07-02T07:51:58.054Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "54bb78f2-70fe-4e35-b566-963bd0270096",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "54f4a409-a650-4d37-be8a-52e57c50d18a",
+      "previous_due_at": "2026-07-02T07:50:19.771Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "5cfff4a0-6824-4962-b87d-82aa14c047e5",
+      "previous_due_at": "2026-07-02T07:48:57.189Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "5dc77daf-eedf-4cf6-ad42-f68cf6118315",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "65824b2c-5e7a-4ce0-b53d-5cccb54a7636",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "6818cb33-4cd4-49fc-a8df-204fb00d8505",
+      "previous_due_at": "2026-07-02T07:38:18.042Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "705c2efe-34c7-4539-83fb-928bdc778748",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "742b2f00-fd4f-42ad-8efa-5f3e262ba72d",
+      "previous_due_at": "2026-07-02T07:52:00.467Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "74e90f77-4890-4ab4-b44b-f6625b1d82ff",
+      "previous_due_at": "2026-07-02T07:49:27.505Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "76749ad6-f67a-4859-a0fd-b7f057eadf09",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "79155607-ed88-4aeb-b6fb-193874abb0e7",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "7b0a4229-df91-4102-b392-b304f174892f",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "7de27b9b-d619-474b-88a1-90a60f70b3bb",
+      "previous_due_at": "2026-07-02T07:48:49.148Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "82a7257e-5acb-49e3-824e-ddb2e0370082",
+      "previous_due_at": "2026-07-02T07:38:26.143Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "8659bc4f-943a-4aa8-a2ac-c62ce1b55835",
+      "previous_due_at": "2026-07-02T07:49:29.334Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "87f81177-d0d8-4720-9511-71b3915ca91b",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "88b99fa1-6a90-4bbf-b9a1-17723d773d61",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "8ff19620-8876-430b-a115-f58638e2fb56",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "903db51f-333c-4c94-9176-c1b6a0844433",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "9548e848-6e10-4b54-976b-8d3016a74328",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "a5968973-c871-44b3-8199-7c97d0a8c258",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "a9e87921-c955-4f49-b11a-77d42d628909",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "ababcdcf-b65e-4d0a-9ee1-43609cb71197",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "abaf54f2-c206-484e-8a0b-16e5360fd8b0",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "ac492573-c8ec-434a-82be-76021c270e56",
+      "previous_due_at": "2026-07-02T07:39:18.365Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "ac83892b-93d5-4e2d-a0c6-a8b21a3903b3",
+      "previous_due_at": "2026-07-02T07:50:12.546Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "ae5d78d1-d3d5-48f7-adf1-774ef37a9177",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "b1c57412-b4dc-44e3-837f-5d229d269bac",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "b8115037-5cd0-46d8-9177-c86872bc5437",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "ba55315e-4571-48ec-b580-302cf2be34e1",
+      "previous_due_at": "2026-07-02T07:50:22.999Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "bb66bc68-822a-452a-8f85-f4f244e0b122",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "bd144bd9-cd4e-4044-8afc-e8436dde829e",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "c095d5b4-e3df-449e-8216-6129bb732951",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "c217f11b-1401-466c-9d80-e589f33da354",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "c25cbd49-6f9a-4502-827d-72fadde5a3ec",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "c5099056-ec7a-4319-af0f-688d917a5a5a",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "c564f1d9-5b18-4faf-b22c-89adbdcc0b13",
+      "previous_due_at": "2026-07-02T07:38:23.478Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "ca92086a-d705-4564-9c73-d63101331596",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "cce22b6e-1dc9-472d-8d79-d0959c3f4a72",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "ceaec2cb-9d34-4c5e-bb5e-b3a458afa265",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "d0f8a8da-0bd8-46bd-bdd6-8e374196323a",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "d58790b8-696b-4d1b-ae8d-573ef5e1789d",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "d61fc16f-1ba2-405a-b255-4e7812b0e53f",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "d6d314c7-1068-4abf-aecb-d75fd968055f",
+      "previous_due_at": "2026-07-02T07:48:59.691Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "daa78499-61ae-483a-abb3-109f6017f7c7",
+      "previous_due_at": "2026-07-02T07:38:21.844Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "dcd09adf-d72e-4523-a648-8228dc51e077",
+      "previous_due_at": "2026-07-02T07:50:15.280Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "ddb7855f-ac41-4ea1-ae57-c67d5daad32b",
+      "previous_due_at": "2026-07-02T07:39:11.861Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "ddebd5df-c1ea-4af5-a890-b5bd6f013363",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "eaa0cd1b-708d-4765-9419-a43350bc8d36",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "eb1dec60-5e82-4d85-8057-41a2fd33b70d",
+      "previous_due_at": "2026-07-02T07:48:50.928Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "ee18ce36-90d9-4d79-8062-75e69e985152",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "ee2a4a8d-638a-4ef1-b29e-f72605d4fccb",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "f4831314-b29e-425f-850c-f8de07958081",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "f57c3ce9-7b83-4b16-b56d-616c61faabe0",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "f8ae0c8d-3683-48e0-ad14-42b9122f7aab",
+      "previous_due_at": "2026-07-02T07:39:06.978Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "f8e09f3c-9429-4c88-9b0a-ae55ca784635",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "f9aee6f2-673b-4375-b178-69bac2ab9eed",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    },
+    {
+      "task_id": "fa598d93-a8ad-4b82-8a3e-30c306f9564c",
+      "previous_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_due_at": "2026-07-15T08:00:00.000Z",
+      "title": "[IA Mujeres] Revisar respuesta / preparar Follow-up 1"
+    }
+  ],
+  "updated_opportunities": [
+    {
+      "opportunity_id": "8d42202a-8c90-4713-82f0-203162cbd8c6",
+      "name": "Ayuntamiento de Yaiza — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "acb581e5-9d75-4271-9e43-59f7c1b1b31f",
+      "name": "Ayuntamiento de Fuencaliente de La Palma — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "7b9093de-c30e-4c5d-a9ac-04306e5f38e1",
+      "name": "Ayuntamiento de La Orotava — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "9304746f-6652-4efa-9f0a-a1feb9cc7d03",
+      "name": "Cabildo de Lanzarote — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:51:56.231Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "d9e72915-5785-4ff0-ab38-0da5a77d3359",
+      "name": "Ilustre Ayuntamiento de El Rosario — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:39:15.237Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "20277b67-d6e4-436b-934f-8572d1cbd764",
+      "name": "Reboot Academy/Canarias — IA Mujeres 2026 — Test Email 1 v4.1",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "6221863f-f6db-46a8-885e-dc4b9791e3d6",
+      "name": "Ayuntamiento de El Tanque — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "3208eebb-b21f-4463-ad7e-64a895f195a7",
+      "name": "Ayuntamiento de Las Palmas de Gran Canaria — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "ebbdc26d-b8ea-4a85-8a3c-ad3a911ab3b5",
+      "name": "Excelentisimo Ayuntamiento de Puerto de la Cruz — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:48:52.729Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "f077b9be-556c-41e7-abcf-36ffe91b170f",
+      "name": "Skilland Dirección — IA Mujeres 2026 — Test Email 1 v3",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "b22b17a6-fc14-4db4-9858-ddcc3156fe51",
+      "name": "Ayuntamiento de Telde — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "dda86c2d-2ae2-4bb8-927d-2da20e5b1d65",
+      "name": "Ayuntamiento de Los Silos — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:39:20.572Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "ce8e6fe4-bba6-474a-b3de-59fc3208261e",
+      "name": "Ayuntamiento de Vega de San Mateo — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "ace1cc03-7842-40e3-b874-1f2c5c3cea79",
+      "name": "Ayuntamiento de Guimar — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "7166fe3b-4bac-41a5-9333-71b180e6ca7c",
+      "name": "Cabildo de El Hierro — IA Mujeres 2026 — Empleo",
+      "previous_follow_up_due_at": "2026-07-02T07:50:17.473Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "33bb9a4e-9784-401f-a85c-7caf29be477c",
+      "name": "Ayuntamiento de El Paso — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "6cd8408e-910a-47c0-b783-fb7b0d215f04",
+      "name": "Ayuntamiento de Santiago del Teide — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "70c113a5-bad4-4e09-975d-21e6e70eecb1",
+      "name": "Ayuntamiento de Valle Gran Rey — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "34a111c3-03e1-4db9-bc3d-43625a0339bd",
+      "name": "Ayuntamiento de San Miguel de Abona — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "f193d596-2a73-49ce-8cc8-cb730170d980",
+      "name": "Ayuntamiento de Valverde — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "9d1a283e-26e0-4db8-926c-71b1be8979db",
+      "name": "Ayuntamiento de Villa de Mazo — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:38:16.301Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "8d2cf934-9ffa-4b07-b39d-b22e32d8be0b",
+      "name": "Ayuntamiento de la Villa de Garafía — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "135f2d98-8f75-42b3-b96a-93cd5472a5dc",
+      "name": "Ayuntamiento de Galdar — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "371f4d07-a20a-4b48-a2e0-f48205766841",
+      "name": "Ayuntamiento de Puerto del Rosario — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "9f5613dc-19d2-4fff-804c-cef78757fb3c",
+      "name": "Ayuntamiento de El Pinar de El Hierro — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "240b113d-529c-47af-b385-dbae9c6194e9",
+      "name": "Ayuntamiento de la Villa y Ciudad de San Andrés y Sauces — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "5f4806fe-80e3-4afc-a936-190384cfdb87",
+      "name": "Ayuntamiento de Betancuria — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "84bacdc0-ca2f-483e-87e8-82796b710481",
+      "name": "Ayuntamiento de San Bartolome de Tirajana — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "7e4bd5d4-e200-4be4-9a45-7685b5cecca9",
+      "name": "Ayuntamiento de Puntagorda — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "4923b81f-4f6f-43c5-9c95-b16980004657",
+      "name": "Ayuntamiento de Teguise — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "9eb8119e-d395-4e27-88ba-614abc306fc1",
+      "name": "Ayuntamiento de La Frontera — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "cfc9f347-2373-4b78-9200-6858392fa9e7",
+      "name": "Cabildo de La Palma — IA Mujeres 2026 — Igualdad / Politicas Sociales",
+      "previous_follow_up_due_at": "2026-07-02T07:51:58.054Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "59332304-d74e-4582-931c-cdf418d39ad6",
+      "name": "Ayuntamiento de Tuineje — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "8dcba042-8c5b-4fec-bd0a-88d795f4a32e",
+      "name": "Cabildo de Fuerteventura — IA Mujeres 2026 — Igualdad / Politicas Sociales / Participacion Ciudadana",
+      "previous_follow_up_due_at": "2026-07-02T07:50:19.771Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "ee400011-a509-4609-a736-ae512d8e49c4",
+      "name": "Ayuntamiento de la Villa de Moya — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:48:57.189Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "82b711b6-7e0a-475d-9333-81fbaa46706a",
+      "name": "Ayuntamiento de Buenavista del Norte — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "a8e7b8aa-795c-498c-82ef-6134cf74480d",
+      "name": "Ayuntamiento de Vilaflor de Chasna — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "a761faea-c767-4439-ae54-127b032ef45b",
+      "name": "Ayuntamiento de Los Llanos de Aridane — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:38:18.042Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "3a785448-567c-4e0c-8ddc-5ce5ab406f0f",
+      "name": "Ayuntamiento de Garachico — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "f8356a67-c017-4306-838f-3aff3837bdf3",
+      "name": "Cabildo de La Palma — IA Mujeres 2026 — Empleo / Educacion",
+      "previous_follow_up_due_at": "2026-07-02T07:52:00.467Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "f906acb9-81eb-4a90-829b-353f39ccee67",
+      "name": "Ayuntamiento de La Matanza de Acentejo — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:49:27.505Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "2358d9c6-10eb-4945-a845-bf0d79818707",
+      "name": "Ayuntamiento de Valsequillo de Gran Canaria — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "4e35bde0-2436-4f66-a697-3531084cf176",
+      "name": "Ayuntamiento de Icod de los Vinos — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "763a5d0f-3ee8-4cd9-adc0-4b188dc42f70",
+      "name": "Ayuntamiento de Arrecife — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "e1850189-678b-4779-a24e-f9ffa023fb1a",
+      "name": "Ayuntamiento de Alajero — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:48:49.148Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "c8354b9e-44ec-4d87-887f-7383bfd00b93",
+      "name": "Ayuntamiento de La Victoria de Acentejo — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:38:26.143Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "ffca6190-dbaa-4398-903f-49cadca62688",
+      "name": "Ayuntamiento de Vallehermoso — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:49:29.334Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "d646a404-e746-4066-9a95-d36e70cc3ef7",
+      "name": "Ayuntamiento de Teror — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "323a1248-4027-4652-9622-230337af4940",
+      "name": "Ayuntamiento de Granadilla de Abona — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "8df14614-b2cb-4b0e-a1c9-19055bba34cf",
+      "name": "Ayuntamiento de Tinajo — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "25499484-05c0-4b11-9fc8-a79d579518ee",
+      "name": "Ayuntamiento de Barlovento — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "10112e85-06f4-45b4-a27d-532b4bc1acc4",
+      "name": "Ayuntamiento de Tias — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "c0539318-efbf-4d35-875a-0a6929813b1e",
+      "name": "Ayuntamiento de Arucas — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "55d35a4b-0679-484c-aab3-63b1d717b5f2",
+      "name": "Ayuntamiento de Guia de Isora — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "83775aa6-0056-48e5-861d-b964539a77aa",
+      "name": "Ayuntamiento de Hermigua — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "a1765c77-6576-4690-86d7-4ad3badb833c",
+      "name": "Reboot Academy/Canarias — IA Mujeres 2026 — Test Email 1 v3",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "dada5ca5-f0d8-424c-9cc5-e0b94f70b00b",
+      "name": "Ayuntamiento de la Villa de San Juan de la Rambla — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:39:18.365Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "00b05f75-5bbb-4938-8d99-579c9a848cef",
+      "name": "Cabildo de Fuerteventura — IA Mujeres 2026 — Empleo / Educacion / Juventud",
+      "previous_follow_up_due_at": "2026-07-02T07:50:12.546Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "cde37de4-790a-4c22-83d3-3e589e993529",
+      "name": "Ayuntamiento de la Villa de Firgas — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "44835ad6-24ee-4132-9b01-7ba22703a745",
+      "name": "Ayuntamiento de Valleseco — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "bc0f0f3b-a4a5-4465-92f5-efa6bba1d8da",
+      "name": "Ayuntamiento de Santa Lucia de Tirajana — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "6a6ba862-9107-41c6-a3f8-1c66089ad209",
+      "name": "Cabildo de Gran Canaria — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:50:22.999Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "893a7696-1f44-4643-98cc-b5934a0be71f",
+      "name": "Ilustre Ayuntamiento de El Sauzal — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "3209aac0-6da8-4f7e-9f51-deed457d2bae",
+      "name": "Ayuntamiento de la Villa de Tegueste — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "268e2de2-95e4-4ff3-bf8b-366b69cc728b",
+      "name": "Ayuntamiento de Ingenio — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "4126d094-d715-4881-8357-8b59a730bfba",
+      "name": "Ayuntamiento de La Oliva — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "3f058b12-df22-474a-b3e9-208d55b256c0",
+      "name": "Ayuntamiento de San Sebastian de La Gomera — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "88c005e5-e79a-453e-a557-025150b55f94",
+      "name": "Ayuntamiento de la Villa de Arafo — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "c3657d95-8ede-4b70-962f-9bb40c253ebf",
+      "name": "Ayuntamiento de Adeje — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:38:23.478Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "16a4e12e-3509-4cf6-84ee-aac13005e50a",
+      "name": "Ayuntamiento de Aguimes — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "4f11e95d-aacb-4741-a491-5162c88d032d",
+      "name": "Ayuntamiento de Tejeda — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "49cbfc3d-e94f-425c-9b7d-c492724fa622",
+      "name": "Ayuntamiento de Arona — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "57e16747-a0af-4886-afc1-a6e65928b900",
+      "name": "Ayuntamiento de Tijarafe — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "6145462a-d3e3-4d1b-99d3-5def9d2d0f7d",
+      "name": "Cabildo Insular de La Gomera — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "0cb13037-3fcc-4cda-9d84-78b6910ebf03",
+      "name": "Ayuntamiento de Artenara — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "f6b2ff24-b53a-4284-8ba8-2d9557570dba",
+      "name": "Ayuntamiento de Puntallana — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:48:59.691Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "b78e348e-a6a0-4faa-a6f6-a09456315690",
+      "name": "Ayuntamiento de Villa de Arico — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:38:21.844Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "3b74b7ea-ec81-47a0-94e5-10970db0df59",
+      "name": "Cabildo de El Hierro — IA Mujeres 2026 — Politicas Sociales",
+      "previous_follow_up_due_at": "2026-07-02T07:50:15.280Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "d028d684-80f2-4b38-8283-8dbf0e4e8dfe",
+      "name": "Ilustre Ayuntamiento de La Guancha — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:39:11.861Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "3c94a4ce-042c-401b-b292-c49a220c20c5",
+      "name": "Ayuntamiento de Fasnia — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "5afdfbd0-4b0c-4ec6-bbb6-b192eb5f68c8",
+      "name": "Ayuntamiento de Santa Maria de Guia de Gran Canaria — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "e610c60c-d37d-4ee9-b6ae-a7c56157bb6a",
+      "name": "Ayuntamiento de Haria — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:48:50.928Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "cbd2ee82-9930-4871-9da8-e25e37dcf311",
+      "name": "Ayuntamiento de la Villa de Santa Brigida — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "60796cdb-99b7-47bc-8bde-38405e75726a",
+      "name": "Ayuntamiento de Tacoronte — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "6fc5ac05-2dc2-43b8-8a89-77c60abe7f23",
+      "name": "Ayuntamiento de Santa Ursula — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "78a32807-2b2e-4707-ae3b-46e4a32a0ceb",
+      "name": "Ayuntamiento de Agaete — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "cb611878-b99e-4b3d-a84d-c293d0f3eee1",
+      "name": "Ayuntamiento de Pajara — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-07-02T07:39:06.978Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "850048ed-0a5d-481d-9fb2-1be0d3cf6e77",
+      "name": "Ayuntamiento de Mogan — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "01392d12-2925-42b5-b527-bbfc71bc784d",
+      "name": "Ayuntamiento de Candelaria — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    },
+    {
+      "opportunity_id": "76b148ce-e5a9-4d97-8214-1a486be67225",
+      "name": "Ayuntamiento de San Bartolome — IA Mujeres 2026",
+      "previous_follow_up_due_at": "2026-06-22T08:00:00.000Z",
+      "updated_follow_up_due_at": "2026-07-15T08:00:00.000Z"
+    }
+  ]
+}

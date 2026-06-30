@@ -21,6 +21,20 @@ export function getFileContainerStorageDir(outputDir) {
   return path.join(outputDir, 'file_container');
 }
 
+export function ensureFileContainerScaffold(outputDir) {
+  const storageDir = getFileContainerStorageDir(outputDir);
+  const manifestPath = getFileContainerManifestPath(outputDir);
+  fs.mkdirSync(storageDir, { recursive: true });
+  fs.mkdirSync(path.dirname(manifestPath), { recursive: true });
+  if (!fs.existsSync(manifestPath)) {
+    fs.writeFileSync(manifestPath, JSON.stringify(defaultFileContainer(), null, 2));
+  }
+  return {
+    storageDir,
+    manifestPath,
+  };
+}
+
 export function loadFileContainer(outputDir) {
   const manifestPath = getFileContainerManifestPath(outputDir);
   if (!fs.existsSync(manifestPath)) {

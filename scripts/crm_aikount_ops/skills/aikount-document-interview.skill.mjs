@@ -409,6 +409,13 @@ function normalizeContactOverrides(contact) {
     vat: contact.vat ?? null,
     email: contact.email ?? null,
     phone: contact.phone ?? null,
+    address: contact.address ?? null,
+    addressLine2: contact.addressLine2 ?? contact.address_line2 ?? null,
+    city: contact.city ?? null,
+    state: contact.state ?? null,
+    postalCode: contact.postalCode ?? contact.postal_code ?? null,
+    country: contact.country ?? null,
+    customerType: contact.customerType ?? contact.customer_type ?? null,
   };
 }
 
