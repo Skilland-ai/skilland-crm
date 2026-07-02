@@ -108,6 +108,36 @@ export function planCrmOperations({
       return;
     }
 
+    if (operation.type === 'update_task') {
+      const taskId = resolution?.resolvedRecords?.task?.id;
+      if (!taskId) {
+        operations.push(
+          blockedOperation(index, 'No unique task was resolved for update.'),
+        );
+        return;
+      }
+
+      if (!operation.data || Object.keys(operation.data).length === 0) {
+        operations.push(
+          blockedOperation(index, 'Task update requires a non-empty data object.'),
+        );
+        return;
+      }
+
+      operations.push({
+        id: operationId(index, 'update-task'),
+        type: 'update_record',
+        object: 'task',
+        recordId: taskId,
+        data: operation.data,
+        target: resolution.targetIds,
+        via: 'graphql',
+        reason: 'Task updates use Twenty GraphQL updateTask.',
+        sourceOperationIndex: index,
+      });
+      return;
+    }
+
     if (operation.type === 'create_note') {
       addNoteOperations({ operations, operation, index, resolution });
       return;
@@ -238,6 +268,7 @@ function addTaskOperations({ operations, operation, index, resolution, target })
     title,
     markdown: task.markdown ?? '',
     dueAt: task.dueAt ?? null,
+    status: task.status ?? 'TODO',
     assigneeId: task.assigneeId ?? null,
     target: resolvedTarget,
     tempId,

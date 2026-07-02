@@ -1,0 +1,659 @@
+{
+  "generatedAt": "2026-07-01T17:36:40.662Z",
+  "status": "verified",
+  "totals": {
+    "checks": 35,
+    "verified": 35,
+    "failed": 0
+  },
+  "updatedTaskIds": [
+    "ebda8413-3872-4c3f-a91f-7601a04bf0d6",
+    "05c5e632-791f-4fac-80f7-306c52dfddd3",
+    "aca9ea9d-1a00-4b4c-8e23-66216cb637e3",
+    "249088c1-4f8a-4bf8-a790-8ea2c573470d",
+    "b760c298-a2ef-4d7e-8040-ce3c3c6214e4",
+    "633e71be-a592-423a-b0de-ff5af2497f70",
+    "6ed805b8-2467-4314-8643-2b23cf73cd7e",
+    "4c84468b-5d63-491e-90c1-2c8397aa9dc9",
+    "cea65351-0644-4f12-a465-c474479670c8",
+    "87e032ec-3fa5-436e-bdd4-64543467e9f8",
+    "aab48f01-0c1f-4c19-9696-638742dfbfd7",
+    "1c9d5aa9-17cc-4265-a186-6627591e0ab1",
+    "a5c9f26f-78a7-4300-814c-15f285d8087a"
+  ],
+  "checks": [
+    {
+      "key": "1:update_task",
+      "type": "update_task",
+      "target": "ebda8413-3872-4c3f-a91f-7601a04bf0d6",
+      "status": "verified",
+      "expected": {
+        "status": "DONE",
+        "dueAt": "2026-06-29T07:00:00.000Z",
+        "bodyV2": {
+          "markdown": "Factura enviada y cobrada el 29/06/2026.",
+          "blocknote": null
+        }
+      },
+      "actual": {
+        "id": "ebda8413-3872-4c3f-a91f-7601a04bf0d6",
+        "title": "Enviar primera factura EPI10",
+        "status": "DONE",
+        "dueAt": "2026-06-29T07:00:00.000Z",
+        "bodyMarkdown": "Factura enviada y cobrada el 29/06/2026."
+      },
+      "dealName": "EPI 10 - MVP FASE 1",
+      "mismatches": []
+    },
+    {
+      "key": "2:create_task",
+      "type": "create_task",
+      "target": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "status": "verified",
+      "dealName": "EPI 10 - MVP FASE 1",
+      "expected": {
+        "title": "Refinar arquitectura del sistema — EPI10",
+        "dueAt": "2026-06-29T07:00:00.000Z",
+        "status": "DONE"
+      },
+      "actual": {
+        "id": "d62ca2a2-f0d2-4f8e-b127-d7492b21e38d",
+        "title": "Refinar arquitectura del sistema — EPI10",
+        "dueAt": "2026-06-29T07:00:00.000Z",
+        "status": "DONE"
+      },
+      "mismatches": []
+    },
+    {
+      "key": "3:create_task",
+      "type": "create_task",
+      "target": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "status": "verified",
+      "dealName": "EPI 10 - MVP FASE 1",
+      "expected": {
+        "title": "Preparar nuevo customer journey — EPI10",
+        "dueAt": "2026-06-29T07:00:00.000Z",
+        "status": "DONE"
+      },
+      "actual": {
+        "id": "7f595a61-f8e8-4cac-a94e-49141901edd5",
+        "title": "Preparar nuevo customer journey — EPI10",
+        "dueAt": "2026-06-29T07:00:00.000Z",
+        "status": "DONE"
+      },
+      "mismatches": []
+    },
+    {
+      "key": "4:create_task",
+      "type": "create_task",
+      "target": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "status": "verified",
+      "dealName": "EPI 10 - MVP FASE 1",
+      "expected": {
+        "title": "Preparar workshop EPI10",
+        "dueAt": "2026-06-29T07:00:00.000Z",
+        "status": "DONE"
+      },
+      "actual": {
+        "id": "0765abbc-a4ef-4b24-9acf-8ae04c0315db",
+        "title": "Preparar workshop EPI10",
+        "dueAt": "2026-06-29T07:00:00.000Z",
+        "status": "DONE"
+      },
+      "mismatches": []
+    },
+    {
+      "key": "5:create_task",
+      "type": "create_task",
+      "target": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "status": "verified",
+      "dealName": "EPI 10 - MVP FASE 1",
+      "expected": {
+        "title": "Ejecutar workshop EPI10",
+        "dueAt": "2026-06-29T07:00:00.000Z",
+        "status": "DONE"
+      },
+      "actual": {
+        "id": "88da1dd6-7d3d-4e84-b63c-d6e6349f3176",
+        "title": "Ejecutar workshop EPI10",
+        "dueAt": "2026-06-29T07:00:00.000Z",
+        "status": "DONE"
+      },
+      "mismatches": []
+    },
+    {
+      "key": "6:create_note",
+      "type": "create_note",
+      "target": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "status": "verified",
+      "dealName": "EPI 10 - MVP FASE 1",
+      "expected": {
+        "title": "Actualización ejecución — EPI10 workshop 29/06"
+      },
+      "actual": {
+        "id": "a5c8afb7-12de-4ce8-a5ac-8ec669ff20bf",
+        "title": "Actualización ejecución — EPI10 workshop 29/06"
+      }
+    },
+    {
+      "key": "7:update_opportunity",
+      "type": "update_opportunity",
+      "target": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "status": "verified",
+      "expected": {
+        "stage": "IN_EXECUTION"
+      },
+      "actual": {
+        "stage": "IN_EXECUTION"
+      },
+      "dealName": "EPI 10 - MVP FASE 1"
+    },
+    {
+      "key": "8:create_task",
+      "type": "create_task",
+      "target": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "status": "verified",
+      "dealName": "EPI 10 - MVP FASE 1",
+      "expected": {
+        "title": "Enviar resumen workshop EPI10",
+        "dueAt": "2026-07-01T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "actual": {
+        "id": "cdd57385-0f37-4393-a2b4-8bdaea91644b",
+        "title": "Enviar resumen workshop EPI10",
+        "dueAt": "2026-07-01T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "mismatches": []
+    },
+    {
+      "key": "9:update_task",
+      "type": "update_task",
+      "target": "05c5e632-791f-4fac-80f7-306c52dfddd3",
+      "status": "verified",
+      "expected": {
+        "status": "DONE"
+      },
+      "actual": {
+        "id": "05c5e632-791f-4fac-80f7-306c52dfddd3",
+        "title": "Enviar de nuevo oferta Casa África — Curso 1 + plataforma",
+        "status": "DONE",
+        "dueAt": "2026-06-22T07:00:00.000Z",
+        "bodyMarkdown": ""
+      },
+      "dealName": "Casa África — AfricanTech Curso 1 (junio 2026)",
+      "mismatches": []
+    },
+    {
+      "key": "10:update_task",
+      "type": "update_task",
+      "target": "aca9ea9d-1a00-4b4c-8e23-66216cb637e3",
+      "status": "verified",
+      "expected": {
+        "status": "DONE"
+      },
+      "actual": {
+        "id": "aca9ea9d-1a00-4b4c-8e23-66216cb637e3",
+        "title": "Enviar de nuevo oferta Casa África — Curso 1 + plataforma",
+        "status": "DONE",
+        "dueAt": "2026-06-22T07:00:00.000Z",
+        "bodyMarkdown": ""
+      },
+      "dealName": "Casa África — AfricanTech Curso 1 (junio 2026)",
+      "mismatches": []
+    },
+    {
+      "key": "11:update_task",
+      "type": "update_task",
+      "target": "249088c1-4f8a-4bf8-a790-8ea2c573470d",
+      "status": "verified",
+      "expected": {
+        "status": "TODO",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "bodyV2": {
+          "markdown": "Queda supeditada a cerrar primero el punto de payment/momento de cobro.",
+          "blocknote": null
+        }
+      },
+      "actual": {
+        "id": "249088c1-4f8a-4bf8-a790-8ea2c573470d",
+        "title": "Buscar tres proveedores/presupuestos adicionales para Casa África / AfricanTech",
+        "status": "TODO",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "bodyMarkdown": "Queda supeditada a cerrar primero el punto de payment/momento de cobro."
+      },
+      "dealName": "Casa África — AfricanTech Curso 1 (junio 2026)",
+      "mismatches": []
+    },
+    {
+      "key": "12:create_task",
+      "type": "create_task",
+      "target": "e9490f49-d435-4257-a8d5-2770888bd3dd",
+      "status": "verified",
+      "dealName": "Casa África — AfricanTech Curso 1 (junio 2026)",
+      "expected": {
+        "title": "Follow-up Yurena — confirmar alineamiento sobre momento de pago",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "actual": {
+        "id": "d8863657-434a-4c9a-b4ab-34654f7a87a4",
+        "title": "Follow-up Yurena — confirmar alineamiento sobre momento de pago",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "mismatches": []
+    },
+    {
+      "key": "13:create_task",
+      "type": "create_task",
+      "target": "e9490f49-d435-4257-a8d5-2770888bd3dd",
+      "status": "verified",
+      "dealName": "Casa África — AfricanTech Curso 1 (junio 2026)",
+      "expected": {
+        "title": "Actualizar y reenviar oferta Casa África — Curso 1 + plataforma",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "actual": {
+        "id": "c35e3ee6-18bc-4e51-bacd-3be15551dc5d",
+        "title": "Actualizar y reenviar oferta Casa África — Curso 1 + plataforma",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "mismatches": []
+    },
+    {
+      "key": "14:create_note",
+      "type": "create_note",
+      "target": "e9490f49-d435-4257-a8d5-2770888bd3dd",
+      "status": "verified",
+      "dealName": "Casa África — AfricanTech Curso 1 (junio 2026)",
+      "expected": {
+        "title": "Actualización comercial — Casa África payment Curso 1"
+      },
+      "actual": {
+        "id": "25571b90-ea8e-4a24-a85f-aca6e2d21f78",
+        "title": "Actualización comercial — Casa África payment Curso 1"
+      }
+    },
+    {
+      "key": "15:update_task",
+      "type": "update_task",
+      "target": "b760c298-a2ef-4d7e-8040-ce3c3c6214e4",
+      "status": "verified",
+      "expected": {
+        "status": "DONE"
+      },
+      "actual": {
+        "id": "b760c298-a2ef-4d7e-8040-ce3c3c6214e4",
+        "title": "Enviar de nuevo oferta integrada Casa África — Plataforma + Curso 1",
+        "status": "DONE",
+        "dueAt": "2026-06-22T07:00:00.000Z",
+        "bodyMarkdown": ""
+      },
+      "dealName": "Casa África — Plataforma EU",
+      "mismatches": []
+    },
+    {
+      "key": "16:update_task",
+      "type": "update_task",
+      "target": "633e71be-a592-423a-b0de-ff5af2497f70",
+      "status": "verified",
+      "expected": {
+        "status": "TODO",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "bodyV2": {
+          "markdown": "Queda supeditada a cerrar primero el punto de payment/momento de cobro.",
+          "blocknote": null
+        }
+      },
+      "actual": {
+        "id": "633e71be-a592-423a-b0de-ff5af2497f70",
+        "title": "Buscar tres proveedores/presupuestos adicionales para contratación Casa África",
+        "status": "TODO",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "bodyMarkdown": "Queda supeditada a cerrar primero el punto de payment/momento de cobro."
+      },
+      "dealName": "Casa África — Plataforma EU",
+      "mismatches": []
+    },
+    {
+      "key": "17:create_task",
+      "type": "create_task",
+      "target": "94c09679-41ba-4608-b5cd-12fe55884216",
+      "status": "verified",
+      "dealName": "Casa África — Plataforma EU",
+      "expected": {
+        "title": "Follow-up Yurena — confirmar payment plataforma + curso",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "actual": {
+        "id": "33460048-fa54-4a20-a7e5-4dc45482af86",
+        "title": "Follow-up Yurena — confirmar payment plataforma + curso",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "mismatches": []
+    },
+    {
+      "key": "18:create_task",
+      "type": "create_task",
+      "target": "94c09679-41ba-4608-b5cd-12fe55884216",
+      "status": "verified",
+      "dealName": "Casa África — Plataforma EU",
+      "expected": {
+        "title": "Actualizar y reenviar oferta integrada Casa África — Plataforma + Curso 1",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "actual": {
+        "id": "b3d3a28e-8fa3-4dc8-8d47-2f59826f19eb",
+        "title": "Actualizar y reenviar oferta integrada Casa África — Plataforma + Curso 1",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "mismatches": []
+    },
+    {
+      "key": "19:create_note",
+      "type": "create_note",
+      "target": "94c09679-41ba-4608-b5cd-12fe55884216",
+      "status": "verified",
+      "dealName": "Casa África — Plataforma EU",
+      "expected": {
+        "title": "Actualización comercial — Casa África Plataforma EU payment"
+      },
+      "actual": {
+        "id": "3596ecb5-79ad-4524-b69b-8cfbf736751e",
+        "title": "Actualización comercial — Casa África Plataforma EU payment"
+      }
+    },
+    {
+      "key": "20:update_task",
+      "type": "update_task",
+      "target": "6ed805b8-2467-4314-8643-2b23cf73cd7e",
+      "status": "verified",
+      "expected": {
+        "status": "DONE"
+      },
+      "actual": {
+        "id": "6ed805b8-2467-4314-8643-2b23cf73cd7e",
+        "title": "Enviar memoria técnica descriptiva y presupuesto — Cámara Tenerife",
+        "status": "DONE",
+        "dueAt": "2026-06-22T07:00:00.000Z",
+        "bodyMarkdown": ""
+      },
+      "dealName": "Cámara de Comercio de Tenerife — Plataforma EU",
+      "mismatches": []
+    },
+    {
+      "key": "21:update_task",
+      "type": "update_task",
+      "target": "4c84468b-5d63-491e-90c1-2c8397aa9dc9",
+      "status": "verified",
+      "expected": {
+        "status": "TODO",
+        "dueAt": "2026-07-03T07:00:00.000Z"
+      },
+      "actual": {
+        "id": "4c84468b-5d63-491e-90c1-2c8397aa9dc9",
+        "title": "Contactar Marlen Cámara — confirmar si necesitan tres proveedores adicionales",
+        "status": "TODO",
+        "dueAt": "2026-07-03T07:00:00.000Z",
+        "bodyMarkdown": ""
+      },
+      "dealName": "Cámara de Comercio de Tenerife — Plataforma EU",
+      "mismatches": []
+    },
+    {
+      "key": "22:create_task",
+      "type": "create_task",
+      "target": "d3f9f2e8-b0e2-4ce2-82d0-ecfae2c6f7ba",
+      "status": "verified",
+      "dealName": "Cámara de Comercio de Tenerife — Plataforma EU",
+      "expected": {
+        "title": "Llamar al compañero de Aythami/AVITAM — verificar oferta Cámara Tenerife",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "actual": {
+        "id": "45c533c1-d46b-48b8-9749-ca6c94ca7fbf",
+        "title": "Llamar al compañero de Aythami/AVITAM — verificar oferta Cámara Tenerife",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "mismatches": []
+    },
+    {
+      "key": "23:create_note",
+      "type": "create_note",
+      "target": "d3f9f2e8-b0e2-4ce2-82d0-ecfae2c6f7ba",
+      "status": "verified",
+      "dealName": "Cámara de Comercio de Tenerife — Plataforma EU",
+      "expected": {
+        "title": "Actualización comercial — Cámara Tenerife Plataforma EU"
+      },
+      "actual": {
+        "id": "56574017-95b2-4da1-ade5-d4cc4814edd0",
+        "title": "Actualización comercial — Cámara Tenerife Plataforma EU"
+      }
+    },
+    {
+      "key": "24:update_task",
+      "type": "update_task",
+      "target": "cea65351-0644-4f12-a465-c474479670c8",
+      "status": "verified",
+      "expected": {
+        "status": "TODO",
+        "dueAt": "2026-07-02T07:00:00.000Z"
+      },
+      "actual": {
+        "id": "cea65351-0644-4f12-a465-c474479670c8",
+        "title": "Follow-up Divi / DClick — feedback propuesta",
+        "status": "TODO",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "bodyMarkdown": "preguntar qué piensan de la propuesta y próximos pasos."
+      },
+      "dealName": "Divi -  Migración Drive + Automat emails",
+      "mismatches": []
+    },
+    {
+      "key": "25:create_task",
+      "type": "create_task",
+      "target": "55cfbd70-83e1-41c2-a8d5-445b19601535",
+      "status": "verified",
+      "dealName": "Divi -  Migración Drive + Automat emails",
+      "expected": {
+        "title": "Preparar con IA CRM el pulso actual del deal Divi",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "actual": {
+        "id": "ddcb6103-a28a-4eeb-bcff-21e84c210225",
+        "title": "Preparar con IA CRM el pulso actual del deal Divi",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "mismatches": []
+    },
+    {
+      "key": "26:create_note",
+      "type": "create_note",
+      "target": "55cfbd70-83e1-41c2-a8d5-445b19601535",
+      "status": "verified",
+      "dealName": "Divi -  Migración Drive + Automat emails",
+      "expected": {
+        "title": "Riesgo de enfriamiento — Divi / DClick"
+      },
+      "actual": {
+        "id": "828ea8d7-c877-4680-8d29-aa064acc7e87",
+        "title": "Riesgo de enfriamiento — Divi / DClick"
+      }
+    },
+    {
+      "key": "27:update_task",
+      "type": "update_task",
+      "target": "87e032ec-3fa5-436e-bdd4-64543467e9f8",
+      "status": "verified",
+      "expected": {
+        "status": "DONE"
+      },
+      "actual": {
+        "id": "87e032ec-3fa5-436e-bdd4-64543467e9f8",
+        "title": "Responder follow-up Pedro",
+        "status": "DONE",
+        "dueAt": "2026-06-23T18:34:00.000Z",
+        "bodyMarkdown": ""
+      },
+      "dealName": "Bootcamp Ejército - Pedro León Millán",
+      "mismatches": []
+    },
+    {
+      "key": "28:create_note",
+      "type": "create_note",
+      "target": "3a2eda13-f59b-431c-ba96-9701e13066e1",
+      "status": "verified",
+      "dealName": "Bootcamp Ejército - Pedro León Millán",
+      "expected": {
+        "title": "Actualización comercial — Bootcamp Ejército pendiente factura"
+      },
+      "actual": {
+        "id": "14f61aed-c6dc-442f-88d2-fc0a9f73164a",
+        "title": "Actualización comercial — Bootcamp Ejército pendiente factura"
+      }
+    },
+    {
+      "key": "29:create_task",
+      "type": "create_task",
+      "target": "3a2eda13-f59b-431c-ba96-9701e13066e1",
+      "status": "verified",
+      "dealName": "Bootcamp Ejército - Pedro León Millán",
+      "expected": {
+        "title": "Responder a Pedro — factura borrador nueva sociedad",
+        "dueAt": "2026-07-01T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "actual": {
+        "id": "0b73ab77-f7b4-46b4-b70d-0823ee43d398",
+        "title": "Responder a Pedro — factura borrador nueva sociedad",
+        "dueAt": "2026-07-01T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "mismatches": []
+    },
+    {
+      "key": "30:update_task",
+      "type": "update_task",
+      "target": "aab48f01-0c1f-4c19-9696-638742dfbfd7",
+      "status": "verified",
+      "expected": {
+        "status": "DONE"
+      },
+      "actual": {
+        "id": "aab48f01-0c1f-4c19-9696-638742dfbfd7",
+        "title": "Follow-up BES Editorial — revisar sedes electrónicas",
+        "status": "DONE",
+        "dueAt": "2026-06-30T07:00:00.000Z",
+        "bodyMarkdown": "hacer seguimiento para que revisen las sedes electrónicas y confirmen si se consiguió o no."
+      },
+      "dealName": "BES EDITORIAL",
+      "mismatches": []
+    },
+    {
+      "key": "31:create_task",
+      "type": "create_task",
+      "target": "4965c3ea-622f-4893-b625-1fa2fcb5fe10",
+      "status": "verified",
+      "dealName": "BES EDITORIAL",
+      "expected": {
+        "title": "Enviar correo informativo cierre plazo inscripción — BES Editorial",
+        "dueAt": "2026-07-01T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "actual": {
+        "id": "207567a6-f14c-4ba2-951a-e251201c63a4",
+        "title": "Enviar correo informativo cierre plazo inscripción — BES Editorial",
+        "dueAt": "2026-07-01T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "mismatches": []
+    },
+    {
+      "key": "32:update_task",
+      "type": "update_task",
+      "target": "1c9d5aa9-17cc-4265-a186-6627591e0ab1",
+      "status": "verified",
+      "expected": {
+        "status": "DONE"
+      },
+      "actual": {
+        "id": "1c9d5aa9-17cc-4265-a186-6627591e0ab1",
+        "title": "Follow-up Lola Azero — revisar sedes electrónicas",
+        "status": "DONE",
+        "dueAt": "2026-06-30T07:00:00.000Z",
+        "bodyMarkdown": "revisar sedes electrónicas y confirmar si se consiguió o no."
+      },
+      "dealName": "Lola Azero - Automatiz",
+      "mismatches": []
+    },
+    {
+      "key": "33:create_task",
+      "type": "create_task",
+      "target": "1de0c096-6a37-49ff-a48f-5956dca4ab7b",
+      "status": "verified",
+      "dealName": "Lola Azero - Automatiz",
+      "expected": {
+        "title": "Enviar correo informativo cierre plazo inscripción — Lola Azero",
+        "dueAt": "2026-07-01T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "actual": {
+        "id": "485ea3db-cc0a-4c35-ba7c-020ef6474abd",
+        "title": "Enviar correo informativo cierre plazo inscripción — Lola Azero",
+        "dueAt": "2026-07-01T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "mismatches": []
+    },
+    {
+      "key": "34:update_task",
+      "type": "update_task",
+      "target": "a5c9f26f-78a7-4300-814c-15f285d8087a",
+      "status": "verified",
+      "expected": {
+        "status": "DONE"
+      },
+      "actual": {
+        "id": "a5c9f26f-78a7-4300-814c-15f285d8087a",
+        "title": "Follow-up EXGEA SL — revisar sedes electrónicas",
+        "status": "DONE",
+        "dueAt": "2026-06-30T07:00:00.000Z",
+        "bodyMarkdown": "revisar sedes electrónicas y confirmar si se consiguió o no."
+      },
+      "dealName": "EXGEA SL - Pyme Digital",
+      "mismatches": []
+    },
+    {
+      "key": "35:create_task",
+      "type": "create_task",
+      "target": "922432f1-48f3-4460-931d-7600773bac48",
+      "status": "verified",
+      "dealName": "EXGEA SL - Pyme Digital",
+      "expected": {
+        "title": "Enviar correo informativo cierre plazo inscripción — EXGEA SL",
+        "dueAt": "2026-07-01T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "actual": {
+        "id": "2214a159-dd07-4a82-a7e4-b6b20a4886e6",
+        "title": "Enviar correo informativo cierre plazo inscripción — EXGEA SL",
+        "dueAt": "2026-07-01T07:00:00.000Z",
+        "status": "TODO"
+      },
+      "mismatches": []
+    }
+  ]
+}

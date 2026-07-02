@@ -88,9 +88,10 @@ async function executeOperation({ client, operation, tempIds }) {
   }
 
   if (operation.type === 'create_task') {
+    const createStatus = operation.status === 'DONE' ? 'TODO' : operation.status ?? 'TODO';
     const payload = {
       title: operation.title,
-      status: 'TODO',
+      status: createStatus,
       bodyV2: { markdown: operation.markdown ?? '', blocknote: null },
     };
     if (operation.dueAt) payload.dueAt = operation.dueAt;
@@ -103,7 +104,15 @@ async function executeOperation({ client, operation, tempIds }) {
     const taskId = task.data?.createTask?.id;
     if (!taskId) throw new Error(`Task id missing: ${JSON.stringify(task).slice(0, 500)}`);
     if (operation.tempId) tempIds.set(operation.tempId, taskId);
-    return { id: taskId, title: operation.title };
+    if (operation.status && operation.status !== createStatus) {
+      await client.gql(
+        `mutation CrmExecutionFinalizeCreatedTask($id: UUID!, $data: TaskUpdateInput!) {
+          updateTask(id: $id, data: $data) { id title status dueAt }
+        }`,
+        { id: taskId, data: { status: operation.status } },
+      );
+    }
+    return { id: taskId, title: operation.title, status: operation.status ?? createStatus };
   }
 
   if (operation.type === 'link_note_to_targets') {

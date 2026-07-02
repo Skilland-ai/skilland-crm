@@ -89,6 +89,50 @@ test('Planner converts request operations into normalized operations', async () 
   assert.equal(plan.operations[1].via, 'rest');
 });
 
+test('Planner converts update_task into a normalized task update operation', async () => {
+  const request = parseCrmActionRequest({
+    requester: 'unit_test',
+    operations: [
+      {
+        type: 'update_task',
+        lookup: { opportunityId: 'opp-1', taskTitle: 'Follow up' },
+        data: {
+          status: 'DONE',
+          dueAt: '2026-07-02T07:00:00.000Z',
+          bodyV2: { markdown: 'Updated from crew.', blocknote: null },
+        },
+      },
+    ],
+  });
+  const metadataArtifact = await runCrmMetadataSkill({
+    request,
+    metadataObjects: fakeMetadataObjects(),
+    client: null,
+  });
+  const recordArtifact = await runTwentyRecordSearchSkill({
+    request,
+    recordIndex: fakeRecordIndex(),
+    client: null,
+  });
+
+  const plan = planCrmOperations({
+    request,
+    metadataArtifact,
+    recordArtifact,
+    workflowArtifact: null,
+    effectiveMode: 'dry_run',
+  });
+
+  assert.deepEqual(
+    plan.operations.map((operation) => operation.type),
+    ['update_record'],
+  );
+  assert.equal(plan.operations[0].object, 'task');
+  assert.equal(plan.operations[0].recordId, 'task-1');
+  assert.deepEqual(plan.operations[0].data, request.operations[0].data);
+  assert.equal(plan.validation.blockingIssues.length, 0);
+});
+
 test('Planner supports create_opportunity with note and task linked to the created record', async () => {
   const request = parseCrmActionRequest({
     requester: 'unit_test',
@@ -218,6 +262,55 @@ test('Executor creates opportunity and links note/task to the created id', async
   );
 });
 
+test('Executor can finalize a newly created task as DONE', async () => {
+  const client = fakeClient();
+  const plan = {
+    requestId: 'req-create-task-done-1',
+    mode: 'apply',
+    operations: [
+      {
+        id: 'op-task',
+        type: 'create_task',
+        title: 'Historical task',
+        markdown: 'Already executed.',
+        status: 'DONE',
+        tempId: 'task:0',
+        target: { opportunityId: 'opp-1' },
+      },
+      {
+        id: 'op-link-task',
+        type: 'link_task_to_targets',
+        sourceTempId: 'task:0',
+        target: { opportunityId: 'opp-1' },
+      },
+    ],
+  };
+
+  const artifact = await runCrmExecutionSkill({
+    client,
+    plan,
+    effectiveMode: 'apply',
+    review: { approved: true, blockingIssues: [], warnings: [] },
+  });
+
+  assert.equal(artifact.status, 'apply_completed');
+  assert.ok(
+    client.writeCalls.some(
+      (call) =>
+        call.type === 'rest' &&
+        call.pathName === '/tasks' &&
+        call.body.status === 'TODO',
+    ),
+  );
+  assert.ok(
+    client.writeCalls.some(
+      (call) =>
+        call.type === 'gql' &&
+        call.query.includes('CrmExecutionFinalizeCreatedTask'),
+    ),
+  );
+});
+
 test('Reviewer blocks deletes and metadata changes proposed to the planner', () => {
   const request = parseCrmActionRequest({
     requester: 'unit_test',
@@ -288,6 +381,59 @@ test('Reviewer blocks unknown fields and invalid select options from metadata', 
   assert.ok(
     review.blockingIssues.some((item) => item.code === 'invalid_select_option'),
   );
+});
+
+test('Metadata validation covers update_task fields and status options', async () => {
+  const request = parseCrmActionRequest({
+    requester: 'unit_test',
+    operations: [
+      {
+        type: 'update_task',
+        lookup: { taskId: 'task-1' },
+        data: {
+          missingField: 'x',
+          status: 'NOT_A_REAL_STATUS',
+        },
+      },
+    ],
+  });
+
+  const metadataArtifact = await runCrmMetadataSkill({
+    request,
+    metadataObjects: fakeMetadataObjects(),
+    client: null,
+  });
+
+  assert.ok(
+    metadataArtifact.blockingIssues.some((item) => item.code === 'unknown_field'),
+  );
+  assert.ok(
+    metadataArtifact.blockingIssues.some(
+      (item) => item.code === 'invalid_select_option',
+    ),
+  );
+});
+
+test('Record resolver can resolve update_task against a DONE task by title', async () => {
+  const request = parseCrmActionRequest({
+    requester: 'unit_test',
+    operations: [
+      {
+        type: 'update_task',
+        lookup: { opportunityId: 'opp-1', taskTitle: 'Completed follow up' },
+        data: { status: 'TODO' },
+      },
+    ],
+  });
+
+  const recordArtifact = await runTwentyRecordSearchSkill({
+    request,
+    recordIndex: fakeRecordIndex(),
+    client: null,
+  });
+
+  assert.equal(recordArtifact.blockingIssues.length, 0);
+  assert.equal(recordArtifact.resolvedRecords[0].recordIds.taskId, 'task-2');
 });
 
 test('Reviewer blocks ambiguous lookups and maxRecords overruns', async () => {
@@ -476,6 +622,9 @@ function fakeMetadataObjects() {
             { value: 'DONE', label: 'Done' },
           ],
         },
+        { name: 'title', type: 'TEXT' },
+        { name: 'bodyV2', type: 'RICH_TEXT_V2' },
+        { name: 'dueAt', type: 'DATE_TIME' },
       ],
     },
     { nameSingular: 'note', namePlural: 'notes', fields: [] },
@@ -530,6 +679,14 @@ function fakeRecordIndex({ duplicatePeople = false } = {}) {
         id: 'task-1',
         title: 'Follow up',
         status: 'TODO',
+        taskTargets: {
+          edges: [{ node: { targetOpportunity: { id: 'opp-1' } } }],
+        },
+      },
+      {
+        id: 'task-2',
+        title: 'Completed follow up',
+        status: 'DONE',
         taskTargets: {
           edges: [{ node: { targetOpportunity: { id: 'opp-1' } } }],
         },

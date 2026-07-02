@@ -201,13 +201,18 @@ function resolveOperation({ operation, operationIndex, recordIndex }) {
     });
   }
 
-  if (operation.type === 'close_task' && !resolvedRecords.task && lookup.taskTitle) {
+  if (
+    ['close_task', 'update_task'].includes(operation.type) &&
+    !resolvedRecords.task &&
+    lookup.taskTitle
+  ) {
     const tasks = tasksForLookup({
       recordIndex,
       title: lookup.taskTitle,
       opportunity: resolvedRecords.opportunity,
       person: resolvedRecords.person,
       company: resolvedRecords.company,
+      includeDone: operation.type === 'update_task',
     });
     assignUnique({
       operationIndex,
@@ -287,17 +292,33 @@ function opportunitiesForLookup({ recordIndex, person, company }) {
   return opportunities;
 }
 
-function tasksForLookup({ recordIndex, title, opportunity, person, company }) {
+function tasksForLookup({
+  recordIndex,
+  title,
+  opportunity,
+  person,
+  company,
+  includeDone = false,
+}) {
   const wanted = normalizeText(title);
-  return recordIndex.tasks.filter((task) => {
-    if (task.status === 'DONE') return false;
+  const scopedTasks = recordIndex.tasks.filter((task) => {
+    if (!includeDone && task.status === 'DONE') return false;
     const taskTitle = normalizeText(task.title);
-    if (!taskTitle.includes(wanted) && !wanted.includes(taskTitle)) return false;
     const targets = taskTargets(task);
     if (opportunity && !targets.opportunityIds.includes(opportunity.id)) return false;
     if (person && !targets.personIds.includes(person.id)) return false;
     if (company && !targets.companyIds.includes(company.id)) return false;
-    return true;
+    return taskTitle.length > 0;
+  });
+
+  const exactMatches = scopedTasks.filter(
+    (task) => normalizeText(task.title) === wanted,
+  );
+  if (exactMatches.length > 0) return exactMatches;
+
+  return scopedTasks.filter((task) => {
+    const taskTitle = normalizeText(task.title);
+    return taskTitle.includes(wanted) || wanted.includes(taskTitle);
   });
 }
 
@@ -375,4 +396,3 @@ function normalizeText(value) {
     .replace(/[^a-z0-9]+/g, ' ')
     .trim();
 }
-

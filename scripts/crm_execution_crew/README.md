@@ -83,6 +83,7 @@ Supported operation types in v1:
 
 - `create_opportunity`
 - `update_opportunity`
+- `update_task`
 - `create_note`
 - `create_task`
 - `close_task`
@@ -126,6 +127,7 @@ Covered:
 - resolve opportunities, people, companies, and tasks when safe
 - create opportunities
 - update opportunities
+- update tasks
 - create notes and tasks
 - close tasks
 - link notes/tasks to opportunity/person/company targets

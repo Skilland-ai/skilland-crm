@@ -6,6 +6,7 @@ const VALID_MODES = new Set(['dry_run', 'apply']);
 const VALID_OPERATION_TYPES = new Set([
   'create_opportunity',
   'update_opportunity',
+  'update_task',
   'create_note',
   'create_task',
   'close_task',
@@ -144,6 +145,7 @@ function normalizeTask(task, index) {
     title: task.title,
     markdown: String(task.markdown ?? ''),
     dueAt: task.dueAt ?? null,
+    status: task.status ?? null,
     assigneeId: task.assigneeId ?? null,
   };
 }

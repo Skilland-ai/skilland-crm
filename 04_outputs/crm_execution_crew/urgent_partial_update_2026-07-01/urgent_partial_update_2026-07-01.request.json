@@ -1,0 +1,375 @@
+{
+  "requester": "crm_urgent_partial_update_2026_07_01",
+  "mode": "dry_run",
+  "intent": "Actualización parcial urgente CRM 2026-07-01 para 9 deals concretos, excluyendo IA Mujeres.",
+  "scope": {
+    "timezone": "Atlantic/Canary",
+    "excludedBusinessLines": [
+      "SkilLand IA Mujeres",
+      "TEST — SkilLand IA Mujeres",
+      "IA Mujeres"
+    ],
+    "deals": [
+      "EPI 10 - MVP FASE 1",
+      "Casa África — AfricanTech Curso 1",
+      "Casa África — Plataforma EU",
+      "Cámara de Comercio de Tenerife — Plataforma EU",
+      "Divi - Migración Drive + Automat emails",
+      "Bootcamp Ejército - Pedro León Millán",
+      "BES EDITORIAL",
+      "Lola Azero - Automatiz",
+      "EXGEA SL - Pyme Digital"
+    ]
+  },
+  "constraints": {
+    "maxRecords": 100,
+    "requireHumanConfirmation": true,
+    "allowCreate": true,
+    "allowUpdate": true,
+    "allowDelete": false,
+    "allowMetadataChanges": false
+  },
+  "operations": [
+    {
+      "type": "update_task",
+      "lookup": {
+        "taskId": "ebda8413-3872-4c3f-a91f-7601a04bf0d6"
+      },
+      "data": {
+        "status": "DONE",
+        "dueAt": "2026-06-29T07:00:00.000Z",
+        "bodyV2": {
+          "markdown": "Factura enviada y cobrada el 29/06/2026.",
+          "blocknote": null
+        }
+      }
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "9c4fc972-e555-41e7-ace1-37125fb73734"
+      },
+      "title": "Refinar arquitectura del sistema — EPI10",
+      "markdown": "Tarea interna ya ejecutada el 29/06/2026 durante el arranque real del proyecto.",
+      "dueAt": "2026-06-29T07:00:00.000Z",
+      "status": "DONE"
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "9c4fc972-e555-41e7-ace1-37125fb73734"
+      },
+      "title": "Preparar nuevo customer journey — EPI10",
+      "markdown": "Tarea interna ya ejecutada el 29/06/2026 durante el arranque real del proyecto.",
+      "dueAt": "2026-06-29T07:00:00.000Z",
+      "status": "DONE"
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "9c4fc972-e555-41e7-ace1-37125fb73734"
+      },
+      "title": "Preparar workshop EPI10",
+      "markdown": "Tarea interna ya ejecutada el 29/06/2026 para preparar el workshop presencial de arranque.",
+      "dueAt": "2026-06-29T07:00:00.000Z",
+      "status": "DONE"
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "9c4fc972-e555-41e7-ace1-37125fb73734"
+      },
+      "title": "Ejecutar workshop EPI10",
+      "markdown": "Workshop presencial de arranque ejecutado el 29/06/2026.",
+      "dueAt": "2026-06-29T07:00:00.000Z",
+      "status": "DONE"
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "9c4fc972-e555-41e7-ace1-37125fb73734"
+      },
+      "title": "Actualización ejecución — EPI10 workshop 29/06",
+      "markdown": "El deal EPI10 está vendido y en ejecución. La primera factura fue enviada y cobrada el 29/06/2026. Ese mismo día se ejecutó el workshop presencial de arranque. Entre el cierre comercial y el workshop se trabajó en el refinamiento de la arquitectura del sistema, la preparación de un nuevo customer journey, la preparación del workshop y la ejecución del propio workshop. Próximo paso: enviar resumen del workshop con tareas abiertas y decisiones funcionales tomadas."
+    },
+    {
+      "type": "update_opportunity",
+      "lookup": {
+        "opportunityId": "9c4fc972-e555-41e7-ace1-37125fb73734"
+      },
+      "data": {
+        "stage": "IN_EXECUTION"
+      }
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "9c4fc972-e555-41e7-ace1-37125fb73734"
+      },
+      "title": "Enviar resumen workshop EPI10",
+      "markdown": "Enviar resumen del workshop con dos bloques: tareas abiertas y decisiones funcionales tomadas.",
+      "dueAt": "2026-07-01T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "type": "update_task",
+      "lookup": {
+        "taskId": "05c5e632-791f-4fac-80f7-306c52dfddd3"
+      },
+      "data": {
+        "status": "DONE"
+      }
+    },
+    {
+      "type": "update_task",
+      "lookup": {
+        "taskId": "aca9ea9d-1a00-4b4c-8e23-66216cb637e3"
+      },
+      "data": {
+        "status": "DONE"
+      }
+    },
+    {
+      "type": "update_task",
+      "lookup": {
+        "taskId": "249088c1-4f8a-4bf8-a790-8ea2c573470d"
+      },
+      "data": {
+        "status": "TODO",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "bodyV2": {
+          "markdown": "Queda supeditada a cerrar primero el punto de payment/momento de cobro.",
+          "blocknote": null
+        }
+      }
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "e9490f49-d435-4257-a8d5-2770888bd3dd"
+      },
+      "title": "Follow-up Yurena — confirmar alineamiento sobre momento de pago",
+      "markdown": "Confirmar si Casa África acepta el modelo de puesta a disposición del curso en lugar de pago condicionado a la realización/finalización por parte de alumnos.",
+      "dueAt": "2026-07-02T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "e9490f49-d435-4257-a8d5-2770888bd3dd"
+      },
+      "title": "Actualizar y reenviar oferta Casa África — Curso 1 + plataforma",
+      "markdown": "Actualizar oferta una vez cerrado el punto del momento de cobro/payment.",
+      "dueAt": "2026-07-02T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "e9490f49-d435-4257-a8d5-2770888bd3dd"
+      },
+      "title": "Actualización comercial — Casa África payment Curso 1",
+      "markdown": "La oferta del Curso 1 + plataforma se envió de nuevo en tiempo y forma. Tras el envío, surgió una fricción con Casa África sobre el momento de pago: seguían entendiendo que el pago se produciría al final de la realización del curso por parte de los estudiantes. Skilland no puede aceptar que su cobro quede supeditado a variables fuera de su control, como captación, enrolamiento, dinamización y seguimiento de alumnos, que dependen de Casa África y de sus partners locales en África. Se propuso cambiar el enfoque a “puesta a disposición del curso”, igual que en el proyecto de cursos ejecutado con Casa África en 2025. Yurena quedó en comentarlo internamente con su jefa/equipo y dar respuesta. Próximo paso: follow-up para confirmar alineamiento sobre este punto antes de actualizar y reenviar oferta."
+    },
+    {
+      "type": "update_task",
+      "lookup": {
+        "taskId": "b760c298-a2ef-4d7e-8040-ce3c3c6214e4"
+      },
+      "data": {
+        "status": "DONE"
+      }
+    },
+    {
+      "type": "update_task",
+      "lookup": {
+        "taskId": "633e71be-a592-423a-b0de-ff5af2497f70"
+      },
+      "data": {
+        "status": "TODO",
+        "dueAt": "2026-07-02T07:00:00.000Z",
+        "bodyV2": {
+          "markdown": "Queda supeditada a cerrar primero el punto de payment/momento de cobro.",
+          "blocknote": null
+        }
+      }
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "94c09679-41ba-4608-b5cd-12fe55884216"
+      },
+      "title": "Follow-up Yurena — confirmar payment plataforma + curso",
+      "markdown": "Confirmar que el proyecto integrado plataforma + curso se tramita como puesta a disposición, no como pago condicionado a realización por alumnos.",
+      "dueAt": "2026-07-02T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "94c09679-41ba-4608-b5cd-12fe55884216"
+      },
+      "title": "Actualizar y reenviar oferta integrada Casa África — Plataforma + Curso 1",
+      "markdown": "Actualizar la oferta integrada una vez cerrado el punto del momento de cobro/payment.",
+      "dueAt": "2026-07-02T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "94c09679-41ba-4608-b5cd-12fe55884216"
+      },
+      "title": "Actualización comercial — Casa África Plataforma EU payment",
+      "markdown": "Este deal está vinculado al Curso 1 de AfricanTech y forma parte del mismo contrato/proyecto integrado. La situación actual es la misma: pendiente de alinear con Yurena/Casa África el momento de pago. Skilland propone articularlo como puesta a disposición del curso/plataforma, no como pago condicionado a realización por alumnos. La respuesta interna de Yurena queda pendiente. Próximo paso: confirmar alineamiento y, si procede, actualizar y reenviar la oferta integrada."
+    },
+    {
+      "type": "update_task",
+      "lookup": {
+        "taskId": "6ed805b8-2467-4314-8643-2b23cf73cd7e"
+      },
+      "data": {
+        "status": "DONE"
+      }
+    },
+    {
+      "type": "update_task",
+      "lookup": {
+        "taskId": "4c84468b-5d63-491e-90c1-2c8397aa9dc9"
+      },
+      "data": {
+        "status": "TODO",
+        "dueAt": "2026-07-03T07:00:00.000Z"
+      }
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "d3f9f2e8-b0e2-4ce2-82d0-ecfae2c6f7ba"
+      },
+      "title": "Llamar al compañero de Aythami/AVITAM — verificar oferta Cámara Tenerife",
+      "markdown": "Confirmar si la oferta enviada la semana pasada está bien y si necesitan algún ajuste.",
+      "dueAt": "2026-07-02T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "d3f9f2e8-b0e2-4ce2-82d0-ecfae2c6f7ba"
+      },
+      "title": "Actualización comercial — Cámara Tenerife Plataforma EU",
+      "markdown": "La memoria técnica descriptiva y el presupuesto se enviaron en tiempo y forma. Queda pendiente confirmar si necesitan tres proveedores adicionales. También queda pendiente llamar al compañero de Aythami/AVITAM para validar que la oferta enviada la semana pasada está bien, porque desde el envío no se ha recibido feedback."
+    },
+    {
+      "type": "update_task",
+      "lookup": {
+        "taskId": "cea65351-0644-4f12-a465-c474479670c8"
+      },
+      "data": {
+        "status": "TODO",
+        "dueAt": "2026-07-02T07:00:00.000Z"
+      }
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "55cfbd70-83e1-41c2-a8d5-445b19601535"
+      },
+      "title": "Preparar con IA CRM el pulso actual del deal Divi",
+      "markdown": "Volcar contexto actual del cliente, anticipar objeciones y preparar estrategia de recuperación/RCP del deal antes de llamar o escribir.",
+      "dueAt": "2026-07-02T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "55cfbd70-83e1-41c2-a8d5-445b19601535"
+      },
+      "title": "Riesgo de enfriamiento — Divi / DClick",
+      "markdown": "El follow-up no se pudo trabajar por foco total en EPI10. El deal se ha enfriado: antes estaba más caliente y ahora existe riesgo de muerte lenta comercial. María/Divi ha estado muy centrada en presentación de subvenciones y su operación, mientras que Raúl ha estado sobrecargado. Antes de retomar contacto conviene preparar bien la conversación con IA/CRM, anticipar objeciones y definir estrategia de recuperación para evitar que el deal se diluya con un “lo dejamos para más adelante”."
+    },
+    {
+      "type": "update_task",
+      "lookup": {
+        "taskId": "87e032ec-3fa5-436e-bdd4-64543467e9f8"
+      },
+      "data": {
+        "status": "DONE"
+      }
+    },
+    {
+      "type": "create_note",
+      "lookup": {
+        "opportunityId": "3a2eda13-f59b-431c-ba96-9701e13066e1"
+      },
+      "title": "Actualización comercial — Bootcamp Ejército pendiente factura",
+      "markdown": "El 29/06/2026 Pedro escribió confirmando que el proceso está correctamente tramitado. Están a la espera de recibir la factura para pagar el importe completo al inicio y coordinar la ejecución. Hay que responder enviando factura en borrador con la nueva sociedad emisora: Instituto de Innovación Tecnológica y Educativa para el Desarrollo. El presupuesto original iba a nombre de Reboot Academy, pero por reorganización estructural del grupo y separación de líneas de negocio, la línea educativa/academia se factura ahora desde la nueva sociedad. No mencionar ningún proceso concursal; transmitir continuidad, mismo equipo y misma garantía operativa."
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "3a2eda13-f59b-431c-ba96-9701e13066e1"
+      },
+      "title": "Responder a Pedro — factura borrador nueva sociedad",
+      "markdown": "Preparar respuesta explicando reorganización societaria/grupo, enviar factura en borrador y pedir confirmación de si necesitan gestión adicional antes de emisión definitiva.",
+      "dueAt": "2026-07-01T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "type": "update_task",
+      "lookup": {
+        "taskId": "aab48f01-0c1f-4c19-9696-638742dfbfd7"
+      },
+      "data": {
+        "status": "DONE"
+      }
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "4965c3ea-622f-4893-b625-1fa2fcb5fe10"
+      },
+      "title": "Enviar correo informativo cierre plazo inscripción — BES Editorial",
+      "markdown": "Avisar que el plazo de inscripción cerró ayer; se abre periodo de resolución; por fuentes personales de colaboración con Cámara estimamos 2-3 semanas; recomendar estar pendientes de notificación; nosotros también estaremos pendientes; cuando reciban resolución se plantean siguientes pasos.",
+      "dueAt": "2026-07-01T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "type": "update_task",
+      "lookup": {
+        "taskId": "1c9d5aa9-17cc-4265-a186-6627591e0ab1"
+      },
+      "data": {
+        "status": "DONE"
+      }
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "1de0c096-6a37-49ff-a48f-5956dca4ab7b"
+      },
+      "title": "Enviar correo informativo cierre plazo inscripción — Lola Azero",
+      "markdown": "Misma plantilla que BES Editorial. Avisar cierre de plazo, periodo de resolución, estimación 2-3 semanas, estar pendientes de notificaciones y próximos pasos tras resolución.",
+      "dueAt": "2026-07-01T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "type": "update_task",
+      "lookup": {
+        "taskId": "a5c9f26f-78a7-4300-814c-15f285d8087a"
+      },
+      "data": {
+        "status": "DONE"
+      }
+    },
+    {
+      "type": "create_task",
+      "lookup": {
+        "opportunityId": "922432f1-48f3-4460-931d-7600773bac48"
+      },
+      "title": "Enviar correo informativo cierre plazo inscripción — EXGEA SL",
+      "markdown": "Misma plantilla que BES Editorial y Lola Azero. Avisar cierre de plazo, periodo de resolución, estimación 2-3 semanas, estar pendientes de notificaciones y próximos pasos tras resolución.",
+      "dueAt": "2026-07-01T07:00:00.000Z",
+      "status": "TODO"
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "mode": "dry_run",
+  "status": "dry_run_completed",
+  "crmWritten": false,
+  "requestPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_execution_crew/urgent_partial_update_2026-07-01/urgent_partial_update_2026-07-01.request.json",
+  "crewLogPath": "/home/reboot/Escritorio/Skilland.ai/Skilland.ai-CRM/skilland-crm/04_outputs/crm_execution_crew/urgent_partial_update_2026-07-01/session_2026-07-01T17-33-06-287Z.json",
+  "preflight": {
+    "opportunityIdsResolved": 9,
+    "iaMujeresTouched": false,
+    "stageEnEjecucion": {
+      "exists": true,
+      "value": "IN_EXECUTION",
+      "label": "En ejecución"
+    },
+    "casaAfricaCurso1DuplicateTasks": [
+      {
+        "id": "05c5e632-791f-4fac-80f7-306c52dfddd3",
+        "title": "Enviar de nuevo oferta Casa África — Curso 1 + plataforma"
+      },
+      {
+        "id": "aca9ea9d-1a00-4b4c-8e23-66216cb637e3",
+        "title": "Enviar de nuevo oferta Casa África — Curso 1 + plataforma"
+      }
+    ]
+  },
+  "plannedCounts": {
+    "updateOpportunity": 1,
+    "updateTask": 13,
+    "createTask": 15,
+    "createNote": 6,
+    "totalRequestOperations": 35
+  },
+  "tasksMarkedDone": [
+    {
+      "taskId": "ebda8413-3872-4c3f-a91f-7601a04bf0d6",
+      "dueAt": "2026-06-29T07:00:00.000Z"
+    },
+    {
+      "taskId": "05c5e632-791f-4fac-80f7-306c52dfddd3",
+      "dueAt": null
+    },
+    {
+      "taskId": "aca9ea9d-1a00-4b4c-8e23-66216cb637e3",
+      "dueAt": null
+    },
+    {
+      "taskId": "b760c298-a2ef-4d7e-8040-ce3c3c6214e4",
+      "dueAt": null
+    },
+    {
+      "taskId": "6ed805b8-2467-4314-8643-2b23cf73cd7e",
+      "dueAt": null
+    },
+    {
+      "taskId": "87e032ec-3fa5-436e-bdd4-64543467e9f8",
+      "dueAt": null
+    },
+    {
+      "taskId": "aab48f01-0c1f-4c19-9696-638742dfbfd7",
+      "dueAt": null
+    },
+    {
+      "taskId": "1c9d5aa9-17cc-4265-a186-6627591e0ab1",
+      "dueAt": null
+    },
+    {
+      "taskId": "a5c9f26f-78a7-4300-814c-15f285d8087a",
+      "dueAt": null
+    }
+  ],
+  "tasksCreated": [
+    {
+      "opportunityId": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "title": "Refinar arquitectura del sistema — EPI10",
+      "dueAt": "2026-06-29T07:00:00.000Z",
+      "status": "DONE"
+    },
+    {
+      "opportunityId": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "title": "Preparar nuevo customer journey — EPI10",
+      "dueAt": "2026-06-29T07:00:00.000Z",
+      "status": "DONE"
+    },
+    {
+      "opportunityId": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "title": "Preparar workshop EPI10",
+      "dueAt": "2026-06-29T07:00:00.000Z",
+      "status": "DONE"
+    },
+    {
+      "opportunityId": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "title": "Ejecutar workshop EPI10",
+      "dueAt": "2026-06-29T07:00:00.000Z",
+      "status": "DONE"
+    },
+    {
+      "opportunityId": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "title": "Enviar resumen workshop EPI10",
+      "dueAt": "2026-07-01T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "opportunityId": "e9490f49-d435-4257-a8d5-2770888bd3dd",
+      "title": "Follow-up Yurena — confirmar alineamiento sobre momento de pago",
+      "dueAt": "2026-07-02T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "opportunityId": "e9490f49-d435-4257-a8d5-2770888bd3dd",
+      "title": "Actualizar y reenviar oferta Casa África — Curso 1 + plataforma",
+      "dueAt": "2026-07-02T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "opportunityId": "94c09679-41ba-4608-b5cd-12fe55884216",
+      "title": "Follow-up Yurena — confirmar payment plataforma + curso",
+      "dueAt": "2026-07-02T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "opportunityId": "94c09679-41ba-4608-b5cd-12fe55884216",
+      "title": "Actualizar y reenviar oferta integrada Casa África — Plataforma + Curso 1",
+      "dueAt": "2026-07-02T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "opportunityId": "d3f9f2e8-b0e2-4ce2-82d0-ecfae2c6f7ba",
+      "title": "Llamar al compañero de Aythami/AVITAM — verificar oferta Cámara Tenerife",
+      "dueAt": "2026-07-02T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "opportunityId": "55cfbd70-83e1-41c2-a8d5-445b19601535",
+      "title": "Preparar con IA CRM el pulso actual del deal Divi",
+      "dueAt": "2026-07-02T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "opportunityId": "3a2eda13-f59b-431c-ba96-9701e13066e1",
+      "title": "Responder a Pedro — factura borrador nueva sociedad",
+      "dueAt": "2026-07-01T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "opportunityId": "4965c3ea-622f-4893-b625-1fa2fcb5fe10",
+      "title": "Enviar correo informativo cierre plazo inscripción — BES Editorial",
+      "dueAt": "2026-07-01T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "opportunityId": "1de0c096-6a37-49ff-a48f-5956dca4ab7b",
+      "title": "Enviar correo informativo cierre plazo inscripción — Lola Azero",
+      "dueAt": "2026-07-01T07:00:00.000Z",
+      "status": "TODO"
+    },
+    {
+      "opportunityId": "922432f1-48f3-4460-931d-7600773bac48",
+      "title": "Enviar correo informativo cierre plazo inscripción — EXGEA SL",
+      "dueAt": "2026-07-01T07:00:00.000Z",
+      "status": "TODO"
+    }
+  ],
+  "tasksReprogrammed": [
+    {
+      "taskId": "249088c1-4f8a-4bf8-a790-8ea2c573470d",
+      "dueAt": "2026-07-02T07:00:00.000Z"
+    },
+    {
+      "taskId": "633e71be-a592-423a-b0de-ff5af2497f70",
+      "dueAt": "2026-07-02T07:00:00.000Z"
+    },
+    {
+      "taskId": "4c84468b-5d63-491e-90c1-2c8397aa9dc9",
+      "dueAt": "2026-07-03T07:00:00.000Z"
+    },
+    {
+      "taskId": "cea65351-0644-4f12-a465-c474479670c8",
+      "dueAt": "2026-07-02T07:00:00.000Z"
+    }
+  ],
+  "notesCreated": [
+    {
+      "opportunityId": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "title": "Actualización ejecución — EPI10 workshop 29/06"
+    },
+    {
+      "opportunityId": "e9490f49-d435-4257-a8d5-2770888bd3dd",
+      "title": "Actualización comercial — Casa África payment Curso 1"
+    },
+    {
+      "opportunityId": "94c09679-41ba-4608-b5cd-12fe55884216",
+      "title": "Actualización comercial — Casa África Plataforma EU payment"
+    },
+    {
+      "opportunityId": "d3f9f2e8-b0e2-4ce2-82d0-ecfae2c6f7ba",
+      "title": "Actualización comercial — Cámara Tenerife Plataforma EU"
+    },
+    {
+      "opportunityId": "55cfbd70-83e1-41c2-a8d5-445b19601535",
+      "title": "Riesgo de enfriamiento — Divi / DClick"
+    },
+    {
+      "opportunityId": "3a2eda13-f59b-431c-ba96-9701e13066e1",
+      "title": "Actualización comercial — Bootcamp Ejército pendiente factura"
+    }
+  ],
+  "stageChanges": [
+    {
+      "opportunityId": "9c4fc972-e555-41e7-ace1-37125fb73734",
+      "to": "IN_EXECUTION"
+    }
+  ]
+}

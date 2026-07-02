@@ -5,6 +5,8 @@ const CREATE_OPPORTUNITY_INPUT_HELPER_FIELDS = new Set([
   'pointOfContactId',
 ]);
 
+const UPDATE_TASK_INPUT_HELPER_FIELDS = new Set(['assigneeId']);
+
 const OBJECT_ALIASES = new Map([
   ['opportunities', 'opportunity'],
   ['opportunity', 'opportunity'],
@@ -106,57 +108,37 @@ export function validateRequestAgainstMetadata(request, snapshot) {
   }
 
   request.operations.forEach((operation, operationIndex) => {
-    if (!['create_opportunity', 'update_opportunity'].includes(operation.type)) {
+    if (['create_opportunity', 'update_opportunity'].includes(operation.type)) {
+      validateOperationData({
+        operation,
+        operationIndex,
+        objectName: 'opportunity',
+        object: snapshot.canonicalObjects.opportunity,
+        helperFields:
+          operation.type === 'create_opportunity'
+            ? CREATE_OPPORTUNITY_INPUT_HELPER_FIELDS
+            : new Set(),
+        requiredFieldName:
+          operation.type === 'create_opportunity' ? 'name' : null,
+        unknownFields,
+        invalidOptions,
+        blockingIssues,
+      });
       return;
     }
-    const opportunityObject = snapshot.canonicalObjects.opportunity;
-    const fieldMap = fieldsByName(opportunityObject);
-    const data = operation.data ?? {};
 
-    if (operation.type === 'create_opportunity' && !hasNonEmptyString(data.name)) {
-      blockingIssues.push(
-        issue('missing_required_field', 'create_opportunity requires data.name.', {
-          operationIndex,
-          object: 'opportunity',
-          fieldName: 'name',
-        }),
-      );
-    }
-
-    for (const [fieldName, value] of Object.entries(data)) {
-      if (
-        operation.type === 'create_opportunity' &&
-        CREATE_OPPORTUNITY_INPUT_HELPER_FIELDS.has(fieldName)
-      ) {
-        continue;
-      }
-
-      const field = fieldMap.get(fieldName);
-      if (!field) {
-        const unknown = { operationIndex, object: 'opportunity', fieldName };
-        unknownFields.push(unknown);
-        blockingIssues.push(
-          issue('unknown_field', `Unknown opportunity field: ${fieldName}`, unknown),
-        );
-        continue;
-      }
-
-      const optionIssue = validateFieldOption({
+    if (operation.type === 'update_task') {
+      validateOperationData({
+        operation,
         operationIndex,
-        object: 'opportunity',
-        field,
-        value,
+        objectName: 'task',
+        object: snapshot.canonicalObjects.task,
+        helperFields: UPDATE_TASK_INPUT_HELPER_FIELDS,
+        requiredFieldName: null,
+        unknownFields,
+        invalidOptions,
+        blockingIssues,
       });
-      if (optionIssue) {
-        invalidOptions.push(optionIssue);
-        blockingIssues.push(
-          issue(
-            'invalid_select_option',
-            `Invalid option for ${fieldName}: ${JSON.stringify(value)}`,
-            optionIssue,
-          ),
-        );
-      }
     }
   });
 
@@ -189,6 +171,66 @@ function validateTaskStatusOption({ snapshot, invalidOptions, blockingIssues }) 
   blockingIssues.push(
     issue('invalid_select_option', 'Task status DONE is not available.', invalid),
   );
+}
+
+function validateOperationData({
+  operation,
+  operationIndex,
+  objectName,
+  object,
+  helperFields,
+  requiredFieldName,
+  unknownFields,
+  invalidOptions,
+  blockingIssues,
+}) {
+  const fieldMap = fieldsByName(object);
+  const data = operation.data ?? {};
+
+  if (requiredFieldName && !hasNonEmptyString(data[requiredFieldName])) {
+    blockingIssues.push(
+      issue(
+        'missing_required_field',
+        `${operation.type} requires data.${requiredFieldName}.`,
+        {
+          operationIndex,
+          object: objectName,
+          fieldName: requiredFieldName,
+        },
+      ),
+    );
+  }
+
+  for (const [fieldName, value] of Object.entries(data)) {
+    if (helperFields.has(fieldName)) continue;
+
+    const field = fieldMap.get(fieldName);
+    if (!field) {
+      const unknown = { operationIndex, object: objectName, fieldName };
+      unknownFields.push(unknown);
+      blockingIssues.push(
+        issue('unknown_field', `Unknown ${objectName} field: ${fieldName}`, unknown),
+      );
+      continue;
+    }
+
+    const optionIssue = validateFieldOption({
+      operationIndex,
+      object: objectName,
+      field,
+      value,
+    });
+    if (optionIssue) {
+      invalidOptions.push(optionIssue);
+      blockingIssues.push(
+        issue(
+          'invalid_select_option',
+          `Invalid option for ${fieldName}: ${JSON.stringify(value)}`,
+          optionIssue,
+        ),
+      );
+    }
+  }
 }
 
 function validateFieldOption({ operationIndex, object, field, value }) {
