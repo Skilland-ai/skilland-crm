@@ -4,6 +4,7 @@
 import path from 'path';
 import fs from 'fs';
 import crypto from 'crypto';
+import { readTwentyCredentials } from './crm_manual_update_crew/twenty-client.mjs';
 
 const DATE = '2026-06-04';
 const CAMPAIGN_NAME = 'IA Mujeres 2026';
@@ -58,14 +59,6 @@ const WORKFLOW_DEFS = [
 ];
 
 // ─── Credentials & client ─────────────────────────────────────────────────────
-
-function readCredentials() {
-  const raw = fs.readFileSync('/home/reboot/.claude.json', 'utf8');
-  const keyMatch = raw.match(/"TWENTY_API_KEY"\s*:\s*"([^"]+)"/);
-  const baseMatch = raw.match(/"TWENTY_BASE_URL"\s*:\s*"([^"]+)"/);
-  if (!keyMatch || !baseMatch) throw new Error('Missing TWENTY_API_KEY or TWENTY_BASE_URL in /home/reboot/.claude.json');
-  return { apiKey: keyMatch[1], baseUrl: baseMatch[1].replace(/\/+$/, '') };
-}
 
 function sleep(ms) { return new Promise(res => setTimeout(res, ms)); }
 
@@ -572,7 +565,7 @@ function parseArgs(argv) {
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
-  const creds = readCredentials();
+  const creds = readTwentyCredentials();
   const client = new TwentyClient(creds);
 
   console.log(`\n=== IA Mujeres Workflows (${args.apply ? 'APPLY' : 'DRY-RUN'}) ===\n`);

@@ -2,6 +2,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { readTwentyCredentials } from './crm_manual_update_crew/twenty-client.mjs';
 
 const BUSINESS_LINE_NAME = 'SkilLand IA Mujeres';
 const CAMPAIGN_NAME = 'IA Mujeres 2026';
@@ -51,17 +52,6 @@ This planner creates local batch_<id>_plan.json files only. It does not create
 Gmail drafts, send email, or mutate CRM. It is designed for an already-approved
 bulk send, split into safe sub-batches of five.
 `);
-}
-
-function readCredentials() {
-  const raw = fs.readFileSync('/home/reboot/.claude.json', 'utf8');
-  const keyMatch = raw.match(/"TWENTY_API_KEY"\s*:\s*"([^"]+)"/);
-  const baseMatch = raw.match(/"TWENTY_BASE_URL"\s*:\s*"([^"]+)"/);
-  if (!keyMatch) throw new Error('TWENTY_API_KEY not found in /home/reboot/.claude.json');
-  return {
-    apiKey: keyMatch[1],
-    baseUrl: (baseMatch ? baseMatch[1] : 'https://crm.skilland.ai').replace(/\/+$/, ''),
-  };
 }
 
 class TwentyClient {
@@ -415,7 +405,7 @@ async function main() {
   const args = parseArgs(process.argv.slice(2));
   fs.mkdirSync(args.outputDir, { recursive: true });
 
-  const client = new TwentyClient(readCredentials());
+  const client = new TwentyClient(readTwentyCredentials());
   const opportunities = await fetchOpportunities(client);
   const events = readEvents(args.eventsPath);
   const sentRecipients = eventSentRecipients(events);

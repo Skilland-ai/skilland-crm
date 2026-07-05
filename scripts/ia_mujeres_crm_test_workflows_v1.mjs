@@ -11,33 +11,88 @@
 //       acceso vía getLoginTokenFromCredentials → getAuthTokensFromLoginToken.
 
 import fs from 'fs';
+import os from 'os';
+import path from 'path';
 import { randomUUID } from 'crypto';
+import { readTwentyCredentials } from './crm_manual_update_crew/twenty-client.mjs';
 
 const CRM_EMAIL = 'raul@reboot.academy';
 const CRM_ORIGIN = 'https://crm.skilland.ai';
+const DEFAULT_TWENTY_USER_CREDENTIALS_PATH = path.join(
+  os.homedir(),
+  '.config',
+  'skilland',
+  'twenty-user.json',
+);
 
 // ─── Credenciales ─────────────────────────────────────────────────────────────
 
-function readCredentials() {
-  const raw = fs.readFileSync('/home/reboot/.claude.json', 'utf8');
-  const keyMatch = raw.match(/"TWENTY_API_KEY"\s*:\s*"([^"]+)"/);
-  const baseMatch = raw.match(/"TWENTY_BASE_URL"\s*:\s*"([^"]+)"/);
-  if (!keyMatch) throw new Error('TWENTY_API_KEY not found in /home/reboot/.claude.json');
+function readStringValue(value) {
+  return typeof value === 'string' && value.trim() ? value.trim() : undefined;
+}
 
-  // Load local password from scripts/.env (gitignored)
-  let password;
+function parsePasswordFromLocalFile(filePath) {
+  if (!fs.existsSync(filePath)) {
+    return undefined;
+  }
+
+  const raw = fs.readFileSync(filePath, 'utf8');
+
   try {
-    const envPath = new URL('../scripts/.env', import.meta.url).pathname;
-    const envRaw = fs.readFileSync(envPath, 'utf8');
-    const passMatch = envRaw.match(/^TWENTY_CRM_PASSWORD=(.+)$/m);
-    password = passMatch ? passMatch[1].trim() : undefined;
-  } catch {}
+    const parsed = JSON.parse(raw);
+    const password = readStringValue(parsed?.TWENTY_CRM_PASSWORD ?? parsed?.password);
+    if (password) {
+      return password;
+    }
+  } catch {
+    // Allow a legacy plain-text style fallback for local operator convenience.
+  }
+
+  const passMatch = raw.match(/"TWENTY_CRM_PASSWORD"\s*:\s*"([^"]+)"/) ?? raw.match(/^TWENTY_CRM_PASSWORD=(.+)$/m);
+  return readStringValue(passMatch?.[1]);
+}
+
+function readOptionalCrmPassword() {
+  const envPassword = readStringValue(process.env.TWENTY_CRM_PASSWORD);
+  if (envPassword) {
+    return {
+      password: envPassword,
+      source: 'env:TWENTY_CRM_PASSWORD',
+    };
+  }
+
+  const explicitFile = readStringValue(process.env.TWENTY_USER_CREDENTIALS_FILE);
+  const candidateFiles = [...new Set([
+    explicitFile,
+    DEFAULT_TWENTY_USER_CREDENTIALS_PATH,
+  ].filter(Boolean))];
+
+  for (const candidateFile of candidateFiles) {
+    const password = parsePasswordFromLocalFile(candidateFile);
+    if (password) {
+      return {
+        password,
+        source: `file:${candidateFile}`,
+      };
+    }
+  }
 
   return {
-    apiKey: keyMatch[1],
-    baseUrl: (baseMatch ? baseMatch[1] : 'https://crm.skilland.ai').replace(/\/+$/, ''),
-    password,
+    password: undefined,
+    source: undefined,
   };
+}
+
+function buildMissingPasswordError() {
+  return [
+    'se necesita contraseña del CRM para obtener un JWT de usuario.',
+    'Fuentes soportadas:',
+    '  - --password TU_CONTRASEÑA',
+    '  - env TWENTY_CRM_PASSWORD',
+    '  - env TWENTY_USER_CREDENTIALS_FILE=/absolute/path/to/twenty-user.json',
+    `  - fichero local por defecto: ${DEFAULT_TWENTY_USER_CREDENTIALS_PATH}`,
+    'Claves soportadas en el JSON local: TWENTY_CRM_PASSWORD o password.',
+  ].join('\n');
 }
 
 function parseArgs() {
@@ -244,6 +299,60 @@ async function activate(client, versionId) {
   `, { versionId });
 }
 
+async function createDraftFromVersion(client, workflowVersionId) {
+  const data = await client.gql(`
+    mutation CreateDraft($workflowVersionId: UUID!) {
+      createDraftFromWorkflowVersion(workflowVersionId: $workflowVersionId) {
+        id
+        status
+      }
+    }
+  `, { workflowVersionId });
+  return data.createDraftFromWorkflowVersion;
+}
+
+async function resolveEditableWorkflowVersion(client, { workflowId, fallbackVersionId, label = 'workflow' }) {
+  const versionsData = await client.gql(`
+    query GetVersions($workflowId: UUID!) {
+      workflowVersions(filter: { workflowId: { eq: $workflowId } }, first: 20) {
+        edges {
+          node {
+            id
+            status
+            createdAt
+          }
+        }
+      }
+    }
+  `, { workflowId });
+
+  const versions = versionsData.workflowVersions?.edges?.map((edge) => edge.node).filter(Boolean) || [];
+  const activeVersion = versions.find((version) => version.status === 'ACTIVE');
+  if (activeVersion) {
+    console.log(`  ✓ ${label} ya está ACTIVO — sin cambios`);
+    return { versionId: activeVersion.id, status: 'already-active', source: 'existing-active' };
+  }
+
+  const draftVersion = versions.find((version) => version.status === 'DRAFT');
+  if (draftVersion) {
+    console.log('  ↩ Reutilizando versión DRAFT existente:', draftVersion.id);
+    return { versionId: draftVersion.id, status: 'draft-ready', source: 'existing-draft' };
+  }
+
+  const sourceVersion =
+    versions.find((version) => version.id === fallbackVersionId) ||
+    versions[0];
+
+  if (!sourceVersion) {
+    throw new Error(`WF-2 no tiene versiones disponibles para crear un draft (workflowId=${workflowId})`);
+  }
+
+  console.log(`  ↩ Creando nueva versión DRAFT desde ${sourceVersion.id} (${sourceVersion.status})`);
+  const draft = await createDraftFromVersion(client, sourceVersion.id);
+  console.log('  ✓ Nueva versión DRAFT creada:', draft.id);
+  return { versionId: draft.id, status: 'draft-created', source: `draft-from-${sourceVersion.status.toLowerCase()}` };
+}
+
 // ─── Workflow setup helper ────────────────────────────────────────────────────
 
 async function setupWorkflowVersion(client, { versionId, statusValue, taskTitle }) {
@@ -302,28 +411,26 @@ async function setupWF2(client, dry) {
     return { status: 'dry-run', wfId: WF2_ID, versionId: WF2_VERSION_ID };
   }
 
-  // Verificar estado actual antes de reconfigurar
-  const wf2Data = await client.gql(`
-    query { workflowVersions(filter: { id: { eq: "${WF2_VERSION_ID}" } }, first: 1) {
-      edges { node { id status } }
-    }}
-  `);
-  const wf2Status = wf2Data.workflowVersions?.edges?.[0]?.node?.status;
-  if (wf2Status === 'ACTIVE') {
-    console.log('  ✓ WF-2 ya está ACTIVO — sin cambios');
-    return { status: 'already-active', wfId: WF2_ID, versionId: WF2_VERSION_ID };
+  const editableVersion = await resolveEditableWorkflowVersion(client, {
+    workflowId: WF2_ID,
+    fallbackVersionId: WF2_VERSION_ID,
+    label: 'WF-2',
+  });
+
+  if (editableVersion.status === 'already-active') {
+    return { status: 'already-active', wfId: WF2_ID, versionId: editableVersion.versionId };
   }
 
   await setupWorkflowVersion(client, {
-    versionId: WF2_VERSION_ID,
+    versionId: editableVersion.versionId,
     statusValue: 'first_email_sent',
     taskTitle: '[TEST] Follow-up: {{trigger.properties.after.name}}',
   });
 
-  await activate(client, WF2_VERSION_ID);
+  await activate(client, editableVersion.versionId);
   console.log('  ✓ WF-2 ACTIVO');
 
-  return { status: 'active', wfId: WF2_ID, versionId: WF2_VERSION_ID };
+  return { status: 'active', wfId: WF2_ID, versionId: editableVersion.versionId };
 }
 
 // ─── WF-3: Respuesta recibida ─────────────────────────────────────────────────
@@ -356,15 +463,17 @@ async function setupWF3(client, dry) {
 
   if (existingNode) {
     wfId = existingNode.id;
-    const existingVersion = existingNode.versions?.edges?.[0]?.node;
-    versionId = existingVersion?.id;
-    const existingStatus = existingVersion?.status;
     console.log('  ↩ Workflow existente encontrado:', wfId.slice(0, 8));
-    if (existingStatus === 'ACTIVE') {
-      console.log('  ✓ WF-3 ya está ACTIVO — sin cambios');
+    const editableVersion = await resolveEditableWorkflowVersion(client, {
+      workflowId: wfId,
+      fallbackVersionId: existingNode.versions?.edges?.[0]?.node?.id,
+      label: 'WF-3',
+    });
+    versionId = editableVersion.versionId;
+    if (editableVersion.status === 'already-active') {
       return { status: 'already-active', wfId, versionId };
     }
-    console.log('  ✓ Versión DRAFT existente:', versionId);
+    console.log('  ✓ Versión editable lista:', versionId);
   } else {
     // Crear workflow nuevo (el post-hook crea automáticamente una versión DRAFT "v1")
     const wfData = await client.gql(`
@@ -374,7 +483,7 @@ async function setupWF3(client, dry) {
     console.log('  ✓ Workflow creado:', wfId);
 
     const versionsData = await client.gql(`
-      query GetVersions($wfId: ID!) {
+      query GetVersions($wfId: UUID!) {
         workflowVersions(filter: { workflowId: { eq: $wfId } }, first: 1) {
           edges { node { id status } }
         }
@@ -406,7 +515,7 @@ async function verifyWorkflows(client) {
       workflows(filter: { name: { like: "%TEST%" } }) {
         edges { node {
           id name
-          versions(orderBy: { createdAt: DescNullsLast }, first: 1) {
+          versions(first: 10) {
             edges { node { id status } }
           }
         }}
@@ -416,10 +525,15 @@ async function verifyWorkflows(client) {
 
   const wfs = data.workflows?.edges || [];
   wfs.forEach(({ node: wf }) => {
-    const v = wf.versions?.edges?.[0]?.node;
-    const status = v?.status || 'no version';
+    const versions = wf.versions?.edges?.map((edge) => edge.node).filter(Boolean) || [];
+    const active = versions.find((version) => version.status === 'ACTIVE');
+    const draft = versions.find((version) => version.status === 'DRAFT');
+    const status = active?.status || draft?.status || versions[0]?.status || 'no version';
     const icon = status === 'ACTIVE' ? '✓' : '○';
-    console.log(`  ${icon} ${wf.name.padEnd(45)} ${status}`);
+    const suffix = versions.length > 1
+      ? ` [all: ${versions.map((version) => version.status).join(', ')}]`
+      : '';
+    console.log(`  ${icon} ${wf.name.padEnd(45)} ${status}${suffix}`);
   });
 }
 
@@ -429,19 +543,21 @@ async function main() {
   const { apply, password } = parseArgs();
   console.log(`\n=== IA Mujeres — Test Workflows Setup (${apply ? 'APPLY' : 'DRY-RUN'}) ===`);
 
-  const creds = readCredentials();
+  const creds = readTwentyCredentials();
+  const localPassword = readOptionalCrmPassword();
 
   let token = creds.apiKey;
 
   if (apply) {
-    const effectivePassword = password || creds.password;
+    const effectivePassword = password || localPassword.password;
     if (!effectivePassword) {
-      console.error('\nERROR: se necesita contraseña del CRM.');
-      console.error('  Opción A: node scripts/ia_mujeres_crm_test_workflows_v1.mjs --apply --password TU_CONTRASEÑA');
-      console.error('  Opción B: añadir TWENTY_CRM_PASSWORD=... a scripts/.env\n');
+      console.error(`\nERROR: ${buildMissingPasswordError()}\n`);
       process.exit(1);
     }
     console.log('\n--- Autenticación de usuario ---');
+    if (!password && localPassword.source) {
+      console.log(`  password source: ${localPassword.source}`);
+    }
     token = await getUserToken(creds.baseUrl, effectivePassword);
     console.log('  ✓ JWT de usuario obtenido');
   }

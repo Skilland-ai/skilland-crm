@@ -3,6 +3,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { readTwentyCredentials } from './crm_manual_update_crew/twenty-client.mjs';
 
 const BUSINESS_LINE_NAME = 'SkilLand IA Mujeres';
 const CAMPAIGN_NAME = 'IA Mujeres 2026';
@@ -205,17 +206,6 @@ Usage:
 
 All CRM mutations require --apply. No external email is sent by this runner.
 `);
-}
-
-function readCredentials() {
-  const raw = fs.readFileSync('/home/reboot/.claude.json', 'utf8');
-  const keyMatch = raw.match(/"TWENTY_API_KEY"\s*:\s*"([^"]+)"/);
-  const baseMatch = raw.match(/"TWENTY_BASE_URL"\s*:\s*"([^"]+)"/);
-  if (!keyMatch) throw new Error('TWENTY_API_KEY not found in /home/reboot/.claude.json');
-  return {
-    apiKey: keyMatch[1],
-    baseUrl: (baseMatch ? baseMatch[1] : 'https://crm.skilland.ai').replace(/\/+$/, ''),
-  };
 }
 
 class TwentyClient {
@@ -1653,7 +1643,7 @@ async function modeReconcileTasks(client, args) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   ensureDir(args.outputDir);
-  const client = new TwentyClient(readCredentials());
+  const client = new TwentyClient(readTwentyCredentials());
   let result;
   if (args.mode === 'setup-crm') result = await modeSetupCrm(client, args);
   else if (args.mode === 'audit') result = await modeAudit(client, args);

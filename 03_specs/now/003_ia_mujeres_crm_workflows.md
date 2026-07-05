@@ -1,13 +1,13 @@
 # 003 · IA Mujeres CRM Workflows
 
-- Status: completed
+- Status: planned
 - Date: 2026-06-04
 
 ## Hecho
 
 - Auditadas capacidades de workflows de Twenty CRM (triggers, step types, API vs UI).
-- Creados 0 campos de seguimiento en Opportunity.
-- Creados 0 workflows en estado DRAFT.
+- Identificados 0 campos pendientes de crear.
+- Diseñados 3 workflows para el funnel IA Mujeres.
 - Documentado flujo de estados outreachStatus y activación segura.
 
 ## Outputs

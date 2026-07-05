@@ -2,6 +2,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { readTwentyCredentials } from './crm_manual_update_crew/twenty-client.mjs';
 
 const BUSINESS_LINE_NAME = 'SkilLand IA Mujeres';
 const CAMPAIGN_NAME = 'IA Mujeres 2026';
@@ -63,17 +64,6 @@ three global views and recreates one clean IA Mujeres funnel kanban.
     }
   }
   return args;
-}
-
-function readCredentials() {
-  const raw = fs.readFileSync('/home/reboot/.claude.json', 'utf8');
-  const keyMatch = raw.match(/"TWENTY_API_KEY"\s*:\s*"([^"]+)"/);
-  const baseMatch = raw.match(/"TWENTY_BASE_URL"\s*:\s*"([^"]+)"/);
-  if (!keyMatch) throw new Error('TWENTY_API_KEY not found in /home/reboot/.claude.json');
-  return {
-    apiKey: keyMatch[1],
-    baseUrl: (baseMatch ? baseMatch[1] : 'https://crm.skilland.ai').replace(/\/+$/, ''),
-  };
 }
 
 class TwentyMetadataClient {
@@ -255,7 +245,7 @@ async function normalizeFunnelGroups(client, opportunityObjectId, viewId, report
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  const client = new TwentyMetadataClient(readCredentials());
+  const client = new TwentyMetadataClient(readTwentyCredentials());
   const objects = await client.objects();
   const opportunity = objects.find((object) => object.nameSingular === 'opportunity');
   if (!opportunity) throw new Error('Opportunity metadata not found');

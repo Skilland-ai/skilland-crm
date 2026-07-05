@@ -4,6 +4,7 @@
 import path from 'path';
 import fs from 'fs';
 import crypto from 'crypto';
+import { readTwentyCredentials } from './crm_manual_update_crew/twenty-client.mjs';
 
 const DATE = '2026-06-04';
 const TEST_PREFIX = 'TEST —';
@@ -17,14 +18,6 @@ const DEFAULT_OUTPUT_DIR = path.resolve('04_outputs/ia_mujeres_smoke_test');
 const DEFAULT_SPEC_PATH = path.resolve('03_specs/now/004_ia_mujeres_crm_smoke_test.md');
 
 // ─── Credentials & client ─────────────────────────────────────────────────────
-
-function readCredentials() {
-  const raw = fs.readFileSync('/home/reboot/.claude.json', 'utf8');
-  const keyMatch = raw.match(/"TWENTY_API_KEY"\s*:\s*"([^"]+)"/);
-  const baseMatch = raw.match(/"TWENTY_BASE_URL"\s*:\s*"([^"]+)"/);
-  if (!keyMatch || !baseMatch) throw new Error('Missing credentials in /home/reboot/.claude.json');
-  return { apiKey: keyMatch[1], baseUrl: baseMatch[1].replace(/\/+$/, '') };
-}
 
 function sleep(ms) { return new Promise(res => setTimeout(res, ms)); }
 
@@ -515,7 +508,7 @@ function parseArgs(argv) {
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
-  const creds = readCredentials();
+  const creds = readTwentyCredentials();
   const client = new TwentyClient(creds);
 
   console.log(`\n=== IA Mujeres Smoke Test (${args.apply ? 'APPLY' : 'DRY-RUN'}) ===\n`);
