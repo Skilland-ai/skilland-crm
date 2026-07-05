@@ -10,6 +10,9 @@ const ALLOWED_OPERATION_TYPES = new Set([
   'blocked_operation',
 ]);
 
+const CREATE_RECORD_OBJECTS = new Set(['company', 'person', 'opportunity']);
+const UPDATE_RECORD_OBJECTS = new Set(['company', 'person', 'opportunity', 'task']);
+
 export function reviewCrmOperationPlan({
   request,
   plan,
@@ -61,14 +64,32 @@ export function reviewCrmOperationPlan({
       );
     }
 
-    if (operation.type === 'create_record' && operation.object === 'opportunity') {
-      if (!operation.data?.name) {
-        blockingIssues.push(
-          issue('missing_required_field', 'Opportunity creation requires data.name.', {
-            operationId: operation.id,
-          }),
-        );
-      }
+    if (
+      operation.type === 'create_record' &&
+      !CREATE_RECORD_OBJECTS.has(operation.object)
+    ) {
+      blockingIssues.push(
+        issue('unsupported_object', `Create is not supported for ${operation.object}.`, {
+          operationId: operation.id,
+          object: operation.object,
+        }),
+      );
+    }
+
+    if (
+      operation.type === 'update_record' &&
+      !UPDATE_RECORD_OBJECTS.has(operation.object)
+    ) {
+      blockingIssues.push(
+        issue('unsupported_object', `Update is not supported for ${operation.object}.`, {
+          operationId: operation.id,
+          object: operation.object,
+        }),
+      );
+    }
+
+    if (operation.type === 'create_record') {
+      validateCreateRecordRequiredFields({ operation, blockingIssues });
     }
 
     if (operation.type === 'update_record' && !request.constraints.allowUpdate) {
@@ -141,6 +162,43 @@ export function reviewCrmOperationPlan({
   };
 }
 
+function validateCreateRecordRequiredFields({ operation, blockingIssues }) {
+  if (operation.object === 'company' && !operation.data?.name) {
+    blockingIssues.push(
+      issue('missing_required_field', 'Company creation requires data.name.', {
+        operationId: operation.id,
+      }),
+    );
+  }
+
+  if (operation.object === 'person') {
+    if (!operation.data?.emails?.primaryEmail) {
+      blockingIssues.push(
+        issue(
+          'missing_required_field',
+          'Person creation requires data.emails.primaryEmail.',
+          { operationId: operation.id },
+        ),
+      );
+    }
+    if (!operation.data?.name?.firstName && !operation.data?.name?.lastName) {
+      blockingIssues.push(
+        issue('missing_required_field', 'Person creation requires data.name.', {
+          operationId: operation.id,
+        }),
+      );
+    }
+  }
+
+  if (operation.object === 'opportunity' && !operation.data?.name) {
+    blockingIssues.push(
+      issue('missing_required_field', 'Opportunity creation requires data.name.', {
+        operationId: operation.id,
+      }),
+    );
+  }
+}
+
 function countAffectedRecords(operations) {
   const recordKeys = new Set();
   for (const operation of operations) {
@@ -165,7 +223,9 @@ function hasTarget(target) {
     target?.opportunityId ||
       target?.opportunityTempId ||
       target?.personId ||
-      target?.companyId,
+      target?.personTempId ||
+      target?.companyId ||
+      target?.companyTempId,
   );
 }
 

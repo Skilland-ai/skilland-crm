@@ -107,7 +107,7 @@ export function resolveRequestRecords({ request, recordIndex }) {
 }
 
 function resolveOperation({ operation, operationIndex, recordIndex }) {
-  const lookup = operation.lookup ?? {};
+  const lookup = lookupForOperation(operation);
   const missingRecords = [];
   const ambiguousLookups = [];
   const warnings = [];
@@ -149,22 +149,6 @@ function resolveOperation({ operation, operationIndex, recordIndex }) {
     }
   }
 
-  if (!resolvedRecords.person && lookup.personEmail) {
-    const people = recordIndex.people.filter((person) =>
-      emailsOf(person).includes(normalizeEmail(lookup.personEmail)),
-    );
-    assignUnique({
-      operationIndex,
-      field: 'personEmail',
-      value: lookup.personEmail,
-      matches: people,
-      object: 'person',
-      resolvedRecords,
-      ambiguousLookups,
-      missingRecords,
-    });
-  }
-
   if (!resolvedRecords.company && lookup.companyDomain) {
     const companies = recordIndex.companies.filter(
       (company) =>
@@ -180,6 +164,61 @@ function resolveOperation({ operation, operationIndex, recordIndex }) {
       resolvedRecords,
       ambiguousLookups,
       missingRecords,
+      allowMissing: allowsMissing(operation, 'company'),
+    });
+  }
+
+  if (!resolvedRecords.company && lookup.companyName) {
+    const companies = companiesByName(recordIndex.companies, lookup.companyName);
+    assignUnique({
+      operationIndex,
+      field: 'companyName',
+      value: lookup.companyName,
+      matches: companies,
+      object: 'company',
+      resolvedRecords,
+      ambiguousLookups,
+      missingRecords,
+      allowMissing: allowsMissing(operation, 'company'),
+    });
+  }
+
+  if (!resolvedRecords.person && lookup.personEmail) {
+    const people = recordIndex.people.filter((person) =>
+      emailsOf(person).includes(normalizeEmail(lookup.personEmail)),
+    );
+    assignUnique({
+      operationIndex,
+      field: 'personEmail',
+      value: lookup.personEmail,
+      matches: people,
+      object: 'person',
+      resolvedRecords,
+      ambiguousLookups,
+      missingRecords,
+      allowMissing: allowsMissing(operation, 'person'),
+    });
+  }
+
+  if (!resolvedRecords.opportunity && lookup.opportunityName) {
+    const opportunities = opportunitiesByName({
+      opportunities: opportunitiesForLookup({
+        recordIndex,
+        person: resolvedRecords.person,
+        company: resolvedRecords.company,
+      }),
+      name: lookup.opportunityName,
+    });
+    assignUnique({
+      operationIndex,
+      field: 'opportunityName',
+      value: lookup.opportunityName,
+      matches: opportunities,
+      object: 'opportunity',
+      resolvedRecords,
+      ambiguousLookups,
+      missingRecords,
+      allowMissing: allowsMissing(operation, 'opportunity'),
     });
   }
 
@@ -239,6 +278,45 @@ function resolveOperation({ operation, operationIndex, recordIndex }) {
   };
 }
 
+function lookupForOperation(operation) {
+  const lookup = { ...(operation.lookup ?? {}) };
+
+  if (['create_company', 'upsert_company'].includes(operation.type)) {
+    lookup.companyDomain ??= domainFromData(operation.data);
+    lookup.companyName ??= operation.data?.name;
+  }
+
+  if (['create_person', 'upsert_person'].includes(operation.type)) {
+    lookup.personEmail ??= operation.data?.emails?.primaryEmail;
+  }
+
+  if (operation.type === 'upsert_account_contact_opportunity') {
+    lookup.companyDomain ??= domainFromData(operation.company?.data);
+    lookup.companyName ??= operation.company?.data?.name;
+    lookup.personEmail ??= operation.person?.data?.emails?.primaryEmail;
+    lookup.opportunityName ??= operation.opportunity?.data?.name;
+  }
+
+  return lookup;
+}
+
+function domainFromData(data) {
+  return data?.domainName?.primaryLinkUrl ?? data?.domainName?.primaryLinkHref;
+}
+
+function allowsMissing(operation, object) {
+  if (operation.type === 'upsert_account_contact_opportunity') {
+    return ['company', 'person', 'opportunity'].includes(object);
+  }
+  if (object === 'company') {
+    return ['create_company', 'upsert_company'].includes(operation.type);
+  }
+  if (object === 'person') {
+    return ['create_person', 'upsert_person'].includes(operation.type);
+  }
+  return false;
+}
+
 function assignUnique({
   operationIndex,
   field,
@@ -248,6 +326,7 @@ function assignUnique({
   resolvedRecords,
   ambiguousLookups,
   missingRecords,
+  allowMissing = false,
 }) {
   if (matches.length === 1) {
     resolvedRecords[object] = matches[0];
@@ -264,10 +343,12 @@ function assignUnique({
   };
 
   if (matches.length === 0) {
-    missingRecords.push({
-      ...payload,
-      message: `No ${object} matched ${field}.`,
-    });
+    if (!allowMissing) {
+      missingRecords.push({
+        ...payload,
+        message: `No ${object} matched ${field}.`,
+      });
+    }
     return;
   }
 
@@ -290,6 +371,18 @@ function opportunitiesForLookup({ recordIndex, person, company }) {
     );
   }
   return opportunities;
+}
+
+function opportunitiesByName({ opportunities, name }) {
+  const wanted = normalizeText(name);
+  return opportunities.filter(
+    (opportunity) => normalizeText(opportunity.name) === wanted,
+  );
+}
+
+function companiesByName(companies, name) {
+  const wanted = normalizeText(name);
+  return companies.filter((company) => normalizeText(company.name) === wanted);
 }
 
 function tasksForLookup({

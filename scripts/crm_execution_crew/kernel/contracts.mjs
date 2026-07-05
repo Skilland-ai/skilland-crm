@@ -4,8 +4,15 @@ export const CRM_EXECUTION_TOOL = 'crm-execution-crew';
 
 const VALID_MODES = new Set(['dry_run', 'apply']);
 const VALID_OPERATION_TYPES = new Set([
+  'create_company',
+  'update_company',
+  'upsert_company',
+  'create_person',
+  'update_person',
+  'upsert_person',
   'create_opportunity',
   'update_opportunity',
+  'upsert_account_contact_opportunity',
   'update_task',
   'create_note',
   'create_task',
@@ -120,8 +127,33 @@ function normalizeOperation(operation, index) {
     ...operation,
     lookup: isObject(operation.lookup) ? operation.lookup : {},
     data: operation.data === undefined ? undefined : requireObject(operation.data, `operations[${index}].data`),
+    company:
+      operation.company === undefined
+        ? undefined
+        : normalizeNestedDataBlock(operation.company, index, 'company'),
+    person:
+      operation.person === undefined
+        ? undefined
+        : normalizeNestedDataBlock(operation.person, index, 'person'),
+    opportunity:
+      operation.opportunity === undefined
+        ? undefined
+        : normalizeNestedDataBlock(operation.opportunity, index, 'opportunity'),
     note: operation.note === undefined ? undefined : normalizeNote(operation.note, index),
     task: operation.task === undefined ? undefined : normalizeTask(operation.task, index),
+  };
+}
+
+function normalizeNestedDataBlock(block, index, label) {
+  if (!isObject(block)) {
+    throw new Error(`operations[${index}].${label} must be an object.`);
+  }
+  return {
+    ...block,
+    data:
+      block.data === undefined
+        ? undefined
+        : requireObject(block.data, `operations[${index}].${label}.data`),
   };
 }
 

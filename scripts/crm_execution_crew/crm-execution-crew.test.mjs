@@ -186,6 +186,178 @@ test('Planner supports create_opportunity with note and task linked to the creat
   assert.equal(plan.validation.blockingIssues.length, 0);
 });
 
+test('Planner supports company and person upsert create/update paths', async () => {
+  const request = parseCrmActionRequest({
+    requester: 'unit_test',
+    operations: [
+      {
+        type: 'upsert_company',
+        lookup: { companyDomain: 'new.example' },
+        data: {
+          name: 'New Example',
+          domainName: { primaryLinkUrl: 'https://new.example' },
+        },
+      },
+      {
+        type: 'upsert_company',
+        lookup: { companyDomain: 'example.com' },
+        data: { phoneMain: '+1 555 0100' },
+      },
+      {
+        type: 'upsert_person',
+        lookup: { personEmail: 'new.person@example.com', companyDomain: 'example.com' },
+        data: {
+          name: { firstName: 'New', lastName: 'Person' },
+        },
+      },
+    ],
+  });
+  const metadataArtifact = await runCrmMetadataSkill({
+    request,
+    metadataObjects: fakeMetadataObjects(),
+    client: null,
+  });
+  const recordArtifact = await runTwentyRecordSearchSkill({
+    request,
+    recordIndex: fakeRecordIndex(),
+    client: null,
+  });
+
+  const plan = planCrmOperations({
+    request,
+    metadataArtifact,
+    recordArtifact,
+    workflowArtifact: null,
+    effectiveMode: 'dry_run',
+  });
+
+  assert.deepEqual(
+    plan.operations.map((operation) => `${operation.type}:${operation.object}`),
+    ['create_record:company', 'update_record:company', 'create_record:person'],
+  );
+  assert.equal(plan.operations[0].tempId, 'company:0');
+  assert.equal(plan.operations[1].recordId, 'company-1');
+  assert.equal(plan.operations[2].data.emails.primaryEmail, 'new.person@example.com');
+  assert.equal(plan.operations[2].data.companyId, 'company-1');
+  assert.equal(plan.validation.blockingIssues.length, 0);
+});
+
+test('Planner expands account/contact/opportunity wrapper with temp targets', async () => {
+  const request = parseCrmActionRequest({
+    requester: 'unit_test',
+    constraints: { maxRecords: 10 },
+    operations: [
+      {
+        type: 'upsert_account_contact_opportunity',
+        lookup: {
+          companyDomain: 'fifede.org',
+          companyName: 'FIFEDE',
+          personEmail: 'contratacion@fifede.org',
+          opportunityName: 'FIFEDE - PASA/05/2026',
+        },
+        company: {
+          data: {
+            name: 'FIFEDE',
+            domainName: { primaryLinkUrl: 'https://fifede.org' },
+          },
+        },
+        person: {
+          data: {
+            name: { firstName: 'Contratación', lastName: 'FIFEDE' },
+          },
+        },
+        opportunity: {
+          data: {
+            stage: 'BATCH_READY',
+            businessLineName: 'Skill&licitaciones',
+          },
+        },
+        note: { title: 'Oferta presentada', markdown: 'Oferta presentada.' },
+        task: { title: 'Follow-up FIFEDE', markdown: 'Revisar adjudicación.' },
+      },
+    ],
+  });
+  const metadataArtifact = await runCrmMetadataSkill({
+    request,
+    metadataObjects: fakeMetadataObjects(),
+    client: null,
+  });
+  const recordArtifact = await runTwentyRecordSearchSkill({
+    request,
+    recordIndex: fakeRecordIndex(),
+    client: null,
+  });
+
+  const plan = planCrmOperations({
+    request,
+    metadataArtifact,
+    recordArtifact,
+    workflowArtifact: null,
+    effectiveMode: 'dry_run',
+  });
+
+  assert.deepEqual(
+    plan.operations.map((operation) => `${operation.type}:${operation.object ?? ''}`),
+    [
+      'create_record:company',
+      'create_record:person',
+      'create_record:opportunity',
+      'create_note:',
+      'link_note_to_targets:',
+      'create_task:',
+      'link_task_to_targets:',
+    ],
+  );
+  assert.equal(plan.operations[0].tempId, 'company:0');
+  assert.equal(plan.operations[1].data.companyTempId, 'company:0');
+  assert.equal(plan.operations[2].data.companyTempId, 'company:0');
+  assert.equal(plan.operations[2].data.pointOfContactTempId, 'person:0');
+  assert.equal(plan.operations[4].target.companyTempId, 'company:0');
+  assert.equal(plan.operations[4].target.personTempId, 'person:0');
+  assert.equal(plan.operations[4].target.opportunityTempId, 'opportunity:0');
+  assert.equal(plan.validation.blockingIssues.length, 0);
+});
+
+test('Reviewer blocks create_company when a lookup already matches', async () => {
+  const request = parseCrmActionRequest({
+    requester: 'unit_test',
+    operations: [
+      {
+        type: 'create_company',
+        lookup: { companyDomain: 'example.com' },
+        data: { name: 'Example' },
+      },
+    ],
+  });
+  const metadataArtifact = await runCrmMetadataSkill({
+    request,
+    metadataObjects: fakeMetadataObjects(),
+    client: null,
+  });
+  const recordArtifact = await runTwentyRecordSearchSkill({
+    request,
+    recordIndex: fakeRecordIndex(),
+    client: null,
+  });
+  const plan = planCrmOperations({
+    request,
+    metadataArtifact,
+    recordArtifact,
+    workflowArtifact: null,
+    effectiveMode: 'dry_run',
+  });
+  const review = reviewCrmOperationPlan({
+    request,
+    plan,
+    effectiveMode: 'dry_run',
+    applyRequested: false,
+    confirmationProvided: false,
+  });
+
+  assert.equal(review.approved, false);
+  assert.ok(review.blockingIssues.some((item) => item.code === 'blocked_operation'));
+});
+
 test('Executor creates opportunity and links note/task to the created id', async () => {
   const client = fakeClient();
   const plan = {
@@ -258,6 +430,135 @@ test('Executor creates opportunity and links note/task to the created id', async
         call.type === 'rest' &&
         call.pathName === '/taskTargets' &&
         call.body.targetOpportunityId === 'created-opp-1',
+    ),
+  );
+});
+
+test('Executor creates account/contact/opportunity and links note/task through temp ids', async () => {
+  const client = fakeClient();
+  const plan = {
+    requestId: 'req-wrapper-1',
+    mode: 'apply',
+    operations: [
+      {
+        id: 'op-company',
+        type: 'create_record',
+        object: 'company',
+        data: { name: 'FIFEDE' },
+        tempId: 'company:0',
+        target: { companyTempId: 'company:0' },
+      },
+      {
+        id: 'op-person',
+        type: 'create_record',
+        object: 'person',
+        data: {
+          name: { firstName: 'Contratación', lastName: 'FIFEDE' },
+          emails: { primaryEmail: 'contratacion@fifede.org', additionalEmails: [] },
+          companyTempId: 'company:0',
+        },
+        tempId: 'person:0',
+        target: { personTempId: 'person:0', companyTempId: 'company:0' },
+      },
+      {
+        id: 'op-opportunity',
+        type: 'create_record',
+        object: 'opportunity',
+        data: {
+          name: 'FIFEDE - PASA/05/2026',
+          companyTempId: 'company:0',
+          pointOfContactTempId: 'person:0',
+        },
+        tempId: 'opportunity:0',
+        target: {
+          opportunityTempId: 'opportunity:0',
+          personTempId: 'person:0',
+          companyTempId: 'company:0',
+        },
+      },
+      {
+        id: 'op-note',
+        type: 'create_note',
+        title: 'Oferta',
+        markdown: 'Presentada.',
+        tempId: 'note:0',
+        target: { opportunityTempId: 'opportunity:0' },
+      },
+      {
+        id: 'op-link-note',
+        type: 'link_note_to_targets',
+        sourceTempId: 'note:0',
+        target: {
+          opportunityTempId: 'opportunity:0',
+          personTempId: 'person:0',
+          companyTempId: 'company:0',
+        },
+      },
+      {
+        id: 'op-task',
+        type: 'create_task',
+        title: 'Follow-up',
+        markdown: 'Call.',
+        tempId: 'task:0',
+        target: { opportunityTempId: 'opportunity:0' },
+      },
+      {
+        id: 'op-link-task',
+        type: 'link_task_to_targets',
+        sourceTempId: 'task:0',
+        target: {
+          opportunityTempId: 'opportunity:0',
+          personTempId: 'person:0',
+          companyTempId: 'company:0',
+        },
+      },
+    ],
+  };
+
+  const artifact = await runCrmExecutionSkill({
+    client,
+    plan,
+    effectiveMode: 'apply',
+    review: { approved: true, blockingIssues: [], warnings: [] },
+  });
+
+  assert.equal(artifact.status, 'apply_completed');
+  assert.ok(
+    client.writeCalls.some(
+      (call) => call.type === 'gql' && call.query.includes('createCompany'),
+    ),
+  );
+  assert.ok(
+    client.writeCalls.some(
+      (call) =>
+        call.type === 'gql' &&
+        call.query.includes('createPerson') &&
+        call.variables.data.company.connect.where.id === 'created-company-1',
+    ),
+  );
+  assert.ok(
+    client.writeCalls.some(
+      (call) =>
+        call.type === 'gql' &&
+        call.query.includes('createOpportunity') &&
+        call.variables.data.companyId === 'created-company-1' &&
+        call.variables.data.pointOfContactId === 'created-person-1',
+    ),
+  );
+  assert.ok(
+    client.writeCalls.some(
+      (call) =>
+        call.type === 'rest' &&
+        call.pathName === '/noteTargets' &&
+        call.body.targetCompanyId === 'created-company-1',
+    ),
+  );
+  assert.ok(
+    client.writeCalls.some(
+      (call) =>
+        call.type === 'rest' &&
+        call.pathName === '/taskTargets' &&
+        call.body.targetPersonId === 'created-person-1',
     ),
   );
 });
@@ -601,6 +902,10 @@ function fakeMetadataObjects() {
         },
         { name: 'businessLineName', type: 'TEXT' },
         { name: 'lastEmailSentAt', type: 'DATE_TIME' },
+        { name: 'amount', type: 'CURRENCY' },
+        { name: 'campaignName', type: 'TEXT' },
+        { name: 'sourceType', type: 'TEXT' },
+        { name: 'sourceFile', type: 'TEXT' },
         {
           name: 'iaMujeresFunnelStage',
           type: 'SELECT',
@@ -608,8 +913,29 @@ function fakeMetadataObjects() {
         },
       ],
     },
-    { nameSingular: 'person', namePlural: 'people', fields: [] },
-    { nameSingular: 'company', namePlural: 'companies', fields: [] },
+    {
+      nameSingular: 'person',
+      namePlural: 'people',
+      fields: [
+        { name: 'name', type: 'FULL_NAME' },
+        { name: 'emails', type: 'EMAILS' },
+        { name: 'phones', type: 'PHONES' },
+        { name: 'jobTitle', type: 'TEXT' },
+        { name: 'city', type: 'TEXT' },
+        { name: 'company', type: 'RELATION' },
+      ],
+    },
+    {
+      nameSingular: 'company',
+      namePlural: 'companies',
+      fields: [
+        { name: 'name', type: 'TEXT' },
+        { name: 'domainName', type: 'LINKS' },
+        { name: 'emailMain', type: 'TEXT' },
+        { name: 'phoneMain', type: 'TEXT' },
+        { name: 'address', type: 'ADDRESS' },
+      ],
+    },
     {
       nameSingular: 'task',
       namePlural: 'tasks',
@@ -702,10 +1028,22 @@ function fakeClient() {
     async metadataObjects() {
       return fakeMetadataObjects();
     },
-    async gql(query) {
+    async gql(query, variables = {}) {
       if (/mutation/i.test(query)) {
-        writeCalls.push({ type: 'gql', query });
+        writeCalls.push({ type: 'gql', query, variables });
         return {
+          createCompany: { id: 'created-company-1', name: 'Created company' },
+          updateCompany: { id: 'company-1', name: 'Example' },
+          createPerson: {
+            id: 'created-person-1',
+            name: { firstName: 'Created', lastName: 'Person' },
+            emails: { primaryEmail: 'created@example.com', additionalEmails: [] },
+          },
+          updatePerson: {
+            id: 'person-1',
+            name: { firstName: 'Ada', lastName: 'Lovelace' },
+            emails: { primaryEmail: 'ada@example.com', additionalEmails: [] },
+          },
           createOpportunity: { id: 'created-opp-1', name: 'Created opportunity' },
           updateOpportunity: { id: 'opp-1', name: 'Example deal' },
           updateTask: { id: 'task-1', title: 'Follow up', status: 'DONE' },

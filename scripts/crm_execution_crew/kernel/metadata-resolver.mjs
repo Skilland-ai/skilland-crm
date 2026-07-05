@@ -2,7 +2,16 @@ import { issue } from './contracts.mjs';
 
 const CREATE_OPPORTUNITY_INPUT_HELPER_FIELDS = new Set([
   'companyId',
+  'companyTempId',
   'pointOfContactId',
+  'pointOfContactTempId',
+]);
+
+const COMPANY_INPUT_HELPER_FIELDS = new Set();
+
+const PERSON_INPUT_HELPER_FIELDS = new Set([
+  'companyId',
+  'companyTempId',
 ]);
 
 const UPDATE_TASK_INPUT_HELPER_FIELDS = new Set(['assigneeId']);
@@ -108,6 +117,79 @@ export function validateRequestAgainstMetadata(request, snapshot) {
   }
 
   request.operations.forEach((operation, operationIndex) => {
+    if (['create_company', 'update_company', 'upsert_company'].includes(operation.type)) {
+      validateOperationData({
+        operation,
+        operationIndex,
+        objectName: 'company',
+        object: snapshot.canonicalObjects.company,
+        helperFields: COMPANY_INPUT_HELPER_FIELDS,
+        requiredFieldName: null,
+        unknownFields,
+        invalidOptions,
+        blockingIssues,
+      });
+      return;
+    }
+
+    if (['create_person', 'update_person', 'upsert_person'].includes(operation.type)) {
+      validateOperationData({
+        operation,
+        operationIndex,
+        objectName: 'person',
+        object: snapshot.canonicalObjects.person,
+        helperFields: PERSON_INPUT_HELPER_FIELDS,
+        requiredFieldName: null,
+        unknownFields,
+        invalidOptions,
+        blockingIssues,
+      });
+      return;
+    }
+
+    if (operation.type === 'upsert_account_contact_opportunity') {
+      validateOperationData({
+        operation,
+        operationIndex,
+        objectName: 'company',
+        object: snapshot.canonicalObjects.company,
+        helperFields: COMPANY_INPUT_HELPER_FIELDS,
+        requiredFieldName: null,
+        dataOverride: operation.company?.data,
+        operationType: `${operation.type}.company`,
+        unknownFields,
+        invalidOptions,
+        blockingIssues,
+      });
+      validateOperationData({
+        operation,
+        operationIndex,
+        objectName: 'person',
+        object: snapshot.canonicalObjects.person,
+        helperFields: PERSON_INPUT_HELPER_FIELDS,
+        requiredFieldName: null,
+        dataOverride: operation.person?.data,
+        operationType: `${operation.type}.person`,
+        unknownFields,
+        invalidOptions,
+        blockingIssues,
+      });
+      validateOperationData({
+        operation,
+        operationIndex,
+        objectName: 'opportunity',
+        object: snapshot.canonicalObjects.opportunity,
+        helperFields: CREATE_OPPORTUNITY_INPUT_HELPER_FIELDS,
+        requiredFieldName: null,
+        dataOverride: operation.opportunity?.data,
+        operationType: `${operation.type}.opportunity`,
+        unknownFields,
+        invalidOptions,
+        blockingIssues,
+      });
+      return;
+    }
+
     if (['create_opportunity', 'update_opportunity'].includes(operation.type)) {
       validateOperationData({
         operation,
@@ -180,18 +262,21 @@ function validateOperationData({
   object,
   helperFields,
   requiredFieldName,
+  dataOverride,
+  operationType,
   unknownFields,
   invalidOptions,
   blockingIssues,
 }) {
   const fieldMap = fieldsByName(object);
-  const data = operation.data ?? {};
+  const data = dataOverride ?? operation.data ?? {};
+  const type = operationType ?? operation.type;
 
   if (requiredFieldName && !hasNonEmptyString(data[requiredFieldName])) {
     blockingIssues.push(
       issue(
         'missing_required_field',
-        `${operation.type} requires data.${requiredFieldName}.`,
+        `${type} requires data.${requiredFieldName}.`,
         {
           operationIndex,
           object: objectName,

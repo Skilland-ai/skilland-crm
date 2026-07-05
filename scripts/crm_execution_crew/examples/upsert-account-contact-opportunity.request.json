@@ -1,0 +1,76 @@
+{
+  "requester": "hermes_live_agent",
+  "mode": "dry_run",
+  "intent": "Alta o actualizacion idempotente de cuenta, contacto, deal, nota y tarea desde una solicitud CRM compuesta.",
+  "scope": {
+    "businessLine": "Skill&licitaciones",
+    "source": "Hermes structured CRM request"
+  },
+  "constraints": {
+    "maxRecords": 10,
+    "requireHumanConfirmation": true,
+    "allowCreate": true,
+    "allowUpdate": true,
+    "allowDelete": false,
+    "allowMetadataChanges": false
+  },
+  "operations": [
+    {
+      "type": "upsert_account_contact_opportunity",
+      "lookup": {
+        "companyDomain": "fifede.org",
+        "companyName": "FIFEDE",
+        "personEmail": "contratacion@fifede.org",
+        "opportunityName": "FIFEDE - Programa Estrategia Comercial y Propuesta de Valor con IA - PASA/05/2026"
+      },
+      "company": {
+        "data": {
+          "name": "FIFEDE, Fundacion Insular para la Formacion, el Empleo y el Desarrollo Empresarial",
+          "domainName": {
+            "primaryLinkLabel": "Website",
+            "primaryLinkUrl": "https://fifede.org",
+            "secondaryLinks": []
+          },
+          "emailMain": "contratacion@fifede.org",
+          "phoneMain": "+34 922 236 870"
+        }
+      },
+      "person": {
+        "data": {
+          "name": {
+            "firstName": "Contratacion",
+            "lastName": "FIFEDE"
+          },
+          "emails": {
+            "primaryEmail": "contratacion@fifede.org",
+            "additionalEmails": []
+          },
+          "jobTitle": "Contratacion"
+        }
+      },
+      "opportunity": {
+        "data": {
+          "name": "FIFEDE - Programa Estrategia Comercial y Propuesta de Valor con IA - PASA/05/2026",
+          "stage": "PROPUESTA_PRESENTADA_NEGOCIACION",
+          "amount": {
+            "amountMicros": 15890000000,
+            "currencyCode": "EUR"
+          },
+          "businessLineName": "Skill&licitaciones",
+          "campaignName": "Plan Insular de Emprendimiento 2026",
+          "sourceType": "public_tender",
+          "sourceFile": "PASA/05/2026"
+        }
+      },
+      "note": {
+        "title": "Oferta presentada - PASA/05/2026",
+        "markdown": "Oferta presentada a FIFEDE para el expediente PASA/05/2026. Actualizar esta nota con el contexto comercial real antes de aplicar."
+      },
+      "task": {
+        "title": "Follow-up FIFEDE - adjudicacion PASA/05/2026",
+        "markdown": "Revisar novedades del proceso de adjudicacion y actualizar el deal.",
+        "dueAt": "2026-07-12T08:00:00.000Z"
+      }
+    }
+  ]
+}

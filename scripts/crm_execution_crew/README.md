@@ -81,8 +81,15 @@ Skills are tools. They do not decide the global strategy.
 
 Supported operation types in v1:
 
+- `create_company`
+- `update_company`
+- `upsert_company`
+- `create_person`
+- `update_person`
+- `upsert_person`
 - `create_opportunity`
 - `update_opportunity`
+- `upsert_account_contact_opportunity`
 - `update_task`
 - `create_note`
 - `create_task`
@@ -118,12 +125,26 @@ Secrets such as API keys, tokens, and authorization headers are redacted.
 
 `create_opportunity` requires `data.name`. Use `lookup.companyId`,
 `lookup.companyDomain`, `lookup.personId`, or `lookup.personEmail` to attach
-existing company/person records. This v1.1 does not create companies or people.
+existing company/person records.
+
+For Hermes/live-agent CRM updates that need account + contact + deal + note +
+task, use `upsert_account_contact_opportunity` in a request JSON and run
+`yarn crm:execute --request-file=<path>`. Do not create ad-hoc live-apply
+scripts for this case.
+
+Upsert behavior:
+
+- `upsert_company` resolves by `companyId`, `companyDomain`, or `companyName`.
+- `upsert_person` resolves by `personId` or `personEmail`.
+- `upsert_account_contact_opportunity` resolves company, person, and opportunity,
+  then creates or updates each record deterministically.
+- Ambiguous lookups block execution; the crew never picks the first match.
 
 ## V1 Scope
 
 Covered:
 
+- create/update/upsert companies and people
 - resolve opportunities, people, companies, and tasks when safe
 - create opportunities
 - update opportunities

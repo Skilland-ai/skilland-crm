@@ -38,12 +38,76 @@ export async function executeOperationPlan({ client, plan, apply }) {
 }
 
 async function executeOperation({ client, operation, tempIds }) {
+  if (operation.type === 'create_record' && operation.object === 'company') {
+    const data = await client.gql(
+      `mutation CrmExecutionCreateCompany($data: CompanyCreateInput!) {
+        createCompany(data: $data) { id name }
+      }`,
+      { data: resolveDataReferences(operation.data, operation.object, tempIds) },
+    );
+    const companyId = data.createCompany?.id;
+    if (!companyId) {
+      throw new Error(`Company id missing: ${JSON.stringify(data).slice(0, 500)}`);
+    }
+    if (operation.tempId) tempIds.set(operation.tempId, companyId);
+    return data.createCompany;
+  }
+
+  if (operation.type === 'update_record' && operation.object === 'company') {
+    const data = await client.gql(
+      `mutation CrmExecutionUpdateCompany($id: UUID!, $data: CompanyUpdateInput!) {
+        updateCompany(id: $id, data: $data) { id name }
+      }`,
+      {
+        id: operation.recordId,
+        data: resolveDataReferences(operation.data, operation.object, tempIds),
+      },
+    );
+    return data.updateCompany;
+  }
+
+  if (operation.type === 'create_record' && operation.object === 'person') {
+    const data = await client.gql(
+      `mutation CrmExecutionCreatePerson($data: PersonCreateInput!) {
+        createPerson(data: $data) {
+          id
+          name { firstName lastName }
+          emails { primaryEmail additionalEmails }
+        }
+      }`,
+      { data: resolveDataReferences(operation.data, operation.object, tempIds) },
+    );
+    const personId = data.createPerson?.id;
+    if (!personId) {
+      throw new Error(`Person id missing: ${JSON.stringify(data).slice(0, 500)}`);
+    }
+    if (operation.tempId) tempIds.set(operation.tempId, personId);
+    return data.createPerson;
+  }
+
+  if (operation.type === 'update_record' && operation.object === 'person') {
+    const data = await client.gql(
+      `mutation CrmExecutionUpdatePerson($id: UUID!, $data: PersonUpdateInput!) {
+        updatePerson(id: $id, data: $data) {
+          id
+          name { firstName lastName }
+          emails { primaryEmail additionalEmails }
+        }
+      }`,
+      {
+        id: operation.recordId,
+        data: resolveDataReferences(operation.data, operation.object, tempIds),
+      },
+    );
+    return data.updatePerson;
+  }
+
   if (operation.type === 'create_record' && operation.object === 'opportunity') {
     const data = await client.gql(
       `mutation CrmExecutionCreateOpportunity($data: OpportunityCreateInput!) {
         createOpportunity(data: $data) { id name }
       }`,
-      { data: operation.data },
+      { data: resolveDataReferences(operation.data, operation.object, tempIds) },
     );
     const opportunityId = data.createOpportunity?.id;
     if (!opportunityId) {
@@ -58,7 +122,10 @@ async function executeOperation({ client, operation, tempIds }) {
       `mutation CrmExecutionUpdateOpportunity($id: UUID!, $data: OpportunityUpdateInput!) {
         updateOpportunity(id: $id, data: $data) { id name }
       }`,
-      { id: operation.recordId, data: operation.data },
+      {
+        id: operation.recordId,
+        data: resolveDataReferences(operation.data, operation.object, tempIds),
+      },
     );
     return data.updateOpportunity;
   }
@@ -144,16 +211,55 @@ async function executeOperation({ client, operation, tempIds }) {
   return { skipped: true, reason: `Unsupported operation ${operation.type}` };
 }
 
-async function linkTargets({ client, tempIds, pathName, idName, idValue, target }) {
-  const resolvedTarget = {
-    ...target,
-    opportunityId:
-      target.opportunityId ??
-      (target.opportunityTempId ? tempIds.get(target.opportunityTempId) : null),
-  };
-  if (target.opportunityTempId && !resolvedTarget.opportunityId) {
-    throw new Error(`Missing opportunity id for ${target.opportunityTempId}`);
+function resolveDataReferences(data, object, tempIds) {
+  const resolved = { ...(data ?? {}) };
+
+  if (object === 'person') {
+    const companyId =
+      resolved.companyId ??
+      (resolved.companyTempId ? tempIds.get(resolved.companyTempId) : null);
+    if (resolved.companyTempId && !companyId) {
+      throw new Error(`Missing company id for ${resolved.companyTempId}`);
+    }
+    delete resolved.companyId;
+    delete resolved.companyTempId;
+    if (companyId && !resolved.company) {
+      resolved.company = {
+        connect: {
+          where: {
+            id: companyId,
+          },
+        },
+      };
+    }
   }
+
+  if (object === 'opportunity') {
+    if (resolved.companyTempId) {
+      const companyId = tempIds.get(resolved.companyTempId);
+      if (!companyId) throw new Error(`Missing company id for ${resolved.companyTempId}`);
+      if (!resolved.companyId && !resolved.company) {
+        resolved.companyId = companyId;
+      }
+      delete resolved.companyTempId;
+    }
+    if (resolved.pointOfContactTempId) {
+      const personId = tempIds.get(resolved.pointOfContactTempId);
+      if (!personId) {
+        throw new Error(`Missing person id for ${resolved.pointOfContactTempId}`);
+      }
+      if (!resolved.pointOfContactId && !resolved.pointOfContact) {
+        resolved.pointOfContactId = personId;
+      }
+      delete resolved.pointOfContactTempId;
+    }
+  }
+
+  return resolved;
+}
+
+async function linkTargets({ client, tempIds, pathName, idName, idValue, target }) {
+  const resolvedTarget = resolveTargetReferences({ target, tempIds });
   const bodies = [
     resolvedTarget.opportunityId
       ? { [idName]: idValue, targetOpportunityId: resolvedTarget.opportunityId }
@@ -172,4 +278,29 @@ async function linkTargets({ client, tempIds, pathName, idName, idValue, target 
   }
 
   return { linked: linked.length };
+}
+
+function resolveTargetReferences({ target = {}, tempIds }) {
+  const resolvedTarget = {
+    ...target,
+    opportunityId:
+      target.opportunityId ??
+      (target.opportunityTempId ? tempIds.get(target.opportunityTempId) : null),
+    personId:
+      target.personId ??
+      (target.personTempId ? tempIds.get(target.personTempId) : null),
+    companyId:
+      target.companyId ??
+      (target.companyTempId ? tempIds.get(target.companyTempId) : null),
+  };
+  if (target.opportunityTempId && !resolvedTarget.opportunityId) {
+    throw new Error(`Missing opportunity id for ${target.opportunityTempId}`);
+  }
+  if (target.personTempId && !resolvedTarget.personId) {
+    throw new Error(`Missing person id for ${target.personTempId}`);
+  }
+  if (target.companyTempId && !resolvedTarget.companyId) {
+    throw new Error(`Missing company id for ${target.companyTempId}`);
+  }
+  return resolvedTarget;
 }
