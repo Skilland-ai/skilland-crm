@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.skilland.ai/skilland-crm-ops/v1/repo-handoff.schema.json",
+  "title": "Skilland CRM Ops Provisional Repo Handoff",
+  "description": "Repository-local provisional inbound contract used to exercise the HomeLab/Hermes to skilland-crm boundary. It is owned by skilland-crm and is not asserted to be the global HomeLab handoff standard.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "kind",
+    "contractStatus",
+    "handoffId",
+    "source",
+    "targetRepoId",
+    "createdAt",
+    "operationRequest"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://schemas.skilland.ai/skilland-crm-ops/v1/repo-handoff.schema.json"
+    },
+    "schemaVersion": {
+      "const": "0.1.0",
+      "description": "Provisional repository-local contract version, independent from the operation envelope version."
+    },
+    "kind": {
+      "const": "repo_handoff_request"
+    },
+    "contractStatus": {
+      "const": "provisional_local"
+    },
+    "handoffId": {
+      "$ref": "./operation-envelope.schema.json#/$defs/Identifier"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["controlPlane", "repository", "contractAuthority"],
+      "properties": {
+        "controlPlane": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "repository": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "contractAuthority": {
+          "const": "skilland-crm-local",
+          "description": "Signals that this contract is provisional and governed by this repository until a global authority publishes a replacement."
+        }
+      }
+    },
+    "targetRepoId": {
+      "const": "skilland-crm"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "operationRequest": {
+      "$ref": "./operation-envelope.schema.json#/$defs/OperationRequest"
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://schemas.skilland.ai/skilland-crm-ops/v1/operation-envelope.schema.json",
+  "schemaVersion": "1.0.0",
+  "kind": "operation_plan",
+  "requestId": "request_manual_review_001",
+  "correlationId": "correlation_manual_review_001",
+  "repoId": "skilland-crm",
+  "capabilityId": "crm.conversation.manual_review",
+  "requester": { "id": "example_owner", "type": "human", "channel": "codex" },
+  "environment": { "name": "production", "workspace": "example-workspace" },
+  "mode": "dry_run",
+  "createdAt": "2026-07-13T10:10:00Z",
+  "planId": "plan_manual_review_001",
+  "planHash": "sha256:270f9e74dd0d069a167a036678c65b1fc4afdbcb7e4220b3b24158bf85083150",
+  "registryVersion": "1.1.0",
+  "policyVersion": "1.2.0",
+  "operations": [
+    {
+      "operationId": "operation_review_001",
+      "action": "crm.manual_review.plan",
+      "targetSystem": "twenty",
+      "resourceType": "opportunity",
+      "resourceId": null,
+      "input": { "businessLine": "Example Consulting", "stage": "POSSIBLE_OPPORTUNITY" },
+      "idempotencyKey": "manual-review-plan-001",
+      "expectedEffects": ["crm_write"],
+      "constraints": { "simulationOnly": true }
+    }
+  ],
+  "preconditions": [
+    {
+      "id": "capability_registered",
+      "type": "registry",
+      "status": "satisfied",
+      "sourceRef": "registry:capability:manual_review",
+      "observedAt": "2026-07-13T10:09:00Z",
+      "validUntil": "2026-07-13T11:10:00Z",
+      "expectedVersion": "1.0.0",
+      "expectedHash": null,
+      "evidence": "crm.conversation.manual_review is registered"
+    },
+    {
+      "id": "apply_approval",
+      "type": "approval",
+      "status": "pending",
+      "sourceRef": "approval_store:plan:manual_review_001",
+      "observedAt": "2026-07-13T10:09:30Z",
+      "validUntil": null,
+      "expectedVersion": null,
+      "expectedHash": null,
+      "evidence": null
+    }
+  ],
+  "risk": {
+    "effects": ["crm_write"],
+    "domainSpan": "single_domain",
+    "dataClasses": ["commercial", "pii"],
+    "reversibility": "compensatable",
+    "approvalTier": "owner",
+    "rationale": ["The dry-run computes a plan only; a future apply would change CRM records."]
+  },
+  "scopeLimits": {
+    "maxRecords": 20,
+    "maxDocuments": 0,
+    "maxRecipients": 0,
+    "maxLocalArtifacts": 1,
+    "resourceTypes": ["opportunity"],
+    "fieldNames": ["stage"],
+    "allowExternalSend": false,
+    "allowMetadataMutation": false,
+    "allowDestructive": false,
+    "allowWorkflowActivation": false
+  },
+  "expiresAt": "2026-07-13T11:10:00Z"
+}

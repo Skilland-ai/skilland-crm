@@ -1,0 +1,429 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.skilland.ai/skilland-crm-ops/v1/operation-envelope.schema.json",
+  "title": "Skilland CRM Ops Operation Envelope",
+  "description": "Versioned request, plan, approval, and result contracts. Approval-to-plan hash equality, scope containment, semantic precondition checks, and secret/PII redaction are runtime invariants in addition to schema validation. Property-name guards are structural best-effort controls, not a replacement for runtime redaction.",
+  "oneOf": [
+    { "$ref": "#/$defs/OperationRequest" },
+    { "$ref": "#/$defs/OperationPlan" },
+    { "$ref": "#/$defs/OperationApproval" },
+    { "$ref": "#/$defs/OperationResult" }
+  ],
+  "$defs": {
+    "Identifier": { "type": "string", "pattern": "^[a-z][a-z0-9_-]*_[A-Za-z0-9_-]+$" },
+    "CapabilityId": { "type": "string", "pattern": "^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$" },
+    "Hash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "SemVer": { "type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$" },
+    "SemVerV1": { "type": "string", "pattern": "^1\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$" },
+    "OpaqueRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+      "description": "Opaque or redacted reference only; never embed a name, email address, credential, signed URL, or raw payload."
+    },
+    "Identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "channel"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "type": { "enum": ["human", "agent", "system"] },
+        "channel": { "type": "string", "minLength": 1 }
+      }
+    },
+    "Environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "workspace"],
+      "properties": {
+        "name": { "enum": ["test", "sandbox", "production"] },
+        "workspace": { "type": "string", "minLength": 1 }
+      }
+    },
+    "ScopeLimits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["maxRecords", "maxDocuments", "maxRecipients", "maxLocalArtifacts", "allowExternalSend", "allowMetadataMutation", "allowDestructive", "allowWorkflowActivation"],
+      "properties": {
+        "maxRecords": { "type": "integer", "minimum": 0 },
+        "maxDocuments": { "type": "integer", "minimum": 0 },
+        "maxRecipients": { "type": "integer", "minimum": 0 },
+        "maxLocalArtifacts": { "type": "integer", "minimum": 0 },
+        "recordIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/OpaqueRef" }, "description": "Optional exact record allowlist expressed as opaque identifiers." },
+        "resourceTypes": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$" } },
+        "fieldNames": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$" } },
+        "documentIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/OpaqueRef" }, "description": "Optional exact document allowlist expressed as opaque identifiers." },
+        "recipientRefs": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/OpaqueRef" }, "description": "Opaque or redacted recipient references; raw recipient addresses are forbidden." },
+        "senderAccountRef": { "oneOf": [{ "$ref": "#/$defs/OpaqueRef" }, { "type": "null" }], "description": "Opaque sender-account reference; never a credential or address." },
+        "maxAmountMinor": { "type": "integer", "minimum": 0, "description": "Maximum monetary amount in the currency's minor unit." },
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "workflowIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/OpaqueRef" }, "description": "Optional exact workflow allowlist expressed as opaque identifiers." },
+        "localPathPrefixes": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 }, "description": "Repository-relative path prefixes. Runtime policy must reject absolute paths and traversal." },
+        "allowOverwrite": { "type": "boolean" },
+        "maxArtifactBytes": { "type": "integer", "minimum": 0 },
+        "allowExternalSend": { "type": "boolean" },
+        "allowMetadataMutation": { "type": "boolean" },
+        "allowDestructive": { "type": "boolean" },
+        "allowWorkflowActivation": { "type": "boolean" }
+      }
+    },
+    "SafeApprovalScope": {
+      "allOf": [
+        { "$ref": "#/$defs/ScopeLimits" },
+        {
+          "type": "object",
+          "properties": {
+            "allowMetadataMutation": { "const": false },
+            "allowDestructive": { "const": false },
+            "allowWorkflowActivation": { "const": false }
+          }
+        }
+      ]
+    },
+    "NonSecretValue": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "boolean" },
+        { "type": "number" },
+        { "type": "string" },
+        { "type": "array", "items": { "$ref": "#/$defs/NonSecretValue" } },
+        { "$ref": "#/$defs/NonSecretObject" }
+      ]
+    },
+    "NonSecretObject": {
+      "type": "object",
+      "description": "Best-effort structural secret guard. Runtimes must additionally redact secrets, PII, signed URLs, cookies, and sensitive payloads before persistence or logging.",
+      "propertyNames": {
+        "not": {
+          "pattern": "([Aa][Pp][Ii][_-]?[Kk][Ee][Yy]|[Aa][Uu][Tt][Hh][Oo][Rr][Ii][Zz][Aa][Tt][Ii][Oo][Nn]|[Bb][Ee][Aa][Rr][Ee][Rr]|[Ss][Ee][Cc][Rr][Ee][Tt]|[Tt][Oo][Kk][Ee][Nn]|[Pp][Aa][Ss][Ss][Ww][Oo][Rr][Dd]|[Cc][Oo][Oo][Kk][Ii][Ee]|[Cc][Rr][Ee][Dd][Ee][Nn][Tt][Ii][Aa][Ll]|[Pp][Rr][Ii][Vv][Aa][Tt][Ee][_-]?[Kk][Ee][Yy]|[Ss][Ii][Gg][Nn][Ee][Dd][_-]?[Uu][Rr][Ll])"
+        }
+      },
+      "additionalProperties": { "$ref": "#/$defs/NonSecretValue" }
+    },
+    "Risk": {
+      "type": "object",
+      "description": "Multidimensional risk assessment. The environment dimension is canonical at CommonEnvelope.environment.name and is not duplicated here.",
+      "additionalProperties": false,
+      "required": ["effects", "domainSpan", "dataClasses", "reversibility", "approvalTier", "rationale"],
+      "properties": {
+        "effects": { "type": "array", "uniqueItems": true, "items": { "enum": ["local_write", "crm_write", "erp_write", "metadata_write", "workflow_change", "external_draft", "external_send", "destructive"] } },
+        "domainSpan": { "enum": ["single_domain", "cross_domain"] },
+        "dataClasses": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["internal", "commercial", "pii", "accounting"] } },
+        "reversibility": { "enum": ["reversible", "compensatable", "irreversible"] },
+        "approvalTier": { "enum": ["none", "operator", "owner", "two_stage", "denied"] },
+        "rationale": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "CommonEnvelope": {
+      "type": "object",
+      "required": ["$schema", "schemaVersion", "kind", "requestId", "correlationId", "repoId", "capabilityId", "requester", "environment", "mode", "createdAt"],
+      "properties": {
+        "$schema": { "const": "https://schemas.skilland.ai/skilland-crm-ops/v1/operation-envelope.schema.json" },
+        "schemaVersion": { "const": "1.0.0" },
+        "kind": { "enum": ["operation_request", "operation_plan", "operation_approval", "operation_result"] },
+        "requestId": { "$ref": "#/$defs/Identifier" },
+        "correlationId": { "$ref": "#/$defs/Identifier" },
+        "repoId": { "const": "skilland-crm" },
+        "capabilityId": { "$ref": "#/$defs/CapabilityId" },
+        "requester": { "$ref": "#/$defs/Identity" },
+        "environment": { "$ref": "#/$defs/Environment" },
+        "mode": { "enum": ["read_only", "dry_run", "apply"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "OperationRequest": {
+      "allOf": [
+        { "$ref": "#/$defs/CommonEnvelope" },
+        {
+          "type": "object",
+          "required": ["intent", "input", "requestedScope", "idempotencyKey"],
+          "properties": {
+            "kind": { "const": "operation_request" },
+            "intent": { "type": "string", "minLength": 1 },
+            "input": { "$ref": "#/$defs/NonSecretObject" },
+            "requestedScope": { "$ref": "#/$defs/ScopeLimits" },
+            "idempotencyKey": { "type": ["string", "null"], "minLength": 8 }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "NormalizedOperation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operationId", "action", "targetSystem", "resourceType", "resourceId", "input", "idempotencyKey", "expectedEffects", "constraints"],
+      "properties": {
+        "operationId": { "$ref": "#/$defs/Identifier" },
+        "action": { "type": "string", "pattern": "^[a-z][a-z0-9_.-]*$" },
+        "targetSystem": { "enum": ["local_filesystem", "twenty", "aikount", "gmail"] },
+        "resourceType": { "type": "string", "minLength": 1 },
+        "resourceId": { "type": ["string", "null"] },
+        "input": { "$ref": "#/$defs/NonSecretObject" },
+        "idempotencyKey": { "type": "string", "minLength": 8 },
+        "expectedEffects": { "type": "array", "uniqueItems": true, "items": { "enum": ["local_write", "crm_write", "erp_write", "metadata_write", "workflow_change", "external_draft", "external_send", "destructive"] } },
+        "constraints": { "$ref": "#/$defs/NonSecretObject" }
+      }
+    },
+    "Precondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "status", "sourceRef", "observedAt", "validUntil", "expectedVersion", "expectedHash", "evidence"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "type": { "type": "string", "minLength": 1 },
+        "status": { "enum": ["satisfied", "pending", "failed"] },
+        "sourceRef": { "$ref": "#/$defs/OpaqueRef" },
+        "observedAt": { "type": "string", "format": "date-time" },
+        "validUntil": { "type": ["string", "null"], "format": "date-time" },
+        "expectedVersion": { "type": ["string", "null"], "minLength": 1, "maxLength": 256, "description": "Opaque source version, ETag, or revision identifier; not restricted to SemVer and never a secret." },
+        "expectedHash": { "oneOf": [{ "$ref": "#/$defs/Hash" }, { "type": "null" }] },
+        "evidence": { "type": ["string", "null"], "description": "Redacted evidence summary only; no raw payload, PII, secret, or signed URL." }
+      }
+    },
+    "OperationPlan": {
+      "allOf": [
+        { "$ref": "#/$defs/CommonEnvelope" },
+        {
+          "type": "object",
+          "required": ["planId", "planHash", "registryVersion", "policyVersion", "operations", "preconditions", "risk", "scopeLimits", "expiresAt"],
+          "properties": {
+            "kind": { "const": "operation_plan" },
+            "planId": { "$ref": "#/$defs/Identifier" },
+            "planHash": {
+              "$ref": "#/$defs/Hash",
+              "description": "SHA-256 over the canonical OperationPlan with only planHash omitted, prefixed by the UTF-8 domain separator skilland-crm-ops/operation-plan/v1 followed by a newline. Runtime verification is authoritative."
+            },
+            "registryVersion": { "$ref": "#/$defs/SemVerV1" },
+            "policyVersion": { "$ref": "#/$defs/SemVerV1" },
+            "operations": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/NormalizedOperation" } },
+            "preconditions": { "type": "array", "items": { "$ref": "#/$defs/Precondition" } },
+            "risk": { "$ref": "#/$defs/Risk" },
+            "scopeLimits": { "$ref": "#/$defs/ScopeLimits" },
+            "expiresAt": { "type": "string", "format": "date-time" }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "OperationApproval": {
+      "allOf": [
+        { "$ref": "#/$defs/CommonEnvelope" },
+        {
+          "type": "object",
+          "required": ["approvalId", "planId", "approvedPlanHash", "approver", "approvalTier", "approvalStages", "allowedScope", "expiresAt", "decision", "decidedAt"],
+          "properties": {
+            "kind": { "const": "operation_approval" },
+            "mode": { "const": "apply" },
+            "approvalId": { "$ref": "#/$defs/Identifier" },
+            "planId": { "$ref": "#/$defs/Identifier" },
+            "approvedPlanHash": { "$ref": "#/$defs/Hash" },
+            "approver": { "$ref": "#/$defs/Identity" },
+            "approvalTier": { "enum": ["operator", "owner", "two_stage"] },
+            "approvalStages": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/ApprovalStage" } },
+            "allowedScope": { "$ref": "#/$defs/SafeApprovalScope" },
+            "expiresAt": { "type": "string", "format": "date-time" },
+            "decision": { "enum": ["approved", "rejected", "revoked"] },
+            "decidedAt": { "type": "string", "format": "date-time" }
+          }
+        },
+        {
+          "if": { "properties": { "approvalTier": { "const": "operator" } }, "required": ["approvalTier"] },
+          "then": { "properties": { "approvalStages": { "maxItems": 1, "contains": { "properties": { "stage": { "const": "operator_review" } }, "required": ["stage"] } } } }
+        },
+        {
+          "if": { "properties": { "approvalTier": { "const": "owner" } }, "required": ["approvalTier"] },
+          "then": { "properties": { "approvalStages": { "maxItems": 1, "contains": { "properties": { "stage": { "const": "owner_authorization" } }, "required": ["stage"] } } } }
+        },
+        {
+          "if": { "properties": { "approvalTier": { "const": "two_stage" } }, "required": ["approvalTier"] },
+          "then": {
+            "properties": {
+              "approvalStages": {
+                "minItems": 2,
+                "maxItems": 2,
+                "contains": { "properties": { "stage": { "const": "business_content_approval" } }, "required": ["stage"] },
+                "allOf": [
+                  { "contains": { "properties": { "stage": { "const": "effect_target_approval" } }, "required": ["stage"] } }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "decision": { "const": "approved" } }, "required": ["decision"] },
+          "then": {
+            "properties": {
+              "approvalStages": {
+                "items": {
+                  "properties": { "decision": { "const": "approved" } },
+                  "required": ["decision"]
+                }
+              }
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "ApprovalStage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stage", "approver", "decision", "decidedAt"],
+      "properties": {
+        "stage": { "enum": ["operator_review", "owner_authorization", "business_content_approval", "effect_target_approval"] },
+        "approver": { "$ref": "#/$defs/Identity" },
+        "decision": { "enum": ["approved", "rejected", "revoked"] },
+        "decidedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Issue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "message", "retryable"],
+      "properties": {
+        "code": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" },
+        "message": { "type": "string", "minLength": 1, "description": "Redacted diagnostic summary only; no raw payload, PII, secret, credential, or signed URL." },
+        "retryable": { "type": "boolean" }
+      }
+    },
+    "ExecutionRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operationId", "targetSystem", "workerVersion", "status", "resourceRef", "idempotencyKey", "evidence"],
+      "properties": {
+        "operationId": { "$ref": "#/$defs/Identifier" },
+        "targetSystem": { "enum": ["local_filesystem", "twenty", "aikount", "gmail"] },
+        "workerVersion": { "oneOf": [{ "$ref": "#/$defs/SemVer" }, { "type": "null" }], "description": "Version of the deterministic worker for this operation; null when no worker ran." },
+        "status": { "enum": ["planned", "simulated", "succeeded", "blocked", "failed", "compensated"] },
+        "resourceRef": { "type": ["string", "null"] },
+        "idempotencyKey": { "type": "string", "minLength": 8 },
+        "evidence": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "Redacted evidence references or summaries only; no raw payload, PII, secrets, or signed URLs." }
+      }
+    },
+    "PartialFailure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["completedOperationIds", "failedOperationIds", "compensationStatus", "manualReconciliationRequired"],
+      "properties": {
+        "completedOperationIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/Identifier" } },
+        "failedOperationIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/Identifier" } },
+        "compensationStatus": { "enum": ["not_required", "not_available", "pending", "completed", "failed"] },
+        "manualReconciliationRequired": { "type": "boolean" }
+      }
+    },
+    "OperationResult": {
+      "allOf": [
+        { "$ref": "#/$defs/CommonEnvelope" },
+        {
+          "type": "object",
+          "required": ["planId", "planHash", "registryVersion", "policyVersion", "policyDecision", "approvalIds", "status", "effectiveMode", "operations", "evidence", "warnings", "errors", "partialFailure", "nextActions", "completedAt"],
+          "properties": {
+            "kind": { "const": "operation_result" },
+            "planId": { "oneOf": [{ "$ref": "#/$defs/Identifier" }, { "type": "null" }] },
+            "planHash": { "oneOf": [{ "$ref": "#/$defs/Hash" }, { "type": "null" }] },
+            "registryVersion": { "oneOf": [{ "$ref": "#/$defs/SemVerV1" }, { "type": "null" }] },
+            "policyVersion": { "oneOf": [{ "$ref": "#/$defs/SemVerV1" }, { "type": "null" }] },
+            "policyDecision": { "enum": ["allow", "require_approval", "deny"] },
+            "approvalIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/Identifier" } },
+            "status": { "enum": ["planned", "simulated", "succeeded", "blocked", "partial_failure", "failed"] },
+            "effectiveMode": { "enum": ["read_only", "dry_run", "apply"] },
+            "operations": { "type": "array", "items": { "$ref": "#/$defs/ExecutionRecord" } },
+            "evidence": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "Redacted evidence references or summaries only; no raw payload, PII, secrets, or signed URLs." },
+            "warnings": { "type": "array", "items": { "$ref": "#/$defs/Issue" } },
+            "errors": { "type": "array", "items": { "$ref": "#/$defs/Issue" } },
+            "partialFailure": { "oneOf": [{ "$ref": "#/$defs/PartialFailure" }, { "type": "null" }] },
+            "nextActions": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+            "completedAt": { "type": "string", "format": "date-time" }
+          }
+        },
+        {
+          "if": { "properties": { "status": { "const": "partial_failure" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "operations": {
+                "minItems": 2,
+                "contains": { "properties": { "status": { "enum": ["succeeded", "compensated"] } }, "required": ["status"] },
+                "minContains": 1,
+                "allOf": [
+                  { "contains": { "properties": { "status": { "const": "failed" } }, "required": ["status"] }, "minContains": 1 }
+                ]
+              },
+              "partialFailure": { "$ref": "#/$defs/PartialFailure" },
+              "errors": { "minItems": 1 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "status": { "const": "blocked" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "operations": { "items": { "not": { "properties": { "status": { "const": "succeeded" } }, "required": ["status"] } } },
+              "errors": { "minItems": 1 },
+              "partialFailure": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "status": { "const": "succeeded" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "operations": { "items": { "properties": { "status": { "const": "succeeded" } }, "required": ["status"] } },
+              "errors": { "maxItems": 0 },
+              "partialFailure": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "status": { "const": "simulated" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "effectiveMode": { "const": "dry_run" },
+              "operations": { "items": { "properties": { "status": { "enum": ["simulated", "planned"] } }, "required": ["status"] } },
+              "errors": { "maxItems": 0 },
+              "partialFailure": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "status": { "const": "planned" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "operations": { "items": { "properties": { "status": { "const": "planned" } }, "required": ["status"] } },
+              "errors": { "maxItems": 0 },
+              "partialFailure": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "status": { "const": "failed" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "operations": { "items": { "not": { "properties": { "status": { "const": "succeeded" } }, "required": ["status"] } } },
+              "errors": { "minItems": 1 },
+              "partialFailure": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "mode": { "const": "read_only" } }, "required": ["mode"] },
+          "then": { "properties": { "effectiveMode": { "const": "read_only" } } }
+        },
+        {
+          "if": { "properties": { "mode": { "const": "dry_run" } }, "required": ["mode"] },
+          "then": { "properties": { "effectiveMode": { "enum": ["read_only", "dry_run"] } } }
+        },
+        {
+          "if": { "properties": { "status": { "enum": ["planned", "simulated", "succeeded", "partial_failure"] } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "registryVersion": { "$ref": "#/$defs/SemVerV1" },
+              "policyVersion": { "$ref": "#/$defs/SemVerV1" }
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    }
+  }
+}

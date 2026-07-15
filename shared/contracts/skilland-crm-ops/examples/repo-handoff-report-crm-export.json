@@ -1,0 +1,53 @@
+{
+  "$schema": "https://schemas.skilland.ai/skilland-crm-ops/v1/repo-handoff.schema.json",
+  "schemaVersion": "0.1.0",
+  "kind": "repo_handoff_request",
+  "contractStatus": "provisional_local",
+  "handoffId": "handoff_crm_export_001",
+  "source": {
+    "controlPlane": "Hermes + HomeLab Meta-Harness",
+    "repository": "https://github.com/Skilland-ai/skilland-agentic-homelab",
+    "contractAuthority": "skilland-crm-local"
+  },
+  "targetRepoId": "skilland-crm",
+  "createdAt": "2026-07-13T12:00:00Z",
+  "operationRequest": {
+    "$schema": "https://schemas.skilland.ai/skilland-crm-ops/v1/operation-envelope.schema.json",
+    "schemaVersion": "1.0.0",
+    "kind": "operation_request",
+    "requestId": "request_crm_export_002",
+    "correlationId": "correlation_homelab_002",
+    "repoId": "skilland-crm",
+    "capabilityId": "crm.export.chatgpt",
+    "requester": {
+      "id": "example_owner",
+      "type": "human",
+      "channel": "hermes"
+    },
+    "environment": {
+      "name": "test",
+      "workspace": "workspace_test_001"
+    },
+    "mode": "read_only",
+    "createdAt": "2026-07-13T12:00:00Z",
+    "intent": "Generate the bounded read-only CRM export while excluding IA Mujeres.",
+    "input": {
+      "format": "markdown",
+      "excludeBusinessLines": ["IA Mujeres"]
+    },
+    "requestedScope": {
+      "maxRecords": 1000,
+      "maxDocuments": 0,
+      "maxRecipients": 0,
+      "maxLocalArtifacts": 1,
+      "localPathPrefixes": ["04_outputs/crm_manual_update_session"],
+      "allowOverwrite": false,
+      "maxArtifactBytes": 5242880,
+      "allowExternalSend": false,
+      "allowMetadataMutation": false,
+      "allowDestructive": false,
+      "allowWorkflowActivation": false
+    },
+    "idempotencyKey": "crm-export-example-002"
+  }
+}

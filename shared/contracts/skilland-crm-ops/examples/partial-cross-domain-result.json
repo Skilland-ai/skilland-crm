@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.skilland.ai/skilland-crm-ops/v1/operation-envelope.schema.json",
+  "schemaVersion": "1.0.0",
+  "kind": "operation_result",
+  "requestId": "request_signal_sync_001",
+  "correlationId": "correlation_signal_sync_001",
+  "repoId": "skilland-crm",
+  "capabilityId": "campaign.ia_mujeres.signals.sync",
+  "requester": { "id": "example_operator", "type": "agent", "channel": "skilland-crm.ops" },
+  "environment": { "name": "production", "workspace": "example-workspace" },
+  "mode": "apply",
+  "createdAt": "2026-07-13T10:40:00Z",
+  "planId": "plan_signal_sync_001",
+  "planHash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "registryVersion": "1.1.0",
+  "policyVersion": "1.2.0",
+  "policyDecision": "allow",
+  "approvalIds": ["approval_signal_sync_001"],
+  "status": "partial_failure",
+  "effectiveMode": "apply",
+  "operations": [
+    {
+      "operationId": "operation_gmail_evidence_001",
+      "targetSystem": "gmail",
+      "workerVersion": "1.0.0",
+      "status": "succeeded",
+      "resourceRef": "thread:example-thread-id",
+      "idempotencyKey": "signal-sync-gmail-001",
+      "evidence": ["Reply evidence was read; Gmail was not mutated."]
+    },
+    {
+      "operationId": "operation_crm_writeback_001",
+      "targetSystem": "twenty",
+      "workerVersion": "1.2.0",
+      "status": "failed",
+      "resourceRef": "opportunity:example-opportunity-id",
+      "idempotencyKey": "signal-sync-crm-001",
+      "evidence": ["CRM rejected the write before a state change was confirmed."]
+    }
+  ],
+  "evidence": ["Cross-domain steps were recorded separately; no distributed transaction was assumed."],
+  "warnings": [
+    { "code": "MANUAL_RECONCILIATION_REQUIRED", "message": "Gmail evidence exists but the CRM signal has not been recorded.", "retryable": false }
+  ],
+  "errors": [
+    { "code": "CRM_WRITEBACK_FAILED", "message": "The CRM write-back failed and no automatic retry was attempted without proven idempotency.", "retryable": false }
+  ],
+  "partialFailure": {
+    "completedOperationIds": ["operation_gmail_evidence_001"],
+    "failedOperationIds": ["operation_crm_writeback_001"],
+    "compensationStatus": "not_required",
+    "manualReconciliationRequired": true
+  },
+  "nextActions": ["Inspect the CRM validation error and create a new, separately approved write-back plan."],
+  "completedAt": "2026-07-13T10:40:08Z"
+}

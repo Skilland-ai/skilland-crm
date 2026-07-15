@@ -1,0 +1,179 @@
+{
+  "$schema": "https://schemas.skilland.ai/skilland-crm-ops/v1/repo-manifest.schema.json",
+  "schemaVersion": "1.0.0",
+  "repoId": "skilland-crm",
+  "displayName": "Skilland CRM",
+  "role": "domain_subharness",
+  "scope": {
+    "owns": [
+      "CRM sales operations over Twenty",
+      "CRM-local campaign operations",
+      "AIKount document operations currently colocated behind an extractable port",
+      "CRM reporting and local evidence artifacts"
+    ],
+    "doesNotOwn": [
+      "global repository selection",
+      "cross-repository priority",
+      "global HomeLab risk classification",
+      "unbounded autonomous side effects"
+    ],
+    "localBoundary": "Skilland CRM Ops routes only capabilities owned by or explicitly bridged through skilland-crm."
+  },
+  "globalControlPlane": {
+    "name": "Hermes + HomeLab Meta-Harness",
+    "repository": "https://github.com/Skilland-ai/skilland-agentic-homelab",
+    "responsibilities": [
+      "select the repository",
+      "classify cross-repository risk",
+      "establish global priority",
+      "handoff to the repository-local front door"
+    ],
+    "handoffContract": {
+      "path": "shared/contracts/skilland-crm-ops/repo-handoff.schema.json",
+      "schemaId": "https://schemas.skilland.ai/skilland-crm-ops/v1/repo-handoff.schema.json",
+      "schemaVersion": "0.1.0",
+      "contractStatus": "provisional_local",
+      "authority": "skilland-crm-local"
+    }
+  },
+  "localFrontDoor": {
+    "name": "Skilland CRM Ops",
+    "namespace": "skilland-crm.ops",
+    "status": "available",
+    "responsibilities": [
+      "resolve canonical capability IDs",
+      "route requests within this repository",
+      "apply Gate 007 domain-local routing policy and the Gate 008 plan-bound policy kernel",
+      "validate versioned operation request envelopes and produce versioned result envelopes"
+    ],
+    "forbiddenResponsibilities": [
+      "act as the global Agentic OS control plane",
+      "grant authority from metadata discovery",
+      "let an agent execute side effects directly",
+      "fallback to an unregistered capability"
+    ]
+  },
+  "domains": [
+    { "id": "crm", "role": "commercial relationship operations", "systemOfRecord": "Twenty" },
+    { "id": "aikount", "role": "quotes, invoices, and accounting documents", "systemOfRecord": "AIKount" },
+    { "id": "crm_aikount_bridge", "role": "integration coordination", "systemOfRecord": "none; correlated source systems" },
+    { "id": "ia_mujeres_campaign", "role": "campaign policy and sequencing", "systemOfRecord": "campaign artifacts plus Twenty evidence" },
+    { "id": "reporting", "role": "read-only projections and local artifacts", "systemOfRecord": "source systems; outputs are derived" }
+  ],
+  "sensitivity": {
+    "dataClasses": ["internal", "commercial", "pii", "accounting"],
+    "ambiguousEnvironmentRiskAssumption": "production",
+    "executionRequiresExplicitEnvironment": true,
+    "secretPolicy": "Secrets are environment-owned and must never appear in manifests, envelopes, registry evidence, examples, or logs."
+  },
+  "supportedModes": ["read_only", "dry_run", "apply"],
+  "entrypoints": [
+    {
+      "id": "crm.ops",
+      "command": "yarn crm:ops",
+      "surfaceRole": "local_front_door",
+      "status": "current",
+      "supportedModes": ["read_only"],
+      "capabilityIds": ["report.crm.export"]
+    },
+    {
+      "id": "crm.execute",
+      "command": "yarn crm:execute",
+      "surfaceRole": "compatibility",
+      "status": "current",
+      "supportedModes": ["dry_run", "apply"],
+      "capabilityIds": ["crm.metadata.read", "crm.record.search", "crm.record.get", "crm.record.create", "crm.record.update", "crm.relation.link", "crm.activity.note.create", "crm.activity.task.create", "crm.activity.task.update", "crm.plan.validate", "crm.execution.apply"]
+    },
+    {
+      "id": "crm.review",
+      "command": "yarn crm:review",
+      "surfaceRole": "compatibility",
+      "status": "legacy",
+      "supportedModes": ["read_only", "dry_run", "apply"],
+      "capabilityIds": ["crm.record.search", "crm.record.get", "crm.record.create", "crm.record.update", "crm.relation.link", "crm.activity.note.create", "crm.activity.task.create", "crm.activity.task.update", "crm.conversation.manual_review"]
+    },
+    {
+      "id": "crm.export",
+      "command": "yarn crm:export",
+      "surfaceRole": "compatibility",
+      "status": "current",
+      "supportedModes": ["read_only"],
+      "capabilityIds": ["report.crm.export"]
+    },
+    {
+      "id": "crm.aikount",
+      "command": "yarn crm:aikount",
+      "surfaceRole": "compatibility",
+      "status": "current",
+      "supportedModes": ["read_only", "dry_run", "apply"],
+      "capabilityIds": ["aikount.openapi.live", "aikount.document.interview", "aikount.operation.plan", "aikount.execution.apply", "aikount.file_container.manage", "bridge.crm_aikount.context"]
+    },
+    {
+      "id": "campaign.ia_mujeres.operator",
+      "command": "node scripts/ia_mujeres_operator_harness.mjs --action=...",
+      "surfaceRole": "compatibility",
+      "status": "current",
+      "supportedModes": ["read_only", "dry_run", "apply"],
+      "capabilityIds": ["campaign.ia_mujeres.status", "campaign.ia_mujeres.batch.prepare", "campaign.ia_mujeres.drafts.create", "campaign.ia_mujeres.batch.send", "campaign.ia_mujeres.signals.sync", "campaign.ia_mujeres.tasks.reconcile", "campaign.ia_mujeres.weekly_report"]
+    }
+  ],
+  "capabilityRegistry": {
+    "path": "shared/contracts/skilland-crm-ops/capability-registry.json",
+    "schemaPath": "shared/contracts/skilland-crm-ops/capability-registry.schema.json",
+    "canonicalCount": 38,
+    "legacyResolvableIdCount": 39,
+    "aliasResolution": "Resolve an exact canonical ID first; otherwise match exactly one capability aliases[] entry; ambiguity or absence is denied."
+  },
+  "canonicalKnowledge": [
+    "AGENTS.md",
+    "shared/knowledge/skilland-crm-ops/README.md",
+    "shared/knowledge/skilland-crm-ops/target-architecture.md",
+    "shared/knowledge/skilland-crm-ops/capability-catalog.md",
+    "shared/knowledge/skilland-crm-ops/safety-and-approval-model.md",
+    "shared/knowledge/skilland-crm-ops/knowledge-governance.md",
+    "shared/knowledge/skilland-crm-ops/migration-roadmap.md"
+  ],
+  "operability": {
+    "localFrontDoorImplemented": true,
+    "dryRunDefault": true,
+    "localFrontDoorProductionWritesEnabled": false,
+    "legacyApplyEntrypointsPresent": true,
+    "externalCallsDuringPhase006": false,
+    "externalCallsDuringGate007Validation": false,
+    "sideEffectExecutor": "deterministic_worker"
+  },
+  "outputs": [
+    {
+      "id": "report.crm.export.markdown",
+      "path": "04_outputs/crm_manual_update_session/*.md",
+      "mediaTypes": ["text/markdown"],
+      "mutatesExternalSystems": false
+    },
+    {
+      "id": "campaign.ia_mujeres.report",
+      "path": "04_outputs/ia_mujeres_*/**/*",
+      "mediaTypes": ["application/json", "application/x-ndjson", "text/html", "text/markdown", "text/plain"],
+      "mutatesExternalSystems": false
+    }
+  ],
+  "fallbackPolicy": {
+    "failClosed": true,
+    "unknownCapability": "deny",
+    "ambiguousEnvironment": "deny",
+    "missingMode": "deny",
+    "missingApproval": "deny",
+    "missingAdapterOrCapability": "deny_direct_api_or_database_fallback",
+    "rules": [
+      "Metadata discovery validates inputs but never enables a capability.",
+      "An alias cannot own an executor or a contract.",
+      "Every operation envelope must declare mode explicitly; dryRunDefault is a future planning posture and never coerces or defaults a missing mode.",
+      "If an adapter or registered capability is missing, deny execution; never fall back to a direct API or database call.",
+      "Apply requires a non-expired approval bound to the exact plan hash and scope.",
+      "Gate 008 provides offline-tested plan hashing, PDP, plan-bound approval, PEP and in-memory idempotency semantics, but registers no real apply worker.",
+      "The front door routes only report.crm.export in read_only mode and test environment; every other front-door capability remains not implemented or denied.",
+      "Destructive actions, metadata mutations, and workflow activation remain denied.",
+      "Cross-domain write-back is a separate correlated plan, not an implicit distributed transaction."
+    ]
+  },
+  "lastVerifiedAt": "2026-07-13"
+}

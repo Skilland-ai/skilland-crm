@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.skilland.ai/skilland-crm-ops/v1/operation-envelope.schema.json",
+  "schemaVersion": "1.0.0",
+  "kind": "operation_result",
+  "requestId": "request_campaign_send_001",
+  "correlationId": "correlation_campaign_send_001",
+  "repoId": "skilland-crm",
+  "capabilityId": "campaign.ia_mujeres.batch.send",
+  "requester": { "id": "example_operator", "type": "agent", "channel": "skilland-crm.ops" },
+  "environment": { "name": "production", "workspace": "example-workspace" },
+  "mode": "apply",
+  "createdAt": "2026-07-13T10:30:00Z",
+  "planId": "plan_campaign_send_001",
+  "planHash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "registryVersion": "1.1.0",
+  "policyVersion": "1.2.0",
+  "policyDecision": "deny",
+  "approvalIds": [],
+  "status": "blocked",
+  "effectiveMode": "apply",
+  "operations": [],
+  "evidence": ["The capability requires a two-stage approval bound to the exact plan hash."],
+  "warnings": [],
+  "errors": [
+    { "code": "PLAN_BOUND_APPROVAL_MISSING", "message": "No valid two-stage approval matched the current plan hash and recipient scope.", "retryable": false }
+  ],
+  "partialFailure": null,
+  "nextActions": ["Review the final recipient scope and issue a non-expired two-stage approval for the unchanged plan."],
+  "completedAt": "2026-07-13T10:30:01Z"
+}

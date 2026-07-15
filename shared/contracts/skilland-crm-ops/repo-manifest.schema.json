@@ -1,0 +1,276 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.skilland.ai/skilland-crm-ops/v1/repo-manifest.schema.json",
+  "title": "Skilland CRM Ops Repo Manifest",
+  "description": "Discovery contract between the global HomeLab/Hermes control plane and this repository's capability-gated local front door.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "repoId",
+    "displayName",
+    "role",
+    "scope",
+    "globalControlPlane",
+    "localFrontDoor",
+    "domains",
+    "sensitivity",
+    "supportedModes",
+    "entrypoints",
+    "capabilityRegistry",
+    "canonicalKnowledge",
+    "operability",
+    "outputs",
+    "fallbackPolicy",
+    "lastVerifiedAt"
+  ],
+  "properties": {
+    "$schema": { "const": "https://schemas.skilland.ai/skilland-crm-ops/v1/repo-manifest.schema.json" },
+    "schemaVersion": { "const": "1.0.0" },
+    "repoId": { "const": "skilland-crm" },
+    "displayName": { "type": "string", "minLength": 1 },
+    "role": { "const": "domain_subharness" },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owns", "doesNotOwn", "localBoundary"],
+      "properties": {
+        "owns": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "doesNotOwn": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "localBoundary": { "type": "string", "minLength": 1 }
+      }
+    },
+    "globalControlPlane": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "repository", "responsibilities", "handoffContract"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "repository": { "type": "string", "minLength": 1 },
+        "responsibilities": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "handoffContract": {
+          "oneOf": [
+            { "type": "string", "minLength": 1 },
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["path", "schemaId", "schemaVersion", "contractStatus", "authority"],
+              "properties": {
+                "path": { "const": "shared/contracts/skilland-crm-ops/repo-handoff.schema.json" },
+                "schemaId": { "const": "https://schemas.skilland.ai/skilland-crm-ops/v1/repo-handoff.schema.json" },
+                "schemaVersion": { "const": "0.1.0" },
+                "contractStatus": { "const": "provisional_local" },
+                "authority": { "const": "skilland-crm-local" }
+              }
+            }
+          ],
+          "description": "A structured value marks the provisional repository-local handoff used until the global control plane publishes its own contract."
+        }
+      }
+    },
+    "localFrontDoor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "namespace", "status", "responsibilities", "forbiddenResponsibilities"],
+      "properties": {
+        "name": { "const": "Skilland CRM Ops" },
+        "namespace": { "const": "skilland-crm.ops" },
+        "status": { "enum": ["planned", "available", "deprecated"] },
+        "responsibilities": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "forbiddenResponsibilities": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "domains": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "role", "systemOfRecord"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z][a-z0-9_-]*$" },
+          "role": { "type": "string", "minLength": 1 },
+          "systemOfRecord": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "sensitivity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dataClasses", "ambiguousEnvironmentRiskAssumption", "executionRequiresExplicitEnvironment", "secretPolicy"],
+      "properties": {
+        "dataClasses": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["internal", "commercial", "pii", "accounting"] }
+        },
+        "ambiguousEnvironmentRiskAssumption": { "const": "production" },
+        "executionRequiresExplicitEnvironment": { "const": true },
+        "secretPolicy": { "type": "string", "minLength": 1 }
+      }
+    },
+    "supportedModes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["read_only", "dry_run", "apply"] }
+    },
+    "entrypoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "command", "surfaceRole", "status", "supportedModes", "capabilityIds"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z][a-z0-9_.-]*$" },
+          "command": { "type": "string", "minLength": 1 },
+          "surfaceRole": { "enum": ["compatibility", "local_front_door"] },
+          "status": { "enum": ["current", "legacy", "planned", "blocked"] },
+          "supportedModes": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["read_only", "dry_run", "apply"] } },
+          "capabilityIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z][a-z0-9_.-]*$" } }
+        }
+      }
+    },
+    "capabilityRegistry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "schemaPath", "canonicalCount", "legacyResolvableIdCount", "aliasResolution"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "schemaPath": { "type": "string", "minLength": 1 },
+        "canonicalCount": { "const": 38 },
+        "legacyResolvableIdCount": { "const": 39 },
+        "aliasResolution": { "type": "string", "minLength": 1 }
+      }
+    },
+    "canonicalKnowledge": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "operability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["localFrontDoorImplemented", "dryRunDefault", "localFrontDoorProductionWritesEnabled", "legacyApplyEntrypointsPresent", "externalCallsDuringPhase006", "sideEffectExecutor"],
+      "properties": {
+        "localFrontDoorImplemented": { "type": "boolean" },
+        "dryRunDefault": {
+          "const": true,
+          "description": "Future planning posture only. Every operation envelope must declare mode explicitly; runtime must never supply, default or coerce a missing mode to dry_run."
+        },
+        "localFrontDoorProductionWritesEnabled": {
+          "type": "boolean",
+          "description": "Whether the local front door may mutate production external systems. Bounded create-only local evidence artifacts do not make this true."
+        },
+        "legacyApplyEntrypointsPresent": { "type": "boolean" },
+        "externalCallsDuringPhase006": { "const": false },
+        "externalCallsDuringGate007Validation": { "const": false },
+        "sideEffectExecutor": { "enum": ["deterministic_worker", "not_implemented"], "description": "Only deterministic workers may own side effects; an agent executor is not a valid value." }
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "path", "mediaTypes", "mutatesExternalSystems"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z][a-z0-9_.-]*$" },
+          "path": { "type": "string", "minLength": 1 },
+          "mediaTypes": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9!#$&^_.+-]+/[a-z0-9!#$&^_.+-]+$" } },
+          "mutatesExternalSystems": { "type": "boolean" }
+        }
+      }
+    },
+    "fallbackPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["failClosed", "unknownCapability", "ambiguousEnvironment", "missingMode", "missingApproval", "missingAdapterOrCapability", "rules"],
+      "properties": {
+        "failClosed": { "const": true },
+        "unknownCapability": { "const": "deny" },
+        "ambiguousEnvironment": { "const": "deny" },
+        "missingMode": {
+          "const": "deny",
+          "description": "Operation envelopes without an explicit mode are denied; no runtime default or coercion is permitted."
+        },
+        "missingApproval": { "const": "deny" },
+        "missingAdapterOrCapability": { "const": "deny_direct_api_or_database_fallback" },
+        "rules": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "lastVerifiedAt": { "type": "string", "format": "date" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "localFrontDoor": {
+            "properties": { "status": { "const": "planned" } },
+            "required": ["status"]
+          }
+        },
+        "required": ["localFrontDoor"]
+      },
+      "then": {
+        "properties": {
+          "operability": {
+            "properties": {
+              "localFrontDoorImplemented": { "const": false },
+              "localFrontDoorProductionWritesEnabled": { "const": false },
+              "sideEffectExecutor": { "const": "not_implemented" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "localFrontDoor": {
+            "properties": { "status": { "const": "available" } },
+            "required": ["status"]
+          }
+        },
+        "required": ["localFrontDoor"]
+      },
+      "then": {
+        "properties": {
+          "operability": {
+            "properties": {
+              "localFrontDoorImplemented": { "const": true }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operability": {
+            "properties": {
+              "localFrontDoorProductionWritesEnabled": { "const": true }
+            },
+            "required": ["localFrontDoorProductionWritesEnabled"]
+          }
+        },
+        "required": ["operability"]
+      },
+      "then": {
+        "properties": {
+          "operability": {
+            "properties": {
+              "localFrontDoorImplemented": { "const": true },
+              "sideEffectExecutor": { "const": "deterministic_worker" }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

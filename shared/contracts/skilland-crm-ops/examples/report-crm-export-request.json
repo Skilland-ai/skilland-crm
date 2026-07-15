@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.skilland.ai/skilland-crm-ops/v1/operation-envelope.schema.json",
+  "schemaVersion": "1.0.0",
+  "kind": "operation_request",
+  "requestId": "request_crm_export_001",
+  "correlationId": "correlation_homelab_001",
+  "repoId": "skilland-crm",
+  "capabilityId": "report.crm.export",
+  "requester": { "id": "example_owner", "type": "human", "channel": "hermes" },
+  "environment": { "name": "test", "workspace": "workspace_test_001" },
+  "mode": "read_only",
+  "createdAt": "2026-07-13T10:00:00Z",
+  "intent": "Generate the read-only CRM export for ChatGPT while excluding IA Mujeres.",
+  "input": { "excludeBusinessLines": ["IA Mujeres"], "format": "markdown" },
+  "requestedScope": {
+    "maxRecords": 1000,
+    "maxDocuments": 0,
+    "maxRecipients": 0,
+    "maxLocalArtifacts": 1,
+    "localPathPrefixes": ["04_outputs/crm_manual_update_session"],
+    "allowOverwrite": false,
+    "maxArtifactBytes": 5242880,
+    "allowExternalSend": false,
+    "allowMetadataMutation": false,
+    "allowDestructive": false,
+    "allowWorkflowActivation": false
+  },
+  "idempotencyKey": "crm-export-2026-07-13"
+}

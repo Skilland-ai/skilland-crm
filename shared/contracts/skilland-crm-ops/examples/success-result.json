@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.skilland.ai/skilland-crm-ops/v1/operation-envelope.schema.json",
+  "schemaVersion": "1.0.0",
+  "kind": "operation_result",
+  "requestId": "request_crm_export_001",
+  "correlationId": "correlation_homelab_001",
+  "repoId": "skilland-crm",
+  "capabilityId": "report.crm.export",
+  "requester": { "id": "example_owner", "type": "human", "channel": "hermes" },
+  "environment": { "name": "test", "workspace": "workspace_test_001" },
+  "mode": "read_only",
+  "createdAt": "2026-07-13T10:00:00Z",
+  "planId": null,
+  "planHash": null,
+  "registryVersion": "1.1.0",
+  "policyVersion": "1.2.0",
+  "policyDecision": "allow",
+  "approvalIds": [],
+  "status": "succeeded",
+  "effectiveMode": "read_only",
+  "operations": [
+    {
+      "operationId": "operation_export_001",
+      "targetSystem": "local_filesystem",
+      "workerVersion": "1.0.0",
+      "status": "succeeded",
+      "resourceRef": "04_outputs/crm_manual_update_session/crm_export_para_chatgpt_request_crm_export_001.md",
+      "idempotencyKey": "crm-export-2026-07-13",
+      "evidence": [
+        "artifact.path=04_outputs/crm_manual_update_session/crm_export_para_chatgpt_request_crm_export_001.md",
+        "artifact.sha256=sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "artifact.bytes=4096",
+        "artifact.mediaType=text/markdown; charset=utf-8",
+        "records.fetched=20",
+        "records.exported=18",
+        "records.excluded=2",
+        "source.complete=true"
+      ]
+    }
+  ],
+  "evidence": [
+    "artifact.path=04_outputs/crm_manual_update_session/crm_export_para_chatgpt_request_crm_export_001.md",
+    "artifact.sha256=sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "artifact.bytes=4096",
+    "artifact.mediaType=text/markdown; charset=utf-8",
+    "records.fetched=20",
+    "records.exported=18",
+    "records.excluded=2",
+    "source.complete=true"
+  ],
+  "warnings": [],
+  "errors": [],
+  "partialFailure": null,
+  "nextActions": [],
+  "completedAt": "2026-07-13T10:00:12Z"
+}

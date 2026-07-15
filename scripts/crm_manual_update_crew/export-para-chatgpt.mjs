@@ -2,6 +2,7 @@
 
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 import { fetchCrmMetadata } from './metadata.mjs';
 import { fetchBusinessLines } from './retriever.mjs';
@@ -18,6 +19,8 @@ const DEFAULT_PAGE_SIZE = 100;
 const DEFAULT_MAX_PAGES = 200;
 const DEFAULT_NOTES_LIMIT = 100;
 const DEFAULT_TASKS_LIMIT = 100;
+const DEFAULT_MAX_RECORDS = 1000;
+const MAX_EXPORT_BYTES = 5 * 1024 * 1024;
 const POSSIBLE_OPPORTUNITY_VALUE = 'POSSIBLE_OPPORTUNITY';
 const CLOSED_TASK_STATUSES = new Set([
   'DONE',
@@ -33,12 +36,43 @@ const FIELD_TYPES_SAFE_TO_QUERY = new Set([
   'BOOLEAN',
   'DATE_TIME',
   'SELECT',
+  'MULTI_SELECT',
+]);
+const EXPLICIT_OPPORTUNITY_FIELDS = new Set([
+  'id',
+  'name',
+  'stage',
+  'amount',
+  'closeDate',
+  'createdAt',
+  'updatedAt',
+  'businessLine',
+  'owner',
+  'company',
+  'pointOfContact',
+  'noteTargets',
+  'taskTargets',
 ]);
 const OPTIONAL_HELPFUL_FIELDS = [
   'lastEmailSubject',
   'lastEmailTemplate',
   'qualityFlags',
 ];
+
+export class CrmExportError extends Error {
+  constructor(
+    code,
+    publicMessage,
+    { retryable = false, outcome = 'blocked', cause } = {},
+  ) {
+    super(publicMessage, cause ? { cause } : undefined);
+    this.name = 'CrmExportError';
+    this.code = code;
+    this.publicMessage = publicMessage;
+    this.retryable = retryable;
+    this.outcome = outcome;
+  }
+}
 
 function parseArgs(argv) {
   const args = {
@@ -47,6 +81,7 @@ function parseArgs(argv) {
     maxPages: DEFAULT_MAX_PAGES,
     notesLimit: DEFAULT_NOTES_LIMIT,
     tasksLimit: DEFAULT_TASKS_LIMIT,
+    maxRecords: DEFAULT_MAX_RECORDS,
   };
 
   for (const arg of argv) {
@@ -60,6 +95,8 @@ function parseArgs(argv) {
       args.notesLimit = Number(arg.slice('--notes-limit='.length));
     } else if (arg.startsWith('--tasks-limit=')) {
       args.tasksLimit = Number(arg.slice('--tasks-limit='.length));
+    } else if (arg.startsWith('--max-records=')) {
+      args.maxRecords = Number(arg.slice('--max-records='.length));
     } else if (arg === '--help' || arg === '-h') {
       printHelp();
       process.exit(0);
@@ -88,10 +125,11 @@ Usage:
   node scripts/crm_manual_update_crew/export-para-chatgpt.mjs --output-dir=04_outputs/crm_manual_update_session
 
 This script only performs Twenty metadata GET plus GraphQL query operations.
+The export is create-only, capped at 5 MiB, and reads at most 1000 records.
 `);
 }
 
-async function main() {
+export async function main() {
   const args = parseArgs(process.argv.slice(2));
   const generatedAt = new Date();
   const timestamp = generatedAt.toISOString().replace(/[:.]/g, '-');
@@ -103,25 +141,85 @@ async function main() {
 
   const credentials = readTwentyCredentials();
   const client = new TwentyClient(credentials);
-  const metadata = await fetchCrmMetadata(client);
-  const businessLines = await fetchBusinessLines(client).catch(() => []);
-  const stageLookup = buildStageLookup(metadata.stageOptions);
-  const queryFieldNames = collectQueryFieldNames(metadata);
-  const iaSpecificFieldNames = collectIaSpecificFieldNames(metadata);
-
-  const { opportunities, warnings } = await fetchAllOpportunities({
+  const result = await generateCrmExportMarkdown({
     client,
-    metadata,
-    queryFieldNames,
+    generatedAt,
     pageSize: args.pageSize,
     maxPages: args.maxPages,
     notesLimit: args.notesLimit,
     tasksLimit: args.tasksLimit,
+    maxRecords: args.maxRecords,
+  });
+
+  await writeLegacyMarkdownCreateOnly({
+    markdownPath,
+    markdown: result.markdown,
+    maxBytes: MAX_EXPORT_BYTES,
+  });
+
+  console.log(`Markdown generado: ${markdownPath}`);
+  console.log(`Total deals leidos: ${result.counts.fetched}`);
+  console.log(`Total deals exportados: ${result.counts.exported}`);
+  console.log(
+    `Total deals IA Mujeres excluidos: ${result.counts.excluded}`,
+  );
+  console.log('No se escribio nada en CRM');
+}
+
+/**
+ * Query-only CRM export service. It never creates files and never writes to CRM.
+ * Callers own artifact persistence after this function proves source completeness.
+ */
+export async function generateCrmExportMarkdown({
+  client,
+  generatedAt = new Date(),
+  pageSize = DEFAULT_PAGE_SIZE,
+  maxPages = DEFAULT_MAX_PAGES,
+  notesLimit = DEFAULT_NOTES_LIMIT,
+  tasksLimit = DEFAULT_TASKS_LIMIT,
+  maxRecords = DEFAULT_MAX_RECORDS,
+} = {}) {
+  validateServiceOptions({
+    client,
+    generatedAt,
+    pageSize,
+    maxPages,
+    notesLimit,
+    tasksLimit,
+    maxRecords,
+  });
+
+  const queryOnlyClient = createQueryOnlyFacade(client);
+  const metadata = await fetchCrmMetadata(queryOnlyClient);
+  const fieldPolicy = inspectExclusionFields(metadata);
+  let businessLines = [];
+  const warnings = [];
+
+  try {
+    businessLines = await fetchBusinessLines(queryOnlyClient);
+  } catch {
+    warnings.push(
+      'No se pudo leer el catalogo de business lines; se uso el nombre incluido en cada deal.',
+    );
+  }
+
+  const stageLookup = buildStageLookup(metadata.stageOptions);
+  const queryFieldNames = collectQueryFieldNames(metadata, fieldPolicy);
+
+  const fetched = await fetchAllOpportunities({
+    client: queryOnlyClient,
+    metadata,
+    queryFieldNames,
+    pageSize,
+    maxPages,
+    notesLimit,
+    tasksLimit,
+    maxRecords,
   });
 
   const exclusionResult = excludeIaMujeresDeals(
-    opportunities,
-    iaSpecificFieldNames,
+    fetched.opportunities,
+    fieldPolicy,
   );
   const groupedDeals = groupByBusinessLineAndStage(
     exclusionResult.exportedDeals,
@@ -132,7 +230,7 @@ async function main() {
   const markdown = renderMarkdown({
     generatedAt,
     warnings,
-    totalFetched: opportunities.length,
+    totalFetched: fetched.opportunities.length,
     exportedDeals: exclusionResult.exportedDeals,
     excludedDeals: exclusionResult.excludedDeals,
     groupedDeals,
@@ -141,53 +239,110 @@ async function main() {
     nextStepFieldName: metadata.nextStepFieldName,
   });
 
-  await fs.mkdir(outputDir, { recursive: true });
-  await fs.writeFile(markdownPath, `${markdown}\n`, 'utf8');
-
-  console.log(`Markdown generado: ${markdownPath}`);
-  console.log(`Total deals leidos: ${opportunities.length}`);
-  console.log(`Total deals exportados: ${exclusionResult.exportedDeals.length}`);
-  console.log(
-    `Total deals IA Mujeres excluidos: ${exclusionResult.excludedDeals.length}`,
-  );
-  console.log('No se escribio nada en CRM');
+  return {
+    markdown: `${markdown}\n`,
+    counts: {
+      fetched: fetched.opportunities.length,
+      exported: exclusionResult.exportedDeals.length,
+      excluded: exclusionResult.excludedDeals.length,
+    },
+    warnings: [...new Set(warnings)],
+    completeness: {
+      complete: true,
+      pagesRead: fetched.pagesRead,
+      maxRecords,
+      notesComplete: true,
+      tasksComplete: true,
+    },
+  };
 }
 
-function collectQueryFieldNames(metadata) {
-  const names = new Set(metadata.contextFields);
+function collectQueryFieldNames(metadata, fieldPolicy) {
+  const names = new Set();
+
+  for (const fieldName of metadata.contextFields) {
+    addScalarFieldIfQueryable(names, metadata, fieldName);
+  }
 
   if (metadata.nextStepFieldName) {
-    names.add(metadata.nextStepFieldName);
+    addScalarFieldIfQueryable(names, metadata, metadata.nextStepFieldName);
   }
 
   for (const fieldName of OPTIONAL_HELPFUL_FIELDS) {
-    if (metadata.opportunityFields.has(fieldName)) {
-      names.add(fieldName);
-    }
+    addScalarFieldIfQueryable(names, metadata, fieldName);
   }
 
-  for (const field of metadata.opportunityObject.fields ?? []) {
-    if (!FIELD_TYPES_SAFE_TO_QUERY.has(field.type)) continue;
-
-    const label = String(field.label ?? '');
-    const name = String(field.name ?? '');
-    if (/(ia.?mujeres|mujeres)/i.test(`${name} ${label}`)) {
-      names.add(name);
+  for (const descriptor of fieldPolicy) {
+    if (!EXPLICIT_OPPORTUNITY_FIELDS.has(descriptor.name)) {
+      names.add(descriptor.name);
     }
   }
 
   return [...names];
 }
 
-function collectIaSpecificFieldNames(metadata) {
-  return (metadata.opportunityObject.fields ?? [])
-    .filter((field) => {
-      if (!FIELD_TYPES_SAFE_TO_QUERY.has(field.type)) return false;
-      const label = String(field.label ?? '');
-      const name = String(field.name ?? '');
-      return /(ia.?mujeres|mujeres)/i.test(`${name} ${label}`);
-    })
-    .map((field) => field.name);
+function addScalarFieldIfQueryable(names, metadata, fieldName) {
+  const field = metadata.opportunityFields.get(fieldName);
+  if (!field || !FIELD_TYPES_SAFE_TO_QUERY.has(field.type)) return;
+  assertGraphQlFieldName(fieldName);
+  if (!EXPLICIT_OPPORTUNITY_FIELDS.has(fieldName)) names.add(fieldName);
+}
+
+function inspectExclusionFields(metadata) {
+  const descriptors = [];
+  const businessLineNameField = metadata.opportunityFields.get(
+    'businessLineName',
+  );
+
+  if (
+    !metadata.hasBusinessLineRelation &&
+    (!businessLineNameField ||
+      !FIELD_TYPES_SAFE_TO_QUERY.has(businessLineNameField.type))
+  ) {
+    throw new CrmExportError(
+      'CRM_EXPORT_UNQUERYABLE_EXCLUSION_SIGNAL',
+      'El export se bloqueo porque no puede consultar de forma completa la business line usada para excluir IA Mujeres.',
+    );
+  }
+
+  for (const field of metadata.opportunityObject.fields ?? []) {
+    const name = String(field.name ?? '');
+    const label = String(field.label ?? '');
+    const options = (field.options ?? []).map((option) => ({
+      value: option.value,
+      label: option.label ?? option.value,
+    }));
+    const identitySignalsIa = hasIaMujeresText(`${name} ${label}`);
+    const identitySignalsTags = /(^|[^a-z])(tags?|etiquetas?)([^a-z]|$)/i.test(
+      `${name} ${label}`,
+    );
+    const iaOptionValues = options
+      .filter((option) =>
+        hasIaMujeresText(`${option.value ?? ''} ${option.label ?? ''}`),
+      )
+      .map((option) => option.value);
+
+    if (!identitySignalsIa && !identitySignalsTags && iaOptionValues.length === 0) {
+      continue;
+    }
+
+    if (!FIELD_TYPES_SAFE_TO_QUERY.has(field.type)) {
+      throw new CrmExportError(
+        'CRM_EXPORT_UNQUERYABLE_EXCLUSION_SIGNAL',
+        'El export se bloqueo porque existe una senal de IA Mujeres o tags que este lector no puede consultar de forma completa.',
+      );
+    }
+
+    assertGraphQlFieldName(name);
+    descriptors.push({
+      name,
+      identitySignalsIa,
+      identitySignalsTags,
+      iaOptionValues,
+    });
+  }
+
+  return descriptors;
 }
 
 async function fetchAllOpportunities({
@@ -198,54 +353,140 @@ async function fetchAllOpportunities({
   maxPages,
   notesLimit,
   tasksLimit,
+  maxRecords,
 }) {
   const opportunities = [];
-  const warnings = [];
   let after = null;
   let page = 0;
+  let sourceComplete = false;
 
   while (page < maxPages) {
+    const remaining = maxRecords - opportunities.length;
+    if (remaining <= 0) {
+      throw new CrmExportError(
+        'CRM_EXPORT_RECORD_LIMIT_EXCEEDED',
+        `El origen contiene mas de ${maxRecords} oportunidades; no se genero ningun artefacto.`,
+      );
+    }
+
     page += 1;
     const data = await gqlQuery(
       client,
       buildOpportunitiesQuery(metadata, queryFieldNames),
       {
-        first: pageSize,
+        first: Math.min(pageSize, remaining),
         after,
         notesFirst: notesLimit,
         tasksFirst: tasksLimit,
       },
     );
     const connection = data.opportunities;
+    assertCompleteConnection(connection, 'opportunities');
 
-    for (const edge of connection.edges ?? []) {
-      opportunities.push(normalizeOpportunity(edge.node, { warnings }));
+    if (connection.edges.length > remaining) {
+      throw new CrmExportError(
+        'CRM_EXPORT_RECORD_LIMIT_EXCEEDED',
+        `El origen devolvio mas de ${maxRecords} oportunidades; no se genero ningun artefacto.`,
+      );
     }
 
-    if (!connection.pageInfo?.hasNextPage) break;
+    for (const edge of connection.edges) {
+      opportunities.push(normalizeOpportunity(edge.node));
+    }
+
+    if (!connection.pageInfo.hasNextPage) {
+      sourceComplete = true;
+      break;
+    }
+    if (opportunities.length >= maxRecords) {
+      throw new CrmExportError(
+        'CRM_EXPORT_RECORD_LIMIT_EXCEEDED',
+        `El origen contiene mas de ${maxRecords} oportunidades; no se genero ningun artefacto.`,
+      );
+    }
+    if (
+      typeof connection.pageInfo.endCursor !== 'string' ||
+      !connection.pageInfo.endCursor ||
+      connection.pageInfo.endCursor === after
+    ) {
+      throw new CrmExportError(
+        'CRM_EXPORT_INVALID_PAGINATION',
+        'El origen indico otra pagina sin proporcionar un cursor nuevo; no se genero ningun artefacto.',
+      );
+    }
     after = connection.pageInfo.endCursor;
   }
 
-  if (page >= maxPages) {
-    warnings.push(
-      `Se alcanzo --max-pages=${maxPages}; puede haber oportunidades no incluidas.`,
+  if (!sourceComplete) {
+    throw new CrmExportError(
+      'CRM_EXPORT_PAGE_LIMIT_REACHED',
+      `Se alcanzo el limite de ${maxPages} paginas sin demostrar que el origen estuviera completo; no se genero ningun artefacto.`,
     );
   }
 
-  return { opportunities, warnings: [...new Set(warnings)] };
+  return { opportunities, pagesRead: page };
 }
 
-async function gqlQuery(client, query, variables) {
+function assertCompleteConnection(connection, name) {
+  if (
+    !connection ||
+    !Array.isArray(connection.edges) ||
+    !connection.pageInfo ||
+    typeof connection.pageInfo.hasNextPage !== 'boolean'
+  ) {
+    throw new CrmExportError(
+      'CRM_EXPORT_INCOMPLETE_PAGE_INFO',
+      `El origen no devolvio pageInfo completo para ${name}; no se genero ningun artefacto.`,
+    );
+  }
+}
+
+export async function gqlQuery(client, query, variables) {
+  assertGraphQlQuery(query);
+  return client.gql(query, variables);
+}
+
+export function assertGraphQlQuery(query) {
   const compact = query.replace(/#[^\n]*/g, '').trim();
 
   if (!/^query\b/i.test(compact)) {
-    throw new Error('Read-only guard blocked a non-query GraphQL operation.');
+    throw new CrmExportError(
+      'CRM_EXPORT_NON_QUERY_BLOCKED',
+      'El guard de solo lectura bloqueo una operacion GraphQL que no era query.',
+    );
   }
   if (/\bmutation\b/i.test(compact)) {
-    throw new Error('Read-only guard blocked a GraphQL mutation.');
+    throw new CrmExportError(
+      'CRM_EXPORT_MUTATION_BLOCKED',
+      'El guard de solo lectura bloqueo una mutation GraphQL.',
+    );
   }
+}
 
-  return client.gql(query, variables);
+function createQueryOnlyFacade(client) {
+  return Object.freeze({
+    gql(query, variables) {
+      return gqlQuery(client, query, variables);
+    },
+    metadataObjects() {
+      if (typeof client.metadataObjects !== 'function') {
+        throw new CrmExportError(
+          'CRM_EXPORT_READER_INVALID',
+          'El lector CRM no ofrece el endpoint de metadata de solo lectura.',
+        );
+      }
+      return client.metadataObjects();
+    },
+  });
+}
+
+function assertGraphQlFieldName(fieldName) {
+  if (!/^[_A-Za-z][_0-9A-Za-z]*$/.test(fieldName)) {
+    throw new CrmExportError(
+      'CRM_EXPORT_INVALID_FIELD_NAME',
+      'La metadata contiene un nombre de campo que no puede interpolarse de forma segura en GraphQL.',
+    );
+  }
 }
 
 function buildOpportunitiesQuery(metadata, queryFieldNames) {
@@ -374,18 +615,29 @@ ${ownerSelection}
   `;
 }
 
-function normalizeOpportunity(opportunity, { warnings }) {
-  const noteTargets = opportunity.noteTargets;
-  const taskTargets = opportunity.taskTargets;
-
-  if (noteTargets?.pageInfo?.hasNextPage) {
-    warnings.push(
-      `El deal "${opportunity.name}" tiene mas notas que el limite consultado.`,
+function normalizeOpportunity(opportunity) {
+  if (!opportunity || typeof opportunity !== 'object') {
+    throw new CrmExportError(
+      'CRM_EXPORT_INVALID_RECORD',
+      'El origen devolvio una oportunidad invalida; no se genero ningun artefacto.',
     );
   }
-  if (taskTargets?.pageInfo?.hasNextPage) {
-    warnings.push(
-      `El deal "${opportunity.name}" tiene mas tareas que el limite consultado.`,
+
+  const noteTargets = opportunity.noteTargets;
+  const taskTargets = opportunity.taskTargets;
+  assertCompleteConnection(noteTargets, 'noteTargets');
+  assertCompleteConnection(taskTargets, 'taskTargets');
+
+  if (noteTargets.pageInfo.hasNextPage) {
+    throw new CrmExportError(
+      'CRM_EXPORT_NOTES_TRUNCATED',
+      'Al menos una oportunidad tiene notas truncadas; no se genero ningun artefacto porque no puede demostrarse la exclusion de IA Mujeres.',
+    );
+  }
+  if (taskTargets.pageInfo.hasNextPage) {
+    throw new CrmExportError(
+      'CRM_EXPORT_TASKS_TRUNCATED',
+      'Al menos una oportunidad tiene tareas truncadas; no se genero ningun artefacto porque no puede demostrarse la exclusion de IA Mujeres.',
     );
   }
 
@@ -414,12 +666,12 @@ function normalizeOpportunity(opportunity, { warnings }) {
   };
 }
 
-function excludeIaMujeresDeals(opportunities, iaSpecificFieldNames) {
+function excludeIaMujeresDeals(opportunities, fieldPolicy) {
   const exportedDeals = [];
   const excludedDeals = [];
 
   for (const deal of opportunities) {
-    const reasons = iaMujeresReasons(deal, iaSpecificFieldNames);
+    const reasons = iaMujeresReasons(deal, fieldPolicy);
     if (reasons.length > 0) {
       excludedDeals.push({ deal, reasons });
     } else {
@@ -430,7 +682,7 @@ function excludeIaMujeresDeals(opportunities, iaSpecificFieldNames) {
   return { exportedDeals, excludedDeals };
 }
 
-function iaMujeresReasons(deal, iaSpecificFieldNames) {
+function iaMujeresReasons(deal, fieldPolicy) {
   const reasons = [];
   const textChecks = [
     ['businessLine.name', deal.businessLine?.name],
@@ -453,10 +705,24 @@ function iaMujeresReasons(deal, iaSpecificFieldNames) {
     reasons.push('iaMujeresFunnelStage con valor');
   }
 
-  for (const fieldName of iaSpecificFieldNames) {
-    if (fieldName === 'iaMujeresFunnelStage') continue;
-    if (hasValue(deal[fieldName])) {
-      reasons.push(`${fieldName} con valor`);
+  for (const descriptor of fieldPolicy) {
+    const value = deal[descriptor.name];
+    if (
+      descriptor.identitySignalsIa &&
+      descriptor.name !== 'iaMujeresFunnelStage' &&
+      hasValue(value)
+    ) {
+      reasons.push(`${descriptor.name} con valor`);
+    }
+    if (descriptor.identitySignalsTags && hasIaMujeresText(value)) {
+      reasons.push(`${descriptor.name} contiene IA Mujeres`);
+    }
+    if (
+      descriptor.iaOptionValues.some((optionValue) =>
+        scalarOrArrayIncludes(value, optionValue),
+      )
+    ) {
+      reasons.push(`${descriptor.name} selecciona IA Mujeres`);
     }
   }
 
@@ -833,6 +1099,11 @@ function hasIaMujeresText(value) {
   );
 }
 
+function scalarOrArrayIncludes(value, expected) {
+  const values = Array.isArray(value) ? value : [value];
+  return values.some((item) => String(item ?? '') === String(expected ?? ''));
+}
+
 function hasValue(value) {
   return value !== null && value !== undefined && String(value).trim() !== '';
 }
@@ -917,11 +1188,82 @@ function kebab(value) {
   return value.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
 }
 
-main().catch((error) => {
-  if (/TWENTY_API_KEY/.test(error.message)) {
-    console.error(error.message);
-  } else {
-    console.error(error.stack ?? error.message);
+function validateServiceOptions(options) {
+  if (!options.client || typeof options.client.gql !== 'function') {
+    throw new CrmExportError(
+      'CRM_EXPORT_READER_INVALID',
+      'Se requiere un lector CRM de solo lectura.',
+    );
   }
-  process.exitCode = 1;
-});
+  if (!(options.generatedAt instanceof Date) || Number.isNaN(options.generatedAt.getTime())) {
+    throw new CrmExportError(
+      'CRM_EXPORT_CLOCK_INVALID',
+      'La fecha de generacion no es valida.',
+    );
+  }
+
+  for (const name of [
+    'pageSize',
+    'maxPages',
+    'notesLimit',
+    'tasksLimit',
+    'maxRecords',
+  ]) {
+    const value = options[name];
+    if (!Number.isInteger(value) || value < 1 || value > 1000) {
+      throw new CrmExportError(
+        'CRM_EXPORT_LIMIT_INVALID',
+        `${name} debe ser un entero entre 1 y 1000.`,
+      );
+    }
+  }
+}
+
+async function writeLegacyMarkdownCreateOnly({ markdownPath, markdown, maxBytes }) {
+  const bytes = Buffer.byteLength(markdown, 'utf8');
+  if (bytes > maxBytes) {
+    throw new CrmExportError(
+      'CRM_EXPORT_ARTIFACT_TOO_LARGE',
+      `El Markdown supera el limite de ${maxBytes} bytes; no se genero ningun artefacto.`,
+    );
+  }
+
+  await fs.mkdir(path.dirname(markdownPath), { recursive: true });
+  let handle = null;
+  let created = false;
+
+  try {
+    handle = await fs.open(markdownPath, 'wx', 0o600);
+    created = true;
+    await handle.writeFile(markdown, 'utf8');
+    await handle.sync();
+    await handle.close();
+    handle = null;
+  } catch (error) {
+    if (handle) {
+      await handle.close().catch(() => {});
+    }
+    if (created) {
+      await fs.unlink(markdownPath).catch(() => {});
+    }
+    throw error;
+  }
+}
+
+function isDirectExecution() {
+  if (!process.argv[1]) return false;
+  return import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href;
+}
+
+if (isDirectExecution()) {
+  main().catch((error) => {
+    if (error instanceof CrmExportError) {
+      console.error(`${error.code}: ${error.publicMessage}`);
+    } else if (/TWENTY_API_KEY/.test(String(error?.message ?? ''))) {
+      console.error('TWENTY_API_KEY no esta disponible.');
+    } else {
+      console.error('CRM_EXPORT_FAILED: el export fallo sin crear un artefacto completo.');
+    }
+    process.exitCode = 1;
+  });
+}

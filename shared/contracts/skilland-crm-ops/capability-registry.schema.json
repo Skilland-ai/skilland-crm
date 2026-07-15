@@ -1,0 +1,346 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.skilland.ai/skilland-crm-ops/v1/capability-registry.schema.json",
+  "title": "Skilland CRM Ops Capability Registry",
+  "description": "Machine-readable target-policy allowlist plus observed current/legacy runtime evidence. Discovery and runtime readiness never grant front-door authority: unknown or incomplete entries fail closed.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "registryVersion",
+    "policyVersion",
+    "registryId",
+    "repoId",
+    "canonicalCapabilityCount",
+    "legacyResolvableIdCount",
+    "policyDefaults",
+    "capabilities"
+  ],
+  "properties": {
+    "$schema": { "const": "https://schemas.skilland.ai/skilland-crm-ops/v1/capability-registry.schema.json" },
+    "schemaVersion": {
+      "description": "Version of the registry document shape defined by this JSON Schema.",
+      "const": "1.0.0"
+    },
+    "registryVersion": {
+      "description": "SemVer version of the capability catalog content. Plans and results bind to this version independently of the schema shape.",
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$"
+    },
+    "policyVersion": {
+      "description": "SemVer version of the target authorization and scope policy. Plans and results bind to it independently of catalog-content and schema versions.",
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$"
+    },
+    "registryId": { "const": "skilland-crm-ops.capabilities" },
+    "repoId": { "const": "skilland-crm" },
+    "canonicalCapabilityCount": { "const": 38 },
+    "legacyResolvableIdCount": { "const": 39 },
+    "policyDefaults": { "$ref": "#/$defs/PolicyDefaults" },
+    "capabilities": {
+      "type": "array",
+      "minItems": 38,
+      "maxItems": 38,
+      "items": { "$ref": "#/$defs/Capability" }
+    }
+  },
+  "$defs": {
+    "PolicyDefaults": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unknownCapability",
+        "unknownField",
+        "ambiguousEnvironment",
+        "destructive",
+        "metadataMutation",
+        "workflowActivation",
+        "productionWriteRequiresPlanBoundApproval",
+        "externalSendApprovalTier",
+        "accountingEffectApprovalTier",
+        "crossDomainCrmWritebackApprovalTier"
+      ],
+      "properties": {
+        "unknownCapability": { "const": "denied" },
+        "unknownField": { "const": "denied" },
+        "ambiguousEnvironment": { "const": "denied" },
+        "destructive": { "const": "denied" },
+        "metadataMutation": { "const": "denied" },
+        "workflowActivation": { "const": "denied" },
+        "productionWriteRequiresPlanBoundApproval": { "const": true },
+        "externalSendApprovalTier": { "const": "two_stage" },
+        "accountingEffectApprovalTier": { "const": "two_stage" },
+        "crossDomainCrmWritebackApprovalTier": { "const": "two_stage" }
+      }
+    },
+    "Evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "path", "verifiedAt", "claim"],
+      "properties": {
+        "type": { "enum": ["source_inspection", "documentation", "automated_test", "integration_test", "live_verification"] },
+        "path": { "type": "string", "minLength": 1 },
+        "verifiedAt": { "type": ["string", "null"], "format": "date" },
+        "claim": { "type": "string", "minLength": 1 }
+      }
+    },
+    "ContractReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target", "current"],
+      "properties": {
+        "target": { "type": "string", "minLength": 1 },
+        "current": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "ScopeLimits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "maxRecords",
+        "maxDocuments",
+        "maxRecipients",
+        "maxLocalArtifacts",
+        "allowExternalSend",
+        "allowMetadataMutation",
+        "allowDestructive",
+        "allowWorkflowActivation"
+      ],
+      "properties": {
+        "maxRecords": { "type": "integer", "minimum": 0 },
+        "maxDocuments": { "type": "integer", "minimum": 0 },
+        "maxRecipients": { "type": "integer", "minimum": 0 },
+        "maxLocalArtifacts": { "type": "integer", "minimum": 0 },
+        "localPathPrefixes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+          }
+        },
+        "allowOverwrite": { "type": "boolean" },
+        "maxArtifactBytes": { "type": "integer", "minimum": 1 },
+        "allowExternalSend": { "type": "boolean" },
+        "allowMetadataMutation": { "const": false },
+        "allowDestructive": { "const": false },
+        "allowWorkflowActivation": { "const": false }
+      }
+    },
+    "Capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "domain",
+        "ownerComponent",
+        "routingExposure",
+        "lifecycleStatus",
+        "semanticMaturity",
+        "runtimeReadiness",
+        "frontDoorReadiness",
+        "testLevel",
+        "evidence",
+        "supportedModes",
+        "effects",
+        "domainSpan",
+        "dataClasses",
+        "reversibility",
+        "approvalTier",
+        "environmentAllowlist",
+        "scopeLimits",
+        "currentEntrypoints",
+        "inputContract",
+        "outputContract",
+        "lastVerifiedAt",
+        "aliases",
+        "deprecatedBy",
+        "notes"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$" },
+        "domain": { "enum": ["crm", "aikount", "crm_aikount_bridge", "ia_mujeres_campaign", "reporting"] },
+        "ownerComponent": { "enum": ["crm-core", "crm-metadata-admin", "twenty-workflows", "crm-conversation", "aikount-erp", "crm-aikount-bridge", "ia-mujeres-campaign", "reporting"] },
+        "routingExposure": {
+          "description": "Target local-router exposure. Public capabilities are direct use cases, internal capabilities are compositional helpers, and legacy_only capabilities cannot be selected through the target front door.",
+          "enum": ["public", "internal", "legacy_only"]
+        },
+        "lifecycleStatus": {
+          "description": "Target capability lifecycle; it does not assert current runtime availability.",
+          "enum": ["active", "planned", "deprecated", "blocked"]
+        },
+        "semanticMaturity": { "enum": ["unknown", "experimental", "partial", "stable"] },
+        "runtimeReadiness": {
+          "description": "Observed readiness of current or legacy entrypoints at last verification. This is evidence, never target policy and never authority for Skilland CRM Ops routing.",
+          "enum": ["unknown", "not_implemented", "read_only", "dry_run", "apply_guarded", "denied"]
+        },
+        "frontDoorReadiness": {
+          "description": "Implementation state of this capability specifically in the target Skilland CRM Ops front door. Only this field describes target-router availability; policy gates still apply independently.",
+          "enum": ["not_implemented", "read_only", "dry_run", "apply_guarded", "denied"]
+        },
+        "testLevel": { "enum": ["unknown", "none", "unit", "integration", "live"] },
+        "evidence": { "type": "array", "items": { "$ref": "#/$defs/Evidence" } },
+        "supportedModes": {
+          "description": "Modes allowed by target policy; these do not describe what a legacy entrypoint happens to accept.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["read_only", "dry_run", "apply"] }
+        },
+        "effects": {
+          "description": "Side-effect classes declared by target policy for planning and enforcement.",
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "enum": ["local_write", "crm_write", "erp_write", "metadata_write", "workflow_change", "external_draft", "external_send", "destructive"] }
+        },
+        "domainSpan": { "enum": ["single_domain", "cross_domain"] },
+        "dataClasses": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["internal", "commercial", "pii", "accounting"] } },
+        "reversibility": { "enum": ["reversible", "compensatable", "irreversible"] },
+        "approvalTier": {
+          "description": "Approval required by target policy; it is independent of current or legacy runtime guards.",
+          "enum": ["none", "operator", "owner", "two_stage", "denied"]
+        },
+        "environmentAllowlist": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["test", "sandbox", "production"] } },
+        "scopeLimits": {
+          "description": "Fail-closed limits imposed by target policy, not inferred from current scripts.",
+          "$ref": "#/$defs/ScopeLimits"
+        },
+        "currentEntrypoints": {
+          "description": "Observed current or legacy compatibility surfaces; presence here does not make a capability routable through Skilland CRM Ops.",
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "inputContract": { "$ref": "#/$defs/ContractReference" },
+        "outputContract": { "$ref": "#/$defs/ContractReference" },
+        "lastVerifiedAt": { "type": ["string", "null"], "format": "date" },
+        "aliases": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$" } },
+        "deprecatedBy": { "type": ["string", "null"], "pattern": "^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$" },
+        "notes": { "type": "string" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "semanticMaturity": { "const": "stable" } }, "required": ["semanticMaturity"] },
+          "then": {
+            "properties": {
+              "evidence": { "minItems": 1 },
+              "testLevel": { "enum": ["unit", "integration", "live"] },
+              "lastVerifiedAt": { "type": "string", "format": "date" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "lifecycleStatus": { "const": "blocked" } }, "required": ["lifecycleStatus"] },
+          "then": { "properties": { "approvalTier": { "const": "denied" }, "frontDoorReadiness": { "const": "denied" } } }
+        },
+        {
+          "if": {
+            "properties": { "id": { "const": "report.crm.export" } },
+            "required": ["id"]
+          },
+          "then": {
+            "properties": {
+              "routingExposure": { "const": "public" },
+              "supportedModes": { "const": ["read_only"] },
+              "effects": { "const": ["local_write"] },
+              "approvalTier": { "const": "none" },
+              "environmentAllowlist": { "const": ["test"] },
+              "scopeLimits": {
+                "required": ["localPathPrefixes", "allowOverwrite", "maxArtifactBytes"],
+                "properties": {
+                  "maxRecords": { "maximum": 1000 },
+                  "maxDocuments": { "const": 0 },
+                  "maxRecipients": { "const": 0 },
+                  "maxLocalArtifacts": { "const": 1 },
+                  "localPathPrefixes": { "const": ["04_outputs/crm_manual_update_session"] },
+                  "allowOverwrite": { "const": false },
+                  "maxArtifactBytes": { "maximum": 5242880 },
+                  "allowExternalSend": { "const": false }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "id": {
+                "enum": [
+                  "crm.metadata.read",
+                  "crm.schema.introspect",
+                  "crm.plan.validate",
+                  "crm.execution.apply",
+                  "aikount.openapi.live",
+                  "aikount.execution.apply",
+                  "bridge.crm_aikount.context",
+                  "bridge.crm_aikount.writeback.plan"
+                ]
+              }
+            },
+            "required": ["id"]
+          },
+          "then": { "properties": { "routingExposure": { "const": "internal" } } }
+        },
+        {
+          "if": { "properties": { "frontDoorReadiness": { "const": "denied" } }, "required": ["frontDoorReadiness"] },
+          "then": { "properties": { "approvalTier": { "const": "denied" } } }
+        },
+        {
+          "if": { "properties": { "lifecycleStatus": { "const": "deprecated" } }, "required": ["lifecycleStatus"] },
+          "then": { "properties": { "deprecatedBy": { "type": "string" } } }
+        },
+        {
+          "if": { "properties": { "effects": { "contains": { "const": "crm_write" } } }, "required": ["effects"] },
+          "then": { "properties": { "approvalTier": { "enum": ["operator", "owner", "two_stage", "denied"] } } }
+        },
+        {
+          "if": { "properties": { "effects": { "contains": { "const": "external_draft" } } }, "required": ["effects"] },
+          "then": { "properties": { "approvalTier": { "enum": ["owner", "two_stage", "denied"] } } }
+        },
+        {
+          "if": { "properties": { "effects": { "contains": { "const": "destructive" } } }, "required": ["effects"] },
+          "then": { "properties": { "approvalTier": { "const": "denied" }, "frontDoorReadiness": { "const": "denied" } } }
+        },
+        {
+          "if": { "properties": { "effects": { "contains": { "const": "metadata_write" } } }, "required": ["effects"] },
+          "then": { "properties": { "approvalTier": { "const": "denied" }, "frontDoorReadiness": { "const": "denied" } } }
+        },
+        {
+          "if": { "properties": { "effects": { "contains": { "const": "workflow_change" } } }, "required": ["effects"] },
+          "then": { "properties": { "approvalTier": { "const": "denied" }, "frontDoorReadiness": { "const": "denied" } } }
+        },
+        {
+          "if": { "properties": { "effects": { "contains": { "const": "external_send" } } }, "required": ["effects"] },
+          "then": {
+            "properties": {
+              "approvalTier": { "const": "two_stage" },
+              "domainSpan": { "const": "cross_domain" },
+              "scopeLimits": { "properties": { "allowExternalSend": { "const": true } } }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "effects": { "contains": { "const": "external_draft" } } }, "required": ["effects"] },
+          "then": { "properties": { "domainSpan": { "const": "cross_domain" } } }
+        },
+        {
+          "if": { "properties": { "effects": { "contains": { "const": "erp_write" } } }, "required": ["effects"] },
+          "then": { "properties": { "approvalTier": { "const": "two_stage" } } }
+        },
+        {
+          "if": {
+            "properties": {
+              "domainSpan": { "const": "cross_domain" },
+              "effects": { "contains": { "const": "crm_write" } }
+            },
+            "required": ["domainSpan", "effects"]
+          },
+          "then": { "properties": { "approvalTier": { "const": "two_stage" } } }
+        }
+      ]
+    }
+  }
+}

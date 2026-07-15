@@ -1,0 +1,47 @@
+{
+  "$schema": "https://schemas.skilland.ai/skilland-crm-ops/v1/operation-envelope.schema.json",
+  "schemaVersion": "1.0.0",
+  "kind": "operation_approval",
+  "requestId": "request_campaign_send_002",
+  "correlationId": "correlation_campaign_send_002",
+  "repoId": "skilland-crm",
+  "capabilityId": "campaign.ia_mujeres.batch.send",
+  "requester": { "id": "example_operator", "type": "agent", "channel": "skilland-crm.ops" },
+  "environment": { "name": "production", "workspace": "example-workspace" },
+  "mode": "apply",
+  "createdAt": "2026-07-13T10:20:00Z",
+  "approvalId": "approval_campaign_send_002",
+  "planId": "plan_campaign_send_002",
+  "approvedPlanHash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "approver": { "id": "example_owner", "type": "human", "channel": "codex" },
+  "approvalTier": "two_stage",
+  "approvalStages": [
+    {
+      "stage": "business_content_approval",
+      "approver": { "id": "example_operator", "type": "human", "channel": "codex" },
+      "decision": "approved",
+      "decidedAt": "2026-07-13T10:20:30Z"
+    },
+    {
+      "stage": "effect_target_approval",
+      "approver": { "id": "example_owner", "type": "human", "channel": "codex" },
+      "decision": "approved",
+      "decidedAt": "2026-07-13T10:21:00Z"
+    }
+  ],
+  "allowedScope": {
+    "maxRecords": 5,
+    "maxDocuments": 0,
+    "maxRecipients": 5,
+    "maxLocalArtifacts": 5,
+    "recipientRefs": ["recipient:example_001", "recipient:example_002"],
+    "senderAccountRef": "sender_account:example_001",
+    "allowExternalSend": true,
+    "allowMetadataMutation": false,
+    "allowDestructive": false,
+    "allowWorkflowActivation": false
+  },
+  "expiresAt": "2026-07-13T10:50:00Z",
+  "decision": "approved",
+  "decidedAt": "2026-07-13T10:21:00Z"
+}

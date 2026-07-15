@@ -19,12 +19,14 @@ Excluir un deal si hay cualquier senal clara de IA Mujeres, incluyendo:
 - nombre del deal con `IA Mujeres`
 - `campaignName` con `IA Mujeres`
 - `iaMujeresFunnelStage` con valor
-- notas, tareas o custom fields que indiquen el funnel dedicado de IA Mujeres
+- notas, tareas, tags o custom fields que indiquen el funnel dedicado de IA
+  Mujeres
 
 ## Ejecucion
 
 1. Ejecuta `node scripts/crm_manual_update_crew/export-para-chatgpt.mjs`.
-2. No sustituyas este flujo por scripts alternativos salvo que el script principal no exista.
+2. Reutiliza el exportador existente y no reimplementes ni sustituyas el flujo.
+   Si el script no existe, bloquea e informa del hueco.
 3. Al terminar, devuelve:
    - comando ejecutado
    - ruta del Markdown generado

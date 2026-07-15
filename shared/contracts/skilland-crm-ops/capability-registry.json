@@ -1,0 +1,2404 @@
+{
+  "$schema": "https://schemas.skilland.ai/skilland-crm-ops/v1/capability-registry.schema.json",
+  "schemaVersion": "1.0.0",
+  "registryVersion": "1.1.0",
+  "policyVersion": "1.2.0",
+  "registryId": "skilland-crm-ops.capabilities",
+  "repoId": "skilland-crm",
+  "canonicalCapabilityCount": 38,
+  "legacyResolvableIdCount": 39,
+  "policyDefaults": {
+    "unknownCapability": "denied",
+    "unknownField": "denied",
+    "ambiguousEnvironment": "denied",
+    "destructive": "denied",
+    "metadataMutation": "denied",
+    "workflowActivation": "denied",
+    "productionWriteRequiresPlanBoundApproval": true,
+    "externalSendApprovalTier": "two_stage",
+    "accountingEffectApprovalTier": "two_stage",
+    "crossDomainCrmWritebackApprovalTier": "two_stage"
+  },
+  "capabilities": [
+    {
+      "id": "crm.metadata.read",
+      "domain": "crm",
+      "ownerComponent": "crm-core",
+      "routingExposure": "internal",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "read_only",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/crm_execution_crew/kernel/contracts.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The inspected v1 contract and crew validate supported CRM flows against Twenty metadata; no standalone local front door exists."
+        }
+      ],
+      "supportedModes": [
+        "read_only"
+      ],
+      "effects": [],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "internal",
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "none",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 200,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:execute",
+        "yarn crm:review"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": [
+          "scripts/crm_execution_crew/kernel/contracts.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Metadata can validate an allowlisted request but never authorize a newly discovered object or operation."
+    },
+    {
+      "id": "crm.schema.introspect",
+      "domain": "crm",
+      "ownerComponent": "crm-core",
+      "routingExposure": "internal",
+      "lifecycleStatus": "planned",
+      "semanticMaturity": "unknown",
+      "runtimeReadiness": "not_implemented",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [],
+      "supportedModes": [
+        "read_only"
+      ],
+      "effects": [],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "internal"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "none",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 200,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": null,
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "No canonical GraphQL/REST schema introspection capability was found; discovery remains non-authoritative."
+    },
+    {
+      "id": "crm.record.search",
+      "domain": "crm",
+      "ownerComponent": "crm-core",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "read_only",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/crm_execution_crew",
+          "verifiedAt": "2026-07-13",
+          "claim": "Current resolvers search records for the bounded v1 operation vocabulary, not arbitrary objects."
+        }
+      ],
+      "supportedModes": [
+        "read_only"
+      ],
+      "effects": [],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "none",
+      "environmentAllowlist": [
+        "test"
+      ],
+      "scopeLimits": {
+        "maxRecords": 200,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:execute",
+        "yarn crm:review"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": [
+          "scripts/crm_execution_crew/kernel/contracts.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Current behavior is deal- and operation-centric, so generic search maturity remains partial."
+    },
+    {
+      "id": "crm.record.get",
+      "domain": "crm",
+      "ownerComponent": "crm-core",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "read_only",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/crm_manual_update_crew",
+          "verifiedAt": "2026-07-13",
+          "claim": "Manual review and execution flows read deal context in bounded scenarios."
+        }
+      ],
+      "supportedModes": [
+        "read_only"
+      ],
+      "effects": [],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "none",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 1,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:execute",
+        "yarn crm:review"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": [
+          "scripts/crm_execution_crew/kernel/contracts.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Exact-id and ambiguity checks are required; metadata discovery does not expand object access."
+    },
+    {
+      "id": "crm.record.create",
+      "domain": "crm",
+      "ownerComponent": "crm-core",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "apply_guarded",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/crm_execution_crew/kernel/contracts.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The v1 operation vocabulary includes create_opportunity under dry-run/apply constraints."
+        }
+      ],
+      "supportedModes": [
+        "dry_run",
+        "apply"
+      ],
+      "effects": [
+        "crm_write"
+      ],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "compensatable",
+      "approvalTier": "owner",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 200,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:execute --request-file=... --apply --yes",
+        "yarn crm:review"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": [
+          "scripts/crm_execution_crew/kernel/contracts.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Target CRM Core is metadata-aware and explicitly allowlisted; this is not universal create."
+    },
+    {
+      "id": "crm.record.update",
+      "domain": "crm",
+      "ownerComponent": "crm-core",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "apply_guarded",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/crm_execution_crew/kernel/contracts.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The v1 contract supports bounded opportunity and task updates with dry-run as the default."
+        }
+      ],
+      "supportedModes": [
+        "dry_run",
+        "apply"
+      ],
+      "effects": [
+        "crm_write"
+      ],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "compensatable",
+      "approvalTier": "owner",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 200,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:execute --request-file=... --apply --yes",
+        "yarn crm:review"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": [
+          "scripts/crm_execution_crew/kernel/contracts.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Only allowlisted object/field combinations may become routable."
+    },
+    {
+      "id": "crm.record.delete",
+      "domain": "crm",
+      "ownerComponent": "crm-core",
+      "routingExposure": "public",
+      "lifecycleStatus": "blocked",
+      "semanticMaturity": "experimental",
+      "runtimeReadiness": "denied",
+      "frontDoorReadiness": "denied",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/crm_execution_crew/kernel/contracts.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "delete_record exists only as an auditable blocked v1 operation."
+        }
+      ],
+      "supportedModes": [
+        "dry_run"
+      ],
+      "effects": [
+        "crm_write",
+        "destructive"
+      ],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "compensatable",
+      "approvalTier": "denied",
+      "environmentAllowlist": [
+        "test",
+        "sandbox"
+      ],
+      "scopeLimits": {
+        "maxRecords": 0,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:execute"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": [
+          "scripts/crm_execution_crew/kernel/contracts.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Denied in Phase 006; no apply route, approval tier, or positive record limit exists."
+    },
+    {
+      "id": "crm.record.restore",
+      "domain": "crm",
+      "ownerComponent": "crm-core",
+      "routingExposure": "public",
+      "lifecycleStatus": "blocked",
+      "semanticMaturity": "unknown",
+      "runtimeReadiness": "not_implemented",
+      "frontDoorReadiness": "denied",
+      "testLevel": "unknown",
+      "evidence": [],
+      "supportedModes": [
+        "dry_run"
+      ],
+      "effects": [
+        "crm_write"
+      ],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "denied",
+      "environmentAllowlist": [
+        "test",
+        "sandbox"
+      ],
+      "scopeLimits": {
+        "maxRecords": 0,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": null,
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "No current or legacy restore entrypoint was found. The target front door remains denied until exact-id semantics, safety tests, and explicit policy exist."
+    },
+    {
+      "id": "crm.record.destroy",
+      "domain": "crm",
+      "ownerComponent": "crm-core",
+      "routingExposure": "public",
+      "lifecycleStatus": "blocked",
+      "semanticMaturity": "unknown",
+      "runtimeReadiness": "not_implemented",
+      "frontDoorReadiness": "denied",
+      "testLevel": "unknown",
+      "evidence": [],
+      "supportedModes": [
+        "dry_run"
+      ],
+      "effects": [
+        "crm_write",
+        "destructive"
+      ],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "irreversible",
+      "approvalTier": "denied",
+      "environmentAllowlist": [
+        "test",
+        "sandbox"
+      ],
+      "scopeLimits": {
+        "maxRecords": 0,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": null,
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "No current or legacy hard-destroy entrypoint was found. Destructive target routing remains denied."
+    },
+    {
+      "id": "crm.relation.link",
+      "domain": "crm",
+      "ownerComponent": "crm-core",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "apply_guarded",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/crm_execution_crew",
+          "verifiedAt": "2026-07-13",
+          "claim": "Current note/task flows link activities to bounded CRM targets."
+        }
+      ],
+      "supportedModes": [
+        "dry_run",
+        "apply"
+      ],
+      "effects": [
+        "crm_write"
+      ],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "owner",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 200,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:execute",
+        "yarn crm:review"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": [
+          "scripts/crm_execution_crew/kernel/contracts.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Current evidence is activity-target-specific, not generic relation support."
+    },
+    {
+      "id": "crm.relation.unlink",
+      "domain": "crm",
+      "ownerComponent": "crm-core",
+      "routingExposure": "public",
+      "lifecycleStatus": "planned",
+      "semanticMaturity": "unknown",
+      "runtimeReadiness": "not_implemented",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [],
+      "supportedModes": [
+        "dry_run"
+      ],
+      "effects": [
+        "crm_write"
+      ],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "owner",
+      "environmentAllowlist": [
+        "test",
+        "sandbox"
+      ],
+      "scopeLimits": {
+        "maxRecords": 1,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": null,
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Requires explicit relation allowlists and cardinality validation before apply can be considered."
+    },
+    {
+      "id": "crm.activity.note.create",
+      "domain": "crm",
+      "ownerComponent": "crm-core",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "apply_guarded",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/crm_execution_crew/kernel/contracts.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The v1 contract includes create_note; other specialized flows also create linked notes."
+        }
+      ],
+      "supportedModes": [
+        "dry_run",
+        "apply"
+      ],
+      "effects": [
+        "crm_write"
+      ],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "compensatable",
+      "approvalTier": "owner",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 200,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:execute",
+        "yarn crm:review",
+        "node scripts/ia_mujeres_operator_harness.mjs --action=..."
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": [
+          "scripts/crm_execution_crew/kernel/contracts.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Campaign rules remain vertical-specific; deterministic CRM Core should eventually own the write."
+    },
+    {
+      "id": "crm.activity.task.create",
+      "domain": "crm",
+      "ownerComponent": "crm-core",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "apply_guarded",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/crm_execution_crew/kernel/contracts.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The v1 contract includes create_task; specialized campaign flows also create tasks."
+        }
+      ],
+      "supportedModes": [
+        "dry_run",
+        "apply"
+      ],
+      "effects": [
+        "crm_write"
+      ],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "compensatable",
+      "approvalTier": "owner",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 200,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:execute",
+        "yarn crm:review",
+        "node scripts/ia_mujeres_operator_harness.mjs --action=..."
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": [
+          "scripts/crm_execution_crew/kernel/contracts.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Task creation remains bounded by allowlisted targets, assignees, and scope."
+    },
+    {
+      "id": "crm.activity.task.update",
+      "domain": "crm",
+      "ownerComponent": "crm-core",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "apply_guarded",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/crm_execution_crew/kernel/contracts.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The v1 contract includes update_task and close_task operations."
+        }
+      ],
+      "supportedModes": [
+        "dry_run",
+        "apply"
+      ],
+      "effects": [
+        "crm_write"
+      ],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "compensatable",
+      "approvalTier": "owner",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 200,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:execute",
+        "yarn crm:review",
+        "node scripts/ia_mujeres_operator_harness.mjs --action=reconcile-tasks --apply"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": [
+          "scripts/crm_execution_crew/kernel/contracts.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Exact task resolution and a dry-run diff are required."
+    },
+    {
+      "id": "crm.metadata.field.create",
+      "domain": "crm",
+      "ownerComponent": "crm-metadata-admin",
+      "routingExposure": "public",
+      "lifecycleStatus": "blocked",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "apply_guarded",
+      "frontDoorReadiness": "denied",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/ia_mujeres_batch_runner.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The exact legacy command `node scripts/ia_mujeres_batch_runner.mjs --mode=setup-crm --apply` creates missing IA Mujeres fields behind an explicit --apply gate."
+        }
+      ],
+      "supportedModes": [
+        "dry_run"
+      ],
+      "effects": [
+        "metadata_write"
+      ],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "internal"
+      ],
+      "reversibility": "compensatable",
+      "approvalTier": "denied",
+      "environmentAllowlist": [
+        "test",
+        "sandbox"
+      ],
+      "scopeLimits": {
+        "maxRecords": 0,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "node scripts/ia_mujeres_batch_runner.mjs --mode=setup-crm --apply"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "A vertical-specific legacy metadata writer exists, but the target front door denies metadata mutation; discovery never grants mutation authority."
+    },
+    {
+      "id": "crm.metadata.view.manage",
+      "domain": "crm",
+      "ownerComponent": "crm-metadata-admin",
+      "routingExposure": "public",
+      "lifecycleStatus": "blocked",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "apply_guarded",
+      "frontDoorReadiness": "denied",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/ia_mujeres_batch_runner.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The exact legacy command `node scripts/ia_mujeres_batch_runner.mjs --mode=setup-crm --apply` creates or updates the IA Mujeres core view only in apply mode."
+        }
+      ],
+      "supportedModes": [
+        "dry_run"
+      ],
+      "effects": [
+        "metadata_write"
+      ],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "internal"
+      ],
+      "reversibility": "compensatable",
+      "approvalTier": "denied",
+      "environmentAllowlist": [
+        "test",
+        "sandbox"
+      ],
+      "scopeLimits": {
+        "maxRecords": 0,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "node scripts/ia_mujeres_batch_runner.mjs --mode=setup-crm --apply"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "A vertical-specific legacy view writer exists, but generic metadata routing remains denied by target policy."
+    },
+    {
+      "id": "crm.workflow.research",
+      "domain": "crm",
+      "ownerComponent": "twenty-workflows",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "read_only",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "shared/knowledge/twenty-workflows/2026-06-07_api_mcp_capabilities.md",
+          "verifiedAt": "2026-07-13",
+          "claim": "Repository knowledge documents API/MCP-first workflow capability research."
+        }
+      ],
+      "supportedModes": [
+        "read_only"
+      ],
+      "effects": [],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "internal"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "none",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 200,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "shared/agents/twenty-workflows",
+        "shared/skills/twenty-workflows"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Research produces evidence only and cannot activate or mutate a workflow."
+    },
+    {
+      "id": "crm.workflow.design",
+      "domain": "crm",
+      "ownerComponent": "twenty-workflows",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "dry_run",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "shared/knowledge/twenty-workflows/2026-06-07_workflow_domain_model.md",
+          "verifiedAt": "2026-07-13",
+          "claim": "Workflow domain-model guidance supports design artifacts without activation."
+        }
+      ],
+      "supportedModes": [
+        "dry_run"
+      ],
+      "effects": [],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "internal"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "none",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 200,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 1,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "shared/agents/twenty-workflows",
+        "shared/skills/twenty-workflows"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Design is an artifact-producing planning capability, separate from workflow mutation."
+    },
+    {
+      "id": "crm.workflow.implement",
+      "domain": "crm",
+      "ownerComponent": "twenty-workflows",
+      "routingExposure": "public",
+      "lifecycleStatus": "blocked",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "apply_guarded",
+      "frontDoorReadiness": "denied",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/ia_mujeres_crm_workflows_v1.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The exact legacy command `node scripts/ia_mujeres_crm_workflows_v1.mjs --apply` creates IA Mujeres workflow shells and DRAFT versions; the script explicitly does not activate them."
+        }
+      ],
+      "supportedModes": [
+        "dry_run"
+      ],
+      "effects": [
+        "workflow_change"
+      ],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "internal",
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "compensatable",
+      "approvalTier": "denied",
+      "environmentAllowlist": [
+        "test",
+        "sandbox"
+      ],
+      "scopeLimits": {
+        "maxRecords": 0,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "node scripts/ia_mujeres_crm_workflows_v1.mjs --apply"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "A guarded vertical-specific legacy DRAFT writer exists. Workflow changes and activation remain denied through the target front door."
+    },
+    {
+      "id": "crm.workflow.test",
+      "domain": "crm",
+      "ownerComponent": "twenty-workflows",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "dry_run",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "shared/knowledge/twenty-workflows/2026-06-07_workflow_testing_and_debugging.md",
+          "verifiedAt": "2026-07-13",
+          "claim": "Repository knowledge documents isolated workflow validation and run inspection."
+        }
+      ],
+      "supportedModes": [
+        "dry_run"
+      ],
+      "effects": [],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "internal"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "none",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 50,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 1,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "workflow smoke-test scripts",
+        "shared/skills/twenty-workflows"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "This entry permits test planning only; workflow activation remains denied."
+    },
+    {
+      "id": "crm.plan.validate",
+      "domain": "crm",
+      "ownerComponent": "crm-core",
+      "routingExposure": "internal",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "dry_run",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/crm_execution_crew/kernel/contracts.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The current execution crew validates mode, scope, operation vocabulary, and constraints before execution."
+        }
+      ],
+      "supportedModes": [
+        "dry_run"
+      ],
+      "effects": [],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "internal",
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "none",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 200,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 1,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:execute"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationPlan",
+        "current": [
+          "scripts/crm_execution_crew/kernel/contracts.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Validation does not confer write authority."
+    },
+    {
+      "id": "crm.execution.apply",
+      "domain": "crm",
+      "ownerComponent": "crm-core",
+      "routingExposure": "internal",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "apply_guarded",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/crm_execution_crew",
+          "verifiedAt": "2026-07-13",
+          "claim": "Current deterministic execution is gated by validation and confirmation for the bounded v1 operation vocabulary."
+        }
+      ],
+      "supportedModes": [
+        "dry_run",
+        "apply"
+      ],
+      "effects": [
+        "crm_write"
+      ],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "compensatable",
+      "approvalTier": "owner",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 200,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:execute --request-file=... --apply --yes"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationPlan",
+        "current": [
+          "scripts/crm_execution_crew/kernel/contracts.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "The target worker consumes an OperationPlan. The policy enforcement point resolves and revalidates the non-expired, plan-bound approval separately before any side effect."
+    },
+    {
+      "id": "crm.conversation.manual_review",
+      "domain": "crm",
+      "ownerComponent": "crm-conversation",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "apply_guarded",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/crm_manual_update_crew",
+          "verifiedAt": "2026-07-13",
+          "claim": "The supervised manual-review harness interviews, plans, confirms, and currently performs bounded CRM writes."
+        }
+      ],
+      "supportedModes": [
+        "read_only",
+        "dry_run"
+      ],
+      "effects": [],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "none",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 200,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:review"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Public target interaction adapter for interview, interpretation, review, and plan emission. Its current legacy entrypoint can still perform guarded direct CRM writes, but that behavior is compatibility evidence and is not target write authority."
+    },
+    {
+      "id": "aikount.openapi.live",
+      "domain": "aikount",
+      "ownerComponent": "aikount-erp",
+      "routingExposure": "internal",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "read_only",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/crm_aikount_ops/kernel/contracts.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The inspected AIKount harness contract supports live-contract-first planning; this is source evidence, not a live verification."
+        }
+      ],
+      "supportedModes": [
+        "read_only"
+      ],
+      "effects": [],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "internal",
+        "accounting"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "none",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 0,
+        "maxDocuments": 100,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:aikount"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": [
+          "scripts/crm_aikount_ops/kernel/contracts.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "No live call was performed for Phase 006."
+    },
+    {
+      "id": "aikount.document.interview",
+      "domain": "aikount",
+      "ownerComponent": "aikount-erp",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "dry_run",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/crm_aikount_ops/kernel/contracts.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The AIKount request parser requires an explicit action and collects structured answers without guessing."
+        }
+      ],
+      "supportedModes": [
+        "dry_run"
+      ],
+      "effects": [],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "commercial",
+        "pii",
+        "accounting"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "none",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 0,
+        "maxDocuments": 10,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:aikount"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": [
+          "scripts/crm_aikount_ops/kernel/contracts.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Structured billing inputs take precedence over prose or deliverable-only files."
+    },
+    {
+      "id": "aikount.operation.plan",
+      "domain": "aikount",
+      "ownerComponent": "aikount-erp",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "dry_run",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/crm_aikount_ops",
+          "verifiedAt": "2026-07-13",
+          "claim": "Current planning covers a bounded action allowlist; completeness across the AIKount API is unknown."
+        }
+      ],
+      "supportedModes": [
+        "dry_run"
+      ],
+      "effects": [],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "commercial",
+        "pii",
+        "accounting"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "none",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 0,
+        "maxDocuments": 10,
+        "maxRecipients": 10,
+        "maxLocalArtifacts": 1,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:aikount"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": [
+          "scripts/crm_aikount_ops/kernel/contracts.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "A plan is not approval and does not authorize an ERP write or send."
+    },
+    {
+      "id": "aikount.execution.apply",
+      "domain": "aikount",
+      "ownerComponent": "aikount-erp",
+      "routingExposure": "internal",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "apply_guarded",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/crm_aikount_ops",
+          "verifiedAt": "2026-07-13",
+          "claim": "The current harness applies only the bounded action vocabulary after confirmation and forbids deletes and CRM write-back."
+        }
+      ],
+      "supportedModes": [
+        "dry_run",
+        "apply"
+      ],
+      "effects": [
+        "erp_write",
+        "external_send"
+      ],
+      "domainSpan": "cross_domain",
+      "dataClasses": [
+        "commercial",
+        "pii",
+        "accounting"
+      ],
+      "reversibility": "irreversible",
+      "approvalTier": "two_stage",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 0,
+        "maxDocuments": 10,
+        "maxRecipients": 10,
+        "maxLocalArtifacts": 1,
+        "allowExternalSend": true,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:aikount --apply --yes"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationPlan",
+        "current": [
+          "scripts/crm_aikount_ops/kernel/contracts.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "The target worker consumes an OperationPlan. The policy enforcement point separately resolves and revalidates plan-bound two-stage approval for the declared accounting and external-send effects."
+    },
+    {
+      "id": "aikount.file_container.manage",
+      "domain": "aikount",
+      "ownerComponent": "aikount-erp",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "apply_guarded",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "shared/skills/crm-aikount-ops/aikount-file-container/SKILL.md",
+          "verifiedAt": "2026-07-13",
+          "claim": "The local tray and registration commands are documented; registration follows the normal guarded AIKount flow."
+        }
+      ],
+      "supportedModes": [
+        "read_only",
+        "dry_run",
+        "apply"
+      ],
+      "effects": [
+        "local_write",
+        "erp_write"
+      ],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "internal",
+        "commercial",
+        "pii",
+        "accounting"
+      ],
+      "reversibility": "compensatable",
+      "approvalTier": "two_stage",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 0,
+        "maxDocuments": 10,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 10,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:aikount --container-add=...",
+        "yarn crm:aikount --container-list",
+        "yarn crm:aikount --container-register"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": [
+          "scripts/crm_aikount_ops/kernel/contracts.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Deliverable-only files remain reference material until sufficient structured billing data exists."
+    },
+    {
+      "id": "bridge.crm_aikount.context",
+      "domain": "crm_aikount_bridge",
+      "ownerComponent": "crm-aikount-bridge",
+      "routingExposure": "internal",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "read_only",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "shared/skills/crm-aikount-ops",
+          "verifiedAt": "2026-07-13",
+          "claim": "Existing AIKount skills describe strict read-only CRM deal context acquisition."
+        }
+      ],
+      "supportedModes": [
+        "read_only"
+      ],
+      "effects": [],
+      "domainSpan": "cross_domain",
+      "dataClasses": [
+        "commercial",
+        "pii",
+        "accounting"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "none",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 10,
+        "maxDocuments": 10,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:aikount"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": [
+          "scripts/crm_aikount_ops/kernel/contracts.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "The bridge may read context but cannot give AIKount direct CRM write authority."
+    },
+    {
+      "id": "bridge.crm_aikount.writeback.plan",
+      "domain": "crm_aikount_bridge",
+      "ownerComponent": "crm-aikount-bridge",
+      "routingExposure": "internal",
+      "lifecycleStatus": "planned",
+      "semanticMaturity": "unknown",
+      "runtimeReadiness": "not_implemented",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [],
+      "supportedModes": [
+        "dry_run"
+      ],
+      "effects": [
+        "crm_write"
+      ],
+      "domainSpan": "cross_domain",
+      "dataClasses": [
+        "commercial",
+        "pii",
+        "accounting"
+      ],
+      "reversibility": "compensatable",
+      "approvalTier": "two_stage",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 10,
+        "maxDocuments": 10,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 1,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": null,
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "A future AIKount result may produce a separate correlated CRM plan; no direct or implicit write-back is allowed."
+    },
+    {
+      "id": "campaign.ia_mujeres.status",
+      "domain": "ia_mujeres_campaign",
+      "ownerComponent": "ia-mujeres-campaign",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "read_only",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/ia_mujeres_operator_harness.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The operator harness exposes a status action documented as an audit over CRM/task state."
+        }
+      ],
+      "supportedModes": [
+        "read_only"
+      ],
+      "effects": [],
+      "domainSpan": "cross_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "none",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 1000,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 1,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "node scripts/ia_mujeres_operator_harness.mjs --action=status"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Read-only with respect to external systems; a local report may be produced only if declared by the runtime."
+    },
+    {
+      "id": "campaign.ia_mujeres.batch.prepare",
+      "domain": "ia_mujeres_campaign",
+      "ownerComponent": "ia-mujeres-campaign",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "dry_run",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/ia_mujeres_operator_harness.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The operator harness exposes batch preparation and rejects apply for the preparation action."
+        }
+      ],
+      "supportedModes": [
+        "dry_run"
+      ],
+      "effects": [
+        "local_write"
+      ],
+      "domainSpan": "cross_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "none",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 1000,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 5,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "node scripts/ia_mujeres_operator_harness.mjs --action=prepare-next-batch --limit=5"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Selection and local draft payloads do not authorize Gmail or CRM mutation."
+    },
+    {
+      "id": "campaign.ia_mujeres.drafts.create",
+      "domain": "ia_mujeres_campaign",
+      "ownerComponent": "ia-mujeres-campaign",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "apply_guarded",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/ia_mujeres_operator_harness.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The current action requires apply plus explicit draft confirmation and currently performs related CRM registration."
+        }
+      ],
+      "supportedModes": [
+        "dry_run",
+        "apply"
+      ],
+      "effects": [
+        "external_draft",
+        "crm_write"
+      ],
+      "domainSpan": "cross_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "compensatable",
+      "approvalTier": "two_stage",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 5,
+        "maxDocuments": 0,
+        "maxRecipients": 5,
+        "maxLocalArtifacts": 5,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "node scripts/ia_mujeres_operator_harness.mjs --action=create-drafts --apply --confirm-create-external-drafts"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Future campaign policy owns draft decisions; Gmail and CRM writes belong to deterministic adapters and separate evidence records."
+    },
+    {
+      "id": "campaign.ia_mujeres.batch.send",
+      "domain": "ia_mujeres_campaign",
+      "ownerComponent": "ia-mujeres-campaign",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "apply_guarded",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/ia_mujeres_operator_harness.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The current send paths require explicit apply and send confirmation flags."
+        }
+      ],
+      "supportedModes": [
+        "dry_run",
+        "apply"
+      ],
+      "effects": [
+        "external_send",
+        "crm_write"
+      ],
+      "domainSpan": "cross_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "irreversible",
+      "approvalTier": "two_stage",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 5,
+        "maxDocuments": 0,
+        "maxRecipients": 5,
+        "maxLocalArtifacts": 5,
+        "allowExternalSend": true,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "node scripts/ia_mujeres_operator_harness.mjs --action=send-batch --apply --confirm-send-approved-drafts",
+        "node scripts/ia_mujeres_operator_harness.mjs --action=launch-approved-batch --apply --confirm-create-external-drafts --confirm-send-approved-drafts"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Recipient scope and final content must be covered by a non-expired two-stage approval bound to the exact plan hash."
+    },
+    {
+      "id": "campaign.ia_mujeres.signals.sync",
+      "domain": "ia_mujeres_campaign",
+      "ownerComponent": "ia-mujeres-campaign",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "apply_guarded",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/ia_mujeres_operator_harness.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The current sync action correlates Gmail-derived evidence with CRM state."
+        }
+      ],
+      "supportedModes": [
+        "dry_run",
+        "apply"
+      ],
+      "effects": [
+        "crm_write"
+      ],
+      "domainSpan": "cross_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "compensatable",
+      "approvalTier": "two_stage",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 200,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 1,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "node scripts/ia_mujeres_operator_harness.mjs --action=sync-signals --apply"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Cross-domain CRM write-back must be a distinct approved plan; retries require demonstrated idempotency."
+    },
+    {
+      "id": "campaign.ia_mujeres.tasks.reconcile",
+      "domain": "ia_mujeres_campaign",
+      "ownerComponent": "ia-mujeres-campaign",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "apply_guarded",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/ia_mujeres_operator_harness.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The current campaign action assigns and closes CRM tasks under campaign rules."
+        }
+      ],
+      "supportedModes": [
+        "dry_run",
+        "apply"
+      ],
+      "effects": [
+        "crm_write"
+      ],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "compensatable",
+      "approvalTier": "owner",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 200,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 0,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "node scripts/ia_mujeres_operator_harness.mjs --action=reconcile-tasks --apply"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Campaign policy decides desired tasks; the target deterministic CRM adapter owns writes."
+    },
+    {
+      "id": "campaign.ia_mujeres.weekly_report",
+      "domain": "ia_mujeres_campaign",
+      "ownerComponent": "ia-mujeres-campaign",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "read_only",
+      "frontDoorReadiness": "not_implemented",
+      "testLevel": "unknown",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/ia_mujeres_weekly_report.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The inspected report script renders local Markdown and HTML campaign metrics."
+        }
+      ],
+      "supportedModes": [
+        "read_only"
+      ],
+      "effects": [
+        "local_write"
+      ],
+      "domainSpan": "cross_domain",
+      "dataClasses": [
+        "internal",
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "none",
+      "environmentAllowlist": [
+        "test",
+        "sandbox",
+        "production"
+      ],
+      "scopeLimits": {
+        "maxRecords": 1000,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 2,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "node scripts/ia_mujeres_operator_harness.mjs --action=weekly-report",
+        "node scripts/ia_mujeres_weekly_report.mjs"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": []
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": []
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [],
+      "deprecatedBy": null,
+      "notes": "Email delivery is a separate external-send capability and is not implied by report generation."
+    },
+    {
+      "id": "report.crm.export",
+      "domain": "reporting",
+      "ownerComponent": "reporting",
+      "routingExposure": "public",
+      "lifecycleStatus": "active",
+      "semanticMaturity": "partial",
+      "runtimeReadiness": "read_only",
+      "frontDoorReadiness": "read_only",
+      "testLevel": "integration",
+      "evidence": [
+        {
+          "type": "source_inspection",
+          "path": "scripts/crm_manual_update_crew/README_EXPORT.md",
+          "verifiedAt": "2026-07-13",
+          "claim": "The shared query-only export service blocks on incomplete IA Mujeres exclusion evidence and writes no artifact itself; no live verification was performed."
+        },
+        {
+          "type": "automated_test",
+          "path": "scripts/skilland_crm_ops/adapters/adapters.test.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "Offline tests cover query-only guards, IA Mujeres exclusion, source completeness, explicit environment binding, confined create-only artifacts, byte limits, permissions and hashes."
+        },
+        {
+          "type": "integration_test",
+          "path": "scripts/skilland_crm_ops/router.test.mjs",
+          "verifiedAt": "2026-07-13",
+          "claim": "The local end-to-end test routes a provisional handoff through the real manifest and registry to the canonical adapter using fake CRM data and a temporary artifact store without network access."
+        }
+      ],
+      "supportedModes": [
+        "read_only"
+      ],
+      "effects": [
+        "local_write"
+      ],
+      "domainSpan": "single_domain",
+      "dataClasses": [
+        "internal",
+        "commercial",
+        "pii"
+      ],
+      "reversibility": "reversible",
+      "approvalTier": "none",
+      "environmentAllowlist": [
+        "test"
+      ],
+      "scopeLimits": {
+        "maxRecords": 1000,
+        "maxDocuments": 0,
+        "maxRecipients": 0,
+        "maxLocalArtifacts": 1,
+        "localPathPrefixes": [
+          "04_outputs/crm_manual_update_session"
+        ],
+        "allowOverwrite": false,
+        "maxArtifactBytes": 5242880,
+        "allowExternalSend": false,
+        "allowMetadataMutation": false,
+        "allowDestructive": false,
+        "allowWorkflowActivation": false
+      },
+      "currentEntrypoints": [
+        "yarn crm:ops",
+        "yarn crm:export",
+        "node scripts/crm_manual_update_crew/export-para-chatgpt.mjs"
+      ],
+      "inputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationRequest",
+        "current": [
+          "shared/contracts/skilland-crm-ops/repo-handoff.schema.json",
+          "scripts/skilland_crm_ops/adapters/report-crm-export.mjs"
+        ]
+      },
+      "outputContract": {
+        "target": "./operation-envelope.schema.json#/$defs/OperationResult",
+        "current": [
+          "scripts/skilland_crm_ops/router.mjs"
+        ]
+      },
+      "lastVerifiedAt": "2026-07-13",
+      "aliases": [
+        "crm.export.chatgpt"
+      ],
+      "deprecatedBy": null,
+      "notes": "The only Gate 007 front-door capability. crm.export.chatgpt resolves here as an alias and has no independent executor, contract or policy. Gate 007 permits this capability only in test with explicit environment/workspace binding; sandbox and production remain denied until bounded retention and the corresponding policy gate are implemented. The only effect is one bounded create-only local artifact."
+    }
+  ]
+}
