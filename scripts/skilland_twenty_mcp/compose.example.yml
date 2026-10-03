@@ -1,0 +1,13 @@
+services:
+  skilland-twenty-mcp:
+    build:
+      context: ../..
+      dockerfile: scripts/skilland_twenty_mcp/Dockerfile
+    restart: unless-stopped
+    environment:
+      PORT: "3100"
+      SKILLAND_MCP_PUBLIC_URL: "https://mcp.crm.skilland.ai"
+      SKILLAND_MCP_ALLOWED_HOSTS: "mcp.crm.skilland.ai,127.0.0.1:3100,localhost:3100"
+      TWENTY_BASE_URL: "https://crm.skilland.ai"
+    ports:
+      - "127.0.0.1:3100:3100"

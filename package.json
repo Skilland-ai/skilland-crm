@@ -191,6 +191,8 @@
   "scripts": {
     "crm:aikount": "node scripts/crm_aikount_ops/harness.mjs",
     "crm:execute": "node scripts/crm_execution_crew/harness.mjs",
+    "crm:mcp": "node scripts/skilland_twenty_mcp/server.mjs",
+    "crm:mcp:test": "node --test scripts/skilland_twenty_mcp/server.test.mjs",
     "crm:export": "node scripts/crm_manual_update_crew/export-para-chatgpt.mjs",
     "crm:ops": "node scripts/skilland_crm_ops/harness.mjs",
     "crm:ops:test": "node --test scripts/skilland_crm_ops/router.test.mjs scripts/skilland_crm_ops/adapters/adapters.test.mjs scripts/skilland_crm_ops/policy/policy.test.mjs",

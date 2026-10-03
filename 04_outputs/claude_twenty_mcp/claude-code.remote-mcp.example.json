@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "skilland-crm": {
+      "type": "streamable-http",
+      "url": "https://mcp.crm.skilland.ai/mcp"
+    }
+  }
+}
