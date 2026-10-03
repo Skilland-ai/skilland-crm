@@ -11,27 +11,39 @@ import {
   filterProtocolTools,
   isAllowedDatabaseTool,
   patchInitializeEnvelope,
+  RECORD_WRITE_CONFIG,
   TARGET_TOOL_CONFIG,
+  validateRecordWriteArguments,
   validateTargetCreateArguments,
 } from './policy.mjs';
 
 const MAX_REQUEST_BYTES = 1024 * 1024;
 const MAX_UPSTREAM_BYTES = 10 * 1024 * 1024;
 
+const LOOPBACK_HOSTNAMES = new Set(['127.0.0.1', 'localhost', '[::1]', '::1']);
+
 export function readConfig(env = process.env) {
-  const publicBaseUrl = normalizeHttpsUrl(
-    env.SKILLAND_MCP_PUBLIC_URL,
-    'SKILLAND_MCP_PUBLIC_URL',
-  );
-  const twentyBaseUrl = normalizeHttpsUrl(
-    env.TWENTY_BASE_URL ?? 'https://crm.skilland.ai',
-    'TWENTY_BASE_URL',
-  );
   const port = Number(env.PORT ?? 3100);
 
   if (!Number.isInteger(port) || port < 1 || port > 65535) {
     throw new Error('PORT must be an integer between 1 and 65535.');
   }
+
+  // Escucha solo en loopback salvo que se pida otra interfaz (el contenedor usa 0.0.0.0).
+  const host = String(env.SKILLAND_MCP_HOST ?? '127.0.0.1').trim();
+
+  if (!host) throw new Error('SKILLAND_MCP_HOST must not be empty.');
+
+  // Sin URL pública (uso local con API key, sin OAuth) el origen es el propio loopback.
+  const publicBaseUrl = normalizeHttpsUrl(
+    env.SKILLAND_MCP_PUBLIC_URL ?? `http://127.0.0.1:${port}`,
+    'SKILLAND_MCP_PUBLIC_URL',
+    { allowLoopbackHttp: true },
+  );
+  const twentyBaseUrl = normalizeHttpsUrl(
+    env.TWENTY_BASE_URL ?? 'https://crm.skilland.ai',
+    'TWENTY_BASE_URL',
+  );
 
   const publicHost = new URL(publicBaseUrl).host;
   const allowedHosts = new Set(
@@ -46,6 +58,7 @@ export function readConfig(env = process.env) {
   }
 
   return {
+    host,
     port,
     publicBaseUrl,
     twentyBaseUrl,
@@ -226,6 +239,16 @@ async function maybeHandleLocally({
   if (!isAllowedDatabaseTool(toolName)) {
     return buildExecuteToolDeniedEnvelope(body.id, toolName);
   }
+  if (RECORD_WRITE_CONFIG[toolName]) {
+    return writeRecordLocally({
+      id: body.id,
+      toolName,
+      input: executeArguments?.arguments,
+      bearerToken,
+      config,
+      fetchImpl,
+    });
+  }
   if (!TARGET_TOOL_CONFIG[toolName]) return null;
 
   try {
@@ -255,6 +278,80 @@ async function maybeHandleLocally({
       { isError: true },
     );
   }
+}
+
+async function writeRecordLocally({
+  id,
+  toolName,
+  input,
+  bearerToken,
+  config,
+  fetchImpl,
+}) {
+  try {
+    const result = await writeRecord({ toolName, input, bearerToken, config, fetchImpl });
+
+    return buildToolResultEnvelope(id, { toolName, result });
+  } catch (error) {
+    if (error instanceof UpstreamUnauthorizedError) throw error;
+
+    return buildToolResultEnvelope(
+      id,
+      {
+        toolName,
+        error: {
+          message: error instanceof Error ? error.message : 'Record write failed.',
+          suggestion: 'Re-read the record before deciding whether to retry.',
+        },
+      },
+      { isError: true },
+    );
+  }
+}
+
+async function writeRecord({ toolName, input, bearerToken, config, fetchImpl }) {
+  const { config: writeConfig, path, method, payload } = validateRecordWriteArguments(
+    toolName,
+    input,
+  );
+  const response = await fetchWithTimeout(
+    new URL(path, config.twentyBaseUrl),
+    {
+      method,
+      headers: {
+        authorization: `Bearer ${bearerToken}`,
+        'content-type': 'application/json',
+        accept: 'application/json',
+      },
+      body: JSON.stringify(payload),
+    },
+    config.upstreamTimeoutMs,
+    fetchImpl,
+  );
+
+  if ([401, 403].includes(response.status)) {
+    throw new UpstreamUnauthorizedError();
+  }
+
+  const json = await readUpstreamJson(response);
+
+  if (!response.ok || json?.errors?.length) {
+    // Twenty explica los errores de validación (campo inexistente, valor no válido); se
+    // devuelven para que el cliente corrija. No contienen credenciales.
+    const reasons = Array.isArray(json?.messages) ? ` ${json.messages.join(' ')}` : '';
+
+    throw new Error(`Twenty rejected the ${writeConfig.kind} (${response.status}).${reasons}`);
+  }
+
+  const record = json?.data?.[writeConfig.responseKey] ?? null;
+
+  if (!record?.id) {
+    throw new Error(
+      `Twenty did not return the ${writeConfig.singular}; verify by reading before retrying.`,
+    );
+  }
+
+  return record;
 }
 
 function prepareForwardBody(body) {
@@ -519,12 +616,16 @@ function defaultLogger(event) {
   );
 }
 
-function normalizeHttpsUrl(value, name) {
+function normalizeHttpsUrl(value, name, { allowLoopbackHttp = false } = {}) {
   if (!value) throw new Error(`${name} is required.`);
 
   const url = new URL(value);
+  const loopbackHttp =
+    allowLoopbackHttp && url.protocol === 'http:' && LOOPBACK_HOSTNAMES.has(url.hostname);
 
-  if (url.protocol !== 'https:') throw new Error(`${name} must use HTTPS.`);
+  if (url.protocol !== 'https:' && !loopbackHttp) {
+    throw new Error(`${name} must use HTTPS (HTTP only on loopback).`);
+  }
   if (url.pathname !== '/' || url.search || url.hash) {
     throw new Error(`${name} must be an origin without a path.`);
   }
@@ -549,9 +650,10 @@ if (isMain) {
   const config = readConfig();
   const server = createSkillandTwentyMcpServer({ config });
 
-  server.listen(config.port, '0.0.0.0', () => {
+  server.listen(config.port, config.host, () => {
     defaultLogger({
       event: 'server_started',
+      host: config.host,
       port: config.port,
       publicBaseUrl: config.publicBaseUrl,
       twentyBaseUrl: config.twentyBaseUrl,

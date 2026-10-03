@@ -11,10 +11,17 @@ El servicio:
 - limita el catálogo a Companies, People, Opportunities, Projects, Tasks y
   Notes;
 - expone búsqueda, lectura, creación y actualización individual;
+- crea y actualiza los registros por el Core REST API (`POST /rest/<objeto>`,
+  `PATCH /rest/<objeto>/<id>`), no por el MCP oficial: el MCP oficial escribe con
+  su motor de workflows y todo queda firmado como "Workflow"; por REST queda
+  firmado con la credencial que llama (el usuario OAuth o la API key);
+- rechaza en las escrituras `deletedAt` (sería un borrado) y los campos de
+  auditoría;
 - permite listar y crear relaciones de Notes y Tasks;
 - corrige `targetProject`/`targetCompany`/`targetOpportunity`/`targetPerson`
   para usar los campos UUID reales terminados en `Id`;
-- transmite el token OAuth de cada usuaria a Twenty, respetando sus permisos;
+- transmite a Twenty el Bearer de cada cliente (token OAuth de cada usuaria o
+  API key propia de un agente), respetando sus permisos;
 - no guarda API keys, client secrets ni tokens;
 - no registra argumentos, cuerpos, PII ni resultados CRM.
 
@@ -28,6 +35,12 @@ Para cada uno de los seis objetos se publican las operaciones oficiales
 `find_*`, `find_one_*`, `create_*` y `update_*`. Para `NoteTarget` y
 `TaskTarget` se publican búsqueda, lectura y creación.
 
+Catálogo, esquemas (`learn_tools`) y lecturas siguen pasando por el MCP oficial;
+`create_*`, `update_*` y `create_*_target` se ejecutan por REST con los mismos
+argumentos y devuelven `{toolName, result: <registro>}`, o
+`{toolName, error: {message, suggestion}}` con `isError: true` si Twenty rechaza
+la escritura (el mensaje incluye su motivo de validación).
+
 Quedan fuera deliberadamente:
 
 - borrados y desvinculaciones;
@@ -38,9 +51,21 @@ Quedan fuera deliberadamente:
 
 ## Ejecución local
 
+Por defecto escucha solo en `127.0.0.1:3100` y, sin `SKILLAND_MCP_PUBLIC_URL`,
+su origen es `http://127.0.0.1:3100` (HTTP solo se acepta en loopback). Así lo
+usan los coworkers de Skilland (Hermes, en el mismo VPS), cada uno con su
+propia API key de Twenty en la cabecera `Authorization: Bearer …`:
+
 ```bash
+yarn crm:mcp            # http://127.0.0.1:3100/mcp
+```
+
+Publicado para Claude con OAuth (ver más abajo):
+
+```bash
+SKILLAND_MCP_HOST=0.0.0.0 \
 SKILLAND_MCP_PUBLIC_URL=https://mcp.crm.skilland.ai \
-SKILLAND_MCP_ALLOWED_HOSTS=localhost:3100 \
+SKILLAND_MCP_ALLOWED_HOSTS=mcp.crm.skilland.ai,localhost:3100 \
 TWENTY_BASE_URL=https://crm.skilland.ai \
 yarn crm:mcp
 ```
@@ -55,7 +80,8 @@ yarn crm:mcp:test
 
 | Variable | Obligatoria | Uso |
 | --- | --- | --- |
-| `SKILLAND_MCP_PUBLIC_URL` | sí | Origen HTTPS público del conector, sin `/mcp`. |
+| `SKILLAND_MCP_PUBLIC_URL` | no | Origen público del conector, sin `/mcp`. HTTPS salvo en loopback; por defecto `http://127.0.0.1:<PORT>`. |
+| `SKILLAND_MCP_HOST` | no | Interfaz de escucha; por defecto `127.0.0.1`. El contenedor usa `0.0.0.0`. |
 | `TWENTY_BASE_URL` | no | Origen de Twenty; por defecto `https://crm.skilland.ai`. |
 | `SKILLAND_MCP_ALLOWED_HOSTS` | no | Hosts HTTP aceptados; por defecto el host público. |
 | `SKILLAND_MCP_UPSTREAM_TIMEOUT_MS` | no | Timeout hacia Twenty; por defecto 20 segundos. |

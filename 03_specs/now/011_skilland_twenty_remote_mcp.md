@@ -5,7 +5,7 @@
 - Owner: Skilland CRM Ops architecture
 - Implementer target: `scripts/skilland_twenty_mcp`
 - Canonical for: sustitución del conector local de Claude por un MCP remoto fino
-- Last verified: 2026-09-02
+- Last verified: 2026-10-03 (SKI-353: escrituras por REST y uso local con API key)
 - Supersedes: none
 - Superseded by: none
 - Depends on: Twenty OAuth y Core API existentes
@@ -27,6 +27,11 @@ el CRM actual.
   Note.
 - Búsqueda, lectura, creación y actualización individual.
 - Búsqueda y creación de NoteTarget y TaskTarget.
+- Creación y actualización de registros por el Core REST API, para que lo
+  escrito quede firmado por la credencial que llama y no como "Workflow".
+- Uso local junto a los coworkers de Skilland (Hermes, P-SKI-85): escucha en
+  `127.0.0.1` por defecto y acepta como Bearer la API key propia de cada
+  coworker, que el conector no guarda.
 - Corrección de schemas morph a `target*Id` y creación por `/rest/noteTargets`
   o `/rest/taskTargets`.
 - Logs sin argumentos, cuerpos, tokens ni PII.
@@ -44,10 +49,14 @@ el CRM actual.
 
 ## Frontera
 
-El conector es una superficie de compatibilidad que delega las operaciones
-ordinarias al MCP oficial de Twenty usando el token OAuth del usuario. Solo las
-dos creaciones de relaciones defectuosas emplean el Core REST API ya probado
-por `crm_execution_crew`; no existe acceso directo a base de datos.
+El conector es una superficie de compatibilidad que delega el catálogo, los
+esquemas y las lecturas al MCP oficial de Twenty con el Bearer del cliente.
+Las escrituras (creación y actualización de los seis objetos y de las
+relaciones NoteTarget/TaskTarget) emplean el Core REST API ya probado por
+`crm_execution_crew`: el MCP oficial las ejecuta con su motor de workflows, que
+no puede crear NoteTarget/TaskTarget ("Object cannot be created by workflow") y
+firma todo como "Workflow" (comprobado el 3/10/2026, SKI-353). No existe acceso
+directo a base de datos.
 
 El servicio no se añade a la front door `crm:ops` ni cambia la readiness de sus
 capabilities. Su publicación productiva requiere una revisión separada del
@@ -64,6 +73,9 @@ subdominio, OAuth client y smoke test.
 - [x] Los targets se crean con el token delegado y los campos REST correctos.
 - [x] Tests offline cubren auth, catálogo, schemas, allowlist, relaciones y
       ausencia de datos sensibles en logs.
+- [x] Las escrituras de registros van por REST, rechazan `deletedAt` y campos
+      de auditoría, y quedan firmadas por la credencial que llama.
+- [x] Escucha en `127.0.0.1` por defecto; HTTP solo en loopback.
 - [ ] El contenedor está publicado en una URL HTTPS.
 - [ ] Existe un OAuth Client de Twenty para Claude con redirect URI correcta.
 - [ ] Un smoke test autenticado de escritura sobre registros de prueba ha sido

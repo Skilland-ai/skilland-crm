@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import http from 'node:http';
 import test from 'node:test';
 
-import { createSkillandTwentyMcpServer } from './server.mjs';
+import { createSkillandTwentyMcpServer, readConfig } from './server.mjs';
 
 const PUBLIC_ORIGIN = 'https://mcp.crm.skilland.ai';
 const TWENTY_ORIGIN = 'https://crm.skilland.ai';
@@ -278,10 +278,10 @@ test('forwards ordinary CRM tools and never logs arguments or bearer tokens', as
       const request = JSON.parse(init.body);
 
       assert.equal(init.headers.authorization, `Bearer ${TOKEN}`);
-      assert.equal(request.params.arguments.toolName, 'create_company');
+      assert.equal(request.params.arguments.toolName, 'find_companies');
       return toolTextResponse(request.id, {
-        toolName: 'create_company',
-        result: { id: TARGET_ID, name: 'Sensitive Company' },
+        toolName: 'find_companies',
+        result: { records: [{ id: TARGET_ID, name: 'Sensitive Company' }] },
       });
     },
     (event) => events.push(event),
@@ -289,16 +289,160 @@ test('forwards ordinary CRM tools and never logs arguments or bearer tokens', as
 
   await fixture.mcp(
     toolCall('execute_tool', {
-      toolName: 'create_company',
-      arguments: { name: 'Sensitive Company' },
+      toolName: 'find_companies',
+      arguments: { name: { ilike: '%Sensitive Company%' } },
     }),
   );
 
   const logged = JSON.stringify(events);
 
-  assert.match(logged, /create_company/);
+  assert.match(logged, /find_companies/);
   assert.doesNotMatch(logged, /Sensitive Company/);
   assert.doesNotMatch(logged, new RegExp(TOKEN));
+});
+
+test('creates records through REST so they are signed by the calling credential', async (t) => {
+  const calls = [];
+  const events = [];
+  const fixture = await startFixture(
+    t,
+    async (url, init) => {
+      calls.push({ url: url.toString(), init });
+      assert.equal(init.method, 'POST');
+      assert.equal(init.headers.authorization, `Bearer ${TOKEN}`);
+      assert.deepEqual(JSON.parse(init.body), {
+        title: 'Sensitive meeting',
+        bodyV2: { markdown: 'Sensitive body' },
+        position: 'first',
+      });
+
+      return jsonResponse(
+        { data: { createNote: { id: NOTE_ID, title: 'Sensitive meeting' } } },
+        { status: 201 },
+      );
+    },
+    (event) => events.push(event),
+  );
+
+  const response = await fixture.mcp(
+    toolCall('execute_tool', {
+      toolName: 'create_note',
+      arguments: {
+        title: 'Sensitive meeting',
+        bodyV2: { markdown: 'Sensitive body' },
+        position: 'first',
+      },
+    }),
+  );
+  const payload = parseToolText(response.json);
+
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].url, `${TWENTY_ORIGIN}/rest/notes`);
+  assert.equal(response.json.result.isError, false);
+  assert.equal(payload.toolName, 'create_note');
+  assert.equal(payload.result.id, NOTE_ID);
+
+  const logged = JSON.stringify(events);
+
+  assert.match(logged, /create_note/);
+  assert.doesNotMatch(logged, /Sensitive/);
+  assert.doesNotMatch(logged, new RegExp(TOKEN));
+});
+
+test('updates records with PATCH on the record path and without the id in the body', async (t) => {
+  const calls = [];
+  const fixture = await startFixture(t, async (url, init) => {
+    calls.push({ url: url.toString(), init });
+
+    return jsonResponse({ data: { updateTask: { id: NOTE_ID, status: 'DONE' } } });
+  });
+
+  const response = await fixture.mcp(
+    toolCall('execute_tool', {
+      toolName: 'update_task',
+      arguments: { id: NOTE_ID, status: 'DONE' },
+    }),
+  );
+  const payload = parseToolText(response.json);
+
+  assert.equal(calls[0].url, `${TWENTY_ORIGIN}/rest/tasks/${NOTE_ID}`);
+  assert.equal(calls[0].init.method, 'PATCH');
+  assert.deepEqual(JSON.parse(calls[0].init.body), { status: 'DONE' });
+  assert.equal(payload.result.status, 'DONE');
+});
+
+test('refuses writes that would delete, fake audit fields or miss the record id', async (t) => {
+  let upstreamCalls = 0;
+  const fixture = await startFixture(t, async () => {
+    upstreamCalls += 1;
+    throw new Error('upstream should not be called');
+  });
+
+  const cases = [
+    ['update_opportunity', { id: NOTE_ID, deletedAt: '2026-01-01T00:00:00Z' }, /deletedAt/],
+    ['create_task', { title: 'x', createdBy: { source: 'API' } }, /createdBy/],
+    ['create_note', { id: NOTE_ID, title: 'x' }, /Do not send an id/],
+    ['update_task', { status: 'DONE' }, /UUID of the record/],
+    ['update_task', { id: NOTE_ID }, /Nothing to update/],
+    ['create_note', ['not', 'an', 'object'], /must be an object/],
+  ];
+
+  for (const [toolName, argumentsValue, expected] of cases) {
+    const response = await fixture.mcp(
+      toolCall('execute_tool', { toolName, arguments: argumentsValue }),
+    );
+    const payload = parseToolText(response.json);
+
+    assert.equal(response.json.result.isError, true, toolName);
+    assert.match(payload.error.message, expected);
+  }
+
+  assert.equal(upstreamCalls, 0);
+});
+
+test('returns Twenty validation messages when a REST write is rejected', async (t) => {
+  const fixture = await startFixture(t, async () =>
+    jsonResponse(
+      {
+        statusCode: 400,
+        error: 'BadRequestException',
+        messages: ['Object task doesn\'t have any "bogusField" field.'],
+      },
+      { status: 400 },
+    ),
+  );
+
+  const response = await fixture.mcp(
+    toolCall('execute_tool', {
+      toolName: 'update_task',
+      arguments: { id: NOTE_ID, bogusField: 1 },
+    }),
+  );
+  const payload = parseToolText(response.json);
+
+  assert.equal(response.json.result.isError, true);
+  assert.match(payload.error.message, /rejected the update \(400\).*bogusField/);
+});
+
+test('listens on loopback by default and only accepts plain HTTP there', () => {
+  const local = readConfig({});
+
+  assert.equal(local.host, '127.0.0.1');
+  assert.equal(local.port, 3100);
+  assert.equal(local.publicBaseUrl, 'http://127.0.0.1:3100');
+  assert.deepEqual([...local.allowedHosts], ['127.0.0.1:3100']);
+
+  const container = readConfig({
+    SKILLAND_MCP_HOST: '0.0.0.0',
+    SKILLAND_MCP_PUBLIC_URL: PUBLIC_ORIGIN,
+  });
+
+  assert.equal(container.host, '0.0.0.0');
+  assert.equal(container.publicBaseUrl, PUBLIC_ORIGIN);
+  assert.throws(
+    () => readConfig({ SKILLAND_MCP_PUBLIC_URL: 'http://mcp.crm.skilland.ai' }),
+    /HTTPS/,
+  );
 });
 
 test('translates upstream authentication failures into an OAuth challenge', async (t) => {

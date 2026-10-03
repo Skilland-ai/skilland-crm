@@ -26,6 +26,38 @@ export const TARGET_TOOL_CONFIG = Object.freeze({
   },
 });
 
+// Escrituras de registros por el Core REST API. El MCP oficial de Twenty las ejecuta con su
+// motor de workflows y quedan firmadas como "Workflow"; por REST quedan firmadas con la
+// credencial que llama (la API key o el usuario OAuth), que es lo trazable.
+export const RECORD_WRITE_CONFIG = Object.freeze(
+  Object.fromEntries(
+    OBJECT_TOOLS.flatMap(([singular, plural]) => {
+      const typeName = singular.charAt(0).toUpperCase() + singular.slice(1);
+
+      return [
+        [
+          `create_${singular}`,
+          { kind: 'create', singular, restPath: `/rest/${plural}`, responseKey: `create${typeName}` },
+        ],
+        [
+          `update_${singular}`,
+          { kind: 'update', singular, restPath: `/rest/${plural}`, responseKey: `update${typeName}` },
+        ],
+      ];
+    }),
+  ),
+);
+
+// Campos que una escritura nunca puede fijar: deletedAt equivaldría a un borrado y los de
+// auditoría los pone Twenty.
+const RESERVED_WRITE_FIELDS = Object.freeze([
+  'deletedAt',
+  'createdAt',
+  'updatedAt',
+  'createdBy',
+  'updatedBy',
+]);
+
 export const TARGET_ID_NAMES = Object.freeze([
   'targetProjectId',
   'targetCompanyId',
@@ -197,6 +229,41 @@ export function validateTargetCreateArguments(toolName, input) {
     payload: Object.fromEntries(
       Object.entries(input).filter(([, value]) => value !== undefined),
     ),
+  };
+}
+
+export function validateRecordWriteArguments(toolName, input) {
+  const config = RECORD_WRITE_CONFIG[toolName];
+
+  if (!config) throw new Error(`Unsupported record write tool: ${toolName}`);
+  if (!isPlainObject(input)) throw new Error('Record arguments must be an object.');
+
+  const reserved = Object.keys(input).filter((key) =>
+    RESERVED_WRITE_FIELDS.includes(key),
+  );
+
+  if (reserved.length > 0) {
+    throw new Error(`Fields not writable through Skilland CRM: ${reserved.join(', ')}.`);
+  }
+
+  const fields = Object.fromEntries(
+    Object.entries(input).filter(([key, value]) => key !== 'id' && value !== undefined),
+  );
+
+  if (config.kind === 'create') {
+    if (input.id !== undefined) throw new Error('Do not send an id when creating a record.');
+
+    return { config, path: config.restPath, method: 'POST', payload: fields };
+  }
+
+  if (!isUuid(input.id)) throw new Error('id must be the UUID of the record to update.');
+  if (Object.keys(fields).length === 0) throw new Error('Nothing to update.');
+
+  return {
+    config,
+    path: `${config.restPath}/${input.id}`,
+    method: 'PATCH',
+    payload: fields,
   };
 }
 
