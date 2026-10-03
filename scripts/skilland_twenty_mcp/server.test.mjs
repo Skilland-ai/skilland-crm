@@ -88,6 +88,40 @@ test('exposes only the three thin Twenty protocol tools', async (t) => {
   );
 });
 
+test('rewrites protocol tool descriptions so known schemas need no catalog round trip', async (t) => {
+  const upstreamSchema = { type: 'object', properties: { toolName: { type: 'string' } } };
+  const fixture = await startFixture(t, async () =>
+    jsonResponse({
+      jsonrpc: '2.0',
+      id: 1,
+      result: {
+        tools: [
+          { name: 'get_tool_catalog', description: 'STEP 1: Start here. You MUST call this first.' },
+          { name: 'learn_tools', description: 'STEP 2: Get input schemas.' },
+          {
+            name: 'execute_tool',
+            description:
+              'STEP 3: Execute a tool by name with arguments. You MUST call get_tool_catalog (step 1) and learn_tools (step 2) first.',
+            inputSchema: upstreamSchema,
+          },
+          { name: 'load_skills', description: 'Load skills.' },
+        ],
+      },
+    }),
+  );
+
+  const response = await fixture.mcp(rpc('tools/list'));
+  const tools = Object.fromEntries(response.json.result.tools.map((tool) => [tool.name, tool]));
+
+  assert.deepEqual(Object.keys(tools), ['get_tool_catalog', 'learn_tools', 'execute_tool']);
+  assert.doesNotMatch(tools.execute_tool.description, /MUST/);
+  assert.match(tools.execute_tool.description, /call this directly/);
+  assert.match(tools.execute_tool.description, /not sure of the exact name or arguments, use get_tool_catalog and learn_tools/);
+  assert.match(tools.learn_tools.description, /fallback/);
+  assert.match(tools.get_tool_catalog.description, /^Optional\./);
+  assert.deepEqual(tools.execute_tool.inputSchema, upstreamSchema);
+});
+
 test('filters the catalog to the six CRM objects and activity targets', async (t) => {
   const fixture = await startFixture(t, async () =>
     toolTextResponse(1, {
