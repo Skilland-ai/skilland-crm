@@ -85,6 +85,26 @@ export function isAllowedDatabaseTool(name) {
   return typeof name === 'string' && ALLOWED_DATABASE_TOOL_NAMES.has(name);
 }
 
+// Descripciones propias de las tres herramientas de protocolo. Las del MCP oficial obligan a llamar
+// a get_tool_catalog y learn_tools antes de cada execute_tool ("You MUST call…"), aunque el agente ya
+// conozca el nombre y el esquema por sus instrucciones: eso añade dos o tres turnos de modelo por
+// tarea. Aquí el catálogo y los esquemas pasan a ser opcionales y learn_tools queda como salida de
+// emergencia. Los inputSchema no se tocan.
+export const PROTOCOL_TOOL_DESCRIPTIONS = Object.freeze({
+  get_tool_catalog:
+    'Optional. Browse the available CRM tools by category (Companies, People, Opportunities, ' +
+    'Projects, Tasks, Notes and their Note/Task targets). Only needed when you do not already ' +
+    'know the exact tool name.',
+  learn_tools:
+    'Get the input schema of CRM tools by exact name. Use it as a fallback: when you do not ' +
+    'already know a tool\'s arguments, or when execute_tool rejected your arguments.',
+  execute_tool:
+    'Execute a CRM tool by name with its arguments: {"toolName": "<name>", "arguments": {...}}. ' +
+    'If you already know the tool name and its input schema (for example from your instructions), ' +
+    'call this directly: there is no need to call get_tool_catalog or learn_tools first. If you ' +
+    'are not sure of the exact name or arguments, use get_tool_catalog and learn_tools before.',
+});
+
 export function filterProtocolTools(envelope) {
   if (!Array.isArray(envelope?.result?.tools)) return envelope;
 
@@ -92,9 +112,13 @@ export function filterProtocolTools(envelope) {
     ...envelope,
     result: {
       ...envelope.result,
-      tools: envelope.result.tools.filter((tool) =>
-        PROTOCOL_TOOL_NAMES.has(tool?.name),
-      ),
+      tools: envelope.result.tools
+        .filter((tool) => PROTOCOL_TOOL_NAMES.has(tool?.name))
+        .map((tool) =>
+          PROTOCOL_TOOL_DESCRIPTIONS[tool.name]
+            ? { ...tool, description: PROTOCOL_TOOL_DESCRIPTIONS[tool.name] }
+            : tool,
+        ),
     },
   };
 }

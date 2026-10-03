@@ -35,6 +35,12 @@ Para cada uno de los seis objetos se publican las operaciones oficiales
 `find_*`, `find_one_*`, `create_*` y `update_*`. Para `NoteTarget` y
 `TaskTarget` se publican búsqueda, lectura y creación.
 
+Las descripciones de `get_tool_catalog`, `learn_tools` y `execute_tool` son propias: las del MCP
+oficial obligan a llamar al catálogo y a `learn_tools` antes de cada `execute_tool`, aunque el
+agente ya conozca el esquema por sus instrucciones, lo que añade dos o tres turnos de modelo por
+tarea. Aquí son opcionales y `learn_tools` queda como salida de emergencia; los `inputSchema` no
+cambian.
+
 Catálogo, esquemas (`learn_tools`) y lecturas siguen pasando por el MCP oficial;
 `create_*`, `update_*` y `create_*_target` se ejecutan por REST con los mismos
 argumentos y devuelven `{toolName, result: <registro>}`, o
